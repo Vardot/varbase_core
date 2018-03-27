@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update for Varbase page module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function varbase_page_install() {
+
+  // Activate configurations to work with enable_multilingual.
+  if (\Drupal::moduleHandler()->moduleExists('varbase_internationalization')) {
+    $module_path = Drupal::service('module_handler')->getModule('varbase_page')->getPath() . '/config/optional/';
+
+    $config_path = $module_path . 'language.content_settings.node.page.yml';
+    $config_content = file_get_contents($config_path);
+    $config_data = (array) Yaml::parse($config_content);
+    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.node.page');
+    $config_factory->setData($config_data)->save(TRUE);
+  }
+}
