@@ -2,19 +2,30 @@ name: 'Varbase Core'
 description: 'Provides core components required by other features.'
 type: module
 dependencies:
+  - autocomplete_deluxe
   - block
   - block_content
   - coffee
   - crop
   - diff
+  - ds
+  - entity_browser
   - entityqueue
   - extlink
   - field
+  - field_group
   - file
-  - media_entity
+  - media
   - menu_link_content
+  - metatag
   - node
+  - panelizer
+  - path
+  - smart_trim
   - taxonomy
+  - text
+  - user
+  - yoast_seo
 package: Varbase
 version: 8.x-5.x-dev
 core: 8.x
