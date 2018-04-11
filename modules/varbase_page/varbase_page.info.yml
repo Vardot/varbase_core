@@ -2,10 +2,8 @@ name: 'Varbase Page'
 description: 'Provides Basic page content type and related configuration.'
 type: module
 dependencies:
-  - content_translation
   - ds
   - field
-  - language
   - menu_ui
   - metatag
   - node
