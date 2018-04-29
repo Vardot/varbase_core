@@ -1,7 +1,2 @@
 bundle: varbase
-excluded:
-  - user.role.anonymous
-  - user.role.authenticated
-  - user.role.editor
-  - user.role.content_admin
 required: true
