@@ -16,16 +16,31 @@
     "issues": "https://www.drupal.org/project/issues/varbase_core",
     "source": "http://cgit.drupalcode.org/varbase_core"
   },
-  "repositories": [
-    {
+  "repositories": {
+    "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+      },
+    "assets": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
     }
-  ],
-  "require": {},
+  },
+  "require": {
+    "composer/installers": "^1.5.0",
+    "oomphinc/composer-installers-extender": "^1.1.2",
+    "cweagans/composer-patches": "^1.6.4",
+    "drupal/drupal-library-installer-plugin": "^0.3"
+  },
   "extra": {
     "branch-alias": {
       "dev-8.x-5.x": "8.5.x-dev"
-    }
+    },
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "enable-patching": true,
+    "composer-exit-on-patch-failure": true
   }
 }
