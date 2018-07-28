@@ -19,7 +19,6 @@ dependencies:
   - menu_link_content
   - metatag
   - node
-  - panelizer
   - path
   - smart_trim
   - taxonomy
