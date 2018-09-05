@@ -52,7 +52,7 @@
     "drupal/views_infinite_scroll": "^1.5",
     "drupal/entity": "^1.0-beta4",
     "drupal/entity_clone": "1.x-dev#6d0ce053605e9aaf8412927a9b0ea8da7a9a06e5",
-    "drupal/entityqueue": "^1.0-alpha7",
+    "drupal/entityqueue": "^1.0-alpha8",
     "drupal/entityqueue_form_widget": "^1.0-beta3",
     "drupal/ultimate_cron": "^2.0-alpha4",
     "drupal/persistent_login": "^1.0",
@@ -159,16 +159,6 @@
         "https://www.drupal.org/files/issues/coffee-coffee_breaks_page_with_rtl-2815381-6.patch",
         "Issue #2872093: Coffee css fixes in RTL":
         "https://www.drupal.org/files/issues/2872093-10.patch"
-      },
-      "drupal/entityqueue": {
-        "Issue #2145441: Option to create Entityqueue tab on Entity pages.":
-        "https://www.drupal.org/files/issues/2145441-32.patch",
-        "Issue #2825773: Make Contextual links work for views using Entityqueue":
-        "https://www.drupal.org/files/issues/2825773-23-outside_in_to_settings_tray.patch",
-        "Issue #2916026: Only users with [Administer entityqueue] should be able to delete entityqueues":
-        "https://www.drupal.org/files/issues/only-users-with-administer-entityqueue-should-be-able-to-delete-entityqueues-2916026-3.patch",
-        "Issue #2917308: Only users with [Administer entityqueue] should be able to edit (configure) entityqueues":
-        "https://www.drupal.org/files/issues/only-users-with-administer-entityqueue-should-be-able-edit-configure-entityqueues-2917308-2.patch"
       },
       "drupal/l10n_client": {
         "Issue #2867460: Incompatible with this version of Drupal core 8.3.0":
