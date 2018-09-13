@@ -31,7 +31,7 @@
     "oomphinc/composer-installers-extender": "^1.1.2",
     "cweagans/composer-patches": "^1.6.4",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "8.5.7",
+    "drupal/core": "~8.5.7",
     "drupal/config_update": "^1.5",
     "drupal/config_filter": "^1.2",
     "drupal/config_ignore": "^2.1",
