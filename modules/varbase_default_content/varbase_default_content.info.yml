@@ -1,10 +1,10 @@
 name: 'Varbase default content'
 type: module
 hidden: TRUE
-description: 'Provides starter default content for varbase.'
-dependencies:
-  - default_content
 package: Varbase
 version: 8.x-6.x-dev
 core: 8.x
-project: varbase
+project: varbase_core
+description: 'Provides starter default content for varbase.'
+dependencies:
+  - default_content:default_content
