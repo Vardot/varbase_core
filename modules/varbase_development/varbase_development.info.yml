@@ -1,16 +1,16 @@
 name: 'Varbase Development'
 description: 'Development Environment Modules and Features, make sure to disable this feature in production.'
 type: module
-dependencies:
-  - config_update_ui
-  - dblog
-  - devel
-  - features_ui
-  - libraries_ui
-  - views_ui
-  - tour_ui
-  - tour_builder
 package: Varbase
 version: 8.x-5.x-dev
 core: 8.x
-project: varbase
+project: varbase_core
+dependencies:
+  - drupal:dblog
+  - drupal:views_ui
+  - config_update:config_update_ui
+  - devel:devel
+  - features:features_ui
+  - libraries_ui:libraries_ui
+  - tour_ui:tour_ui
+  - tour_builder:tour_builder
