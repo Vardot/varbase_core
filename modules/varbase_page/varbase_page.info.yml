@@ -9,6 +9,5 @@ dependencies:
   - varbase_core:varbase_core
   - varbase_seo:varbase_seo
   - drupal:menu_ui
-  - drupal:layout_builder
   - page_manager:page_manager
   - rabbit_hole:rabbit_hole
