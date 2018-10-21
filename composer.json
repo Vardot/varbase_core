@@ -31,7 +31,7 @@
     "oomphinc/composer-installers-extender": "^1.1.2",
     "cweagans/composer-patches": "^1.6.4",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "~8.6.1",
+    "drupal/core": "~8.6.2",
     "drupal/config_update": "^1.5",
     "drupal/config_filter": "^1.2",
     "drupal/config_ignore": "^2.1",
@@ -118,9 +118,15 @@
     "composer-exit-on-patch-failure": true,
     "patches": {
       "drupal/core": {
-        "Issue #1356276: Allow profiles to provide a base_parent profile and load them in the correct order":
-        "https://www.drupal.org/files/issues/2018-10-02/1356276-501.patch",
-        "Issue #2855026: Installation profiles do not support project:module format for dependencies":
+        "Issue #2869592: Disabled update module shouldn't produce a status report warning":
+        "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
+        "Issue #2885441: EntityReferenceAutocompleteWidget should define its size setting as an integer":
+        "https://www.drupal.org/files/issues/2885441-2.patch",
+        "Issue #2815221: Add quickedit to the latest-revision route":
+        "https://www.drupal.org/files/issues/2018-10-17/2815221-reroll-8.6.1.patch",
+        "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
+        "https://www.drupal.org/files/issues/2018-10-05/1356276-515.patch",
+        "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-10-02/2855026-55.patch",
         "Issue #2720101 Label (Title) not set for Views block (exposed filters in Block)":
         "https://www.drupal.org/files/issues/2720101-53.patch",
