@@ -125,7 +125,7 @@
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2018-10-17/2815221-reroll-8.6.1.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
-        "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
+        "https://www.drupal.org/files/issues/2018-10-05/1356276-515.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-10-02/2855026-55.patch",
         "Issue #2720101 Label (Title) not set for Views block (exposed filters in Block)":
