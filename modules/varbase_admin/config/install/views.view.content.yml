@@ -7,7 +7,6 @@ dependencies:
     - better_exposed_filters
     - node
     - user
-    - views_date_format_sql
     - yoast_seo
 id: content
 label: Content
@@ -427,10 +426,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: 0
-          format_date_sql: 0
           entity_type: node
           entity_field: created
-          plugin_id: views_date_format_sql_field
         changed:
           id: changed
           table: node_field_data

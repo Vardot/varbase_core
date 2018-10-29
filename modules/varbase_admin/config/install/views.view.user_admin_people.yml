@@ -5,7 +5,6 @@ dependencies:
     - better_exposed_filters
     - roleassign
     - user
-    - views_date_format_sql
 id: user_admin_people
 label: People
 module: user
