@@ -5,6 +5,7 @@ dependencies:
     - better_exposed_filters
     - roleassign
     - user
+    - views_date_format_sql
 id: user_admin_people
 label: People
 module: user
@@ -50,7 +51,7 @@ display:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: true
+              autosubmit: false
               autosubmit_exclude_textfield: true
               autosubmit_hide: false
             combine:
@@ -78,10 +79,12 @@ display:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
+                placeholder_text: ''
             created_1:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
+                placeholder_text: ''
           text_input_required_format: full_html
       pager:
         type: full
@@ -830,7 +833,7 @@ display:
           field: created
           relationship: none
           group_type: group
-          admin_label: 'Date registered (from)'
+          admin_label: 'Registered date (from)'
           operator: '>='
           value:
             min: ''
@@ -841,7 +844,7 @@ display:
           exposed: true
           expose:
             operator_id: created_op
-            label: 'Date registered (from)'
+            label: 'Registered date (from)'
             description: ''
             use_operator: false
             operator: created_op
@@ -881,7 +884,7 @@ display:
           field: created
           relationship: none
           group_type: group
-          admin_label: 'Date registered (to)'
+          admin_label: 'Registered date (to)'
           operator: '<='
           value:
             min: ''
@@ -892,7 +895,7 @@ display:
           exposed: true
           expose:
             operator_id: created_1_op
-            label: 'Date registered (to)'
+            label: 'Registered date (to)'
             description: ''
             use_operator: false
             operator: created_1_op
@@ -901,8 +904,8 @@ display:
             remember: false
             multiple: false
             remember_roles:
-              authenticated: authenticated
               anonymous: '0'
+              authenticated: '0'
               editor: '0'
               content_admin: '0'
               seo_admin: '0'

@@ -1,10 +1,14 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.node.field_yoast_seo
   module:
     - better_exposed_filters
     - node
     - user
+    - views_date_format_sql
+    - yoast_seo
 id: content
 label: Content
 module: node
@@ -40,7 +44,7 @@ display:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: true
+              autosubmit: false
               autosubmit_exclude_textfield: true
               autosubmit_hide: false
             status:
@@ -76,10 +80,12 @@ display:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
+                placeholder_text: ''
             created_1:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
+                placeholder_text: ''
           text_input_required_format: full_html
       pager:
         type: full
@@ -845,7 +851,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_yoast_seo'
   page_1:
     display_options:
       path: admin/content/node
@@ -878,4 +885,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_yoast_seo'
