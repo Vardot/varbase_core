@@ -131,7 +131,7 @@
         "Issue #2720101 Label (Title) not set for Views block (exposed filters in Block)":
         "https://www.drupal.org/files/issues/2720101-53.patch",
         "Issue #2599228: Programmatically created translatable content type returns SQL error on content creation":
-        "https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch",
+        "https://www.drupal.org/files/issues/2018-10-06/2599228-74.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
         "https://www.drupal.org/files/issues/patch_empty_fix.patch"
       },
