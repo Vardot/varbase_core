@@ -6,7 +6,7 @@
  */
 
 // To have all varbase core general and global tokens.
-module_load_include('inc', 'varbase_core', 'varbase_core.tokens');
+\Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
 
 /**
  * Implements hook_FORM_ID_form_alter.
