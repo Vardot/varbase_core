@@ -5,12 +5,30 @@ package: Varbase
 version: 8.x-6.x-dev
 core: 8.x
 project: varbase_core
-dependencies:
-  - drupal:dblog
-  - drupal:views_ui
-  - config_update:config_update_ui
-  - devel:devel
-  - features:features_ui
-  - libraries_ui:libraries_ui
-  - tour_ui:tour_ui
-  - tour_builder:tour_builder
+dependencies: []
+install:
+  - dblog
+  - views_ui
+  - config_update_ui
+  - devel
+  - libraries_ui
+  - tour_ui
+  - tour_builder
+  - blazy_ui
+uninstall:
+  - migrate_drupal_ui 
+  - dblog
+  - views_ui
+  - config_update_ui
+  - webprofiler
+  - ds_devel
+  - webform_devel
+  - devel
+  - libraries_ui
+  - tour_ui
+  - tour_builder
+  - blazy_ui
+  - devel_generate
+  - blazy_ui
+  - kit
+  - slick_ui

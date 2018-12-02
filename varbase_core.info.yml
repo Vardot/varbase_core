@@ -5,26 +5,83 @@ core: 8.x
 version: 8.x-6.x-dev
 project: varbase_core
 package: Varbase
+components:
+  - varbase_admin
+  - varbase_default_content
+  - varbase_development
+  - varbase_internationalization
+  - varbase_page
+  - varbase_security
+  - varbase_tour
+  - varbase_webform
 dependencies:
-  - drupal:field
-  - drupal:file
-  - drupal:media
+  - drupal:user
   - drupal:node
-  - drupal:path
-  - drupal:menu_link_content
   - drupal:taxonomy
   - drupal:text
-  - drupal:user
+  - drupal:views
+  - drupal:field
   - drupal:block
   - drupal:block_content
-  - crop:crop
-  - diff:diff
+  - drupal:config
+  - drupal:config_update
+  - config_filter:config_filter
+  - config_ignore:config_ignore
+  - drupal:contextual
+  - drupal:datetime
+  - drupal:file
+  - drupal:image
+  - drupal:options
+  - drupal:path
+  - drupal:layout_discovery
+  - entity:entity
+  - ctools:ctools
+  - ctools:ctools_block
+  - ctools:ctools_views
+  - token:token
   - ds:ds
-  - entity_browser:entity_browser
-  - entityqueue:entityqueue
-  - extlink:extlink
+  - better_exposed_filters:better_exposed_filters
   - field_group:field_group
-  - metatag:metatag
   - smart_trim:smart_trim
-  - yoast_seo:yoast_seo
-  - autocomplete_deluxe:autocomplete_deluxe
+  - advanced_text_formatter:advanced_text_formatter
+  - block_class:block_class
+install:
+  - diff
+  - extlink
+  - dynamic_page_cache
+  - big_pipe
+  - menu_ui
+  - menu_link_content
+  - filter
+  - field_ui
+  - help
+  - page_cache
+  - telephone
+  - bootstrap_layouts
+  - views_bootstrap
+  - ds_extras
+  - page_manager
+  - page_manager_ui
+  - panels
+  - panels_ipe
+  - menu_block
+  - views_infinite_scroll
+  - entityqueue
+  - entityqueue_form_widget
+  - inline_entity_form
+  - persistent_login
+  - ultimate_cron
+  - content_lock
+  - content_lock_timeout
+  - node_edit_protection
+  - mailsystem
+  - smtp
+  - maxlength
+  - menu_position
+  - autocomplete_deluxe
+  - link_attributes
+  - login_destination
+  - betterlogin
+  - rabbit_hole
+  - rh_node
+  - rh_taxonomy

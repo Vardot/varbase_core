@@ -6,20 +6,40 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config;
+use Drupal\Core\Config\InstallStorage;
+use Drupal\Core\Config\StorageInterface;
+use Drupal\Core\Config\ExtensionInstallStorage;
+use Drupal\Core\Config\FileStorage;
 
 /**
  * Implements hook_install().
  */
 function varbase_page_install() {
 
-  // Activate configurations to work with enable_multilingual.
-  if (\Drupal::moduleHandler()->moduleExists('varbase_internationalization')) {
-    $module_path = Drupal::service('module_handler')->getModule('varbase_page')->getPath() . '/config/optional/';
+  $module_name = preg_replace('/_install$/', '', __FUNCTION__);
+  $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
-    $config_path = $module_path . 'language.content_settings.node.page.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.node.page');
-    $config_factory->setData($config_data)->save(TRUE);
+  // Processer for install: in [$module_name].info.yml file.
+  // ---------------------------------------------------------------------------
+  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  if (file_exists($module_info_file)) {
+    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
+    if (isset($module_info_data['install'])
+      && is_array($module_info_data['install'])) {
+      \Drupal::service('module_installer')->install($module_info_data['install'], TRUE);
+    }
   }
+
+   // Install optional configs.
+  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+  if (is_dir($optional_install_path)) {
+    $config_installer = \Drupal::service('config.installer');
+    $config_installer->installDefaultConfig('module', $module_name);
+    // Install any optional config the module provides.
+    $storage = new FileStorage($optional_install_path, StorageInterface::DEFAULT_COLLECTION);
+    $config_installer->installOptionalConfig($storage, '');
+  }
+  // ---------------------------------------------------------------------------
+
 }

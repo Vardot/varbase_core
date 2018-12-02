@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the Varbase Security.
+ * Install, update and uninstall functions for the Varbase Internationalization.
  */
 
 use Symfony\Component\Yaml\Yaml;
@@ -15,7 +15,7 @@ use Drupal\Core\Config\FileStorage;
 /**
  * Implements hook_install().
  */
-function varbase_security_install() {
+function varbase_internationalization_install() {
   
   $module_name = preg_replace('/_install$/', '', __FUNCTION__);
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();

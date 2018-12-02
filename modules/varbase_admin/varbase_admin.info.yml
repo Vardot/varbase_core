@@ -7,18 +7,26 @@ core: 8.x
 project: varbase_core
 dependencies:
   - varbase_core:varbase_core
-  - admin_toolbar:admin_toolbar
-  - admin_toolbar:admin_toolbar_tools
-  - adminimal_admin_toolbar:adminimal_admin_toolbar
-  - config_perms:config_perms
-  - mail_edit:mail_edit
-  - masquerade:masquerade
-  - menu_admin_per_menu:menu_admin_per_menu
-  - responsive_preview:responsive_preview
-  - revision_log_default:revision_log_default
-  - roleassign:roleassign
-  - taxonomy_access_fix:taxonomy_access_fix
-  - userprotect:userprotect
-  - views_bulk_edit:views_bulk_edit
-  - coffee:coffee
-
+  - drupal:shortcut
+  - drupal:toolbar
+install:
+  - config_perms
+  - roleassign
+  - userprotect
+  - views_bulk_operations
+  - views_bulk_edit
+  - admin_toolbar
+  - admin_toolbar_tools
+  - adminimal_admin_toolbar
+  - mail_edit
+  - masquerade
+  - menu_admin_per_menu
+  - responsive_preview
+  - revision_log_default
+  - syslog
+  - update
+  - quickedit
+  - settings_tray
+  - entity_clone
+  - taxonomy_access_fix
+  - coffee

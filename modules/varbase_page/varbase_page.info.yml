@@ -7,7 +7,9 @@ core: 8.x
 project: varbase_core
 dependencies:
   - varbase_core:varbase_core
-  - varbase_seo:varbase_seo
-  - drupal:menu_ui
-  - page_manager:page_manager
-  - rabbit_hole:rabbit_hole
+install:
+  - varbase_seo
+  - menu_ui
+  - page_manager
+  - rabbit_hole
+  - yoast_seo
