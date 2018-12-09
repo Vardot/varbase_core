@@ -27,7 +27,6 @@ dependencies:
   - drupal:config_update
   - config_filter:config_filter
   - config_ignore:config_ignore
-  - drupal:contextual
   - drupal:datetime
   - drupal:file
   - drupal:image
@@ -46,6 +45,7 @@ dependencies:
   - advanced_text_formatter:advanced_text_formatter
   - block_class:block_class
 install:
+  - contextual
   - diff
   - extlink
   - dynamic_page_cache
