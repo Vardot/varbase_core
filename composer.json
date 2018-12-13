@@ -54,6 +54,7 @@
     "drupal/entity_clone": "1.x-dev#6d0ce053605e9aaf8412927a9b0ea8da7a9a06e5",
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~1",
+    "drupal/inline_entity_form": "~1",
     "drupal/ultimate_cron": "~2",
     "drupal/persistent_login": "~1",
     "drupal/userprotect": "~1",

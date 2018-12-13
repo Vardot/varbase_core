@@ -80,8 +80,6 @@ install:
   - menu_position
   - autocomplete_deluxe
   - link_attributes
-  - login_destination
-  - betterlogin
   - rabbit_hole
   - rh_node
   - rh_taxonomy
