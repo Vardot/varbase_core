@@ -83,3 +83,5 @@ install:
   - rabbit_hole
   - rh_node
   - rh_taxonomy
+  - login_destination
+  - betterlogin

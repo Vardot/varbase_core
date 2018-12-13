@@ -58,6 +58,8 @@
     "drupal/ultimate_cron": "~2",
     "drupal/persistent_login": "~1",
     "drupal/userprotect": "~1",
+    "drupal/login_destination": "1.x-dev#54be8b89fdc073ca40af6b9b2eeb050e0aeb7908",
+    "drupal/betterlogin": "~1",
     "drupal/config_perms": "~2",
     "drupal/roleassign": "~1",
     "drupal/admin_toolbar": "~1",
@@ -180,6 +182,10 @@
       "drupal/entity_clone": {
         "Issue #2743379: Clone operation shows regardless of permission":
         "https://www.drupal.org/files/issues/2018-08-26/2743379-18.patch"
+      },
+      "drupal/login_destination": {
+        "Issue #2947616: Fixed SetOptions on null causing error.":
+        "https://www.drupal.org/files/issues/2018-03-09/toolbar_alter_error-2947616-11.patch"
       }
     }
   }
