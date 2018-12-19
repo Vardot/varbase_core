@@ -12,3 +12,5 @@ install:
   - webform_node
   - webform_templates
   - webform_ui
+  - webform_analysis
+  - webform_views
