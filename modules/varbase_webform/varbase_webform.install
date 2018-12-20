@@ -65,3 +65,21 @@ function varbase_webform_install() {
   // ---------------------------------------------------------------------------
 
 }
+
+/**
+ * Enable [Webform Analysis] module.
+ */
+function varbase_webform_update_8601() {
+  if (!\Drupal::moduleHandler()->moduleExists('webform_analysis')) {
+    \Drupal::service('module_installer')->install(['webform_analysis'], TRUE);
+  }
+}
+
+/**
+ * Enable [Webform Views Integration] module.
+ */
+function varbase_webform_update_8602() {
+  if (!\Drupal::moduleHandler()->moduleExists('webform_views')) {
+    \Drupal::service('module_installer')->install(['webform_views'], TRUE);
+  }
+}
