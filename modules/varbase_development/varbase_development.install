@@ -69,21 +69,21 @@ function varbase_development_install() {
 /**
  * Implements hook_uninstall().
  */
-function varbase_development_uninstall() {
-
-  $module_name = preg_replace('/_uninstall$/', '', __FUNCTION__);
-  $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
-
-  // Processer for uninstall: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
-  if (file_exists($module_info_file)) {
-    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
-    if (isset($module_info_data['uninstall'])
-      && is_array($module_info_data['uninstall'])) {
-      \Drupal::service('module_installer')->uninstall($module_info_data['uninstall'], TRUE);
-    }
-  }
-
-}
+//function varbase_development_uninstall() {
+//
+//  $module_name = preg_replace('/_uninstall$/', '', __FUNCTION__);
+//  $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
+//
+//  // Processer for uninstall: in [$module_name].info.yml file.
+//  // ---------------------------------------------------------------------------
+//  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+//  if (file_exists($module_info_file)) {
+//    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
+//    if (isset($module_info_data['uninstall'])
+//      && is_array($module_info_data['uninstall'])) {
+//      \Drupal::service('module_installer')->uninstall($module_info_data['uninstall'], TRUE);
+//    }
+//  }
+//
+//}
 

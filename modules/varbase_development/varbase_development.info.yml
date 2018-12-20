@@ -14,21 +14,19 @@ install:
   - libraries_ui
   - tour_ui
   - tour_builder
-  - blazy_ui
-uninstall:
-  - migrate_drupal_ui 
-  - dblog
-  - views_ui
-  - config_update_ui
-  - webprofiler
-  - ds_devel
-  - webform_devel
-  - devel
-  - libraries_ui
-  - tour_ui
-  - tour_builder
-  - blazy_ui
-  - devel_generate
-  - blazy_ui
-  - kit
-  - slick_ui
+#uninstall:
+#  - migrate_drupal_ui 
+#  - dblog
+#  - views_ui
+#  - config_update_ui
+#  - webprofiler
+#  - ds_devel
+#  - webform_devel
+#  - devel
+#  - libraries_ui
+#  - tour_ui
+#  - tour_builder
+#  - blazy_ui
+#  - devel_generate
+#  - kit
+#  - slick_ui
