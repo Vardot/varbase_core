@@ -8,7 +8,6 @@ project: varbase_core
 dependencies:
   - varbase_core:varbase_core
 install:
-  - varbase_seo
   - menu_ui
   - page_manager
   - rabbit_hole
