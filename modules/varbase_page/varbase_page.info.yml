@@ -8,7 +8,11 @@ project: varbase_core
 dependencies:
   - varbase_core:varbase_core
 install:
+  - text
+  - editor
+  - ckeditor
   - menu_ui
   - page_manager
   - rabbit_hole
   - yoast_seo
+  - metatag
