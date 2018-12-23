@@ -13,4 +13,5 @@ install:
   - webform_templates
   - webform_ui
   - webform_analysis
+  - taxonomy
   - webform_views
