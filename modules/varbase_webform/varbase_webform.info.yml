@@ -9,7 +9,6 @@ dependencies:
   - webform:webform
 install:
   - webform_bootstrap
-  - webform_node
   - webform_templates
   - webform_ui
   - webform_analysis
