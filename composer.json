@@ -123,6 +123,9 @@
     ],
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
+    "patchLevel": {
+       "drupal/core": "-p2"
+    },
     "patches": {
       "drupal/core": {
         "Issue #2869592: Disabled update module shouldn't produce a status report warning":
