@@ -194,6 +194,10 @@
       "drupal/login_destination": {
         "Issue #2947616: Fixed SetOptions on null causing error.":
         "https://www.drupal.org/files/issues/2018-03-09/toolbar_alter_error-2947616-11.patch"
+      },
+      "drupal/views_bulk_operations": {
+        "Issue #2952498: Fixed [VBO) Fatal error when executing simple actions on Adminimal theme":
+        "https://www.drupal.org/files/issues/2018-09-19/views_bulk_operations-theme_error-2952498-29.patch"
       }
     }
   }
