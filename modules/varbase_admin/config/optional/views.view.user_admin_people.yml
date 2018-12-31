@@ -5,6 +5,7 @@ dependencies:
     - better_exposed_filters
     - roleassign
     - user
+    - views_bulk_operations
 id: user_admin_people
 label: People
 module: user
@@ -98,9 +99,9 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page: true
+            items_per_page_label: Users
+            items_per_page_options: '5, 10, 25, 50, 100'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
@@ -182,14 +183,14 @@ display:
       row:
         type: fields
       fields:
-        user_bulk_form:
-          id: user_bulk_form
-          table: users
-          field: user_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Bulk update'
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -222,7 +223,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -230,8 +231,43 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: user_bulk_form
-          entity_type: user
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: false
+          clear_on_exposed: 0
+          action_title: Action
+          selected_actions:
+            'entity:break_lock:user': 'entity:break_lock:user'
+            user_add_role_action: user_add_role_action
+            user_remove_role_action: user_remove_role_action
+            user_block_user_action: user_block_user_action
+            user_unblock_user_action: user_unblock_user_action
+            views_bulk_edit: 0
+            vbo_cancel_user_action: vbo_cancel_user_action
+            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
+            pathauto_update_alias: pathauto_update_alias
+            'entity:save_action:user': 'entity:save_action:user'
+          preconfiguration:
+            'entity:break_lock:user':
+              label_override: ''
+            user_add_role_action:
+              label_override: ''
+            user_remove_role_action:
+              label_override: ''
+            user_block_user_action:
+              label_override: ''
+            user_unblock_user_action:
+              label_override: ''
+            vbo_cancel_user_action:
+              label_override: ''
+            views_bulk_operations_delete_entity:
+              label_override: ''
+            pathauto_update_alias:
+              label_override: ''
+            'entity:save_action:user':
+              label_override: ''
+          plugin_id: views_bulk_operations_bulk_form
         name:
           id: name
           table: users_field_data

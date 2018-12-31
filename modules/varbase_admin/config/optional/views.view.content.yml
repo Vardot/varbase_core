@@ -5,6 +5,7 @@ dependencies:
     - better_exposed_filters
     - node
     - user
+    - views_bulk_operations
 id: content
 label: Content
 module: node
@@ -87,11 +88,23 @@ display:
         type: full
         options:
           items_per_page: 50
+          offset: 0
+          id: 0
+          total_pages: null
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
             first: '« First'
             last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: Items
+            items_per_page_options: '5, 10, 25, 50, 100'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -202,10 +215,10 @@ display:
       row:
         type: fields
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
@@ -250,15 +263,47 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: 'With selection'
-          include_exclude: exclude
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: false
+          clear_on_exposed: 0
+          action_title: Action
           selected_actions:
-            - node_make_sticky_action
-            - node_make_unsticky_action
-            - node_promote_action
-            - node_unpromote_action
-          plugin_id: node_bulk_form
-          entity_type: node
+            'entity:break_lock:node': 0
+            node_assign_owner_action: node_assign_owner_action
+            node_unpromote_action: 0
+            node_make_unsticky_action: 0
+            node_make_sticky_action: 0
+            node_publish_action: node_publish_action
+            node_unpublish_by_keyword_action: 0
+            node_unpublish_action: node_unpublish_action
+            node_save_action: node_save_action
+            node_promote_action: 0
+            views_bulk_edit: views_bulk_edit
+            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
+            pathauto_update_alias: pathauto_update_alias
+            'entity:unpublish_action:node': 0
+            'entity:delete_action:node': 0
+            'entity:save_action:node': 0
+            'entity:publish_action:node': 0
+          preconfiguration:
+            node_assign_owner_action:
+              label_override: ''
+            node_publish_action:
+              label_override: ''
+            node_unpublish_action:
+              label_override: ''
+            node_save_action:
+              label_override: ''
+            views_bulk_edit:
+              label_override: ''
+              get_bundles_from_results: 1
+            views_bulk_operations_delete_entity:
+              label_override: ''
+            pathauto_update_alias:
+              label_override: ''
+          plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
           table: node_field_data
