@@ -35,6 +35,7 @@
     "drupal/config_update": "~1.0",
     "drupal/config_filter": "~1.0",
     "drupal/config_ignore": "~2.0",
+    "drupal/config_split": "~1.0",
     "drupal/ctools": "3.0",
     "drupal/token": "~1.0",
     "drupal/page_manager": "~4.0",
