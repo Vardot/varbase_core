@@ -45,7 +45,6 @@ dependencies:
   - advanced_text_formatter:advanced_text_formatter
   - block_class:block_class
 install:
-  - config_split
   - contextual
   - diff
   - extlink
