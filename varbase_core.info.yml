@@ -46,7 +46,6 @@ dependencies:
   - block_class:block_class
 install:
   - config_split
-  - easy_install
   - contextual
   - diff
   - extlink
