@@ -200,6 +200,10 @@
       "drupal/page_manager": {
         "Issue #2665328: Variants take entity label not the variant title":
         "https://www.drupal.org/files/issues/2018-12-12/2665328-variants-take-entity-label-87.patch"
+      },
+      "drupal/field_group": {
+        "Issue #2921228: Accordion does not work":
+        "https://www.drupal.org/files/issues/field_group_accordion-2921228-3.patch"
       }
     }
   }
