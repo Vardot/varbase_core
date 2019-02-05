@@ -88,7 +88,7 @@
     "drupal/menu_admin_per_menu": "~1.0",
     "drupal/drd_agent": "~3.0",
     "drupal/libraries_ui": "~1.0",
-    "drupal/devel": "~1.0",
+    "drupal/devel": "*",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
     "drupal/seckit": "~1.0",
