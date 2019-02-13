@@ -11,4 +11,3 @@ install:
   - locale
   - config_translation
   - content_translation
-  - l10n_client_ui
