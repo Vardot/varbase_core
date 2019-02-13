@@ -34,7 +34,9 @@ function varbase_internationalization_install() {
 }
 
 /**
- * Uninstall Layout plugin, then enables Layout Discovery.
+ * Issue #3032661: Changed [Varbase Internationalization] not to use the
+ * [Localization client] module by disabling it for old sites and not to
+ * install it in new Varbase installations.
  */
 function varbase_internationalization_update_86001() {
 
