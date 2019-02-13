@@ -92,7 +92,7 @@
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
     "drupal/seckit": "~1.0",
-    "drupal/security_review": "1.x-dev#35ebae445bb260e961e47c4c58efe7c50c228999",
+    "drupal/security_review": "*",
     "drupal/honeypot": "~1.0",
     "drupal/shield": "~1.0",
     "drupal/captcha": "~1.0",

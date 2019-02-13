@@ -18,5 +18,4 @@ install:
   - password_policy_length
   - password_policy_username
   - seckit
-  - security_review
   - username_enumeration_prevention
