@@ -78,7 +78,7 @@
     "drupal/default_content": "1.0-alpha7",
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~1.0",
-    "drupal/node_edit_protection": "1.x-dev#902339c08222f838030c07aaea23bdc51ababebd",
+    "drupal/node_edit_protection": "~1.0",
     "drupal/rabbit_hole": "~1.0",
     "drupal/yoast_seo": "~1.0",
     "drupal/fast_404": "~1.0",
@@ -170,10 +170,6 @@
         "https://www.drupal.org/files/issues/error-when-layout-is-removed-2920868-4.patch",
         "Issue #2966959: Value Conflict with Layout Builder":
         "https://www.drupal.org/files/issues/2018-04-27/2966959-ds-namespace_form_for_layout_builder-4.patch"
-      },
-      "drupal/node_edit_protection": {
-        "Issue #2941962: Fixed Warning: array_search() expects parameter 2 to be array.":
-        "https://www.drupal.org/files/issues/2018-05-16/warning-array-search-2941962-4.patch"
       },
       "drupal/rabbit_hole": {
         "Issue #2961738: Ensure getOperation method exists on form":
