@@ -175,10 +175,6 @@
         "Issue #2961738: Ensure getOperation method exists on form":
         "https://www.drupal.org/files/issues/2018-05-10/rabbit_hole-instance_of_check-2961738-5.patch"
       },
-      "drupal/entity_clone": {
-        "Issue #2743379: Clone operation shows regardless of permission":
-        "https://www.drupal.org/files/issues/2018-08-26/2743379-18.patch"
-      },
       "drupal/login_destination": {
         "Issue #2947616: Fixed SetOptions on null causing error.":
         "https://www.drupal.org/files/issues/2018-03-09/toolbar_alter_error-2947616-11.patch"
