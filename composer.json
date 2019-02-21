@@ -35,7 +35,7 @@
     "drupal/config_update": "~1.0",
     "drupal/config_filter": "~1.0",
     "drupal/config_ignore": "~2.0",
-    "drupal/ctools": "3.0",
+    "drupal/ctools": "3.2",
     "drupal/token": "~1.0",
     "drupal/page_manager": "~4.0",
     "drupal/panels": "~4.0",
@@ -163,7 +163,7 @@
       },
       "drupal/ctools": {
         "Issue #2820783: Fix Block.php notices and warnings.":
-        "https://www.drupal.org/files/issues/fixblockpager-2820783-27.patch"
+        "https://www.drupal.org/files/issues/2019-02-18/ctools-Block.php_notices_and_warnings-2820783-51-D8.patch"
       },
       "drupal/ds": {
         "Issue #2920868: Fixed fatal errors when we have missing layouts, on an update." :
