@@ -37,13 +37,13 @@
     "drupal/config_ignore": "~2.0",
     "drupal/ctools": "3.2",
     "drupal/token": "~1.0",
-    "drupal/page_manager": "~4.0",
-    "drupal/panels": "~4.0",
+    "drupal/page_manager": "4.0-beta3",
+    "drupal/panels": "4.3",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~1.0",
-    "drupal/ds": "~3.0",
+    "drupal/ds": "3.2",
     "drupal/views_bootstrap": "~3.0",
-    "drupal/field_group": "~3.0",
+    "drupal/field_group": "3.0-beta1",
     "drupal/smart_trim": "~1.0",
     "drupal/advanced_text_formatter": "~1.0",
     "drupal/block_class": "~1.0",
@@ -56,7 +56,7 @@
     "drupal/entityqueue_form_widget": "~1.0",
     "drupal/inline_entity_form": "~1.0",
     "drupal/ultimate_cron": "~2.0",
-    "drupal/persistent_login": "~1.0",
+    "drupal/persistent_login": "1.1",
     "drupal/userprotect": "~1.0",
     "drupal/login_destination": "1.x-dev#54be8b89fdc073ca40af6b9b2eeb050e0aeb7908",
     "drupal/betterlogin": "~1.0",
@@ -67,7 +67,7 @@
     "drupal/tour_ui": "~1.0",
     "drupal/tour_builder": "~1.0",
     "drupal/l10n_client": "*",
-    "drupal/coffee": "~1.0",
+    "drupal/coffee": "1.0-beta2",
     "drupal/responsive_preview": "~1.0",
     "drupal/views_bulk_operations": "~2.0",
     "drupal/views_bulk_edit": "~2.0",
@@ -177,7 +177,13 @@
       },
       "drupal/page_manager": {
         "Issue #2665328: Variants take entity label not the variant title":
-        "https://www.drupal.org/files/issues/2018-12-12/2665328-variants-take-entity-label-87.patch"
+        "https://www.drupal.org/files/issues/2018-12-12/2665328-variants-take-entity-label-87.patch",
+        "Issue #3033057: Page Manager currently not working with CTools 3.1":
+        "https://www.drupal.org/files/issues/2019-02-23/3033057-13.patch"
+      },
+      "drupal/panels": {
+        "Issue #3031778: Change panels store":
+        "https://www.drupal.org/files/issues/2019-02-21/panels_tempstore-updated-3031778-37.patch"
       },
       "drupal/field_group": {
         "Issue #2921228: Accordion does not work":
