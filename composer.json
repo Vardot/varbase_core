@@ -143,7 +143,9 @@
         "Issue #2599228: Programmatically created translatable content type returns SQL error on content creation":
         "https://www.drupal.org/files/issues/2018-10-06/2599228-74.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/patch_empty_fix.patch"
+        "https://www.drupal.org/files/issues/patch_empty_fix.patch",
+        "Issue #3023452: Views placeholder texts are not translatable'":
+        "https://www.drupal.org/files/issues/2019-01-14/3023452-5.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
