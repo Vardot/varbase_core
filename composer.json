@@ -41,7 +41,7 @@
     "drupal/panels": "4.3",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~1.0",
-    "drupal/ds": "3.2",
+    "drupal/ds": "3.3",
     "drupal/views_bootstrap": "~3.0",
     "drupal/field_group": "3.0-beta1",
     "drupal/smart_trim": "~1.0",
@@ -169,9 +169,7 @@
       },
       "drupal/ds": {
         "Issue #2920868: Fixed fatal errors when we have missing layouts, on an update." :
-        "https://www.drupal.org/files/issues/error-when-layout-is-removed-2920868-4.patch",
-        "Issue #2966959: Value Conflict with Layout Builder":
-        "https://www.drupal.org/files/issues/2018-04-27/2966959-ds-namespace_form_for_layout_builder-4.patch"
+        "https://www.drupal.org/files/issues/error-when-layout-is-removed-2920868-4.patch"
       },
       "drupal/login_destination": {
         "Issue #2947616: Fixed SetOptions on null causing error.":
