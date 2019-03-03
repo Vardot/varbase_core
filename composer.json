@@ -168,8 +168,8 @@
         "https://www.drupal.org/files/issues/2019-02-18/ctools-Block.php_notices_and_warnings-2820783-51-D8.patch"
       },
       "drupal/ds": {
-        "Issue #2920868: Fixed fatal errors when we have missing layouts, on an update." :
-        "https://www.drupal.org/files/issues/error-when-layout-is-removed-2920868-4.patch"
+        "Issue #2920868: Fix fatal errors when we have missing layouts, on an update" :
+        "https://www.drupal.org/files/issues/2019-03-03/2920868-12.patch"
       },
       "drupal/login_destination": {
         "Issue #2947616: Fixed SetOptions on null causing error.":
