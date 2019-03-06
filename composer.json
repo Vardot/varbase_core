@@ -184,10 +184,6 @@
       "drupal/field_group": {
         "Issue #2921228: Accordion does not work":
         "https://www.drupal.org/files/issues/field_group_accordion-2921228-3.patch"
-      },
-      "drupal/entity_clone": {
-        "Issue #3037114: Fix issue of unable to edit menu links":
-        "https://www.drupal.org/files/issues/2019-03-03/3037114-4.patch"
       }
     }
   }
