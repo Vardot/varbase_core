@@ -133,7 +133,7 @@
         "Issue #2885441: EntityReferenceAutocompleteWidget should define its size setting as an integer":
         "https://www.drupal.org/files/issues/2885441-2.patch",
         "Issue #2815221: Add quickedit to the latest-revision route":
-        "https://www.drupal.org/files/issues/2018-09-24/2815221-109.patch",
+        "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
         "https://www.drupal.org/files/issues/2018-10-23/1356276-549-8.6.x.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
