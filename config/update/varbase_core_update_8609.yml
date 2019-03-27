@@ -1,0 +1,28 @@
+user.role.content_admin:
+  expected_config:
+    permissions:
+      - 'administer panelizer node landing_page content'
+      - 'administer panelizer node landing_page layout'
+  update_actions:
+    delete:
+      permissions:
+        - 'administer panelizer node landing_page content'
+        - 'administer panelizer node landing_page layout'
+user.role.editor:
+  expected_config:
+    permissions:
+      - 'administer panelizer node landing_page content'
+  update_actions:
+    delete:
+      permissions:
+        - 'administer panelizer node landing_page content'
+user.role.site_admin:
+  expected_config:
+    permissions:
+      - 'administer panelizer node landing_page content'
+      - 'administer panelizer node landing_page layout'
+  update_actions:
+    delete:
+      permissions:
+        - 'administer panelizer node landing_page content'
+        - 'administer panelizer node landing_page layout'

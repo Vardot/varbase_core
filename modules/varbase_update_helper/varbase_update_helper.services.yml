@@ -1,0 +1,5 @@
+services:
+  varbase_update_helper.route_subscriber:
+    class: Drupal\varbase_update_helper\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

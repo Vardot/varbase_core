@@ -1,0 +1,227 @@
+core.entity_form_display.node.varbase_blog.default:
+  expected_config:
+    content:
+      created:
+        weight: 7
+      field_image:
+        region: content
+        settings:
+          entity_browser: image_browser
+          field_widget_display: rendered_entity
+          field_widget_display_settings:
+            view_mode: field_preview
+          field_widget_edit: true
+          field_widget_remove: true
+          open: true
+          selection_mode: selection_append
+        third_party_settings: {  }
+        type: entity_browser_entity_reference
+        weight: 1
+      field_meta_tags:
+        weight: 4
+      field_yoast_seo:
+        weight: 3
+      langcode:
+        weight: 2
+      path:
+        weight: 5
+      status:
+        weight: 8
+      title:
+        weight: 0
+      uid:
+        weight: 6
+    hidden:
+      url_redirects: true
+    third_party_settings:
+      field_group:
+        group_tabs:
+          weight: 2
+  update_actions:
+    change:
+      content:
+        created:
+          weight: 10
+        field_media:
+          region: content
+          settings:
+            entity_browser: media_browser
+            field_widget_display: rendered_entity
+            field_widget_display_settings:
+              view_mode: field_preview
+            field_widget_edit: true
+            field_widget_remove: true
+            field_widget_replace: true
+            open: true
+            selection_mode: selection_append
+          third_party_settings: {  }
+          type: entity_browser_entity_reference
+          weight: 3
+        field_meta_tags:
+          weight: 6
+        field_yoast_seo:
+          weight: 5
+        langcode:
+          weight: 0
+        path:
+          weight: 7
+        status:
+          weight: 11
+        title:
+          weight: 1
+        uid:
+          weight: 9
+        url_redirects:
+          region: content
+          settings: {  }
+          third_party_settings: {  }
+          weight: 8
+      third_party_settings:
+        field_group:
+          group_tabs:
+            weight: 4
+    delete:
+      content:
+        field_image:
+          region: content
+          settings:
+            entity_browser: image_browser
+            field_widget_display: rendered_entity
+            field_widget_display_settings:
+              view_mode: field_preview
+            field_widget_edit: true
+            field_widget_remove: true
+            open: true
+            selection_mode: selection_append
+          third_party_settings: {  }
+          type: entity_browser_entity_reference
+          weight: 1
+      hidden:
+        url_redirects: true
+core.entity_view_display.node.varbase_blog.default:
+  expected_config:
+    content:
+      field_image:
+        label: above
+        region: ds_content
+        settings:
+          link: true
+        third_party_settings: {  }
+        type: entity_reference_label
+        weight: 0
+    third_party_settings:
+      ds:
+        layout:
+          settings:
+            classes:
+              ds_content: {  }
+      panelizer:
+        allow: false
+        custom: false
+        default: default
+        enable: false
+  update_actions:
+    add:
+      third_party_settings:
+        ds:
+          regions:
+            ds_content:
+              - field_media
+    change:
+      content:
+        field_media:
+          label: hidden
+          region: ds_content
+          settings:
+            link: false
+            view_mode: default
+          third_party_settings:
+            ds:
+              ft:
+                id: default
+                settings:
+                  classes: {  }
+                  lb: ''
+                  lb-col: false
+          type: entity_reference_entity_view
+          weight: 1
+    delete:
+      content:
+        field_image:
+          label: above
+          region: ds_content
+          settings:
+            link: true
+          third_party_settings: {  }
+          type: entity_reference_label
+          weight: 0
+      third_party_settings:
+        ds:
+          layout:
+            settings:
+              classes:
+                ds_content: {  }
+        panelizer:
+          allow: false
+          custom: false
+          default: default
+          enable: false
+core.entity_view_display.node.varbase_blog.teaser:
+  expected_config:
+    content:
+      field_image:
+        label: above
+        region: ds_content
+        settings:
+          link: true
+        third_party_settings: {  }
+        type: entity_reference_label
+        weight: 0
+    third_party_settings:
+      panelizer:
+        allow: false
+        custom: false
+        default: default
+        enable: false
+  update_actions:
+    add:
+      hidden:
+        field_media: true
+    delete:
+      content:
+        field_image:
+          label: above
+          region: ds_content
+          settings:
+            link: true
+          third_party_settings: {  }
+          type: entity_reference_label
+          weight: 0
+      third_party_settings:
+        panelizer:
+          allow: false
+          custom: false
+          default: default
+          enable: false
+field.field.node.varbase_blog.field_blog_categories:
+  expected_config:
+    required: true
+  update_actions:
+    change:
+      required: false
+metatag.metatag_defaults.node__varbase_blog:
+  expected_config:
+    tags:
+      schema_article_author: 'a:7:{s:5:"@type";s:6:"Person";s:3:"@id";s:0:"";s:4:"name";s:25:"[node:author:display-nam]";s:3:"url";s:17:"[node:author:url]";s:6:"sameAs";s:0:"";s:4:"logo";a:0:{}s:5:"pivot";s:0:"";}'
+      schema_article_image: 'a:5:{s:5:"@type";s:11:"ImageObject";s:20:"representativeOfPage";s:0:"";s:3:"url";s:50:"[node:field_image:entity:field_image:1200x630:url]";s:5:"width";s:4:"1200";s:6:"height";s:3:"630";}'
+      schema_article_publisher: 'a:7:{s:5:"@type";s:12:"Organization";s:3:"@id";s:10:"[site:url]";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";s:6:"sameAs";s:0:"";s:4:"logo";a:0:{}s:5:"pivot";s:0:"";}'
+  update_actions:
+    add:
+      tags:
+        og_image: '[node:field_media:entity:social_large]'
+        og_image_url: '[node:field_media:entity:social_large]'
+    change:
+      tags:
+        schema_article_author: 'a:3:{s:5:"@type";s:6:"Person";s:4:"name";s:25:"[node:author:display-nam]";s:3:"url";s:17:"[node:author:url]";}'
+        schema_article_image: 'a:4:{s:5:"@type";s:11:"ImageObject";s:3:"url";s:38:"[node:field_media:entity:social_large]";s:5:"width";s:4:"1200";s:6:"height";s:3:"630";}'
+        schema_article_publisher: 'a:4:{s:5:"@type";s:12:"Organization";s:3:"@id";s:10:"[site:url]";s:4:"name";s:11:"[site:name]";s:3:"url";s:10:"[site:url]";}'

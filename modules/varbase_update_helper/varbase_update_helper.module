@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains varbase_update_helper.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function varbase_update_helper_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the varbase_update_helper module.
+    case 'help.page.varbase_update_helper':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Varbase update helper') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_checklistapi_checklist_info_alter().
+ */
+function varbase_update_helper_checklistapi_checklist_info_alter(array &$definitions) {
+  if (isset($definitions['update_helper_checklist']['#title'])) {
+    $definitions['update_helper_checklist']['#title'] = t('Varbase update instructions');
+  }
+}

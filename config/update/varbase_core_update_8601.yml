@@ -1,0 +1,6 @@
+simple_sitemap.settings:
+  expected_config:
+    skip_untranslated: false
+  update_actions:
+    change:
+      skip_untranslated: true

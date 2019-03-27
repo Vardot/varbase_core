@@ -1,0 +1,523 @@
+views.view.content:
+  expected_config:
+    display:
+      default:
+        display_options:
+          exposed_form:
+            type: basic
+      page_1:
+        display_options:
+          display_extenders: {  }
+  update_actions:
+    add:
+      display:
+        default:
+          display_options:
+            exposed_form:
+              options:
+                bef:
+                  created:
+                    bef_format: bef_datepicker
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  created_1:
+                    bef_format: bef_datepicker
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  general:
+                    allow_secondary: false
+                    autosubmit: false
+                    autosubmit_exclude_textfield: true
+                    autosubmit_hide: false
+                    secondary_label: 'Advanced options'
+                  langcode:
+                    bef_format: default
+                    more_options:
+                      bef_collapsible: false
+                      bef_select_all_none: false
+                      is_secondary: false
+                      rewrite:
+                        filter_rewrite_values: ''
+                  status:
+                    bef_format: default
+                    more_options:
+                      bef_collapsible: false
+                      bef_select_all_none: false
+                      is_secondary: false
+                      rewrite:
+                        filter_rewrite_values: ''
+                  title:
+                    bef_format: default
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  type:
+                    bef_format: default
+                    more_options:
+                      bef_collapsible: false
+                      bef_select_all_none: false
+                      is_secondary: false
+                      rewrite:
+                        filter_rewrite_values: ''
+                input_required: false
+            fields:
+              created:
+                admin_label: ''
+                alter:
+                  absolute: false
+                  alt: ''
+                  alter_text: false
+                  ellipsis: true
+                  external: false
+                  html: false
+                  link_class: ''
+                  make_link: false
+                  max_length: 0
+                  more_link: false
+                  more_link_path: ''
+                  more_link_text: ''
+                  nl2br: false
+                  path: ''
+                  path_case: none
+                  prefix: ''
+                  preserve_tags: ''
+                  rel: ''
+                  replace_spaces: false
+                  strip_tags: false
+                  suffix: ''
+                  target: ''
+                  text: ''
+                  trim: false
+                  trim_whitespace: false
+                  word_boundary: true
+                click_sort_column: value
+                delta_first_last: false
+                delta_limit: 0
+                delta_offset: 0
+                delta_reversed: false
+                element_class: ''
+                element_default_classes: true
+                element_label_class: ''
+                element_label_colon: true
+                element_label_type: ''
+                element_type: ''
+                element_wrapper_class: ''
+                element_wrapper_type: ''
+                empty: ''
+                empty_zero: false
+                entity_field: created
+                entity_type: node
+                exclude: false
+                field: created
+                field_api_classes: 0
+                group_column: value
+                group_columns: {  }
+                group_rows: true
+                group_type: group
+                hide_alter_empty: true
+                hide_empty: false
+                id: created
+                label: Created
+                multi_type: separator
+                relationship: none
+                separator: ', '
+                settings:
+                  custom_date_format: ''
+                  date_format: short
+                  timezone: ''
+                table: node_field_data
+                type: timestamp
+            filters:
+              created:
+                admin_label: 'Created date (from)'
+                entity_field: created
+                entity_type: node
+                expose:
+                  description: ''
+                  identifier: created_from
+                  label: 'Created date (from)'
+                  max_placeholder: ''
+                  min_placeholder: ''
+                  multiple: false
+                  operator: created_op
+                  operator_id: created_op
+                  placeholder: ''
+                  remember: false
+                  remember_roles:
+                    administrator: '0'
+                    anonymous: '0'
+                    authenticated: '0'
+                    content_admin: '0'
+                    editor: '0'
+                    seo_admin: '0'
+                    site_admin: '0'
+                  required: false
+                  use_operator: false
+                exposed: true
+                field: created
+                group: 1
+                group_info:
+                  default_group: All
+                  default_group_multiple: {  }
+                  description: ''
+                  group_items: {  }
+                  identifier: ''
+                  label: ''
+                  multiple: false
+                  optional: true
+                  remember: false
+                  widget: select
+                group_type: group
+                id: created
+                is_grouped: false
+                operator: '>='
+                plugin_id: date
+                relationship: none
+                table: node_field_data
+                value:
+                  max: ''
+                  min: ''
+                  type: date
+                  value: ''
+              created_1:
+                admin_label: 'Created date (to)'
+                entity_field: created
+                entity_type: node
+                expose:
+                  description: ''
+                  identifier: created_to
+                  label: 'Created date (to)'
+                  max_placeholder: ''
+                  min_placeholder: ''
+                  multiple: false
+                  operator: created_1_op
+                  operator_id: created_1_op
+                  placeholder: ''
+                  remember: false
+                  remember_roles:
+                    administrator: '0'
+                    anonymous: '0'
+                    authenticated: '0'
+                    content_admin: '0'
+                    editor: '0'
+                    seo_admin: '0'
+                    site_admin: '0'
+                  required: false
+                  use_operator: false
+                exposed: true
+                field: created
+                group: 1
+                group_info:
+                  default_group: All
+                  default_group_multiple: {  }
+                  description: ''
+                  group_items: {  }
+                  identifier: ''
+                  label: ''
+                  multiple: false
+                  optional: true
+                  remember: false
+                  widget: select
+                group_type: group
+                id: created_1
+                is_grouped: false
+                operator: '<='
+                plugin_id: date
+                relationship: none
+                table: node_field_data
+                value:
+                  max: ''
+                  min: ''
+                  type: date
+                  value: ''
+            style:
+              options:
+                columns:
+                  created: created
+                  operations: operations
+                info:
+                  created:
+                    align: ''
+                    default_sort_order: desc
+                    empty_column: false
+                    responsive: ''
+                    separator: ''
+                    sortable: true
+                  operations:
+                    align: ''
+                    empty_column: false
+                    responsive: ''
+                    separator: ''
+    change:
+      display:
+        default:
+          display_options:
+            exposed_form:
+              options:
+                text_input_required: 'Select any filter and click on Apply to see results'
+                text_input_required_format: full_html
+              type: bef
+        page_1:
+          display_options:
+            display_extenders:
+              metatag_display_extender: {  }
+views.view.user_admin_people:
+  expected_config:
+    display:
+      default:
+        display_options:
+          exposed_form:
+            type: basic
+          filters:
+            permission:
+              admin_label: ''
+              expose:
+                description: ''
+                identifier: permission
+                label: Permission
+                multiple: false
+                operator: permission_op
+                operator_id: permission_op
+                reduce: false
+                remember: false
+                remember_roles:
+                  administrator: '0'
+                  anonymous: '0'
+                  authenticated: authenticated
+                required: false
+                use_operator: false
+              exposed: true
+              field: permission
+              group: 1
+              group_info:
+                default_group: All
+                default_group_multiple: {  }
+                description: ''
+                group_items: {  }
+                identifier: ''
+                label: ''
+                multiple: false
+                optional: true
+                remember: false
+                widget: select
+              group_type: group
+              id: permission
+              is_grouped: false
+              operator: or
+              plugin_id: user_permissions
+              reduce_duplicates: false
+              relationship: none
+              table: user__roles
+              value: {  }
+      page_1:
+        display_options:
+          display_extenders: {  }
+  update_actions:
+    add:
+      display:
+        default:
+          display_options:
+            exposed_form:
+              options:
+                bef:
+                  combine:
+                    bef_format: default
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  created:
+                    bef_format: bef_datepicker
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  created_1:
+                    bef_format: bef_datepicker
+                    more_options:
+                      is_secondary: false
+                      placeholder_text: ''
+                  general:
+                    allow_secondary: false
+                    autosubmit: false
+                    autosubmit_exclude_textfield: true
+                    autosubmit_hide: false
+                    secondary_label: 'Advanced options'
+                  roles_target_id:
+                    bef_format: default
+                    more_options:
+                      bef_collapsible: false
+                      bef_select_all_none: false
+                      is_secondary: false
+                      rewrite:
+                        filter_rewrite_values: ''
+                  status:
+                    bef_format: default
+                    more_options:
+                      bef_collapsible: false
+                      bef_select_all_none: false
+                      is_secondary: false
+                      rewrite:
+                        filter_rewrite_values: ''
+                input_required: false
+            filters:
+              created:
+                admin_label: 'Registered date (from)'
+                entity_field: created
+                entity_type: user
+                expose:
+                  description: ''
+                  identifier: created_from
+                  label: 'Registered date (from)'
+                  max_placeholder: ''
+                  min_placeholder: ''
+                  multiple: false
+                  operator: created_op
+                  operator_id: created_op
+                  placeholder: ''
+                  remember: false
+                  remember_roles:
+                    administrator: '0'
+                    anonymous: '0'
+                    authenticated: '0'
+                    content_admin: '0'
+                    editor: '0'
+                    seo_admin: '0'
+                    site_admin: '0'
+                  required: false
+                  use_operator: false
+                exposed: true
+                field: created
+                group: 1
+                group_info:
+                  default_group: All
+                  default_group_multiple: {  }
+                  description: ''
+                  group_items: {  }
+                  identifier: ''
+                  label: ''
+                  multiple: false
+                  optional: true
+                  remember: false
+                  widget: select
+                group_type: group
+                id: created
+                is_grouped: false
+                operator: '>='
+                plugin_id: date
+                relationship: none
+                table: users_field_data
+                value:
+                  max: ''
+                  min: ''
+                  type: date
+                  value: ''
+              created_1:
+                admin_label: 'Registered date (to)'
+                entity_field: created
+                entity_type: user
+                expose:
+                  description: ''
+                  identifier: created_to
+                  label: 'Registered date (to)'
+                  max_placeholder: ''
+                  min_placeholder: ''
+                  multiple: false
+                  operator: created_1_op
+                  operator_id: created_1_op
+                  placeholder: ''
+                  remember: false
+                  remember_roles:
+                    administrator: '0'
+                    anonymous: '0'
+                    authenticated: '0'
+                    content_admin: '0'
+                    editor: '0'
+                    seo_admin: '0'
+                    site_admin: '0'
+                  required: false
+                  use_operator: false
+                exposed: true
+                field: created
+                group: 1
+                group_info:
+                  default_group: All
+                  default_group_multiple: {  }
+                  description: ''
+                  group_items: {  }
+                  identifier: ''
+                  label: ''
+                  multiple: false
+                  optional: true
+                  remember: false
+                  widget: select
+                group_type: group
+                id: created_1
+                is_grouped: false
+                operator: '<='
+                plugin_id: date
+                relationship: none
+                table: users_field_data
+                value:
+                  max: ''
+                  min: ''
+                  type: date
+                  value: ''
+    change:
+      display:
+        default:
+          display_options:
+            exposed_form:
+              options:
+                text_input_required: 'Select any filter and click on Apply to see results'
+                text_input_required_format: full_html
+              type: bef
+        page_1:
+          display_options:
+            display_extenders:
+              metatag_display_extender: {  }
+    delete:
+      display:
+        default:
+          display_options:
+            filters:
+              permission:
+                admin_label: ''
+                expose:
+                  description: ''
+                  identifier: permission
+                  label: Permission
+                  multiple: false
+                  operator: permission_op
+                  operator_id: permission_op
+                  reduce: false
+                  remember: false
+                  remember_roles:
+                    administrator: '0'
+                    anonymous: '0'
+                    authenticated: authenticated
+                  required: false
+                  use_operator: false
+                exposed: true
+                field: permission
+                group: 1
+                group_info:
+                  default_group: All
+                  default_group_multiple: {  }
+                  description: ''
+                  group_items: {  }
+                  identifier: ''
+                  label: ''
+                  multiple: false
+                  optional: true
+                  remember: false
+                  widget: select
+                group_type: group
+                id: permission
+                is_grouped: false
+                operator: or
+                plugin_id: user_permissions
+                reduce_duplicates: false
+                relationship: none
+                table: user__roles
+                value: {  }

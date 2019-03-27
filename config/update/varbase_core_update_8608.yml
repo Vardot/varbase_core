@@ -1,0 +1,126 @@
+core.entity_form_display.block_content.varbase_carousel_block.default:
+  expected_config:
+    content:
+      field_media_carousel_slide:
+        settings:
+          allow_existing: true
+          allow_new: true
+          form_mode: default
+          label_plural: Images
+          label_singular: Image
+          match_operator: CONTAINS
+          override_labels: true
+        third_party_settings:
+          entity_browser_entity_form:
+            entity_browser_id: carousels_media_browser
+        type: inline_entity_form_complex
+  update_actions:
+    change:
+      content:
+        field_media_carousel_slide:
+          settings:
+            entity_browser: image_browser
+            field_widget_display: rendered_entity
+            field_widget_display_settings:
+              view_mode: field_preview
+            field_widget_edit: true
+            field_widget_remove: true
+            open: true
+            selection_mode: selection_append
+          third_party_settings: {  }
+          type: entity_browser_entity_reference
+    delete:
+      content:
+        field_media_carousel_slide:
+          settings:
+            allow_existing: true
+            allow_new: true
+            form_mode: default
+            label_plural: Images
+            label_singular: Image
+            match_operator: CONTAINS
+            override_labels: true
+          third_party_settings:
+            entity_browser_entity_form:
+              entity_browser_id: carousels_media_browser
+core.entity_view_display.block_content.varbase_carousel_block.default:
+  expected_config:
+    content:
+      field_media_carousel_slide:
+        region: ds_content
+        settings:
+          caption:
+            field_image: '0'
+          image: field_image
+          image_style: d4_traditional
+          responsive_image_style: d4_traditional
+          thumbnail_style: d4_traditional
+          view_mode: default
+    third_party_settings:
+      ds:
+        layout:
+          disable_css: false
+          entity_classes: all_classes
+          id: ds_1col
+          library: null
+          settings:
+            attributes: ''
+            classes:
+              layout_class: {  }
+            link_attribute: ''
+            link_custom: ''
+            outer_wrapper: div
+            wrappers:
+              ds_content: div
+        regions:
+          ds_content:
+            - field_media_carousel_slide
+  update_actions:
+    add:
+      content:
+        field_media_carousel_slide:
+          third_party_settings:
+            ds:
+              ft:
+                id: default
+                settings:
+                  classes: {  }
+                  lb: ''
+                  lb-col: false
+    change:
+      content:
+        field_media_carousel_slide:
+          region: content
+          settings:
+            caption:
+              field_media_image: '0'
+            image: ''
+            image_style: d04_traditional
+            responsive_image_style: d04_traditional
+            thumbnail_style: d04_traditional
+            view_mode: s04_traditional
+    delete:
+      content:
+        field_media_carousel_slide:
+          settings:
+            caption:
+              field_image: '0'
+      third_party_settings:
+        ds:
+          layout:
+            disable_css: false
+            entity_classes: all_classes
+            id: ds_1col
+            library: null
+            settings:
+              attributes: ''
+              classes:
+                layout_class: {  }
+              link_attribute: ''
+              link_custom: ''
+              outer_wrapper: div
+              wrappers:
+                ds_content: div
+          regions:
+            ds_content:
+              - field_media_carousel_slide

@@ -111,7 +111,9 @@
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
     "drupal/libraries": "~3.0",
-    "drupal/vmi": "~2.0"
+    "drupal/vmi": "~2.0",
+    "drupal/update_helper": "1.0",
+    "drupal/checklistapi": "~1.8"
   },
   "extra": {
     "branch-alias": {
@@ -184,6 +186,10 @@
       "drupal/field_group": {
         "Issue #2921228: Accordion does not work":
         "https://www.drupal.org/files/issues/field_group_accordion-2921228-3.patch"
+      },
+      "drupal/update_helper": {
+        "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
+        "https://www.drupal.org/files/issues/2019-03-19/3024165-14-update_helper-enhancements.patch"
       }
     }
   }

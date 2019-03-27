@@ -1,0 +1,8 @@
+page_manager.page_variant.homepage-panels_variant-0:
+  expected_config:
+    variant_settings:
+      page_title: '[site:name]'
+  update_actions:
+    change:
+      variant_settings:
+        page_title: '[site:name] | [site:slogan]'

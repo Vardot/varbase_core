@@ -1,0 +1,203 @@
+editor.editor.basic_html:
+  expected_config:
+    settings:
+      plugins:
+        video_embed:
+          defaults:
+            children:
+              autoplay: true
+              height: '480'
+              responsive: true
+              width: '854'
+  update_actions:
+    add:
+      settings:
+        plugins:
+          autoembed:
+            status: ''
+          remote_video:
+            defaults:
+              children:
+                autoplay: true
+                height: '480'
+                responsive: true
+                width: '854'
+    delete:
+      settings:
+        plugins:
+          video_embed:
+            defaults:
+              children:
+                autoplay: true
+                height: '480'
+                responsive: true
+                width: '854'
+editor.editor.full_html:
+  expected_config:
+    settings:
+      plugins:
+        video_embed:
+          defaults:
+            children:
+              autoplay: false
+              height: '480'
+              responsive: true
+              width: '854'
+  update_actions:
+    add:
+      settings:
+        plugins:
+          remote_video:
+            defaults:
+              children:
+                autoplay: false
+                height: '480'
+                responsive: true
+                width: '854'
+    delete:
+      settings:
+        plugins:
+          video_embed:
+            defaults:
+              children:
+                autoplay: false
+                height: '480'
+                responsive: true
+                width: '854'
+ace_editor.settings:
+  expected_config:
+    font_size: 9pt
+    height: auto
+    show_invisibles: true
+    theme: idle_fingers
+    width: 700px
+  update_actions:
+    change:
+      font_size: 10pt
+      height: 300px
+      show_invisibles: false
+      theme: cobalt
+      use_wrap_mode: true
+      width: 100%
+extlink.settings:
+  expected_config:
+    extlink_alert_text: ''
+    extlink_class: '0'
+    extlink_mailto_class: '0'
+    extlink_target: true
+  update_actions:
+    add:
+      extlink_follow_no_override: false
+    change:
+      extlink_alert_text: 'This link will take you to an external web site. We are not responsible for their content.'
+      extlink_class: ext
+      extlink_label: '(link is external)'
+      extlink_mailto_class: mailto
+      extlink_mailto_label: '(link sends email)'
+      extlink_nofollow: false
+      extlink_target: false
+      extlink_target_no_override: false
+filter.format.basic_html:
+  expected_config:
+    filters:
+      filter_html:
+        settings:
+          allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption>'
+      video_embed_wysiwyg:
+        id: video_embed_wysiwyg
+        provider: video_embed_wysiwyg
+        settings: {  }
+        status: false
+        weight: -41
+  update_actions:
+    add:
+      filters:
+        ace_filter:
+          id: ace_filter
+          provider: ace_editor
+          settings:
+            auto_complete: true
+            font_size: 10pt
+            height: 500px
+            line_numbers: '1'
+            print_margins: '1'
+            show_invisibles: '0'
+            syntax: html
+            theme: cobalt
+            use_wrap_mode: '1'
+            width: 700px
+          status: false
+          weight: 0
+    change:
+      filters:
+        filter_html:
+          settings:
+            allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button>'
+    delete:
+      filters:
+        video_embed_wysiwyg:
+          id: video_embed_wysiwyg
+          provider: video_embed_wysiwyg
+          settings: {  }
+          status: false
+          weight: -41
+filter.format.code_html:
+  expected_config:
+    filters:
+      video_embed_wysiwyg:
+        id: video_embed_wysiwyg
+        provider: video_embed_wysiwyg
+        settings: {  }
+        status: false
+        weight: -37
+  update_actions:
+    delete:
+      filters:
+        video_embed_wysiwyg:
+          id: video_embed_wysiwyg
+          provider: video_embed_wysiwyg
+          settings: {  }
+          status: false
+          weight: -37
+filter.format.full_html:
+  expected_config:
+    filters:
+      ace_filter:
+        settings:
+          use_wrap_mode: true
+      filter_image_resize:
+        status: true
+      video_embed_wysiwyg:
+        id: video_embed_wysiwyg
+        provider: video_embed_wysiwyg
+        settings: {  }
+        status: true
+        weight: -46
+  update_actions:
+    change:
+      filters:
+        ace_filter:
+          settings:
+            use_wrap_mode: '1'
+        filter_image_resize:
+          status: false
+    delete:
+      filters:
+        video_embed_wysiwyg:
+          id: video_embed_wysiwyg
+          provider: video_embed_wysiwyg
+          settings: {  }
+          status: true
+          weight: -46
+filter.format.plain_text:
+  expected_config:
+    weight: -7
+  update_actions:
+    change:
+      weight: 10
+pathologic.settings:
+  expected_config:
+    protocol_style: path
+  update_actions:
+    change:
+      protocol_style: full

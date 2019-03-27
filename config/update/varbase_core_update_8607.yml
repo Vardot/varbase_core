@@ -1,0 +1,141 @@
+core.base_field_override.node.varbase_heroslider_media.promote:
+  expected_config:
+    translatable: true
+  update_actions:
+    change:
+      translatable: false
+core.base_field_override.node.varbase_heroslider_media.title:
+  expected_config:
+    translatable: true
+  update_actions:
+    change:
+      translatable: false
+core.entity_form_display.node.varbase_heroslider_media.default:
+  expected_config:
+    content:
+      field_media_single:
+        settings:
+          entity_browser: heroslider_media_browser
+      langcode:
+        weight: 2
+      status:
+        weight: 120
+      url_redirects:
+        weight: 50
+  update_actions:
+    add:
+      content:
+        field_media_single:
+          settings:
+            field_widget_replace: false
+      third_party_settings:
+        field_group:
+          group_slide_info:
+            region: content
+    change:
+      content:
+        field_media_single:
+          settings:
+            entity_browser: media_browser
+        langcode:
+          weight: 1
+        status:
+          weight: 5
+        url_redirects:
+          weight: 4
+core.entity_view_display.media.image.varbase_media_hero_slider:
+  expected_config:
+    hidden:
+      field_image: true
+  update_actions:
+    change:
+      hidden:
+        field_media_image: true
+        field_media_in_library: true
+    delete:
+      hidden:
+        field_image: true
+core.entity_view_display.media.video.varbase_media_hero_slider:
+  expected_config:
+    content:
+      field_media_video_embed_field:
+        label: hidden
+        region: content
+        settings:
+          autoplay: false
+          height: 480
+          responsive: true
+          width: 854
+        third_party_settings: {  }
+        type: video_embed_field_video
+        weight: 1
+  update_actions:
+    add:
+      hidden:
+        field_media_cover_image: true
+        field_media_in_library: true
+        field_media_video_file: true
+    change:
+      content: {  }
+    delete:
+      content:
+        field_media_video_embed_field:
+          label: hidden
+          region: content
+          settings:
+            autoplay: false
+            height: 480
+            responsive: true
+            width: 854
+          third_party_settings: {  }
+          type: video_embed_field_video
+          weight: 1
+core.entity_view_display.node.varbase_heroslider_media.default:
+  expected_config:
+    content:
+      field_media_single:
+        third_party_settings: {  }
+    third_party_settings:
+      panelizer:
+        allow: false
+        custom: false
+        default: default
+        enable: false
+  update_actions:
+    add:
+      third_party_settings:
+        field_group:
+          group_col:
+            region: hidden
+          group_container:
+            region: hidden
+          group_div:
+            region: hidden
+          group_row:
+            region: hidden
+    change:
+      content:
+        field_media_single:
+          third_party_settings:
+            ds:
+              ft:
+                id: default
+                settings:
+                  classes: {  }
+                  lb: ''
+                  lb-col: false
+    delete:
+      third_party_settings:
+        panelizer:
+          allow: false
+          custom: false
+          default: default
+          enable: false
+field.field.node.varbase_heroslider_media.field_media_single:
+  expected_config: {  }
+  update_actions:
+    add:
+      settings:
+        handler_settings:
+          target_bundles:
+            remote_video: remote_video

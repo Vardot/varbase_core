@@ -1,0 +1,14 @@
+search_api.server.database_server:
+  expected_config:
+    backend_config:
+      database_text: ''
+      matching: words
+      partial_matches: true
+  update_actions:
+    change:
+      backend_config:
+        matching: partial
+    delete:
+      backend_config:
+        database_text: ''
+        partial_matches: true
