@@ -89,6 +89,8 @@
     "drupal/drd_agent": "~3.0",
     "drupal/libraries_ui": "~1.0",
     "drupal/devel": "*",
+    "drupal/update_helper": "1.0",
+    "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
     "drupal/seckit": "~1.0",
@@ -111,9 +113,7 @@
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
     "drupal/libraries": "~3.0",
-    "drupal/vmi": "~2.0",
-    "drupal/update_helper": "1.0",
-    "drupal/checklistapi": "~1.8"
+    "drupal/vmi": "~2.0"
   },
   "extra": {
     "branch-alias": {

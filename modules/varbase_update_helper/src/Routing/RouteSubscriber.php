@@ -1,10 +1,5 @@
 <?php
 
- /**
- * @file
- * Contains \Drupal\varbase_update_helper\Routing\RouteSubscriber.
- */
-
 namespace Drupal\varbase_update_helper\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
@@ -14,6 +9,7 @@ use Symfony\Component\Routing\RouteCollection;
  * Listens to the dynamic route events.
  */
 class RouteSubscriber extends RouteSubscriberBase {
+
   /**
    * {@inheritdoc}
    */
@@ -22,4 +18,5 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setDefault('_title', 'Varbase update instructions');
     }
   }
+
 }
