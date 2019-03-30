@@ -38,7 +38,7 @@
     "drupal/ctools": "3.2",
     "drupal/token": "~1.0",
     "drupal/page_manager": "4.0-beta3",
-    "drupal/panels": "4.3",
+    "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~1.0",
     "drupal/ds": "3.3",
@@ -178,10 +178,6 @@
         "https://www.drupal.org/files/issues/2018-12-12/2665328-variants-take-entity-label-87.patch",
         "Issue #3033057: Page Manager currently not working with CTools 3.1":
         "https://www.drupal.org/files/issues/2019-02-23/3033057-13.patch"
-      },
-      "drupal/panels": {
-        "Issue #3031778: Change panels store":
-        "https://www.drupal.org/files/issues/2019-02-21/panels_tempstore-updated-3031778-37.patch"
       },
       "drupal/field_group": {
         "Issue #2921228: Accordion does not work":
