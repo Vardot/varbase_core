@@ -31,3 +31,10 @@ function varbase_update_helper_checklistapi_checklist_info_alter(array &$definit
     $definitions['update_helper_checklist']['#title'] = t('Varbase update instructions');
   }
 }
+
+function varbase_update_helper_page_attachments_alter(&$page){
+  $path = $current_path = \Drupal::service('path.current')->getPath();
+  if($path == '/admin/config/development/update-helper') {
+    $page['#attached']['library'][] = 'varbase_update_helper/varbase_update_helper';
+  }
+}
