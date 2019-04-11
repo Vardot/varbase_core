@@ -76,144 +76,14 @@ function varbase_core_update_8600() {
 }
 
 /**
- * Added a default [Simple sitemap] settings with [Skip non-existent translations] checked by default.
- */
-function varbase_core_update_8601($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8601', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
  * Add new filters to the Content and People views so that admins cam filter using date ranges.
  */
-function varbase_core_optional_update_8602($force = false) {
+function varbase_core_optional_update_8601($force = false) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8602', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Changed Default database server config to have matching partial.
- */
-function varbase_core_update_8603($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8603', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Varbase editor Switched to use [Remote Video] with oEmbed from Drupal 8.6.x core.
- * Changed [Rich editor] text format to allow for Align images Uses a data-align attribute on <img> tags to align images.
- * Removed [Drupal Image] and [Video embed] CKEditor command buttons from Rich editor and Simple editor.
- */
-function varbase_core_update_8604($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8604', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Varbase blog Switched to use [Remote Video] with oEmbed from Drupal 8.6.x core.
- * Change the [Field Media] og:image metatags for [Varbase blog] to use our custom social token [node:field_media:entity:social_large]
- * Changed [Main Image] field to [Main Media] to use [Field Media] from [Varbase Core] for images and video posts, and use the [Media Browser] from [Varbase Media] as the default Media browser for the [Blog Post] content type
- */
-function varbase_core_update_8605($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8605', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Fixed homepage with H1 tag for website name.
- */
-function varbase_core_update_8606($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8606', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Changed filed [Slide media (image/video)] to use Media types of Image, Video (embed), and Video (local), and -changed the [Heroslider Media Browser] to let user upload videos.
- */
-function varbase_core_update_8607($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8607', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Changed to use the Image Browser and removed the carousels media browser.
- */
-function varbase_core_update_8608($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8608', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Removed [panelizer] module with all used configs.
- */
-function varbase_core_update_8609($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8609', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Changed modules and config to work with [Media] Drupal core
- */
-function varbase_core_update_8610($force = false) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8610', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_vbo_8600', $force);
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

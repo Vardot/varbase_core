@@ -1,74 +1,16 @@
-8.x-6.3:
-    '#title': 'Update to Varbase 8.6.3'
-    '#description': '<h2>These are the new features for this release:</h2><br />'
+8.6.7:
+    '#title': 'New Updates in Varbase 8.6.7'
+    '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_core_update_8601:
-        '#title': 'Varbase SEO: Mark <em>"Skip non-existent translations"</em> as checked by default in the <code>Simple XML Sitemap</code> module.'
-        '#description': 'This option tunes your sitemap to generate links for available languages only. Its better for you SEO.'
+    varbase_admin_vbo_8600:
+        '#title': 'Enhance the usability of admin views (Content, Media, and People)'
+        '#description': '
+        <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
+        See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8601</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8602:
-        '#title': 'Add new filters to the <a href="/admin/content">Content</a> and <a href="/admin/people">People</a> views so that admins cam filter using date ranges.'
-        '#description': '<p>This update is optional.<br /><span class="icon-help">Please run <code>drush varbase-up varbase_core varbase_core_update_8602</code> to apply this update.</span></p>'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8602</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8603:
-        '#title': 'Varbase Search: Set the default database search matching to be "Match on parts of a word" instead of whole words only.'
-        '#description': "This results in better search experience if you're using the Database Search feature."
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8603</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8604:
-        '#title': 'Use oEmbed from Drupal 8.6 to fetch entities of type <em>Remote video</em> or <em>Video (external)</em>'
-        '#description': '<p>Changed [Rich editor] text format to allow for Align images Uses a data-align attribute on <img> tags to align images</p><p>Removed [Drupal Image] and [Video embed] CKEditor command buttons from Rich editor and Simple editor.</p>'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8604</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8605:
-        '#title': 'Varbase blog Switched to use [Remote Video] with oEmbed from Drupal 8.6.x core.'
-        '#description': '<p>Change the [Field Media] og:image metatags for [Varbase blog] to use our custom social token [node:field_media:entity:social_large]</p><p>Changed [Main Image] field to [Main Media] to use [Field Media] from [Varbase Core] for images and video posts, and use the [Media Browser] from [Varbase Media] as the default Media browser for the [Blog Post] content type</p>'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8605</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p<br />>'
-    varbase_core_update_8606:
-        '#title': 'Fixed homepage with H1 tag for website name.'
-        '#description': ''
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8606</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8607:
-        '#title': 'Changed filed [Slide media (image/video)] to use Media types of Image, Video (embed), and Video (local), and -changed the [Heroslider Media Browser] to let user upload videos.'
-        '#description': ''
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8607</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8608:
-        '#title': 'Changed to use the Image Browser and removed the carousels media browser.'
-        '#description': ''
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8608</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8609:
-        '#title': 'Removed [panelizer] module with all used configs.'
-        '#description': ''
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8609</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
-    varbase_core_update_8610:
-        '#title': 'Changed modules and config to work with [Media] Drupal core'
-        '#description': ''
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '<p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8601</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
