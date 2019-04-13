@@ -76,14 +76,47 @@ function varbase_core_update_8600() {
 }
 
 /**
- * Add new filters to the Content and People views so that admins cam filter using date ranges.
+ * Enhance the usability of admin views (Content, Media, and People).
  */
 function varbase_core_optional_update_8601($force = false) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_vbo_8600', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_vbo_8601', $force);
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable Blazy loading for most media sizes (Image, Video, Remote Video).
+ */
+function varbase_core_optional_update_8602($force = false) {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_media_blazy_8602', $force);
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable Varbase Email.
+ */
+function varbase_core_optional_update_8603($force = false) {
+
+  if (!\Drupal::moduleHandler()->moduleExists('varbase_email')) {
+    \Drupal::service('module_installer')->install(['swiftmailer', 'varbase_email'], FALSE);
+  }
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_email_enable_8603');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

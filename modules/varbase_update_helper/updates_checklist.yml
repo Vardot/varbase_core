@@ -2,7 +2,7 @@
     '#title': 'New Updates in Varbase 8.6.7'
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_admin_vbo_8600:
+    varbase_admin_vbo_8601:
         '#title': 'Enhance the usability of admin views (Content, Media, and People)'
         '#description': '
         <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
@@ -12,5 +12,29 @@
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8601</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_media_blazy_8602:
+        '#title': 'Enable Blazy loading for most media sizes (Image, Video, Remote Video)'
+        '#description': '
+        <p>This update changes most media sizes from only responsive image styles to use Blazy loading with responsive image styles for most media view mode sizes.</p>
+        See issue <a href="https://www.drupal.org/node/3046616" target="_blank">#3046616</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8602</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8602</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_email_enable_8603:
+        '#title': 'Enable Varbase Email'
+        '#description': '
+        <p>This update adds email template for Varbase emails.</p>
+        See issue <a href="https://www.drupal.org/node/3043869" target="_blank">#3043869</a> and issue <a href="https://www.drupal.org/node/3042113" target="_blank">#3042113</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8603</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8603</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
