@@ -101,6 +101,7 @@
     "drupal/recaptcha": "~2.0",
     "drupal/mailsystem": "~4.0",
     "drupal/smtp": "~1.0",
+    "drupal/length_indicator": "1.0-rc3",
     "drupal/maxlength": "~1.0",
     "drupal/menu_position": "~1.0",
     "drupal/mail_edit": "*",
@@ -186,6 +187,10 @@
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
         "https://www.drupal.org/files/issues/2019-04-03/3024165-18-update_helper-enhancements.patch"
+      },
+      "drupal/length_indicator": {
+        "Issue #3048286: Add cursor position direction support for RTL":
+        "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
       }
     }
   }

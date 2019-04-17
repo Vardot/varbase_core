@@ -1,3 +1,14 @@
+8.6.8:
+    '#title': 'New Updates in Varbase 8.6.8'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_admin_enable_li_8603:
+        '#title': 'Enable colored length indicator'
+        '#description': '
+        <p>This update adds a colored, configurable length indicator to form fields.</p>
+        See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': ''
 8.6.7:
     '#title': 'New Updates in Varbase 8.6.7'
     '#description': '<h2>These are the new features for this release:</h2>'

@@ -30,3 +30,4 @@ install:
   - entity_clone
   - taxonomy_access_fix
   - coffee
+  - length_indicator
