@@ -7,6 +7,9 @@ dependencies:
     - field.field.node.page.field_yoast_seo
     - node.type.page
   module:
+    - advanced_text_formatter
+    - length_indicator
+    - maxlength
     - metatag
     - path
     - text
@@ -47,7 +50,8 @@ content:
   langcode:
     type: language_select
     weight: 0
-    settings: {  }
+    settings:
+      include_locked: true
     third_party_settings: {  }
     region: content
   path:
@@ -69,13 +73,24 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      length_indicator:
+        indicator: true
+        indicator_opt:
+          optimin: 15
+          optimax: 50
+          tolerance: 10
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+      advanced_text_formatter:
+        show_token_tree: 0
     region: content
   translation:
     weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 3
@@ -88,6 +103,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   promote: true
   sticky: true

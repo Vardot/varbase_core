@@ -16,3 +16,6 @@ install:
   - rabbit_hole
   - yoast_seo
   - metatag
+  - length_indicator
+  - advanced_text_formatter
+  - maxlength
