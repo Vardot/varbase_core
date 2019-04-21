@@ -1,14 +1,3 @@
-8.6.8:
-    '#title': 'New Updates in Varbase 8.6.8'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_admin_enable_li_8603:
-        '#title': 'Enable colored length indicator'
-        '#description': '
-        <p>This update adds a colored, configurable length indicator to form fields.</p>
-        See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': ''
 8.6.7:
     '#title': 'New Updates in Varbase 8.6.7'
     '#description': '<h2>These are the new features for this release:</h2>'
@@ -47,5 +36,64 @@
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8603</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+8.6.8:
+    '#title': 'New Updates in Varbase 8.6.8'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_admin_enable_li_8602:
+        '#title': 'Enable colored length indicator for general use'
+        '#description': '
+        <p>This update adds a colored, configurable length indicator to form fields.</p>
+        <p>See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': ''
+    varbase_page_li_8604:
+        '#title': 'Enable colored length indicator for Varbase Basic page'
+        '#description': '
+        <p>This update adds a colored length indicator to Basic page title field in the form.</p>
+        See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8604</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8604</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_landing_li_8605:
+        '#title': 'Enable colored length indicator for Varbase Landing page'
+        '#description': '
+        <p>This update adds a colored length indicator to Landing page title field in the form.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_landing/issues/3049759" target="_blank">#3049759</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8605</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8605</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_heroslider_media_li_8606:
+        '#title': 'Enable colored length indicator for Varbase Hero Slider'
+        '#description': '
+        <p>This update adds a colored length indicator to Hero Slider title field in the form.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_heroslider_media/issues/3049762" target="_blank">#3049762</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8606</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8606</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_blog_li_8607:
+        '#title': 'Enable colored length indicator for Varbase Blog'
+        '#description': '
+        <p>This update adds a colored length indicator to Blog post title field in the form.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_blog/issues/3049760" target="_blank">#3049760</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8607</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8607</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '

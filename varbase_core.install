@@ -121,3 +121,60 @@ function varbase_core_optional_update_8603($force = false) {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Enable colored length indicator for Varbase Basic page.
+ */
+function varbase_core_optional_update_8604($force = false) {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_page_li_8604');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable colored length indicator for Varbase Landing page.
+ */
+function varbase_core_optional_update_8605($force = false) {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_landing_li_8605');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable colored length indicator for Varbase Hero Slider.
+ */
+function varbase_core_optional_update_8606($force = false) {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_heroslider_media_li_8606');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable colored length indicator for Varbase Blog.
+ */
+function varbase_core_optional_update_8607($force = false) {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_blog_li_8607');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
