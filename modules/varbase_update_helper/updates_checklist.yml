@@ -46,7 +46,7 @@
     '#module': 'varbase_core'
     varbase_admin_enable_li_8602:
         '#module': 'varbase_admin'
-        '#title': 'Enable colored length indicator for general use'
+        '#title': 'Enable Length Indicator module to be used by entities'
         '#description': '
         <p>This update adds a colored, configurable length indicator to form fields.</p>
         <p>See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.</p><br />'
@@ -54,7 +54,7 @@
         '#description_failed': ''
     varbase_page_li_8604:
         '#module': 'varbase_page'
-        '#title': 'Enable colored length indicator for Varbase Basic page'
+        '#title': 'Add title Length Indicator to the Basic page content type'
         '#description': '
         <p>This update adds a colored length indicator to Basic page title field in the form.</p>
         See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.<br />
@@ -67,7 +67,7 @@
         '
     varbase_landing_li_8605:
         '#module': 'varbase_landing'
-        '#title': 'Enable colored length indicator for Varbase Landing page'
+        '#title': 'Add title Length Indicator to the Landing page content type'
         '#description': '
         <p>This update adds a colored length indicator to Landing page title field in the form.</p>
         See issue <a href="https://www.drupal.org/project/varbase_landing/issues/3049759" target="_blank">#3049759</a> for details.<br />
@@ -80,9 +80,9 @@
         '
     varbase_heroslider_media_li_8606:
         '#module': 'varbase_heroslider_media'
-        '#title': 'Enable colored length indicator for Varbase Hero Slider'
+        '#title': 'Add title Length Indicator to the Hero slider content type'
         '#description': '
-        <p>This update adds a colored length indicator to Hero Slider title field in the form.</p>
+        <p>This update adds a colored length indicator to Hero slider title field in the form.</p>
         See issue <a href="https://www.drupal.org/project/varbase_heroslider_media/issues/3049762" target="_blank">#3049762</a> for details.<br />
         <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8606</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
@@ -93,7 +93,7 @@
         '
     varbase_blog_li_8607:
         '#module': 'varbase_blog'
-        '#title': 'Enable colored length indicator for Varbase Blog'
+        '#title': 'Add title Length Indicator to the Blog post content type'
         '#description': '
         <p>This update adds a colored length indicator to Blog post title field in the form.</p>
         See issue <a href="https://www.drupal.org/project/varbase_blog/issues/3049760" target="_blank">#3049760</a> for details.<br />
