@@ -3,6 +3,7 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_admin_vbo_8601:
+        '#module': 'varbase_admin'
         '#title': 'Enhance the usability of admin views (Content, Media, and People)'
         '#description': '
         <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
@@ -15,6 +16,7 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
     varbase_media_blazy_8602:
+        '#module': 'varbase_media'
         '#title': 'Enable lazy loading for media in frontend (Images, Videos, Remote Videos)'
         '#description': '
         <p>This update enables Blazy module formatter to handle the rendering of media entities for all media view modes. This was previously rendered by Responsive image formatter.</p>
@@ -43,6 +45,7 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_admin_enable_li_8602:
+        '#module': 'varbase_admin'
         '#title': 'Enable colored length indicator for general use'
         '#description': '
         <p>This update adds a colored, configurable length indicator to form fields.</p>
@@ -50,6 +53,7 @@
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': ''
     varbase_page_li_8604:
+        '#module': 'varbase_page'
         '#title': 'Enable colored length indicator for Varbase Basic page'
         '#description': '
         <p>This update adds a colored length indicator to Basic page title field in the form.</p>
@@ -62,6 +66,7 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
     varbase_landing_li_8605:
+        '#module': 'varbase_landing'
         '#title': 'Enable colored length indicator for Varbase Landing page'
         '#description': '
         <p>This update adds a colored length indicator to Landing page title field in the form.</p>
@@ -74,6 +79,7 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
     varbase_heroslider_media_li_8606:
+        '#module': 'varbase_heroslider_media'
         '#title': 'Enable colored length indicator for Varbase Hero Slider'
         '#description': '
         <p>This update adds a colored length indicator to Hero Slider title field in the form.</p>
@@ -86,6 +92,7 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
     varbase_blog_li_8607:
+        '#module': 'varbase_blog'
         '#title': 'Enable colored length indicator for Varbase Blog'
         '#description': '
         <p>This update adds a colored length indicator to Blog post title field in the form.</p>

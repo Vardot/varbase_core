@@ -32,9 +32,9 @@ function varbase_update_helper_checklistapi_checklist_info_alter(array &$definit
   }
 }
 
-function varbase_update_helper_page_attachments_alter(&$page){
-  $path = $current_path = \Drupal::service('path.current')->getPath();
-  if($path == '/admin/config/development/update-helper') {
-    $page['#attached']['library'][] = 'varbase_update_helper/varbase_update_helper';
-  }
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function varbase_update_helper_form_checklistapi_checklist_form_alter(&$form, &$form_state) {
+  $form['#attached']['library'][] = 'varbase_update_helper/varbase_update_helper';
 }
