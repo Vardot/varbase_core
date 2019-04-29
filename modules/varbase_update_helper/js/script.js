@@ -1,6 +1,6 @@
 /**
  * @file
- * Behaviors for the vartheme bs4 theme.
+ * Behaviors for the Varbase Update Helper.
  */
 
 (function ($, _, Drupal, drupalSettings) {

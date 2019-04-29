@@ -7,12 +7,12 @@ dependencies:
     - block_class
     - block_content
   theme:
-    - vartheme
+    - vartheme_bs4
 third_party_settings:
   block_class:
     classes: ''
-id: vartheme_copyright
-theme: vartheme
+id: vartheme_bs4_copyright
+theme: vartheme_bs4
 region: footer
 weight: -5
 provider: null
