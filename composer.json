@@ -31,7 +31,7 @@
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "~8.6",
+    "drupal/core": "~8.7.0",
     "drupal/config_update": "~1.0",
     "drupal/config_filter": "~1.0",
     "drupal/config_ignore": "~2.0",
@@ -79,7 +79,7 @@
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~1.0",
     "drupal/node_edit_protection": "~1.0",
-    "drupal/rabbit_hole": "~1.0",
+    "drupal/rabbit_hole": "1.0-beta5",
     "drupal/yoast_seo": "~1.0",
     "drupal/fast_404": "~1.0",
     "mkalkbrenner/php-htmldiff-advanced": "~0.0.8",
@@ -138,17 +138,11 @@
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
-        "https://www.drupal.org/files/issues/2018-10-23/1356276-549-8.6.x.patch",
+        "https://www.drupal.org/files/issues/2018-12-10/1356276-572.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-11-07/2914389-11-do-not-test.patch",
-        "Issue #2720101 Label (Title) not set for Views block (exposed filters in Block)":
-        "https://www.drupal.org/files/issues/2720101-53.patch",
-        "Issue #2599228: Programmatically created translatable content type returns SQL error on content creation":
-        "https://www.drupal.org/files/issues/2018-10-06/2599228-74.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/patch_empty_fix.patch",
-        "Issue #3023452: Views placeholder texts are not translatable'":
-        "https://www.drupal.org/files/issues/2019-01-14/3023452-5.patch"
+        "https://www.drupal.org/files/issues/patch_empty_fix.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
@@ -195,6 +189,10 @@
       "drupal/password_policy": {
         "Issue #3032549: Fix Password policy module issue with saving constraint":
         "https://www.drupal.org/files/issues/2019-04-28/3032549-18.patch"
+      },
+      "drupal/rabbit_hole": {
+      	"Issue #3038539: Change Entity typehint to EntityInterface":
+      	"https://www.drupal.org/files/issues/2019-03-20/3038539-5.patch"
       }
     }
   }

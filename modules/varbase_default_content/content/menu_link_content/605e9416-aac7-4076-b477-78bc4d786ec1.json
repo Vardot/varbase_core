@@ -17,6 +17,11 @@
             "value": "605e9416-aac7-4076-b477-78bc4d786ec1"
         }
     ],
+    "revision_id": [
+        {
+            "value": 1
+        }
+    ],
     "langcode": [
         {
             "value": "en",
@@ -26,6 +31,11 @@
     "bundle": [
         {
             "value": "menu_link_content"
+        }
+    ],
+    "enabled": [
+        {
+            "value": true
         }
     ],
     "title": [
@@ -66,15 +76,11 @@
             "value": false
         }
     ],
-    "enabled": [
-        {
-            "value": true
-        }
-    ],
     "changed": [
         {
-            "value": 1505909055,
-            "lang": "en"
+            "value": "2017-09-20T12:04:15+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "default_langcode": [
@@ -83,7 +89,16 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "metatag": [
-        null
+        {
+            "value": {
+            }
+        }
     ]
 }

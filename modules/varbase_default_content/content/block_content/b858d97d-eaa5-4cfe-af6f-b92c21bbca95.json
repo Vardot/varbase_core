@@ -5,12 +5,7 @@
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/block_content\/basic"
-        },
-        "http:\/\/drupal.org\/rest\/relation\/block_content\/basic\/revision_user": [
-            {
-                "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ]
+        }
     },
     "id": [
         {
@@ -38,10 +33,10 @@
             "target_id": "basic"
         }
     ],
-    "info": [
+    "revision_created": [
         {
-            "value": "Copyright",
-            "lang": "en"
+            "value": "2017-09-20T12:31:12+00:00",
+            "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "revision_log": [
@@ -49,39 +44,27 @@
             "value": "Created new Basic block"
         }
     ],
-    "changed": [
-        {
-            "value": 1505910672
-        }
-    ],
-    "revision_created": [
-        {
-            "value": 1505910672
-        }
-    ],
-    "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/block_content\/basic\/revision_user": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/1?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "3b28e05b-32ba-45b4-9058-bd07fbeb9a0d"
-                    }
-                ]
-            }
-        ]
-    },
-    "revision_translation_affected": [
+    "status": [
         {
             "value": true,
             "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "Copyright",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2017-09-20T12:31:12+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
         }
     ],
     "default_langcode": [
@@ -90,13 +73,23 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "metatag": [
-        null
+        {
+            "value": {
+            }
+        }
     ],
     "body": [
         {
             "value": "Powered by <a href=\"https:\/\/www.vardot.com\/?utm_source=varbase&utm_campaign=varbase%20default%20links\">Vardot<\/a>. Enjoy the free software, or <a href=\"https:\/\/www.vardot.com\/form\/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links\">get a quote<\/a> for enterprise support and fully functional websites.",
             "format": "code_html",
+            "processed": "Powered by <a href=\"https:\/\/www.vardot.com\/?utm_source=varbase&amp;utm_campaign=varbase%20default%20links\">Vardot<\/a>. Enjoy the free software, or <a href=\"https:\/\/www.vardot.com\/form\/get-support-varbase?utm_source=varbase&amp;utm_campaign=varbase%20default%20links\">get a quote<\/a> for enterprise support and fully functional websites.",
             "summary": "",
             "lang": "en"
         }
