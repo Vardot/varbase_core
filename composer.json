@@ -79,7 +79,7 @@
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~1.0",
     "drupal/node_edit_protection": "~1.0",
-    "drupal/rabbit_hole": "1.0-beta5",
+    "drupal/rabbit_hole": "~1.0",
     "drupal/yoast_seo": "~1.0",
     "drupal/fast_404": "~1.0",
     "mkalkbrenner/php-htmldiff-advanced": "~0.0.8",
@@ -189,10 +189,6 @@
       "drupal/password_policy": {
         "Issue #3032549: Fix Password policy module issue with saving constraint":
         "https://www.drupal.org/files/issues/2019-04-28/3032549-18.patch"
-      },
-      "drupal/rabbit_hole": {
-      	"Issue #3038539: Change Entity typehint to EntityInterface":
-      	"https://www.drupal.org/files/issues/2019-03-20/3038539-5.patch"
       }
     }
   }
