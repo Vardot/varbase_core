@@ -178,12 +178,12 @@ function varbase_core_optional_update_8607($force = false) {
  * Change and shift Varbase Media responsive image styles to work with the
  * mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints
  */
-function varbase_core_update_8607() {
+function varbase_core_update_8608() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_media_bs3_to_bs4_8607');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_media_bs3_to_bs4_8608');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
