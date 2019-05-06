@@ -1,61 +1,21 @@
 core.entity_form_display.node.landing_page.default:
   expected_config:
     content:
-      created:
-        weight: 3
-      field_description:
-        weight: 6
-      field_meta_tags:
-        weight: 5
-      path:
-        weight: 4
-      status:
-        weight: 120
-      translation:
-        weight: 7
-      uid:
-        weight: 2
-      url_redirects:
-        weight: 50
-    third_party_settings:
-      field_group:
-        group_page_content:
-          region: hidden
-          weight: 8
+      title:
+        third_party_settings: {  }
   update_actions:
-    add:
+    change:
       content:
-        field_lp_paragraphs:
-          settings:
-            closed_mode_threshold: 0
         title:
           third_party_settings:
+            advanced_text_formatter:
+              show_token_tree: 0
             length_indicator:
               indicator: true
               indicator_opt:
                 optimax: 50
                 optimin: 15
                 tolerance: 10
-    change:
-      content:
-        created:
-          weight: 5
-        field_description:
-          weight: 2
-        field_meta_tags:
-          weight: 7
-        path:
-          weight: 6
-        status:
-          weight: 11
-        translation:
-          weight: 8
-        uid:
-          weight: 4
-        url_redirects:
-          weight: 10
-      third_party_settings:
-        field_group:
-          group_page_content:
-            region: content
-            weight: 3
+            maxlength:
+              maxlength_js: null
+              maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
