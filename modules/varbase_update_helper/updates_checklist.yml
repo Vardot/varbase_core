@@ -110,9 +110,13 @@
     '#module': 'varbase_core'
     varbase_media_bs3_to_bs4_8607:
         '#dependency': 'varbase_media'
-        '#title': 'Change and shift Varbase Media responsive image styles to Bootstrap 4 breakpoints'
+        '#title': 'Change all responsive image styles to make use of Bootstrap 4 breakpoints'
         '#description': '
-        <p>to work with the mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints.</p>
+        <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
         <p>See issue <a href="https://www.drupal.org/node/3052293" target="_blank">#3052293</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': ''
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8607</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
