@@ -7,21 +7,37 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
-
-const CONFIG_NOT_FOUND = 0;
-const CONFIG_ALREADY_APPLIED = 1;
-const CONFIG_NOT_EXPECTED = 2;
-const CONFIG_APPLIED_SUCCESSFULLY = 3;
+use Drupal\Core\Render\Element;
+use Drupal\update_helper\Updater;
 
 /**
  * Implements hook_form_alter().
  */
 function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $updateHelper = \Drupal::service('update_helper.updater');
   if($form_id == "checklistapi_checklist_form"){
     if(!$form['actions']["save"]['#submit']){
       $form['actions']["save"]['#submit'] = [];
     }
     $form['actions']["save"]['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
+    $checklist = $form['#checklist'];
+    $groups = $checklist->items;
+
+    foreach (Element::children($groups) as $group_key) {
+      $group = &$groups[$group_key];
+      
+      foreach (Element::children($group) as $item_key) {
+        $update_data = explode(":", $item_key);
+        $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
+        if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED || 
+            $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY ||
+            $checkUpdate == Updater::MODULES_FOUND
+        )
+        {
+          $form[$group_key][$item_key]['#disabled'] = TRUE;
+        }
+      }
+    }
   }
 }
 
@@ -36,10 +52,9 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
       foreach ($updateset as $update => $status) {
         if($status){
           $update_data = explode(":", $update);
-          $update_data[0] = "varbase_core";
           $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
-          if ($checkUpdate == CONFIG_ALREADY_APPLIED || $checkUpdate == CONFIG_APPLIED_SUCCESSFULLY) continue;
-          if ($checkUpdate == CONFIG_NOT_EXPECTED){
+          if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED || $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY) continue;
+          if ($checkUpdate == Updater::CONFIG_NOT_EXPECTED){
             $checklistapi[$key][$update] = 0;
             $messenger->addWarning(t('Update %updateid cannot be applied because the expected config is changed.', ['%updateid' => $update_data[1]]));
             continue;
