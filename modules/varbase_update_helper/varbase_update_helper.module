@@ -6,6 +6,75 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\update_helper\Updater;
+
+/**
+ * Implements hook_form_alter().
+ */
+function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $updateHelper = \Drupal::service('update_helper.updater');
+  if($form_id == "checklistapi_checklist_form"){
+    if(!$form['actions']["save"]['#submit']){
+      $form['actions']["save"]['#submit'] = [];
+    }
+    $form['actions']["save"]['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
+    $checklist = $form['#checklist'];
+    $groups = $checklist->items;
+
+    foreach (Element::children($groups) as $group_key) {
+      $group = &$groups[$group_key];
+      
+      foreach (Element::children($group) as $item_key) {
+        $update_data = explode(":", $item_key);
+        $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
+        if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED || 
+            $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY ||
+            $checkUpdate == Updater::MODULES_FOUND
+        )
+        {
+          $form[$group_key][$item_key]['#disabled'] = TRUE;
+        }
+      }
+    }
+  }
+}
+
+function varbase_update_helper_checklistapi_form_submit(array $form, FormStateInterface $form_state){
+  $updateHelper = \Drupal::service('update_helper.updater');
+  $messenger = \Drupal::messenger();
+
+  $checklistapi = $form_state->getValue('checklistapi');
+  foreach ($checklistapi as $key => $updateset) {
+    if($key == "checklistapi__active_tab") continue;
+    if(is_array($updateset) && !empty($updateset)){
+      foreach ($updateset as $update => $status) {
+        if($status){
+          $update_data = explode(":", $update);
+          $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
+          if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED || $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY) continue;
+          if ($checkUpdate == Updater::CONFIG_NOT_EXPECTED){
+            $checklistapi[$key][$update] = 0;
+            $messenger->addWarning(t('Update %updateid cannot be applied because the expected config is changed.', ['%updateid' => $update_data[1]]));
+            continue;
+          }
+          $updateHelper->executeUpdate($update_data[0], $update_data[1]);
+        }
+      }
+    }
+  }
+
+  $checklist = $form['#checklist'];
+
+  // Save progress.
+  $checklist->saveProgress($checklistapi);
+
+  // Preserve the active tab after submission.
+  $form_state->setRedirect($checklist->getRouteName(), [], [
+    'fragment' => $values['checklistapi__active_tab'],
+  ]);
+}
 
 /**
  * Implements hook_help().
