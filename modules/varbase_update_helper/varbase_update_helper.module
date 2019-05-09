@@ -36,7 +36,7 @@ function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state
         $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
         if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED ||
             $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY ||
-            $checkUpdate == Updater::MODULES_FOUND){
+            $checkUpdate == Updater::MODULES_FOUND) {
 
           $form[$group_key][$item_key]['#disabled'] = TRUE;
         }
@@ -71,7 +71,7 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
 
           if ($checkUpdate == Updater::CONFIG_NOT_EXPECTED){
             $checklistapi[$key][$update] = 0;
-            $messenger->addWarning(t('Update %updateid cannot be applied because the expected config is changed.', ['%updateid' => $update_data[1]]));
+            $messenger->addWarning(t('Update %updateid cannot be applied because the expected config is changed. Try running the update through the drush command described underneath each update.', ['%updateid' => $update_data[1]]));
             continue;
           }
 
