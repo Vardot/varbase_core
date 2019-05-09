@@ -140,9 +140,7 @@
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
         "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
-        "https://www.drupal.org/files/issues/2018-11-07/2914389-11-do-not-test.patch",
-        "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch"
+        "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
