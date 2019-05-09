@@ -24,13 +24,16 @@ function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state
     $checklist = $form['#checklist'];
     $groups = $checklist->items;
 
+    // Prevent the user from Clearing checklist progress
+    unset($form['actions']['clear']);
+
     foreach (Element::children($groups) as $group_key) {
       $group = &$groups[$group_key];
-      
+
       foreach (Element::children($group) as $item_key) {
         $update_data = explode(":", $item_key);
         $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
-        if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED || 
+        if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED ||
             $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY ||
             $checkUpdate == Updater::MODULES_FOUND
         )
