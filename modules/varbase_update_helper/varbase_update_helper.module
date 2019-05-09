@@ -15,11 +15,12 @@ use Drupal\update_helper\Updater;
  */
 function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $updateHelper = \Drupal::service('update_helper.updater');
-  if($form_id == "checklistapi_checklist_form"){
-    if(!$form['actions']["save"]['#submit']){
-      $form['actions']["save"]['#submit'] = [];
+  if ($form_id == "checklistapi_checklist_form") {
+    if (isset($form['actions']['save']['#submit']) && !$form['actions']['save']['#submit']) {
+      $form['actions']['save']['#submit'] = [];
     }
-    $form['actions']["save"]['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
+
+    $form['actions']['save']['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
     $checklist = $form['#checklist'];
     $groups = $checklist->items;
 
