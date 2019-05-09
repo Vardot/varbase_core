@@ -2,20 +2,20 @@
     '#title': 'New Updates in Varbase 8.6.7'
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_admin_vbo_8601:
+    varbase_core_optional_update_8601:
         '#dependency': 'varbase_admin'
         '#title': 'Enhance the usability of admin views (Content, Media, and People)'
         '#description': '
         <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
         See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8601</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_media_blazy_8602:
+    varbase_core_optional_update_8602:
         '#dependency': 'varbase_media'
         '#title': 'Enable lazy loading for media in frontend (Images, Videos, Remote Videos)'
         '#description': '
@@ -28,7 +28,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8602</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_email_enable_8603:
+    varbase_core_optional_update_8603:
         '#title': 'Enable nicely designed HTML emails'
         '#description': '
         <p>This update adds a nicely designed HTML template to all emails sent from your site.</p>
@@ -44,7 +44,7 @@
     '#title': 'New Updates in Varbase 8.6.8'
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_admin_enable_li_8602:
+    varbase_admin_update_8602:
         '#dependency': 'varbase_admin'
         '#title': 'Enable Length Indicator module to be used by entities'
         '#description': '
@@ -56,7 +56,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_admin_update_8602</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_page_li_8604:
+    varbase_core_optional_update_8604:
         '#dependency': 'varbase_page'
         '#title': 'Add title Length Indicator to the Basic page content type'
         '#description': '
@@ -69,7 +69,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8604</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_landing_li_8605:
+    varbase_core_optional_update_8605:
         '#dependency': 'varbase_landing'
         '#title': 'Add title Length Indicator to the Landing page content type'
         '#description': '
@@ -82,7 +82,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8605</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_heroslider_media_li_8606:
+    varbase_core_optional_update_8606:
         '#dependency': 'varbase_heroslider_media'
         '#title': 'Add title Length Indicator to the Hero slider content type'
         '#description': '
@@ -95,7 +95,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8606</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_blog_li_8607:
+    varbase_core_optional_update_8607:
         '#dependency': 'varbase_blog'
         '#title': 'Add title Length Indicator to the Blog post content type'
         '#description': '
@@ -112,7 +112,7 @@
     '#title': 'New Updates in Varbase 8.6.9'
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_media_bs3_to_bs4_8608:
+    varbase_core_update_8608:
         '#dependency': 'varbase_media'
         '#title': 'Change all responsive image styles to make use of Bootstrap 4 breakpoints'
         '#description': '

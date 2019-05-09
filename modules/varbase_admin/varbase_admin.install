@@ -13,6 +13,7 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\shortcut\Entity\Shortcut;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -124,7 +125,9 @@ function varbase_admin_install() {
 
   // Entity updates to clear up any mismatched entity and/or field definitions
   // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
 
 }
 
@@ -141,7 +144,7 @@ function varbase_admin_update_8602() {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_enable_li_8602');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_update_8602');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

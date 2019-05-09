@@ -83,7 +83,7 @@ function varbase_core_optional_update_8601($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_vbo_8601', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8601', $force);
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -97,7 +97,7 @@ function varbase_core_optional_update_8602($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_media_blazy_8602', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8602', $force);
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -120,7 +120,7 @@ function varbase_core_optional_update_8603($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_email_enable_8603');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8603');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -134,7 +134,7 @@ function varbase_core_optional_update_8604($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_page_li_8604');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8604');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -148,7 +148,7 @@ function varbase_core_optional_update_8605($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_landing_li_8605');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8605');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -162,7 +162,7 @@ function varbase_core_optional_update_8606($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_heroslider_media_li_8606');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8606');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -176,7 +176,7 @@ function varbase_core_optional_update_8607($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_blog_li_8607');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8607');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -191,7 +191,7 @@ function varbase_core_update_8608() {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_media_bs3_to_bs4_8608');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8608');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
