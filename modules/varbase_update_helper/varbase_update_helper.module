@@ -68,19 +68,13 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
         if ($status) {
           $update_data = explode(":", $update);
           $checkUpdate = $updateHelper->checkUpdate($update_data[0], $update_data[1]);
-
-          if ($checkUpdate == Updater::CONFIG_ALREADY_APPLIED
-             || $checkUpdate == Updater::CONFIG_APPLIED_SUCCESSFULLY) {
-            continue;
-          }
-
-          if ($checkUpdate == Updater::CONFIG_NOT_EXPECTED){
+          module_load_install($update_data[0]);
+          if (function_exists($update_data[1])) {
+            call_user_func($update_data[1], false);
+          }else {
             $checklistapi[$key][$update] = 0;
-            $messenger->addWarning(t('Update %updateid cannot be applied because the expected config is changed. Try running the update through the drush command described underneath each update.', ['%updateid' => $update_data[1]]));
-            continue;
+            $messenger->addWarning(t("Couldn't find an update hook: %update_hook. Please verify the update hook name.", ["%update_hook" => $update_data[1]]));
           }
-
-          $updateHelper->executeUpdate($update_data[0], $update_data[1]);
         }
       }
     }
