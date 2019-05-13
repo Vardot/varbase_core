@@ -10,6 +10,7 @@ use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
+use Drupal\update_helper_checklist\Entity\Update;
 
 /**
  * Implements hook_install().
@@ -83,7 +84,7 @@ function varbase_core_optional_update_8601($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_vbo_8601', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8601', $force);
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -97,7 +98,7 @@ function varbase_core_optional_update_8602($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_media_blazy_8602', $force);
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8602', $force);
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -108,15 +109,11 @@ function varbase_core_optional_update_8602($force = false) {
  */
 function varbase_core_optional_update_8603($force = false) {
 
-  if (!\Drupal::moduleHandler()->moduleExists('varbase_email')) {
-    \Drupal::service('module_installer')->install(['swiftmailer', 'varbase_email'], FALSE);
-  }
-
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_email_enable_8603');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8603');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -130,7 +127,7 @@ function varbase_core_optional_update_8604($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_page_li_8604');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8604');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -144,7 +141,7 @@ function varbase_core_optional_update_8605($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_landing_li_8605');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8605');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -158,7 +155,7 @@ function varbase_core_optional_update_8606($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_heroslider_media_li_8606');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8606');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -172,9 +169,64 @@ function varbase_core_optional_update_8607($force = false) {
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_blog_li_8607');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8607');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
 
+/**
+ * Change and shift Varbase Media responsive image styles to work with the
+ * mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints
+ */
+function varbase_core_update_8608() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8608');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Rename config updates in Varbase Update Helper to match with new update ids
+ *  standard naming conventions.
+ */
+function varbase_core_update_8609() {
+  
+  // Mapping old update ids naming conventions.
+  $map_old_to_new_update_ids = [
+     'varbase_core:varbase_admin_vbo_8601' => 'varbase_core:varbase_core_optional_update_8601',
+     'varbase_core:varbase_media_blazy_8602' => 'varbase_core:varbase_core_optional_update_8602',
+     'varbase_core:varbase_email_enable_8603' => 'varbase_core:varbase_core_optional_update_8603',
+     'varbase_core:varbase_page_li_8604' => 'varbase_core:varbase_core_optional_update_8604',
+     'varbase_core:varbase_landing_li_8605' => 'varbase_core:varbase_core_optional_update_8605',
+     'varbase_core:varbase_heroslider_media_li_8606' => 'varbase_core:varbase_core_optional_update_8606',
+     'varbase_core:varbase_blog_li_8607' => 'varbase_core:varbase_core_optional_update_8607',
+     'varbase_core:varbase_media_bs3_to_bs4_8608' => 'varbase_core:varbase_core_optional_update_8608',
+  ];
+
+  // Check the old update ids and change them with new update ids.
+  foreach ($map_old_to_new_update_ids as $old_update_id => $new_update_id) {
+
+    // If we do have the old update id in the system.
+    if ($old_update = Update::load($old_update_id)) {
+
+      // Create the new update id if it was not in the system.
+      if (!($new_update = Update::load($new_update_id))) {
+        Update::create(
+          [
+            'id' => $new_update_id,
+            'successful_by_hook' => $old_update->get('successful_by_hook'),
+          ]
+        )->save();
+      }
+
+      // Delete old update id.
+      $old_update->delete();
+
+    }
+  }
+}

@@ -133,15 +133,11 @@ function varbase_admin_install() {
  */
 function varbase_admin_update_8602() {
 
-  if (!\Drupal::moduleHandler()->moduleExists('length_indicator')) {
-    \Drupal::service('module_installer')->install(['length_indicator'], FALSE);
-  }
-
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_enable_li_8602');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_update_8602');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

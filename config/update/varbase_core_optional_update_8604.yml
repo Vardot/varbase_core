@@ -1,21 +1,11 @@
 core.entity_form_display.node.page.default:
   expected_config:
     content:
-      langcode:
-        settings: {  }
       title:
         third_party_settings: {  }
   update_actions:
-    add:
-      content:
-        url_redirects:
-          settings: {  }
-          third_party_settings: {  }
     change:
       content:
-        langcode:
-          settings:
-            include_locked: true
         title:
           third_party_settings:
             advanced_text_formatter:

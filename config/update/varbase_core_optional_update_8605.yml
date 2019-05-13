@@ -1,0 +1,21 @@
+core.entity_form_display.node.landing_page.default:
+  expected_config:
+    content:
+      title:
+        third_party_settings: {  }
+  update_actions:
+    change:
+      content:
+        title:
+          third_party_settings:
+            advanced_text_formatter:
+              show_token_tree: 0
+            length_indicator:
+              indicator: true
+              indicator_opt:
+                optimax: 50
+                optimin: 15
+                tolerance: 10
+            maxlength:
+              maxlength_js: null
+              maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'

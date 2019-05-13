@@ -75,7 +75,7 @@
     "drupal/webform": "~5.0",
     "drupal/webform_analysis": "~1.0",
     "drupal/webform_views": "~5.0",
-    "drupal/default_content": "1.0-alpha7",
+    "drupal/default_content": "1.0-alpha8",
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~1.0",
     "drupal/node_edit_protection": "~1.0",
@@ -92,7 +92,7 @@
     "drupal/update_helper": "1.0",
     "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "~3.0",
+    "drupal/password_policy": "3.0-alpha4",
     "drupal/seckit": "~1.0",
     "drupal/security_review": "*",
     "drupal/honeypot": "~1.0",
@@ -186,11 +186,15 @@
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
-        "https://www.drupal.org/files/issues/2019-04-22/3024165-21.patch"
+        "https://www.drupal.org/files/issues/2019-05-12/3024165-27.patch"
       },
       "drupal/length_indicator": {
         "Issue #3048286: Add cursor position direction support for RTL":
         "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
+      },
+      "drupal/password_policy": {
+        "Issue #3032549: Fix Password policy module issue with saving constraint":
+        "https://www.drupal.org/files/issues/2019-04-28/3032549-18.patch"
       }
     }
   }
