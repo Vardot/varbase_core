@@ -133,6 +133,10 @@ function varbase_admin_install() {
  */
 function varbase_admin_update_8602() {
 
+  if (!\Drupal::moduleHandler()->moduleExists('length_indicator')) {
+    \Drupal::service('module_installer')->install(['length_indicator'], FALSE);
+  }
+
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
