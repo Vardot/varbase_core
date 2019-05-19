@@ -7,7 +7,7 @@
         '#description': '
         <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
         See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
