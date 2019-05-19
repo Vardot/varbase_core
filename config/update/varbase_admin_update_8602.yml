@@ -1,4 +1,4 @@
-global_conditions:
+__global_conditions:
   expected_modules:
     - varbase_admin
 __global_actions:

@@ -1,4 +1,4 @@
-global_conditions:
+__global_conditions:
   expected_modules:
     - varbase_blog
 core.entity_form_display.node.varbase_blog.default:

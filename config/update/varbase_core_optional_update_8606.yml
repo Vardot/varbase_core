@@ -1,4 +1,4 @@
-global_conditions:
+__global_conditions:
   expected_modules:
     - varbase_heroslider_media
 core.entity_form_display.node.varbase_heroslider_media.default:
