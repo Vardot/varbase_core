@@ -109,14 +109,6 @@ function varbase_core_optional_update_8602($force = false) {
  */
 function varbase_core_optional_update_8603($force = false) {
 
-  if (!\Drupal::moduleHandler()->moduleExists('swiftmailer')) {
-    \Drupal::service('module_installer')->install(['swiftmailer'], FALSE);
-  }
-
-  if (!\Drupal::moduleHandler()->moduleExists('varbase_email')) {
-    \Drupal::service('module_installer')->install(['varbase_email'], FALSE);
-  }
-
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 

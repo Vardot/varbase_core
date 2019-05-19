@@ -1,3 +1,6 @@
+global_conditions:
+  expected_modules:
+    - varbase_admin
 views.view.content:
   expected_config:
     display:
