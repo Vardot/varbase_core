@@ -1,3 +1,6 @@
+__global_conditions:
+  expected_modules:
+    - varbase_landing
 core.entity_form_display.node.landing_page.default:
   expected_config:
     content:

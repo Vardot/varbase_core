@@ -1,0 +1,24 @@
+__global_actions:
+  install_modules:
+    - swiftmailer
+    - varbase_email
+mailsystem.settings:
+  expected_config:
+    defaults:
+      formatter: swiftmailer
+      sender: swiftmailer
+  update_actions:
+    change:
+      defaults:
+        formatter: php_mail
+        sender: php_mail
+swiftmailer.message:
+  expected_config:
+    convert_mode: true
+    format: text/html
+    respect_format: false
+  update_actions:
+    change:
+      convert_mode: false
+      format: text/plain
+      respect_format: true
