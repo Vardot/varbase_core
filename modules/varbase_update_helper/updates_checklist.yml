@@ -120,7 +120,7 @@
     '#title': 'New Updates in Varbase 8.6.10'
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
-    varbase_core_update_8608:
+    varbase_core_update_8610:
         '#title': 'Force change for all responsive image styles to use Bootstrap 4 breakpoints'
         '#description': '
         <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
