@@ -121,10 +121,10 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_core_update_8610:
-        '#title': 'Force change for all responsive image styles to use Bootstrap 4 breakpoints'
+        '#title': 'Fix regression of responsive image styles when updating to Bootstrap 4 breakpoints'
         '#description': '
-        <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
-        <p>See issue <a href="https://www.drupal.org/node/3052293" target="_blank">#3052293</a> for details.</p><br />'
+        <p>This update fixes regression issues introduced by previous update.</p>
+        <p>See issue <a href="https://www.drupal.org/node/3056083" target="_blank">#3056083</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />

@@ -232,9 +232,80 @@ function varbase_core_update_8609() {
 }
 
 /**
- * Force change for all responsive image styles to use Bootstrap 4 breakpoints.
+ * Fix regression of responsive image styles when updating to Bootstrap 4
+ * breakpoints.
  */
 function varbase_core_update_8610() {
+
+  // Force import of responsive image styles.
+  $responsive_image_styles_config_names = [
+    'responsive_image.styles.d01',
+    'responsive_image.styles.d01_square',
+    'responsive_image.styles.d01_standard',
+    'responsive_image.styles.d01_traditional',
+    'responsive_image.styles.d02',
+    'responsive_image.styles.d02_square',
+    'responsive_image.styles.d02_standard',
+    'responsive_image.styles.d02_traditional',
+    'responsive_image.styles.d03',
+    'responsive_image.styles.d03_square',
+    'responsive_image.styles.d03_standard',
+    'responsive_image.styles.d03_traditional',
+    'responsive_image.styles.d04',
+    'responsive_image.styles.d04_square',
+    'responsive_image.styles.d04_standard',
+    'responsive_image.styles.d04_traditional',
+    'responsive_image.styles.d05',
+    'responsive_image.styles.d05_square',
+    'responsive_image.styles.d05_standard',
+    'responsive_image.styles.d05_traditional',
+    'responsive_image.styles.d06',
+    'responsive_image.styles.d06_square',
+    'responsive_image.styles.d06_standard',
+    'responsive_image.styles.d06_traditional',
+    'responsive_image.styles.d07',
+    'responsive_image.styles.d07_square',
+    'responsive_image.styles.d07_standard',
+    'responsive_image.styles.d07_traditional',
+    'responsive_image.styles.d08',
+    'responsive_image.styles.d08_square',
+    'responsive_image.styles.d08_standard',
+    'responsive_image.styles.d08_traditional',
+    'responsive_image.styles.d09',
+    'responsive_image.styles.d09_square',
+    'responsive_image.styles.d09_standard',
+    'responsive_image.styles.d09_traditional',
+    'responsive_image.styles.d10',
+    'responsive_image.styles.d10_square',
+    'responsive_image.styles.d10_standard',
+    'responsive_image.styles.d10_traditional',
+    'responsive_image.styles.d11',
+    'responsive_image.styles.d11_square',
+    'responsive_image.styles.d11_standard',
+    'responsive_image.styles.d11_traditional',
+    'responsive_image.styles.d12',
+    'responsive_image.styles.d12_square',
+    'responsive_image.styles.d12_standard',
+    'responsive_image.styles.d12_traditional',
+    'responsive_image.styles.de2e',
+    'responsive_image.styles.de2e_4_1',
+    'responsive_image.styles.de2e_square',
+    'responsive_image.styles.de2e_standard',
+    'responsive_image.styles.de2e_traditional',
+    'responsive_image.styles.default',
+  ];
+
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+
+  foreach ($responsive_image_styles_config_names as $config_name) {
+    $config_path = $optional_install_path . '/' . $config_name . '.yml';
+    $config_content = file_get_contents($config_path);
+    $config_data = (array) Yaml::parse($config_content);
+    $config_factory = \Drupal::configFactory()->getEditable($config_name);
+    $config_factory->setData($config_data)->save(TRUE);
+  }
+
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
