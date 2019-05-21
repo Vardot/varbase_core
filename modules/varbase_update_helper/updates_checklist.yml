@@ -116,3 +116,18 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8608</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+8.6.10:
+    '#title': 'New Updates in Varbase 8.6.10'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_update_8608:
+        '#title': 'Force change for all responsive image styles to use Bootstrap 4 breakpoints'
+        '#description': '
+        <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
+        <p>See issue <a href="https://www.drupal.org/node/3052293" target="_blank">#3052293</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
