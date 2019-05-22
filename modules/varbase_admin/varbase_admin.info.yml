@@ -2,7 +2,7 @@ name: 'Varbase Admin'
 description: 'Manage administration configurations.'
 type: module
 package: Varbase
-version: 8.x-6.x-dev
+version: 8.x-7.x-dev
 core: 8.x
 project: varbase_core
 dependencies:
