@@ -145,3 +145,18 @@ function varbase_admin_update_8602() {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * 	Admin Toolbar Links Access Filter.
+ */
+function varbase_admin_update_8603() {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_admin_update_8603');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
