@@ -70,6 +70,7 @@ install:
   - entityqueue
   - entityqueue_form_widget
   - inline_entity_form
+  - inline_form_errors
   - persistent_login
   - ultimate_cron
   - content_lock
