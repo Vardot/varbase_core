@@ -131,18 +131,3 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-8.7.0:
-    '#title': 'New Updates in Varbase 8.7.0'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_admin_update_8603:
-        '#title': 'Enable Admin toolbar links access filter module'
-        '#description': '
-        <p>This update adds Provides a workaround for the common problem that users with <em>Use the administration pages and help</em> permission see menu links they do not have access permission for.</p>
-        <p>See issue <a href="https://www.drupal.org/node/3056574" target="_blank">#3056574</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_admin_update_8603</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
