@@ -43,7 +43,7 @@
     "drupal/layout_builder_restrictions": "~1.0",
     "drupal/ds": "3.3",
     "drupal/views_bootstrap": "~3.0",
-    "drupal/field_group": "3.0-beta1",
+    "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
     "drupal/advanced_text_formatter": "~1.0",
     "drupal/block_class": "~1.0",
@@ -173,10 +173,6 @@
         "https://www.drupal.org/files/issues/2018-12-12/2665328-variants-take-entity-label-87.patch",
         "Issue #3033057: Page Manager currently not working with CTools 3.1":
         "https://www.drupal.org/files/issues/2019-02-23/3033057-13.patch"
-      },
-      "drupal/field_group": {
-        "Issue #2921228: Accordion does not work":
-        "https://www.drupal.org/files/issues/field_group_accordion-2921228-3.patch"
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
