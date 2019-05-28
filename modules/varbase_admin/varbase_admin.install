@@ -163,6 +163,14 @@ function varbase_admin_update_8604() {
     \Drupal::service('module_installer')->install(['event_log_track'], FALSE);
   }
 
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_file')) {
+    \Drupal::service('module_installer')->install(['event_log_track_file'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_media')) {
+    \Drupal::service('module_installer')->install(['event_log_track_media'], FALSE);
+  }
+
   if (!\Drupal::moduleHandler()->moduleExists('event_log_track_user')) {
     \Drupal::service('module_installer')->install(['event_log_track_user'], FALSE);
   }
@@ -182,4 +190,5 @@ function varbase_admin_update_8604() {
   if (!\Drupal::moduleHandler()->moduleExists('event_log_track_auth')) {
     \Drupal::service('module_installer')->install(['event_log_track_auth'], FALSE);
   }
+
 }

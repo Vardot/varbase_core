@@ -14,6 +14,8 @@ install:
   - roleassign
   - userprotect
   - event_log_track
+  - event_log_track_file
+  - event_log_track_media
   - event_log_track_user
   - event_log_track_taxonomy
   - event_log_track_node
