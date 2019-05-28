@@ -159,7 +159,27 @@ function varbase_admin_update_8603() {
  * Enable [Events log track] module.
  */
 function varbase_admin_update_8604() {
-  if (!\Drupal::moduleHandler()->moduleExists('events_log_track')) {
-    \Drupal::service('module_installer')->install(['events_log_track'], FALSE);
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track')) {
+    \Drupal::service('module_installer')->install(['event_log_track'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_user')) {
+    \Drupal::service('module_installer')->install(['event_log_track_user'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_taxonomy')) {
+    \Drupal::service('module_installer')->install(['event_log_track_taxonomy'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_node')) {
+    \Drupal::service('module_installer')->install(['event_log_track_node'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_menu')) {
+    \Drupal::service('module_installer')->install(['event_log_track_menu'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_auth')) {
+    \Drupal::service('module_installer')->install(['event_log_track_auth'], FALSE);
   }
 }
