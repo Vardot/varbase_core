@@ -13,6 +13,7 @@ install:
   - config_perms
   - roleassign
   - userprotect
+  - events_log_track
   - views_bulk_operations
   - views_bulk_edit
   - admin_toolbar
