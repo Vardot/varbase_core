@@ -23,13 +23,30 @@ function varbase_core_install() {
   // Processer for install: in [$module_name].info.yml file.
   // ---------------------------------------------------------------------------
   $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  $operations = [];
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
       && is_array($module_info_data['install'])) {
-      \Drupal::service('module_installer')->install($module_info_data['install'], TRUE);
+      if(is_callable('\Drupal\varbase_core\Utility\BatchProcessor::install_module_batch')){
+        $modules = $module_info_data['install'];
+        foreach ($modules as $weight => $module) {
+          $operations[] = ['\Drupal\varbase_core\Utility\BatchProcessor::install_module_batch', [$module, $module]];
+        }
+
+        $batch = array(
+          'title' => t('Installing '. $module_name),
+          'operations' => $operations,
+          'error_message' => t('The installation has encountered an error.'),
+        );
+      
+        batch_set($batch);
+      }else{
+        \Drupal::service('module_installer')->install($module_info_data['install'], TRUE);
+      }
     }
   }
+
 
   // Install optional configs.
   $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
