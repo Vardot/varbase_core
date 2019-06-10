@@ -93,7 +93,7 @@
     "drupal/update_helper": "1.0",
     "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "3.0-alpha4",
+    "drupal/password_policy": "~3.0",
     "drupal/seckit": "~1.0",
     "drupal/security_review": "*",
     "drupal/honeypot": "~1.0",
@@ -202,10 +202,6 @@
       "drupal/length_indicator": {
         "Issue #3048286: Add cursor position direction support for RTL":
         "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
-      },
-      "drupal/password_policy": {
-        "Issue #3032549: Fix Password policy module issue with saving constraint":
-        "https://www.drupal.org/files/issues/2019-04-28/3032549-18.patch"
       }
     }
   }
