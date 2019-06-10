@@ -149,9 +149,7 @@
         "Issue #2990664: Media library does not work when Drupal is installed into a sub-directory":
         "https://www.drupal.org/files/issues/2019-05-24/2990664-24-option-b.patch",
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
-        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
-        "Issue #3042038: Allow UrlGenerator to process action URLs in FormBuilder::buildFormAction()":
-        "https://www.drupal.org/files/issues/2019-03-31/3042038-9.patch"
+        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
