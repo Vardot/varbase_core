@@ -193,7 +193,9 @@
         "Issue #2959769: Add handlers for file and media entities":
         "https://www.drupal.org/files/issues/2018-06-26/events-log-track_add-file-media-2959769-9.patch",
         "Issue #3027463: Skip password logging during failed authentication attempt":
-        "https://www.drupal.org/files/issues/2019-01-22/event-log-track-auth-3027463-2.patch"
+        "https://www.drupal.org/files/issues/2019-01-22/event-log-track-auth-3027463-2.patch",
+        "Issue #3060838: Fix fatal error when we request password with non-existing users/emails  on the Events Log Track User Authentication":
+        "https://www.drupal.org/files/issues/2019-06-11/3060838-4.patch"
       },
       "drupal/length_indicator": {
         "Issue #3048286: Add cursor position direction support for RTL":
