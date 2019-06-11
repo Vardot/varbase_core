@@ -153,7 +153,7 @@
         "Issue #3042038: Allow UrlGenerator to process action URLs in FormBuilder::buildFormAction()":
         "https://www.drupal.org/files/issues/2019-03-31/3042038-9.patch",
         "Issue #2971209: The Media library^s View and View Mode should be configurable in the UI":
-        "https://www.drupal.org/files/issues/2018-12-04/2971209-8.patch"
+        "https://www.drupal.org/files/issues/2019-06-11/2971209-10.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
