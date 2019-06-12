@@ -151,7 +151,7 @@
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
         "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
         "Issue #2971209: The Media library^s View and View Mode should be configurable in the UI":
-        "https://www.drupal.org/files/issues/2019-06-11/2971209-10.patch",
+        "https://www.drupal.org/files/issues/2019-06-11/2971209-11.patch",
         "Issue #3060550: oembed link does not pass the URL parameter to the provider":
         "https://www.drupal.org/files/issues/2019-06-10/3060550-oembed-link-does-not-pass-url-parameter-to-provider-1.patch"
       },
