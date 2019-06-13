@@ -1,0 +1,113 @@
+'#title': 'Varebase Apps Catalog'
+'#subtitle': 'Apps from varbase'
+'#featured':
+  - 
+    '#title': 'featured app 1'
+    '#subtitle': 'featured app 1 subtitle'
+    '#image': 'https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/004.jpg'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'featured app 2'
+    '#subtitle': 'featured app 2 subtitle'
+    '#image': 'https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/003.jpg'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'featured app 3'
+    '#subtitle': 'featured app 3 subtitle'
+    '#image': 'https://jssorcdn7.azureedge.net/demos/img/gallery/980x380/002.jpg'
+    '#url': 'Go to url (relative or absolute)'
+'#apps':
+  - 
+    '#title': 'app 1 title'
+    '#machine_name': 'varbase_core'
+    '#subtitle': 'app 1 subtitle'
+    '#icon': 'https://cordova.apache.org/static/img/showcase-apps/CleverBaby.png'
+    '#images': 
+      - 'https://cordova.apache.org/static/img/showcase-apps/CleverBaby.png'
+      - 'https://area66.westside66.org/wp-content/uploads/2016/12/Explain-Everything-icon.png'
+      - 'https://cdn.newswire.com/files/x/27/34/fd89dedb7070b88d80d8e75081cc.png'
+      - 'https://scanbot.io/icon.png'
+    '#description': 'html description for the app 1'
+  - 
+    '#title': 'app 2 title'
+    '#machine_name': 'machine name for the app 2'
+    '#subtitle': 'app 2 subtitle'
+    '#icon': 'https://area66.westside66.org/wp-content/uploads/2016/12/Explain-Everything-icon.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 2'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'app 3 title'
+    '#machine_name': 'machine name for the app 3'
+    '#subtitle': 'app 3 subtitle'
+    '#icon': 'https://cdn.newswire.com/files/x/27/34/fd89dedb7070b88d80d8e75081cc.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 3'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'app 4 title'
+    '#machine_name': 'machine name for the app 4'
+    '#subtitle': 'app 4 subtitle'
+    '#icon': 'https://scanbot.io/icon.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 4'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'app 5 title'
+    '#machine_name': 'machine name for the app 5'
+    '#subtitle': 'app 5 subtitle'
+    '#icon': 'https://cordova.apache.org/static/img/showcase-apps/CleverBaby.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 5'
+  - 
+    '#title': 'app 6 title'
+    '#machine_name': 'machine name for the app 6'
+    '#subtitle': 'app 6 subtitle'
+    '#icon': 'https://area66.westside66.org/wp-content/uploads/2016/12/Explain-Everything-icon.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 6'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'app 7 title'
+    '#machine_name': 'machine name for the app 7'
+    '#subtitle': 'app 3 subtitle'
+    '#icon': 'https://cdn.newswire.com/files/x/27/34/fd89dedb7070b88d80d8e75081cc.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 7'
+    '#url': 'Go to url (relative or absolute)'
+  - 
+    '#title': 'app 8 title'
+    '#machine_name': 'machine name for the app 84'
+    '#subtitle': 'app 8 subtitle'
+    '#icon': 'https://scanbot.io/icon.png'
+    '#images': 
+      - 'image 1 url'
+      - 'image 2 url'
+      - 'image 3 url'
+      - 'image 4 url'
+    '#description': 'html description for the app 8'
+    '#url': 'Go to url (relative or absolute)'

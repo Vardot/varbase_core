@@ -1,0 +1,44 @@
+
+
+<div class="panel clearfix">
+  <div class="layout-column layout-column--quarter">
+    <img src="{{ icon }}" />
+  </div>
+  <div class="layout-column layout-column--three-quarter">
+    <h1>{{ title }}</h1>
+    <h2>{{ subtitle }}</h2>
+    <div class="status">
+      {% if status == "enabled" %}
+        <div role="contentinfo" aria-label="Success message" class="messages messages--status">
+          <div role="alert">
+            <h2 class="visually-hidden">Success message</h2>
+            Enabled
+          </div>
+        </div>
+      {% else %}
+        <div role="contentinfo" aria-label="Error message" class="messages messages--error">
+          <div role="alert">
+            <h2 class="visually-hidden">Error message</h2>
+            Not enabled
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <p>
+      {{description}}
+    </p>
+  </div>
+</div>
+<div class="panel clearfix">
+  <div class="images-carousel slick-slider slick-dotted">
+    {% for slide in images %}
+      <div class="featured-carousel__slide">
+        <div class="slide_content">
+          <div class="img">
+            <img src="{{ slide }}" />
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

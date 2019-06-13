@@ -1,0 +1,51 @@
+<?php
+
+use \Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function varbase_apps_catalog_theme($existing, $type, $theme, $path) {
+  return [
+    'catalog_page' => [
+      'variables' => [
+        'title' => NULL,
+        'subtitle' => NULL,
+        'apps' => NULL,
+        'featured' => NULL
+      ],
+    ],
+    'app_page' => [
+      'variables' => [
+        'title' => NULL,
+        'subtitle' => NULL,
+        'status' => NULL,
+        'icon' => NULL,
+        'images' => NULL,
+        'description' => NULL
+      ],
+    ],
+  ];
+}
+
+
+/**
+ * Implements hook_toolbar().
+ */
+function varbase_apps_catalog_toolbar() {
+  $items = [];
+  $items['varbase_apps_catalog'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('Apps Catalog'),
+      '#url' => Url::fromRoute("varbase_apps_catalog.catalog"),
+      '#attributes' => [
+        'class' => ['toolbar-icon', 'toolbar-icon-system-modules-list'],
+        'aria-pressed' => 'false',
+      ],
+    ],
+    '#weight' => 500,
+  ];
+  return $items;
+}

@@ -1,0 +1,14 @@
+varbase_apps_catalog.catalog:
+  path: '/admin/apps_catalog'
+  defaults:
+    _controller: '\Drupal\varbase_apps_catalog\Controller\CatalogController::catalogPage'
+    _title: 'Apps Catalog'
+  requirements:
+    _permission: 'access content'
+varbase_apps_catalog.app_info:
+  path: '/admin/app_info/{machineName}'
+  defaults:
+    _controller: '\Drupal\varbase_apps_catalog\Controller\CatalogController::appInfoPage'
+    _title: 'App Info'
+  requirements:
+    _permission: 'access content'

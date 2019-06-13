@@ -1,0 +1,58 @@
+<h1>{{ title }}</h1>
+<h2>{{ subtitle }}</h2>
+
+<div class="panel clearfix">
+  <div class="featured-carousel slick-slider slick-dotted">
+    {% for slide in featured %}
+      <div class="featured-carousel__slide">
+        <div class="slide_content">
+          <div class="img">
+            <img src="{{ slide['#image'] }}" />
+          </div>
+          <div class="slide_text">
+            <h3 class="slide__label">{{ slide['#title'] }}</h3>
+            <h4 class="slide__text">{{ slide['#subtitle'] }}</h4>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="panel clearfix">
+  {% for app in apps %}
+    <div class="layout-column layout-column--quarter">
+      <div class="panel clearfix">
+        <div class="img layout-column layout-column--quarter">
+          <img src="{{ app['#icon'] }}" />
+        </div>
+        <div class="layout-column layout-column--three-quarter">
+          <h2>{{ app['#title'] }}</h2>
+          <h5>{{ app['#subtitle'] }}</h5>
+        </div>
+        <div class="app-info">
+          <div class="link clearfix">
+            <a href="{{ app['#url'] }}" class="button button--primary js-form-submit form-submit">More details</a>
+          </div>
+          <div class="status">
+            {% if app['#status'] == "enabled" %}
+              <div role="contentinfo" aria-label="Success message" class="messages messages--status">
+                <div role="alert">
+                  <h2 class="visually-hidden">Success message</h2>
+                  Enabled
+                </div>
+              </div>
+            {% else %}
+              <div role="contentinfo" aria-label="Error message" class="messages messages--error">
+                <div role="alert">
+                  <h2 class="visually-hidden">Error message</h2>
+                  Not enabled
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

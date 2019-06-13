@@ -1,0 +1,79 @@
+.layout-column{
+  padding: 0px 5px !important;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.app-info .link .button{
+  float: right;
+}
+.slick-slide{
+  position: relative;
+}
+
+.panel .panel{
+  background: #ffffff;
+}
+
+.slick-arrow{
+  z-index: 9999;
+  font-size: 20px;
+  color: #000000;
+}
+
+.slick-prev{
+  left: 20px;
+}
+
+.slick-next{
+  right: 20px;
+}
+
+.slide_content img{
+  width: 100%;
+}
+
+.images-carousel.slick-slider .slide_content{
+  padding: 20px;
+}
+
+.slide_content .slide_text{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 30px;
+}
+
+.slick-dots{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.slick-dots li button{
+  border-radius: 100%;
+  margin-right: 10px;
+  background: #ffffff;
+  border: #ffffff solid 3px;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  padding: 0px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.slick-dots li.slick-active button{
+  background: #000000;
+  color: #ffffff;
+}

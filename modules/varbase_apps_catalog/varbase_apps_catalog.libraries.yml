@@ -1,0 +1,11 @@
+varbase_apps_catalog:
+  version: 1.x
+  js:
+    js/scripts.js: {}
+  css:
+    theme:
+      css/styles.css: {}
+  dependencies:
+    - core/jquery
+    - slick/slick
+    - slick/slick.theme
