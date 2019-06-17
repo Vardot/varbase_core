@@ -129,6 +129,19 @@ function varbase_admin_install() {
     ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
+  // Have forced configs import after the entity and definitions updates.
+  $forced_configs_after_entity_and_definitions_updates = [
+    'views.view.content',
+    'views.view.user_admin_people',
+  ];
+
+  foreach ($forced_import_after_entity_and_definitions_updates as $config_name) {
+    $config_path = $optional_install_path . '/' . $config_name . '.yml';
+    $config_content = file_get_contents($config_path);
+    $config_data = (array) Yaml::parse($config_content);
+    $config_factory = \Drupal::configFactory()->getEditable($config_name);
+    $config_factory->setData($config_data)->save(TRUE);
+  }
 }
 
 /**
