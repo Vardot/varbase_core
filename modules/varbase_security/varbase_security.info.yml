@@ -19,3 +19,4 @@ install:
   - password_policy_username
   - seckit
   - username_enumeration_prevention
+  - genpass
