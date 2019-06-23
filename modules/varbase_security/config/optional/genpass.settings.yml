@@ -1,5 +1,5 @@
 genpass_length: 12
 genpass_algorithm: genpass
-genpass_entropy: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!#$%&()*+,-./:;<=>?@[]^_{|}~'
+genpass_entropy: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[]^_{|}~'
 genpass_mode: 2
 genpass_display: 1
