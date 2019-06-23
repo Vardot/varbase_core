@@ -1,6 +1,6 @@
 id: iphone_xs
 label: 'iPhone XS'
-weight: -10
+weight: -12
 status: 1
 orientation: portrait
 dimensions:
