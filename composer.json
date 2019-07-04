@@ -147,8 +147,6 @@
         "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch",
         "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
-        "Issue #2990664: Media library does not work when Drupal is installed into a sub-directory":
-        "https://www.drupal.org/files/issues/2019-05-24/2990664-24-option-b.patch",
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
         "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
         "Issue #3060550: oembed link does not pass the URL parameter to the provider":
