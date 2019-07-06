@@ -7,16 +7,16 @@ use Drupal\varbase_core\Utility\CommandHelper;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class VarbaseUpdateHelperCommands
+ * Class VarbaseUpdateHelperCommands.
  *
- * define drush commands for varbase_update_helper module
+ * Define drush commands for varbase_update_helper module.
  *
  * @package Drupal\varbase_update_helper\Commands
  */
 class VarbaseUpdateHelperCommands extends DrushCommands {
 
   /**
-   * command helper object (inspired by search API module)
+   * Command helper object (inspired by search API module)
    *
    * @var \Drupal\varbase_core\Utility\CommandHelper
    */
@@ -38,19 +38,25 @@ class VarbaseUpdateHelperCommands extends DrushCommands {
   }
 
   /**
-   * applying an (optional) update hook (function) from module install file
+   * Applying an (optional) update hook (function) from module install file.
+   *
    * Apply Varbase updates by invoking the related update hooks.
    *
    * @param string $module
+   *   Module name.
    * @param string $update_hook
+   *   Update Hook.
    * @param array $options
+   *   Options.
+   *
    * @option force
    *
    * @command varbase_update_helper:varbase-apply-update
    * @aliases varbase-up
    */
-  public function varbase_apply_update ($module = '', $update_hook = '', $options = ['force' => FALSE]) {
+  public function varbaseApplyUpdate($module = '', $update_hook = '', array $options = ['force' => FALSE]) {
     $force = $options['force'];
-    $this->commandHelper->varbase_apply_update($module, $update_hook, $force);
+    $this->commandHelper->varbaseApplyUpdate($module, $update_hook, $force);
   }
+
 }

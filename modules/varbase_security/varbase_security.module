@@ -4,9 +4,6 @@
  * @file
  * Contains varbase_security.module.
  */
- use Drupal\Core\Entity\EntityInterface;
- use Drupal\Core\Form\FormStateInterface;
- use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_FORM_ID_alter() for user_form().

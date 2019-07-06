@@ -5,22 +5,31 @@ namespace Drupal\varbase_core\Utility;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 
+/**
+ * Command Helper.
+ */
 class CommandHelper implements LoggerAwareInterface {
 
   use LoggerAwareTrait;
 
+  /**
+   * Constructs an Command Helper object.
+   */
   public function __construct() {
 
   }
 
   /**
-   * applying an (optional) update hook (function) from module install file
+   * Applying an (optional) update hook (function) from module install file.
    *
-   * @param string $module - drupal module name
-   * @param string $update_hook - name of update_hook to apply
-   * @param bool $force - force the update
+   * @param string $module
+   *   Drupal module name.
+   * @param string $update_hook
+   *   Name of update_hook to apply.
+   * @param bool $force
+   *   Force the update.
    */
-  public function varbase_apply_update($module = '', $update_hook = '', $force = FALSE) {
+  public function varbaseApplyUpdate($module = '', $update_hook = '', $force = FALSE) {
     if (!$update_hook || !$module) {
       $this->logger->info(dt('Please provide a module name and an update hook. Example: drush varbase-up <module> <update_hook>'));
       return;

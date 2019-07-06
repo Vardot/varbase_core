@@ -35,8 +35,8 @@ class VarbaseGeneralSettingsForm extends ConfigFormBase {
     $form['settings']['welcome_status'] = [
       '#type' => 'checkbox',
       '#default_value' => $config->get('welcome_status'),
-      '#title' => t('Allow site to show welcome message'),
-      '#description' => t('This option will allow to display Varbase\'s welcome message on the homepage by adding <code>?welcome</code> to the URL. This option is automatically disabled after closing the welcome message. Check this then navigate to <a href="@front_page_with_welcome">@front_page_with_welcome</a> to see the welcome message again.', ['@front_page_with_welcome' => $front_page_with_welcome]),
+      '#title' => $this->t('Allow site to show welcome message'),
+      '#description' => $this->t('This option will allow to display Varbase\'s welcome message on the homepage by adding <code>?welcome</code> to the URL. This option is automatically disabled after closing the welcome message. Check this then navigate to <a href="@front_page_with_welcome">@front_page_with_welcome</a> to see the welcome message again.', ['@front_page_with_welcome' => $front_page_with_welcome]),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -53,5 +53,5 @@ class VarbaseGeneralSettingsForm extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
-  
+
 }

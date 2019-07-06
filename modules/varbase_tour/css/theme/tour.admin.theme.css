@@ -24,9 +24,9 @@
 .joyride-tip-guide thead th.is-active {
   background: #fff;
   border-bottom: 1px solid #fff;
-  border-top: 1px solid #E6E4DF;
-  border-left: 1px solid #E6E4DF;
-  border-right: 1px solid #E6E4DF;
+  border-top: 1px solid #e6e4df;
+  border-left: 1px solid #e6e4df;
+  border-right: 1px solid #e6e4df;
 }
 .joyride-tip-guide th.is-active > a,
 .joyride-tip-guide th.is-active > a:hover {
@@ -40,7 +40,7 @@
   display: none;
 }
 .joyride-tip-guide thead > tr {
-  border-bottom: 1px solid #E6E4DF;
+  border-bottom: 1px solid #e6e4df;
 }
 .joyride-tip-guide .is-collapse-enabled .tabs:before,
 .joyride-tip-guide .is-horizontal .tabs:before {
@@ -49,13 +49,13 @@
 .joyride-tip-guide .button {
   border-radius: 0;
   background-image: none;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   text-shadow: none;
   transition: all, 0.2s;
 }
 .joyride-tip-guide .button:hover,
 .joyride-tip-guide .button:focus {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-color: #008ee6;
   background-image: none;
 }
@@ -84,7 +84,7 @@
   outline: none;
 }
 .joyride-tip-guide .action-links .button--primary {
-  color: #327EBD;
+  color: #327ebd;
   background: #fff;
   font-size: 14px;
   padding: 0.33rem 1.33rem;
@@ -98,7 +98,7 @@
   color: #fff;
   box-shadow: none;
   background-image: none;
-  background-color: #327EBD;
+  background-color: #327ebd;
 }
 .joyride-tip-guide .action-links .button--primary:focus {
   border-color: #08639b;
@@ -162,12 +162,12 @@
   background-position: 5px 50%;
 }
 .joyride-tip-guide .messages--error {
-  border-color: #E32700;
+  border-color: #e32700;
 }
 .joyride-tip-guide .messages--warning {
-  border-color: #E29700;
+  border-color: #e29700;
 }
 .joyride-tip-guide .messages--status {
-  border-color: #73B355;
+  border-color: #73b355;
 }
 /*# sourceMappingURL=tour.admin.theme.css.map */

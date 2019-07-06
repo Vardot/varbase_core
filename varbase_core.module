@@ -9,7 +9,7 @@
 \Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
 
 /**
- * Implements hook_FORM_ID_form_alter.
+ * Implements hook_FORM_ID_form_alter().
  */
 function varbase_core_form_node_form_alter(&$form, $form_state) {
   // Override node form sidebar order.
