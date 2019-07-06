@@ -6,7 +6,6 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
@@ -24,8 +23,8 @@ function varbase_admin_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // ---------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -67,7 +66,6 @@ function varbase_admin_install() {
     }
   }
   // ---------------------------------------------------------------------------
-  
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
   $user->roles[] = 'administrator';
@@ -80,44 +78,44 @@ function varbase_admin_install() {
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 
   // Populate the default shortcut set.
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Add content'),
     'weight' => 0,
-    'link' => array('uri' => 'internal:/node/add'),
-  ));
+    'link' => ['uri' => 'internal:/node/add'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('All content'),
     'weight' => 1,
-    'link' => array('uri' => 'internal:/admin/content'),
-  ));
+    'link' => ['uri' => 'internal:/admin/content'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('All media'),
     'weight' => 2,
-    'link' => array('uri' => 'internal:/admin/content/media'),
-  ));
+    'link' => ['uri' => 'internal:/admin/content/media'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Taxonomy'),
     'weight' => 3,
-    'link' => array('uri' => 'internal:/admin/structure/taxonomy'),
-  ));
+    'link' => ['uri' => 'internal:/admin/structure/taxonomy'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Permissions'),
     'weight' => 4,
-    'link' => array('uri' => 'internal:/admin/people/permissions'),
-  ));
+    'link' => ['uri' => 'internal:/admin/people/permissions'],
+  ]);
   $shortcut->save();
 
   // Enable the admin theme.
@@ -160,7 +158,7 @@ function varbase_admin_update_8602() {
 }
 
 /**
- * 	Enable Admin Toolbar Links Access Filter module.
+ * Enable Admin Toolbar Links Access Filter module.
  */
 function varbase_admin_update_8603() {
   if (!\Drupal::moduleHandler()->moduleExists('admin_toolbar_links_access_filter')) {

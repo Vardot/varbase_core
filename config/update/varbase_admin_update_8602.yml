@@ -4,4 +4,3 @@ __global_conditions:
 __global_actions:
   install_modules:
     - length_indicator
-

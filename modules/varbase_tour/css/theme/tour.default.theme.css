@@ -52,7 +52,7 @@
 }
 .joyride-tip-guide .button:focus {
   z-index: 10;
-  border: 1px solid #3AB2FF;
+  border: 1px solid #3ab2ff;
   box-shadow: 0 0 0.5em 0.1em rgba(51, 177, 255, 0.7);
 }
 .joyride-tip-guide .button:active {
@@ -83,7 +83,7 @@
   color: #fff;
 }
 .joyride-tip-guide .button--primary:focus {
-  border: 1px solid #1280DF;
+  border: 1px solid #1280df;
 }
 .joyride-tip-guide .button--primary:hover {
   box-shadow: 0 1px 2px rgba(23, 26, 28, 0.25);

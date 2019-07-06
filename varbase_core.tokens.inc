@@ -5,9 +5,9 @@
  * Contains varbase_core.tokens.inc.
  */
 
- /**
-  * To have all varbase core general and global tokens.
-  */
+/**
+ * To have all varbase core general and global tokens.
+ */
 
 use Drupal\Core\Render\BubbleableMetadata;
 
@@ -16,14 +16,14 @@ use Drupal\Core\Render\BubbleableMetadata;
  */
 function varbase_core_token_info() {
   // Default theme token.
-  $info['types']['default-active-theme'] = array(
+  $info['types']['default-active-theme'] = [
     'name' => t('Default theme'),
     'description' => t('Tokens related to the Default theme.'),
-  );
-  $info['tokens']['default-active-theme']['path'] = array(
+  ];
+  $info['tokens']['default-active-theme']['path'] = [
     'name' => t('Path'),
     'description' => t('The path of the Default theme.'),
-  );
+  ];
 
   return $info;
 }
@@ -32,16 +32,7 @@ function varbase_core_token_info() {
  * Implements hook_tokens().
  */
 function varbase_core_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
-  $replacements = array();
-  $language_manager = \Drupal::languageManager();
-  $url_options = array('absolute' => TRUE);
-  if (isset($options['langcode'])) {
-    $url_options['language'] = $language_manager->getLanguage($options['langcode']);
-    $langcode = $options['langcode'];
-  }
-  else {
-    $langcode = $language_manager->getCurrentLanguage()->getId();
-  }
+  $replacements = [];
 
   if ($type == 'default-active-theme') {
     foreach ($tokens as $name => $original) {
