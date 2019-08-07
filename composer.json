@@ -142,9 +142,7 @@
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch",
-        "Issue #3060550: oembed link does not pass the URL parameter to the provider":
-        "https://www.drupal.org/files/issues/2019-06-10/3060550-oembed-link-does-not-pass-url-parameter-to-provider-1.patch"
+        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
