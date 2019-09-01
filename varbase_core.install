@@ -329,3 +329,46 @@ function varbase_core_update_8610() {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Add [Gallery] media type.
+ */
+function varbase_core_update_optional_8701() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8701');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Revamp Varbase Entity Browsers with multiple media selection behaviors.
+ */
+function varbase_core_update_optional_8702() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8702');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Add [Gallery] entity embed button to the Rich Editor text format and
+ * Order buttons: Media Library, Gallery, Embed in the Rich Editor text format.
+ */
+function varbase_core_update_optional_8703() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8703');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}

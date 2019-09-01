@@ -131,3 +131,52 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+8.7.1:
+    '#title': 'New Updates in Varbase 8.7.1'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_media'
+    varbase_core_update_optional_8701:
+      '#title': 'Add [Gallery] media type'
+      '#description': '
+      <p><ul>
+        <li>New Media Type: Gallery.</li>
+        <li>New slick presets for Gallery.</li>
+        <li>New form modes for all Media Types [Simplified, Editor].</li>
+        <li>Configure all Media Types Simplified view mode.</li>
+        <li>View mode to appear in media library.</li>
+        <li>Add multiple media entity browsers with selection.</li>
+      </ul></p>
+      See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8701</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8701</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
+    varbase_core_update_optional_8702:
+      '#title': 'Revamped Varbase Entity Browsers'
+      '#description': '
+      <p>Revamped Varbase Entity Browsers with multiple media selection behaviors.</p>
+      See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8702</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
+    varbase_core_update_optional_8703:
+      '#title': 'Change Media embed and language buttons for the Rich Editor text format'
+      '#description': '
+      <p>Add [Gallery] entity embed button to the Rich Editor text format and Order buttons: Media Library, Gallery, Embed in the Rich Editor text format.<br />
+      Remove language button from the Rich Editor text format
+      </p>
+      See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3077029/" target="_blank">#3077029</a> and <a href="https://www.drupal.org/project/varbase_editor/issues/3077060/" target="_blank">#3077060</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8703</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8703</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
