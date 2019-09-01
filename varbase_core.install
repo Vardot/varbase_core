@@ -333,12 +333,12 @@ function varbase_core_update_8610() {
 /**
  * Add [Gallery] media type.
  */
-function varbase_core_update_optional_8701() {
+function varbase_core_optional_update_8701() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8701');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8701');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -347,12 +347,12 @@ function varbase_core_update_optional_8701() {
 /**
  * Revamp Varbase Entity Browsers with multiple media selection behaviors.
  */
-function varbase_core_update_optional_8702() {
+function varbase_core_optional_update_8702() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8702');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8702');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
@@ -362,12 +362,12 @@ function varbase_core_update_optional_8702() {
  * Add [Gallery] entity embed button to the Rich Editor text format and
  * Order buttons: Media Library, Gallery, Embed in the Rich Editor text format.
  */
-function varbase_core_update_optional_8703() {
+function varbase_core_optional_update_8703() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
   // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_optional_8703');
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8703');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
