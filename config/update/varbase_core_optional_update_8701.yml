@@ -9113,7 +9113,6 @@ media.type.gallery:
       dependencies:
         module:
           - crop
-          - varbase_media
       third_party_settings:
         crop:
           image_field: null
