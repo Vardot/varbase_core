@@ -134,7 +134,7 @@
 8.7.1:
     '#title': 'New Updates in Varbase 8.7.1'
     '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_media'
+    '#module': 'varbase_core'
     varbase_core_optional_update_8701:
       '#title': 'Add [Gallery] media type'
       '#description': '
