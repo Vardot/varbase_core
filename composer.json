@@ -41,7 +41,7 @@
     "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~1.0",
-    "drupal/ds": "3.3",
+    "drupal/ds": "~3.0",
     "drupal/views_bootstrap": "~3.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
@@ -163,10 +163,6 @@
       "drupal/ctools": {
         "Issue #2820783: Fix Block.php notices and warnings.":
         "https://www.drupal.org/files/issues/2019-02-18/ctools-Block.php_notices_and_warnings-2820783-51-D8.patch"
-      },
-      "drupal/ds": {
-        "Issue #2920868: Fix fatal errors when we have missing layouts, on an update" :
-        "https://www.drupal.org/files/issues/2019-03-03/2920868-12.patch"
       },
       "drupal/page_manager": {
         "Issue #2665328: Variants take entity label not the variant title":
