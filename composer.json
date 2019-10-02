@@ -42,7 +42,7 @@
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~2.0",
     "drupal/ds": "~3.0",
-    "drupal/views_bootstrap": "~4.0",
+    "drupal/views_bootstrap": "4.1",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
     "drupal/advanced_text_formatter": "~1.0",
@@ -195,6 +195,10 @@
       "drupal/length_indicator": {
         "Issue #3048286: Add cursor position direction support for RTL":
         "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
+      },
+      "drupal/views_bootstrap": {
+        "Issue #3059241: Fix missing col-lg and col-xl in bootstrap grid format settings":
+        "https://www.drupal.org/files/issues/2019-09-09/col-lg-and-col-xl-missing-in-bootstrap-grid-format-settings-3059241-4.patch"
       }
     }
   }
