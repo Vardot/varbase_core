@@ -372,3 +372,17 @@ function varbase_core_optional_update_8703() {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Issue #3085537: Add [Token Filter] module 8.1.1 ( ~1.0 )
+ */
+function varbase_core_update_8704() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8704');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}

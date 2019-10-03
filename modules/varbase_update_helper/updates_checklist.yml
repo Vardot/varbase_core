@@ -180,3 +180,19 @@
       <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8703</code> to force applying this update.</span>
       This will likely override your previous configuration! Do this on your own risk.<p><br />
       '
+8.7.2:
+    '#title': 'New Updates in Varbase 8.7.2'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_update_8704:
+        '#title': 'Add Token Filter to be able to use filters on tokens in the HTML Editor (code filter)'
+        '#description': '
+        <p>This update adds a colored length indicator to Basic page title field in the form.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_core/issues/3085537" target="_blank">#3085537</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8704</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8704</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
