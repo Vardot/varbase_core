@@ -55,6 +55,7 @@ install:
   - menu_ui
   - menu_link_content
   - filter
+  - token_filter
   - field_ui
   - help
   - page_cache

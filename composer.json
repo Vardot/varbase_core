@@ -37,6 +37,7 @@
     "drupal/config_ignore": "~2.0",
     "drupal/ctools": "3.2",
     "drupal/token": "~1.0",
+    "drupal/token_filter": "~1.0",
     "drupal/page_manager": "4.0-beta4",
     "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "~5.0",
