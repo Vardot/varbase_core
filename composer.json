@@ -196,8 +196,8 @@
         "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
       },
       "drupal/views_bootstrap": {
-        "Issue #3059241: Fix missing col-lg and col-xl in bootstrap grid format settings":
-        "https://www.drupal.org/files/issues/2019-09-09/col-lg-and-col-xl-missing-in-bootstrap-grid-format-settings-3059241-4.patch"
+        "Issue #3049311: Grids should not be split into multiple rows":
+        "https://www.drupal.org/files/issues/2019-05-31/views-bootstrap-dont-split-grid-rows-3049311-9.patch"
       }
     }
   }
