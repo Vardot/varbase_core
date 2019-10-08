@@ -3,6 +3,8 @@ __global_conditions:
     - varbase_media
 __global_actions:
   import_configs:
+    - core.entity_form_mode.media.simplified
+    - core.entity_form_mode.media.editor
     - media.type.gallery
     - field.storage.media.field_media_gallery
     - field.field.media.gallery.field_media_gallery
@@ -12,24 +14,21 @@ __global_actions:
     - core.entity_view_display.media.gallery.field_preview
     - core.entity_view_display.media.gallery.full
     - core.entity_view_display.media.gallery.media_library
-    - slick.optionset.varbase_gallery
-    - embed.button.gallery
+    - core.entity_form_display.media.gallery.editor
     - core.entity_form_display.media.gallery.default
     - core.entity_form_display.media.gallery.editor
     - core.entity_form_display.media.gallery.entity_browser
     - core.entity_form_display.media.gallery.media_library
     - core.entity_form_display.media.gallery.simplified
-    - core.entity_form_mode.media.simplified
-    - core.entity_form_mode.media.editor
+    - slick.optionset.varbase_gallery
+    - embed.button.gallery
     - core.entity_form_display.media.audio.simplified
     - core.entity_form_display.media.file.simplified
     - core.entity_form_display.media.image.simplified
     - core.entity_form_display.media.remote_video.simplified
     - core.entity_form_display.media.video.simplified
-    - core.entity_form_mode.media.simplified
     - core.entity_form_display.media.audio.editor
     - core.entity_form_display.media.file.editor
-    - core.entity_form_display.media.gallery.editor
     - core.entity_form_display.media.image.editor
     - core.entity_form_display.media.remote_video.editor
     - core.entity_form_display.media.video.editor
@@ -37,10 +36,14 @@ __global_actions:
     - entity_browser.browser.editor_multiple_media_browser
     - entity_browser.browser.multiple_image_browser
     - entity_browser.browser.multiple_media_browser
+    - entity_browser_enhanced.widgets.editor_media_browser
     - entity_browser_enhanced.widgets.editor_multiple_image_browser
     - entity_browser_enhanced.widgets.editor_multiple_media_browser
+    - entity_browser_enhanced.widgets.image_browser
+    - entity_browser_enhanced.widgets.media_browser
     - entity_browser_enhanced.widgets.multiple_image_browser
     - entity_browser_enhanced.widgets.multiple_media_browser
+    - entity_browser_enhanced.widgets.video_browser
 views.view.media_browsers:
   expected_config:
     display:
@@ -10981,16 +10984,6 @@ core.entity_view_display.media.video.small:
             style: ''
             thumbnail_style: ''
             view_mode: ''
-embed.button.media:
-  expected_config:
-    icon_uuid: null
-  update_actions:
-    add:
-      type_settings:
-        inline_entity_form: 0
-        inline_entity_form_settings:
-          display_review: 0
-          entity_form_display: default
 field.field.media.audio.field_media_in_library:
   expected_config:
     default_value:
@@ -11041,3 +11034,13 @@ field.field.media.video.field_media_in_library:
       default_value:
         -1:
           value: 1
+embed.button.media:
+  expected_config:
+    icon_uuid: null
+  update_actions:
+    add:
+      type_settings:
+        inline_entity_form: 0
+        inline_entity_form_settings:
+          display_review: 0
+          entity_form_display: default

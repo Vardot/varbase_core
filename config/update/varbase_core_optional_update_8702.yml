@@ -3,14 +3,28 @@ __global_conditions:
     - varbase_media
 __global_actions:
   import_configs:
+    - core.entity_form_display.media.audio.simplified
+    - core.entity_form_display.media.file.simplified
+    - core.entity_form_display.media.image.simplified
+    - core.entity_form_display.media.remote_video.simplified
+    - core.entity_form_display.media.video.simplified
+    - core.entity_form_display.media.audio.editor
+    - core.entity_form_display.media.file.editor
+    - core.entity_form_display.media.image.editor
+    - core.entity_form_display.media.remote_video.editor
+    - core.entity_form_display.media.video.editor
     - entity_browser.browser.editor_multiple_image_browser
     - entity_browser.browser.editor_multiple_media_browser
     - entity_browser.browser.multiple_image_browser
     - entity_browser.browser.multiple_media_browser
+    - entity_browser_enhanced.widgets.editor_media_browser
     - entity_browser_enhanced.widgets.editor_multiple_image_browser
     - entity_browser_enhanced.widgets.editor_multiple_media_browser
+    - entity_browser_enhanced.widgets.image_browser
+    - entity_browser_enhanced.widgets.media_browser
     - entity_browser_enhanced.widgets.multiple_image_browser
     - entity_browser_enhanced.widgets.multiple_media_browser
+    - entity_browser_enhanced.widgets.video_browser
 views.view.media_browsers:
   expected_config:
     display:
@@ -8910,4 +8924,3 @@ views.view.media_library:
               - 'url.query_args:sort_by'
               - user.permissions
             tags: {  }
-  
