@@ -136,15 +136,12 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_core_optional_update_8701:
-      '#title': 'Add [Gallery] media type'
+      '#title': 'Add a new Gallery media type'
       '#description': '
-      <p><ul>
-        <li>New Media Type: Gallery.</li>
-        <li>New slick presets for Gallery.</li>
-        <li>New form modes for all Media Types [Simplified, Editor].</li>
-        <li>Configure all Media Types Simplified view mode.</li>
-        <li>View mode to appear in media library.</li>
-        <li>Add multiple media entity browsers with selection.</li>
+      <p>This update introduces a new Gallery media type. The Gallery media type includes:<ul>
+        <li>New Slick presets configuration for Gallery slider.</li>
+        <li>New form modes for all Media Types to simplify entry.</li>
+        <li>A new easy way to select Gallery media items through enhanced Entity Browsers.</li>
       </ul></p>
       See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
       <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8701</code> to apply this update.</span></p><br />'
@@ -155,9 +152,9 @@
       This will likely override your previous configuration! Do this on your own risk.<p><br />
       '
     varbase_core_optional_update_8702:
-      '#title': 'Revamped Varbase Entity Browsers'
+      '#title': 'Improved Entity Browsers'
       '#description': '
-      <p>Revamped Varbase Entity Browsers with multiple media selection behaviors.</p>
+      <p>This update introduces upgraded Entity Browsers with ability to select multiple media items especially when browsing accross multiple pages.</p>
       See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
       <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />'
       '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
