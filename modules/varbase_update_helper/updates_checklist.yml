@@ -185,9 +185,9 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_core_update_8704:
-        '#title': 'Add Token Filter to be able to use filters on tokens in the HTML Editor (code filter)'
+        '#title': 'Ability to use Drupal Tokens inside WYSIWYG editor'
         '#description': '
-        <p>This update adds a colored length indicator to Basic page title field in the form.</p>
+        <p>This update enabled Token Filter module and allows site admins with access to the HTML Editor (Code Filter) to insert Drupal Tokens and render them in the markup.</p>
         See issue <a href="https://www.drupal.org/project/varbase_core/issues/3085537" target="_blank">#3085537</a> for details.<br />
         <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8704</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
