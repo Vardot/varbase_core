@@ -178,7 +178,6 @@ editor.editor.full_html:
                 name: Media
                 items:
                   - media
-                  - gallery
                   - Embed
                   - '-'
                   - Blockquote
