@@ -16,7 +16,6 @@ __global_actions:
     - core.entity_view_display.media.gallery.media_library
     - core.entity_form_display.media.gallery.editor
     - core.entity_form_display.media.gallery.default
-    - core.entity_form_display.media.gallery.editor
     - core.entity_form_display.media.gallery.entity_browser
     - core.entity_form_display.media.gallery.media_library
     - core.entity_form_display.media.gallery.simplified
@@ -10987,52 +10986,52 @@ core.entity_view_display.media.video.small:
 field.field.media.audio.field_media_in_library:
   expected_config:
     default_value:
-      -1:
+      0:
         value: 0
   update_actions:
     change:
       default_value:
-        -1:
+        0:
           value: 1
 field.field.media.file.field_media_in_library:
   expected_config:
     default_value:
-      -1:
+      0:
         value: 0
   update_actions:
     change:
       default_value:
-        -1:
+        0:
           value: 1
 field.field.media.image.field_media_in_library:
   expected_config:
     default_value:
-      -1:
+      0:
         value: 0
   update_actions:
     change:
       default_value:
-        -1:
+        0:
           value: 1
 field.field.media.remote_video.field_media_in_library:
   expected_config:
     default_value:
-      -1:
+      0:
         value: 0
   update_actions:
     change:
       default_value:
-        -1:
+        0:
           value: 1
 field.field.media.video.field_media_in_library:
   expected_config:
     default_value:
-      -1:
+      0:
         value: 0
   update_actions:
     change:
       default_value:
-        -1:
+        0:
           value: 1
 embed.button.media:
   expected_config:
@@ -11044,3 +11043,753 @@ embed.button.media:
         inline_entity_form_settings:
           display_review: 0
           entity_form_display: default
+entity_browser.browser.image_browser:
+  expected_config:
+    widgets:
+      c9e40862-4975-43fc-9e06-64c1bc53e9a4:
+        settings:
+          view: media_browsers
+          view_display: image_browser
+          submit_text: 'Select image(s)'
+          auto_select: false
+        uuid: c9e40862-4975-43fc-9e06-64c1bc53e9a4
+        weight: -10
+        label: Library
+        id: view
+      9a5d8df6-c825-4c56-978a-c99c8fe9a4d3:
+        settings:
+          form_mode: entity_browser
+          media_type: image
+          upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+          dropzone_description: 'Drop image files here to upload them'
+          max_filesize: 32M
+          extensions: 'jpg jpeg gif png'
+          clientside_resize: false
+          resize_width: null
+          resize_height: null
+          resize_quality: !!float 1
+          resize_method: contain
+          thumbnail_method: contain
+          submit_text: 'Select image(s)'
+        uuid: 9a5d8df6-c825-4c56-978a-c99c8fe9a4d3
+        weight: 3
+        label: Upload
+        id: dropzonejs_media_entity_inline_entity_form
+  update_actions:
+    change:
+      widgets:
+        c9e40862-4975-43fc-9e06-64c1bc53e9a4:
+          settings:
+            view: media_browsers
+            view_display: media_browser
+            submit_text: 'Select image(s)'
+            auto_select: false
+          uuid: c9e40862-4975-43fc-9e06-64c1bc53e9a4
+          weight: -10
+          label: Library
+          id: view
+        9a5d8df6-c825-4c56-978a-c99c8fe9a4d3:
+          settings:
+            form_mode: entity_browser
+            media_type: image
+            upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop image files here to upload them'
+            max_filesize: 32M
+            extensions: 'jpg jpeg gif png'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select image(s)'
+          uuid: 9a5d8df6-c825-4c56-978a-c99c8fe9a4d3
+          weight: 3
+          label: Upload
+          id: dropzonejs_media_entity_inline_entity_form
+entity_browser.browser.video_browser:
+  expected_config:
+    widgets:
+      253f86d3-665e-4e0e-b180-7be4266cc618:
+        settings:
+          view: media_browsers
+          view_display: video_browser
+          submit_text: 'Select video(s)'
+          auto_select: false
+        uuid: 253f86d3-665e-4e0e-b180-7be4266cc618
+        weight: -10
+        label: Library
+        id: view
+      ed821f5d-dd9e-4132-b89a-54d97a36cd4e:
+        settings:
+          submit_text: 'Embed media'
+          form_mode: entity_browser
+        uuid: ed821f5d-dd9e-4132-b89a-54d97a36cd4e
+        weight: 4
+        label: Embed
+        id: embed_code
+      ad7800f0-c930-4f86-905d-7dd893b2945f:
+        settings:
+          form_mode: entity_browser
+          media_type: video
+          upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+          dropzone_description: 'Drop video file here to upload it'
+          max_filesize: 128M
+          extensions: 'mp4 webm ogv'
+          clientside_resize: false
+          resize_width: null
+          resize_height: null
+          resize_quality: !!float 1
+          resize_method: contain
+          thumbnail_method: contain
+          submit_text: 'Select video(s)'
+        uuid: ad7800f0-c930-4f86-905d-7dd893b2945f
+        weight: 4
+        label: Upload
+        id: dropzonejs_media_entity_inline_entity_form
+  update_actions:
+    change:
+      widgets:
+        253f86d3-665e-4e0e-b180-7be4266cc618:
+          settings:
+            view: media_browsers
+            view_display: media_browser
+            submit_text: 'Select video(s)'
+            auto_select: false
+          uuid: 253f86d3-665e-4e0e-b180-7be4266cc618
+          weight: -10
+          label: Library
+          id: view
+        ed821f5d-dd9e-4132-b89a-54d97a36cd4e:
+          settings:
+            submit_text: 'Embed media'
+            form_mode: entity_browser
+          uuid: ed821f5d-dd9e-4132-b89a-54d97a36cd4e
+          weight: 4
+          label: Embed
+          id: embed_code
+        ad7800f0-c930-4f86-905d-7dd893b2945f:
+          settings:
+            form_mode: entity_browser
+            media_type: video
+            upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop video file here to upload it'
+            max_filesize: 128M
+            extensions: 'mp4 webm ogv'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select video(s)'
+          uuid: ad7800f0-c930-4f86-905d-7dd893b2945f
+          weight: 4
+          label: Upload
+          id: dropzonejs_media_entity_inline_entity_form
+entity_browser.browser.media_browser:
+  expected_config:
+    widgets:
+      901e1292-75e8-4ecf-a08a-904e75b135bb:
+        settings:
+          view: media_browsers
+          view_display: media_browser
+          submit_text: 'Select media'
+          auto_select: false
+        uuid: 901e1292-75e8-4ecf-a08a-904e75b135bb
+        weight: -10
+        label: Library
+        id: view
+      91fd896e-e8c5-415c-9d14-5bc59c60e630:
+        settings:
+          submit_text: 'Embed media'
+          form_mode: entity_browser
+        uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
+        weight: -7
+        label: Embed
+        id: embed_code
+      0a2903ed-f5ef-42bb-9041-fb3081f7f64e:
+        settings:
+          form_mode: entity_browser
+          media_type: image
+          upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+          dropzone_description: 'Drop image files here to upload them'
+          max_filesize: 32M
+          extensions: 'jpg jpeg gif png'
+          clientside_resize: false
+          resize_width: null
+          resize_height: null
+          resize_quality: !!float 1
+          resize_method: contain
+          thumbnail_method: contain
+          submit_text: 'Select image(s)'
+        uuid: 0a2903ed-f5ef-42bb-9041-fb3081f7f64e
+        weight: -9
+        label: 'Upload image'
+        id: dropzonejs_media_entity_inline_entity_form
+      c4c8ea33-b84d-49fe-9fb7-0992287b3c9e:
+        settings:
+          form_mode: entity_browser
+          media_type: video
+          upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+          dropzone_description: 'Drop video files here to upload them'
+          max_filesize: 128M
+          extensions: 'mp4 webm ogv'
+          clientside_resize: false
+          resize_width: null
+          resize_height: null
+          resize_quality: !!float 1
+          resize_method: contain
+          thumbnail_method: contain
+          submit_text: 'Select video(s)'
+        uuid: c4c8ea33-b84d-49fe-9fb7-0992287b3c9e
+        weight: -8
+        label: 'Upload video'
+        id: dropzonejs_media_entity_inline_entity_form
+  update_actions:
+    change:
+      widgets:
+        901e1292-75e8-4ecf-a08a-904e75b135bb:
+          settings:
+            view: media_browsers
+            view_display: media_browser
+            submit_text: 'Select media'
+            auto_select: false
+          uuid: 901e1292-75e8-4ecf-a08a-904e75b135bb
+          weight: -10
+          label: Library
+          id: view
+        91fd896e-e8c5-415c-9d14-5bc59c60e630:
+          settings:
+            submit_text: 'Embed media'
+            form_mode: entity_browser
+          uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
+          weight: -7
+          label: Embed
+          id: embed_code
+        0a2903ed-f5ef-42bb-9041-fb3081f7f64e:
+          settings:
+            form_mode: entity_browser
+            media_type: image
+            upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop image files here to upload them'
+            max_filesize: 32M
+            extensions: 'jpg jpeg gif png'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select image(s)'
+          uuid: 0a2903ed-f5ef-42bb-9041-fb3081f7f64e
+          weight: -9
+          label: 'Upload image'
+          id: dropzonejs_media_entity_inline_entity_form
+        c4c8ea33-b84d-49fe-9fb7-0992287b3c9e:
+          settings:
+            form_mode: entity_browser
+            media_type: video
+            upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop video files here to upload them'
+            max_filesize: 128M
+            extensions: 'mp4 webm ogv'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select video(s)'
+          uuid: c4c8ea33-b84d-49fe-9fb7-0992287b3c9e
+          weight: -8
+          label: 'Upload video'
+          id: dropzonejs_media_entity_inline_entity_form
+entity_browser.browser.editor_media_browser:
+  expected_config:
+    widgets:
+      0ce5dbdc-76cf-4c4e-a020-03328ef20f1c:
+        settings:
+          view: media_browsers
+          view_display: editor_media_browser
+          submit_text: 'Select media'
+          auto_select: false
+        uuid: 0ce5dbdc-76cf-4c4e-a020-03328ef20f1c
+        weight: -10
+        label: Library
+        id: view
+      0f828fb5-d820-46c1-9260-d706fe92b367:
+        settings:
+          submit_text: 'Embed media'
+          form_mode: entity_browser
+        uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
+        weight: -8
+        label: Embed
+        id: embed_code
+      422803d7-21aa-471b-8d65-335f345c4e30:
+        settings:
+          form_mode: entity_browser
+          media_type: image
+          upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+          dropzone_description: 'Drop image files here to upload them'
+          max_filesize: 32M
+          extensions: 'jpg jpeg gif png'
+          clientside_resize: false
+          resize_width: null
+          resize_height: null
+          resize_quality: !!float 1
+          resize_method: contain
+          thumbnail_method: contain
+          submit_text: 'Select media'
+        uuid: 422803d7-21aa-471b-8d65-335f345c4e30
+        weight: -9
+        label: Upload
+        id: dropzonejs_media_entity_inline_entity_form
+  update_actions:
+    change:
+      widgets:
+        0ce5dbdc-76cf-4c4e-a020-03328ef20f1c:
+          settings:
+            view: media_browsers
+            view_display: media_browser
+            submit_text: 'Select media'
+            auto_select: false
+          uuid: 0ce5dbdc-76cf-4c4e-a020-03328ef20f1c
+          weight: -10
+          label: Library
+          id: view
+        0f828fb5-d820-46c1-9260-d706fe92b367:
+          settings:
+            submit_text: 'Embed media'
+            form_mode: entity_browser
+          uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
+          weight: -7
+          label: Embed
+          id: embed_code
+        422803d7-21aa-471b-8d65-335f345c4e30:
+          settings:
+            form_mode: entity_browser
+            media_type: image
+            upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop image files here to upload them'
+            max_filesize: 32M
+            extensions: 'jpg jpeg gif png'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select image(s)'
+          uuid: 422803d7-21aa-471b-8d65-335f345c4e30
+          weight: -9
+          label: 'Upload image'
+          id: dropzonejs_media_entity_inline_entity_form
+        c05a5c40-6a5e-4a45-a841-7ba471656952:
+          settings:
+            form_mode: entity_browser
+            media_type: video
+            upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+            dropzone_description: 'Drop video files here to upload them'
+            max_filesize: 128M
+            extensions: 'mp4 webm ogv'
+            clientside_resize: false
+            resize_width: null
+            resize_height: null
+            resize_quality: !!float 1
+            resize_method: contain
+            thumbnail_method: contain
+            submit_text: 'Select video(s)'
+          uuid: c05a5c40-6a5e-4a45-a841-7ba471656952
+          weight: -8
+          label: 'Upload video'
+          id: dropzonejs_media_entity_inline_entity_form
+editor.editor.full_html:
+  expected_config:
+    settings:
+      toolbar:
+        rows:
+          0:
+            0:
+              name: 'Block Formatting'
+              items:
+                - Cut
+                - Copy
+                - Paste
+                - PasteFromWord
+                - '-'
+                - Undo
+                - Redo
+            1:
+              name: Media
+              items:
+                - media
+                - Embed
+                - '-'
+                - Blockquote
+                - HorizontalRule
+                - '-'
+                - Table
+            2:
+              name: Linking
+              items:
+                - '-'
+                - Linkit
+                - '-'
+                - Link
+                - Unlink
+                - '-'
+                - Anchor
+            3:
+              name: Tools
+              items:
+                - ShowBlocks
+                - Maximize
+                - Source
+          1:
+            0:
+              name: Style
+              items:
+                - Styles
+                - Format
+            1:
+              name: Formatting
+              items:
+                - Bold
+                - Italic
+                - Underline
+                - Strike
+                - '-'
+                - Subscript
+                - Superscript
+                - '-'
+                - RemoveFormat
+            2:
+              name: Lists
+              items:
+                - NumberedList
+                - BulletedList
+                - '-'
+                - Outdent
+                - Indent
+            3:
+              name: Alignment
+              items:
+                - JustifyLeft
+                - JustifyCenter
+                - JustifyRight
+                - '-'
+                - BidiLtr
+                - BidiRtl
+                - '-'
+                - Language
+  update_actions:
+    delete:
+      settings:
+        toolbar:
+          rows:
+            0:
+              0:
+                name: 'Block Formatting'
+                items:
+                  - Cut
+                  - Copy
+                  - Paste
+                  - PasteFromWord
+                  - '-'
+                  - Undo
+                  - Redo
+              1:
+                name: Media
+                items:
+                  - media
+                  - Embed
+                  - '-'
+                  - Blockquote
+                  - HorizontalRule
+                  - '-'
+                  - Table
+              2:
+                name: Linking
+                items:
+                  - '-'
+                  - Linkit
+                  - '-'
+                  - Link
+                  - Unlink
+                  - '-'
+                  - Anchor
+              3:
+                name: Tools
+                items:
+                  - ShowBlocks
+                  - Maximize
+                  - Source
+            1:
+              0:
+                name: Style
+                items:
+                  - Styles
+                  - Format
+              1:
+                name: Formatting
+                items:
+                  - Bold
+                  - Italic
+                  - Underline
+                  - Strike
+                  - '-'
+                  - Subscript
+                  - Superscript
+                  - '-'
+                  - RemoveFormat
+              2:
+                name: Lists
+                items:
+                  - NumberedList
+                  - BulletedList
+                  - '-'
+                  - Outdent
+                  - Indent
+              3:
+                name: Alignment
+                items:
+                  - JustifyLeft
+                  - JustifyCenter
+                  - JustifyRight
+                  - '-'
+                  - BidiLtr
+                  - BidiRtl
+                  - '-'
+                  - Language
+    add:
+      settings:
+        toolbar:
+          rows:
+            0:
+              0:
+                name: 'Block Formatting'
+                items:
+                  - Cut
+                  - Copy
+                  - Paste
+                  - PasteFromWord
+                  - '-'
+                  - Undo
+                  - Redo
+              1:
+                name: Media
+                items:
+                  - media
+                  - Embed
+                  - '-'
+                  - Blockquote
+                  - HorizontalRule
+                  - '-'
+                  - Table
+              2:
+                name: Linking
+                items:
+                  - '-'
+                  - Linkit
+                  - '-'
+                  - Link
+                  - Unlink
+                  - '-'
+                  - Anchor
+              3:
+                name: Tools
+                items:
+                  - ShowBlocks
+                  - Maximize
+                  - Source
+            1:
+              0:
+                name: Style
+                items:
+                  - Styles
+                  - Format
+              1:
+                name: Formatting
+                items:
+                  - Bold
+                  - Italic
+                  - Underline
+                  - Strike
+                  - '-'
+                  - Subscript
+                  - Superscript
+                  - '-'
+                  - RemoveFormat
+              2:
+                name: Lists
+                items:
+                  - NumberedList
+                  - BulletedList
+                  - '-'
+                  - Outdent
+                  - Indent
+              3:
+                name: Alignment
+                items:
+                  - JustifyLeft
+                  - JustifyCenter
+                  - JustifyRight
+                  - '-'
+                  - BidiLtr
+                  - BidiRtl
+                  - '-'
+filter.format.basic_html:
+  expected_config:
+    filters:
+      ace_filter:
+        settings:
+          auto_complete: true
+        weight: 0
+      editor_file_reference:
+        weight: -45
+      entity_embed:
+        status: false
+        weight: -43
+      filter_autop:
+        weight: -42
+      filter_html:
+        settings:
+          allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button>'
+      filter_html_escape:
+        weight: -44
+      filter_image_resize:
+        weight: 0
+  update_actions:
+    add:
+      filters:
+        filter_ckeditor_media_embed:
+          id: filter_ckeditor_media_embed
+          provider: ckeditor_media_embed
+          settings: {  }
+          status: false
+          weight: -37
+        filter_image_link_to_source:
+          id: filter_image_link_to_source
+          provider: image_resize_filter
+          settings: {  }
+          status: false
+          weight: -36
+    change:
+      filters:
+        ace_filter:
+          weight: -38
+        blazy_filter:
+          id: blazy_filter
+          provider: blazy
+          settings:
+            filter_tags:
+              iframe: iframe
+              img: img
+            media_switch: ''
+            use_data_uri: '0'
+          status: false
+          weight: -35
+        editor_file_reference:
+          weight: -44
+        entity_embed:
+          status: true
+          weight: -45
+        filter_autop:
+          weight: -41
+        filter_html:
+          settings:
+            allowed_html: '<a href hreflang !href accesskey id rel target title> <blockquote cite> <br> <cite> <code> <dd> <dl> <dt> <em> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <li> <ol start type> <p> <span> <strong> <u> <ul type> <img src alt height width data-* data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title>'
+        filter_html_escape:
+          weight: -42
+        filter_image_resize:
+          weight: -43
+    delete:
+      filters:
+        ace_filter:
+          settings:
+            auto_complete: true
+filter.format.full_html:
+  expected_config:
+    filters:
+      ace_filter:
+        settings:
+          auto_complete: true
+        weight: -36
+      editor_file_reference:
+        weight: -41
+      entity_embed:
+        weight: -49
+      filter_align:
+        weight: -48
+      filter_autop:
+        weight: -38
+      filter_caption:
+        weight: -47
+      filter_ckeditor_media_embed:
+        weight: -44
+      filter_html:
+        weight: -50
+      filter_html_escape:
+        weight: -39
+      filter_html_image_secure:
+        weight: -37
+      filter_htmlcorrector:
+        weight: -42
+      filter_image_link_to_source:
+        weight: -35
+      filter_image_resize:
+        weight: -40
+      filter_pathologic:
+        weight: -45
+      filter_url:
+        weight: -43
+  update_actions:
+    change:
+      filters:
+        ace_filter:
+          weight: -37
+        blazy_filter:
+          id: blazy_filter
+          provider: blazy
+          settings:
+            filter_tags:
+              iframe: iframe
+              img: img
+            media_switch: ''
+            use_data_uri: '0'
+          status: false
+          weight: -35
+        editor_file_reference:
+          weight: -43
+        entity_embed:
+          weight: -48
+        filter_align:
+          weight: -50
+        filter_autop:
+          weight: -39
+        filter_caption:
+          weight: -49
+        filter_ckeditor_media_embed:
+          weight: -46
+        filter_html:
+          weight: -41
+        filter_html_escape:
+          weight: -40
+        filter_html_image_secure:
+          weight: -38
+        filter_htmlcorrector:
+          weight: -44
+        filter_image_link_to_source:
+          weight: -36
+        filter_image_resize:
+          weight: -42
+        filter_pathologic:
+          weight: -47
+        filter_url:
+          weight: -45
+    delete:
+      filters:
+        ace_filter:
+          settings:
+            auto_complete: true
