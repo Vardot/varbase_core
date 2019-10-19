@@ -42,7 +42,7 @@
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~1.0",
     "drupal/ds": "~3.0",
-    "drupal/views_bootstrap": "4.1",
+    "drupal/views_bootstrap": "~3.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
     "drupal/advanced_text_formatter": "~1.0",
@@ -133,8 +133,6 @@
       "drupal/core": {
         "Issue #2869592: Disabled update module shouldn't produce a status report warning":
         "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
-        "Issue #2885441: EntityReferenceAutocompleteWidget should define its size setting as an integer":
-        "https://www.drupal.org/files/issues/2885441-2.patch",
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
@@ -142,7 +140,11 @@
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch"
+        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch",
+        "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
+        "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
+        "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
+        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
@@ -175,10 +177,6 @@
       "drupal/length_indicator": {
         "Issue #3048286: Add cursor position direction support for RTL":
         "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
-      },
-      "drupal/views_bootstrap": {
-        "Issue #3059241: Fix missing col-lg and col-xl in bootstrap grid format settings":
-        "https://www.drupal.org/files/issues/2019-09-09/col-lg-and-col-xl-missing-in-bootstrap-grid-format-settings-3059241-4.patch"
       }
     }
   }
