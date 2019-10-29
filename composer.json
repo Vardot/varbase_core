@@ -147,7 +147,9 @@
         "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
-        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch"
+        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
+        "Issue #2820347: Fix Exposed filter reset redirects user to 404 page on AJAX view when placed as a block":
+        "https://www.drupal.org/files/issues/2019-07-22/2820347-129.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
