@@ -31,7 +31,7 @@
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "~8.7.0",
+    "drupal/core": "~8.8.0",
     "drupal/config_update": "~1.0",
     "drupal/config_filter": "~1.0",
     "drupal/config_ignore": "~2.0",
@@ -121,7 +121,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-8.x-7.x": "8.7.x-dev"
+      "dev-8.x-8.x": "8.8.x-dev"
     },
     "installer-types": [
       "bower-asset",
@@ -139,7 +139,7 @@
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
-        "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
+        "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
@@ -147,9 +147,7 @@
         "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
-        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
-        "Issue #2820347: Fix Exposed filter reset redirects user to 404 page on AJAX view when placed as a block":
-        "https://www.drupal.org/files/issues/2019-07-22/2820347-129.patch"
+        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
