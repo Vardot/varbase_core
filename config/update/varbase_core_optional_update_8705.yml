@@ -1,0 +1,6 @@
+__global_conditions:
+  expected_modules:
+    - varbase_seo
+__global_actions:
+  install_modules:
+    - script_manager
