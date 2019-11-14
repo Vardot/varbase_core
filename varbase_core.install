@@ -452,6 +452,21 @@ function varbase_core_update_8704() {
 
   // Execute configuration update definitions with logging of success.
   $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8704');
+  
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable Script Manager module.
+ */
+function varbase_core_optional_update_8705($force = FALSE) {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8705');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
