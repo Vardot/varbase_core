@@ -104,7 +104,7 @@
     "drupal/recaptcha": "~2.0",
     "drupal/mailsystem": "~4.0",
     "drupal/smtp": "~1.0",
-    "drupal/length_indicator": "1.0-rc3",
+    "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~1.0",
     "drupal/menu_position": "~1.0",
     "drupal/mail_edit": "*",
@@ -190,10 +190,6 @@
         "https://www.drupal.org/files/issues/2019-01-22/event-log-track-auth-3027463-2.patch",
         "Issue #3060838: Fix fatal error when we request password with non-existing users/emails  on the Events Log Track User Authentication":
         "https://www.drupal.org/files/issues/2019-06-11/3060838-4.patch"
-      },
-      "drupal/length_indicator": {
-        "Issue #3048286: Add cursor position direction support for RTL":
-        "https://www.drupal.org/files/issues/2019-04-15/3048286-3.patch"
       },
       "drupal/views_bootstrap": {
         "Issue #3049311: Grids should not be split into multiple rows":
