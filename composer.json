@@ -100,6 +100,7 @@
     "drupal/security_review": "*",
     "drupal/honeypot": "~1.0",
     "drupal/shield": "~1.0",
+    "drupal/flood_unblock": "~1.0",
     "drupal/captcha": "~1.0",
     "drupal/recaptcha": "~2.0",
     "drupal/mailsystem": "~4.0",
