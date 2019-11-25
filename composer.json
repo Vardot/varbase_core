@@ -40,7 +40,7 @@
     "drupal/token_filter": "~1.0",
     "drupal/page_manager": "4.0-beta4",
     "drupal/panels": "~4.0",
-    "drupal/bootstrap_layouts": "~5.0",
+    "drupal/bootstrap_layouts": "5.1",
     "drupal/layout_builder_restrictions": "~2.0",
     "drupal/ds": "~3.0",
     "drupal/views_bootstrap": "4.1",
@@ -195,6 +195,10 @@
       "drupal/views_bootstrap": {
         "Issue #3049311: Grids should not be split into multiple rows":
         "https://www.drupal.org/files/issues/2019-05-31/views-bootstrap-dont-split-grid-rows-3049311-9.patch"
+      },
+      "drupal/bootstrap_layouts": {
+        "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
+        "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch"
       }
     }
   }
