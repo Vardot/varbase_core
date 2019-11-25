@@ -200,7 +200,9 @@
       },
       "drupal/bootstrap_layouts": {
         "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
-        "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch"
+        "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch",
+        "Issue #3092032: Fix Unsupported operand types in Set Configuration line 213":
+        "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
       }
     }
   }
