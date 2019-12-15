@@ -116,7 +116,7 @@
     "drupal/link_attributes": "~1.0",
     "drupal/color_field": "~2.0",
     "drupal/entity_reference_revisions": "~1.0",
-    "drupal/viewsreference": "2.0-alpha5",
+    "drupal/viewsreference": "~2.0",
     "drupal/libraries": "~3.0",
     "drupal/vmi": "~2.0"
   },
@@ -203,10 +203,6 @@
         "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch",
         "Issue #3092032: Fix Unsupported operand types in Set Configuration line 213":
         "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
-      },
-      "drupal/viewsreference": {
-        "Issue #3096956: Fix updating from alpha4 to alpha5 via composer results in error":
-        "https://www.drupal.org/files/issues/2019-11-28/3096956-17.Unmet-service-dependencies.patch"
       }
     }
   }
