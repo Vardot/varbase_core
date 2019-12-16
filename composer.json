@@ -148,7 +148,9 @@
         "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #2646744: Drupal Core Url does not accept root-relative (file) URLs, making it impossible to let LinkGenerator create root-relative file URL links":
-        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch"
+        "https://www.drupal.org/files/issues/2018-12-15/2646744-34.patch",
+        "Issue #3101231: Fix multilingual site's layout edit context issue with TypeError: Argument 1 passed to UrlHelper::buildQuery() must be of the type array, null given":
+        "https://www.drupal.org/files/issues/2019-12-16/3101231-6.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
