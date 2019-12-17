@@ -91,7 +91,7 @@
     "drupal/drd_agent": "~3.0",
     "drupal/libraries_ui": "~1.0",
     "drupal/devel": "*",
-    "drupal/update_helper": "1.0",
+    "drupal/update_helper": "1.1",
     "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
@@ -182,7 +182,7 @@
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
-        "https://www.drupal.org/files/issues/2019-05-19/3024165-31.patch"
+        "https://www.drupal.org/files/issues/2019-12-17/3024165-33.patch"
       },
       "drupal/events_log_track": {
         "Issue #2934036: Events Log Track breaks Entity Browser":
