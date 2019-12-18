@@ -1,0 +1,7 @@
+__global_conditions:
+  expected_modules:
+    - varbase_media
+__global_actions:
+  import_configs:
+    - varbase_media.settings
+    - image.style.blazy_blurry

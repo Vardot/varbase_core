@@ -208,3 +208,21 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8705</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+8.7.4:
+    '#title': 'New Updates in Varbase 8.7.4'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_optional_update_8706:
+        '#title': 'Use blurred image loading effect for Lazy-loaded images'
+        '#description': '
+        <p>Have the option to use blurred image loading effect for Lazy-loaded images
+        To activate go to "/admin/config/varbase/varbase-media" or run this update</p>
+        See issue <a href="https://www.drupal.org/node/3095125" target="_blank">#3095125</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8706</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8706</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+

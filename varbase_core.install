@@ -471,3 +471,18 @@ function varbase_core_optional_update_8705($force = FALSE) {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Use blurred image loading effect for Lazy-loaded images.
+ */
+function varbase_core_optional_update_8706($force = FALSE) {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8706');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
