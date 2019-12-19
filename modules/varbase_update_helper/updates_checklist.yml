@@ -199,7 +199,7 @@
     varbase_core_optional_update_8705:
         '#title': 'Enable Script Manager'
         '#description': '
-        <p>This update let you add scripts into your header or footer HTMl pages without getting back to developers and perform deployment everytime.</p>
+        <p>This update enables you to add scripts into your header or footer HTMl pages without getting back to developers and perform deployment everytime.</p>
         See issue <a href="https://www.drupal.org/node/3094353" target="_blank">#3094353</a> and issue <a href="https://www.drupal.org/node/3094382" target="_blank">#3094382</a> for details.<br />
         <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8705</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
@@ -213,10 +213,10 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_core_optional_update_8706:
-        '#title': 'Use blurred image loading effect for Lazy-loaded images'
+        '#title': 'Use blurred image loading effect for lazy-loaded images'
         '#description': '
-        <p>Have the option to use blurred image loading effect for Lazy-loaded images
-        To activate go to "/admin/config/varbase/varbase-media" or run this update</p>
+        <p>This updates adds a UX improvement to lazy-loaded images rendered through Blazy. It loads a very low-res blurred image in-place of the original one before the actual image loads. It works with both responsive and normal images.
+        To activate, navigate to "/admin/config/varbase/varbase-media" or run this update.</p>
         See issue <a href="https://www.drupal.org/node/3095125" target="_blank">#3095125</a> for details.<br />
         <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8706</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
