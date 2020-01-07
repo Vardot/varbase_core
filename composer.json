@@ -33,7 +33,6 @@
     "drupal/drupal-library-installer-plugin": "^0.3",
     "drupal/core-recommended": "~8.8.0",
     "drupal/config_update": "~1.0",
-    "drupal/config_filter": "~2.0",
     "drupal/config_ignore": "~2.0",
     "drupal/ctools": "3.2",
     "drupal/token": "~1.0",
