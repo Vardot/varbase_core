@@ -14,6 +14,7 @@ install:
   - libraries_ui
   - tour_ui
   - tour_builder
+  - config_inspector
 #uninstall:
 #  - migrate_drupal_ui 
 #  - dblog
@@ -28,5 +29,5 @@ install:
 #  - tour_builder
 #  - blazy_ui
 #  - devel_generate
-#  - kit
 #  - slick_ui
+#  - config_inspector
