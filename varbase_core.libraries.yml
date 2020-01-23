@@ -1,0 +1,11 @@
+object-fit-polyfill:
+  remote: https://github.com/constancecchen/object-fit-polyfill
+  version: 2.x
+  license:
+    name: MIT
+    gpl-compatible: true
+  js:
+    /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js: { weight: -19, browsers: { IE: 'lte IE 9', IOS: 'lte iOS 7', ANDROID: 'lte Android 4.4' }, minified: true }
+  dependencies:
+    - core/matchmedia
+    - core/picturefill
