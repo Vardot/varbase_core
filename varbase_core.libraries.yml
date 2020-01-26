@@ -5,7 +5,7 @@ object-fit-polyfill:
     name: MIT
     gpl-compatible: true
   js:
-    /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js: { weight: -9, browsers: { IE: 'lte IE 9' }, minified: true }
+    /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js: { minified: true }
   dependencies:
     - core/matchmedia
     - core/picturefill
