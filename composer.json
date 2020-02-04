@@ -93,7 +93,7 @@
     "drupal/drd_agent": "~3.0",
     "drupal/libraries_ui": "~1.0",
     "drupal/devel": "~3.0",
-    "drupal/update_helper": "1.1",
+    "drupal/update_helper": "1.2",
     "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
