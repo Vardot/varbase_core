@@ -13,7 +13,6 @@ description: 'Find and manage content.'
 tag: default
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_options:
@@ -35,15 +34,60 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: full_html
           bef:
             general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_exclude_textfield: true
               autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+            pager:
+              plugin_id: default
+              advanced:
+                is_secondary: false
+            filter:
+              status:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              type:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              title:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              langcode:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              created:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              created_1:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
             status:
               bef_format: default
               more_options:
@@ -83,7 +127,7 @@ display:
               more_options:
                 is_secondary: false
                 placeholder_text: ''
-          text_input_required_format: full_html
+          input_required: false
       pager:
         type: full
         options:
@@ -267,26 +311,45 @@ display:
           batch_size: 50
           form_step: true
           buttons: false
-          clear_on_exposed: 0
+          clear_on_exposed: false
           action_title: Action
           selected_actions:
-            'entity:break_lock:node': 0
-            node_assign_owner_action: node_assign_owner_action
-            node_unpromote_action: 0
-            node_make_unsticky_action: 0
-            node_make_sticky_action: 0
-            node_publish_action: node_publish_action
-            node_unpublish_by_keyword_action: 0
-            node_unpublish_action: node_unpublish_action
-            node_save_action: node_save_action
-            node_promote_action: 0
-            views_bulk_edit: views_bulk_edit
-            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
-            pathauto_update_alias: pathauto_update_alias
-            'entity:unpublish_action:node': 0
-            'entity:delete_action:node': 0
-            'entity:save_action:node': 0
-            'entity:publish_action:node': 0
+            -
+              action_id: 'entity:break_lock:node'
+            -
+              action_id: node_assign_owner_action
+            -
+              action_id: node_unpromote_action
+            -
+              action_id: node_make_unsticky_action
+            -
+              action_id: node_make_sticky_action
+            -
+              action_id: node_publish_action
+            -
+              action_id: node_unpublish_by_keyword_action
+            -
+              action_id: node_unpublish_action
+            -
+              action_id: node_save_action
+            -
+              action_id: node_promote_action
+            -
+              action_id: views_bulk_edit
+              preconfiguration:
+                get_bundles_from_results: 1
+            -
+              action_id: views_bulk_operations_delete_entity
+            -
+              action_id: pathauto_update_alias
+            -
+              action_id: 'entity:unpublish_action:node'
+            -
+              action_id: 'entity:delete_action:node'
+            -
+              action_id: 'entity:save_action:node'
+            -
+              action_id: 'entity:publish_action:node'
           preconfiguration:
             node_assign_owner_action:
               label_override: ''
@@ -583,6 +646,9 @@ display:
           plugin_id: node_status
           group: 1
           entity_type: node
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         status:
           id: status
           table: node_field_data
@@ -606,6 +672,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Published status'
@@ -655,6 +723,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -695,6 +765,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -736,6 +808,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -787,6 +861,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -838,6 +914,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
