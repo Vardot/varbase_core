@@ -53,7 +53,7 @@ function varbase_core_tokens($type, $tokens, array $data, array $options, Bubble
           $origin_url = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::request()->getBaseUrl();
           $bubbleable_metadata->addCacheContexts(['url.site']);
           $replacements[$original] = $origin_url;
-        break;
+          break;
       }
     }
   }
@@ -62,7 +62,7 @@ function varbase_core_tokens($type, $tokens, array $data, array $options, Bubble
       switch ($name) {
         case 'path':
           $replacements[$original] = \Drupal::theme()->getActiveTheme()->getPath();
-        break;
+          break;
       }
     }
   }
