@@ -15,7 +15,6 @@ install:
   - libraries_ui
   - tour_ui
   - tour_builder
-  - config_inspector
 #uninstall:
 #  - migrate_drupal_ui 
 #  - dblog
