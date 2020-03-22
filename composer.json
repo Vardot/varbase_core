@@ -155,7 +155,9 @@
         "Issue #2996114: Fix Argument 2 passed to Drupal jsonapi Routing closure must be an instance of ResourceType, NULL given":
         "https://www.drupal.org/files/issues/2019-12-03/2996114-99.patch",
         "Issue #3045171: Form blocks rendered inside layout builder break save":
-        "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch"
+        "https://www.drupal.org/files/issues/2020-02-04/layout-builder-save-issue-3045171-140.patch",
+        "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
+        "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch"
       },
       "drupal/coffee": {
         "Issue #2815381: Coffee breaks whole page when using right to left (rtl) languages in drupal 8":
