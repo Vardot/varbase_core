@@ -26,7 +26,6 @@ install:
   - views_bulk_edit
   - admin_toolbar
   - admin_toolbar_tools
-  - adminimal_admin_toolbar
   - admin_toolbar_links_access_filter
   - mail_edit
   - masquerade
