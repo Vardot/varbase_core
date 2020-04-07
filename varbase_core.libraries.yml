@@ -7,5 +7,4 @@ object-fit-polyfill:
   js:
     /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js: { minified: true }
   dependencies:
-    - core/matchmedia
     - core/picturefill
