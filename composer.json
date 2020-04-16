@@ -3,6 +3,7 @@
   "description": "This is the Core Varbase feature. Provides core components required by other features.",
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/varbase_core",
+  "notification-url": "https://packages.drupal.org/8/downloads",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
@@ -20,7 +21,7 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-      },
+    },
     "assets": {
       "type": "composer",
       "url": "https://asset-packagist.org"
@@ -87,7 +88,6 @@
     "drupal/rabbit_hole": "~1.0",
     "drupal/yoast_seo": "~1.0",
     "drupal/fast_404": "~1.0",
-    "mkalkbrenner/php-htmldiff-advanced": "~0.0.8",
     "drupal/diff": "~1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
@@ -121,8 +121,10 @@
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
     "drupal/libraries": "~3.0",
-    "drupal/vmi": "~2.0",
-    "bower-asset/objectfitpolyfill": "~2.0"
+    "drupal/vmi": "~2.0"
+  },
+  "suggest": {
+    "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill"
   },
   "extra": {
     "branch-alias": {
@@ -135,7 +137,7 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patchLevel": {
-       "drupal/core": "-p2"
+      "drupal/core": "-p2"
     },
     "patches": {
       "drupal/core": {
