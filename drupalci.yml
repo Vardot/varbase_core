@@ -1,0 +1,76 @@
+build:
+  assessment:
+    validate_codebase:
+      container_composer:
+        - 'config repositories.asset composer https://asset-packagist.org'
+        - 'require oomphinc/composer-installers-extender:~1.0'
+        - 'require cweagans/composer-patches:~1.0'
+        - 'require drupal/drupal-library-installer-plugin:^0.3'
+      container_command:
+        commands:
+          - 'cd ${SOURCE_DIR}'
+          - 'sudo -u www-data composer config extra.enable-patching true'
+          - 'sudo -u www-data composer config extra.composer-exit-on-patch-failure true'
+          - 'sudo -u www-data composer config extra.installer-types.0 "npm-asset"'
+          - 'sudo -u www-data composer config extra.installer-types.1 "bower-asset"'
+          - 'sudo -u www-data composer config extra.installer-paths.web\/libraries\/\{\$name\} [DOUBLE_QUOTATIONtype:drupal-libraryDOUBLE_QUOTATION,DOUBLE_QUOTATIONtype:bower-assetDOUBLE_QUOTATION,DOUBLE_QUOTATIONtype:npm-assetDOUBLE_QUOTATION]'
+          - 'sudo -u www-data composer config extra.installer-paths.web\/libraries\/objectfitpolyfill [DOUBLE_QUOTATIONbower-asset/objectfitpolyfillDOUBLE_QUOTATION]'
+          - 'sudo -u www-data composer config extra.libraries "[{DOUBLE_QUOTATIONnameDOUBLE_QUOTATION: DOUBLE_QUOTATIONobjectfitpolyfillDOUBLE_QUOTATION, DOUBLE_QUOTATIONpackageDOUBLE_QUOTATION: DOUBLE_QUOTATIONbower-asset/objectfitpolyfillDOUBLE_QUOTATION}]"'
+          - sed -i 's/DOUBLE_QUOTATION/"/g' composer.json
+          - sed -i 's/\"\[\"/["/g' composer.json
+          - sed -i 's/\"\]\"/"]/g' composer.json
+          - sed -i 's/\"{\"/{"/g' composer.json
+          - sed -i 's/\"}\"]\"/"}/g' composer.json
+          - sed -i 's/\"\[{\"/[{"/g' composer.json
+          - sed -i 's/\"}\]\"/"}]/g' composer.json
+          - 'sudo -u www-data composer require bower-asset/objectfitpolyfill:~3.0'
+          - 'dir libraries'
+      phplint:
+      csslint:
+        halt-on-fail: false
+      eslint:
+        # A test must pass eslinting standards check in order to continue processing.
+        halt-on-fail: false
+      phpcs:
+        # phpcs will use core's specified version of Coder.
+        sniff-all-files: false
+        halt-on-fail: false
+    testing:
+      # run_tests task is executed several times in order of performance speeds.
+      # halt-on-fail can be set on the run_tests tasks in order to fail fast.
+      # suppress-deprecations is false in order to be alerted to usages of
+      # deprecated code.
+      run_tests.phpunit:
+        types: 'PHPUnit-Unit'
+        testgroups: '--all'
+        suppress-deprecations: false
+        halt-on-fail: false
+      run_tests.kernel:
+        types: 'PHPUnit-Kernel'
+        testgroups: '--all'
+        suppress-deprecations: false
+        halt-on-fail: false
+      run_tests.simpletest:
+         types: 'Simpletest'
+         testgroups: '--all'
+         suppress-deprecations: false
+         halt-on-fail: false
+      run_tests.build:
+        types: 'PHPUnit-Build'
+        testgroups: '--all'
+        suppress-deprecations: false
+        halt-on-fail: false
+      run_tests.functional:
+        types: 'PHPUnit-Functional'
+        testgroups: '--all'
+        suppress-deprecations: false
+        halt-on-fail: false
+      run_tests.javascript:
+        concurrency: 15
+        types: 'PHPUnit-FunctionalJavascript'
+        testgroups: '--all'
+        suppress-deprecations: false
+        halt-on-fail: false
+      # Run nightwatch testing.
+      # @see https://www.drupal.org/project/drupal/issues/2869825
+      nightwatchjs:
