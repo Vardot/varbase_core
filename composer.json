@@ -134,6 +134,11 @@
       "bower-asset",
       "npm-asset"
     ],
+    "drupal-libraries": {
+      "libraries": [
+        {"name": "objectfitpolyfill", "package": "bower-asset/objectfitpolyfill"}
+      ]
+    },
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patchLevel": {
