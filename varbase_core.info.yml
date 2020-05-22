@@ -2,8 +2,6 @@ name: 'Varbase Core'
 description: 'Provides core components required by other features.'
 type: module
 core_version_requirement: ^8 || ^9
-version: 8.x-8.x-dev
-project: varbase_core
 package: Varbase
 configure: varbase_core.settings_index
 components:
