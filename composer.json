@@ -106,6 +106,7 @@
     "drupal/captcha": "~1.0",
     "drupal/recaptcha": "~2.0",
     "drupal/mailsystem": "~4.0",
+    "drupal/smtp": "~1.0",
     "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~1.0",
     "drupal/menu_position": "~1.0",
