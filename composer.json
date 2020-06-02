@@ -63,7 +63,7 @@
     "drupal/persistent_login": "1.1",
     "drupal/userprotect": "~1.0",
     "drupal/events_log_track": "1.1",
-    "drupal/login_destination": "~1.0",
+    "drupal/login_destination": "~2.0",
     "drupal/betterlogin": "~1.0",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
