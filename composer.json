@@ -68,7 +68,6 @@
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
     "drupal/admin_toolbar": "~2.0",
-    "drupal/adminimal_admin_toolbar": "~1.0",
     "drupal/tour_ui": "~1.0",
     "drupal/tour_builder": "~1.0",
     "drupal/l10n_client": "*",
