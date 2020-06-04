@@ -32,7 +32,7 @@
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "~8.9 || ~9.0.0",
+    "drupal/core": "^9",
     "drupal/config_update": "~1.0",
     "drupal/config_ignore": "~2.0",
     "drupal/config_inspector": "~1.0",
@@ -126,9 +126,6 @@
     "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill"
   },
   "extra": {
-    "branch-alias": {
-      "dev-8.x-8.x": "8.8.x-dev"
-    },
     "installer-types": [
       "bower-asset",
       "npm-asset"
