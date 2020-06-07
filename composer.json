@@ -195,8 +195,6 @@
         "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
       },
       "drupal/autocomplete_deluxe": {
-        "Issue #3096033: Autocomplete stopped working in localhost environment":
-        "https://www.drupal.org/files/issues/2019-12-17/fix_acdx_path-3096033-4.patch",
         "Issue #3122933: Drupal 9 ready":
         "https://www.drupal.org/files/issues/2020-05-23/d9_readiness-3122933-7.patch"
       }
