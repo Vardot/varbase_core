@@ -95,7 +95,7 @@
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
     "drupal/genpass": "~1.0",
-    "drupal/seckit": "~3.0",
+    "drupal/seckit": "~2.0",
     "drupal/security_review": "1.x-dev",
     "drupal/honeypot": "~2.0",
     "drupal/shield": "~1.0",
