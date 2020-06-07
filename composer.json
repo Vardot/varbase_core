@@ -109,7 +109,7 @@
     "drupal/mail_edit": "*",
     "drupal/taxonomy_access_fix": "~2.0",
     "drupal/better_exposed_filters": "~4.0",
-    "drupal/autocomplete_deluxe": "1.x-dev",
+    "drupal/autocomplete_deluxe": "dev-1.x",
     "drupal/extlink": "~1.0",
     "drupal/link_attributes": "~1.0",
     "drupal/entity_reference_revisions": "~1.0",
