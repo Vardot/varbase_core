@@ -196,7 +196,9 @@
       },
       "drupal/autocomplete_deluxe": {
         "Issue #3122933: Drupal 9 ready":
-        "https://www.drupal.org/files/issues/2020-05-23/d9_readiness-3122933-7.patch"
+        "https://www.drupal.org/files/issues/2020-05-23/d9_readiness-3122933-7.patch",
+        "Issue #3150551: Fix composer file to match the Drupal 9 full project, not the sandbox":
+        "https://www.drupal.org/files/issues/2020-06-10/3150551-3.patch"
       }
     }
   }
