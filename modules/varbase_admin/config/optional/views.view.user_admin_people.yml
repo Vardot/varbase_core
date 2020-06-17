@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -274,27 +275,25 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            -
+            0:
               action_id: 'entity:break_lock:user'
-            -
+            1:
               action_id: user_add_role_action
-            -
+            2:
               action_id: user_remove_role_action
-            -
+            3:
               action_id: user_block_user_action
-            -
+            4:
               action_id: user_unblock_user_action
-            -
+            5:
               action_id: views_bulk_edit
               preconfiguration:
                 get_bundles_from_results: 1
-            -
+            6:
               action_id: vbo_cancel_user_action
-            -
-              action_id: views_bulk_operations_delete_entity
-            -
+            8:
               action_id: pathauto_update_alias
-            -
+            9:
               action_id: 'entity:save_action:user'
           preconfiguration:
             'entity:break_lock:user':

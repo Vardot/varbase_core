@@ -314,42 +314,28 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            -
+            0:
               action_id: 'entity:break_lock:node'
-            -
+            1:
               action_id: node_assign_owner_action
-            -
-              action_id: node_unpromote_action
-            -
-              action_id: node_make_unsticky_action
-            -
-              action_id: node_make_sticky_action
-            -
+            5:
               action_id: node_publish_action
-            -
+            6:
               action_id: node_unpublish_by_keyword_action
-            -
+            7:
               action_id: node_unpublish_action
-            -
+            8:
               action_id: node_save_action
-            -
-              action_id: node_promote_action
-            -
+            10:
               action_id: views_bulk_edit
               preconfiguration:
                 get_bundles_from_results: 1
-            -
+            11:
               action_id: views_bulk_operations_delete_entity
-            -
+            12:
               action_id: pathauto_update_alias
-            -
-              action_id: 'entity:unpublish_action:node'
-            -
-              action_id: 'entity:delete_action:node'
-            -
+            15:
               action_id: 'entity:save_action:node'
-            -
-              action_id: 'entity:publish_action:node'
           preconfiguration:
             node_assign_owner_action:
               label_override: ''
