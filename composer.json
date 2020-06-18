@@ -57,7 +57,7 @@
     "drupal/entity": "~1.0",
     "drupal/entity_clone": "~1.0",
     "drupal/entityqueue": "~1.0",
-    "drupal/entityqueue_form_widget": "~1.0",
+    "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "~1.0",
     "drupal/ultimate_cron": "~2.0",
     "drupal/persistent_login": "1.3",
