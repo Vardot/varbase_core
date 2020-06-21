@@ -204,7 +204,7 @@
       },
       "drupal/coffee": {
         "Issue #3128583: Fix Could not load data for internal links":
-        "https://www.drupal.org/files/issues/2020-06-21/3128583-15.patch"
+        "https://www.drupal.org/files/issues/2020-06-21/3128583-16.patch"
       }
     }
   }
