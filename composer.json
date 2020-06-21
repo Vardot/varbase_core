@@ -195,8 +195,8 @@
         "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
       },
       "drupal/coffee": {
-        "Issue #3128583: Fix Could not load data":
-        "https://www.drupal.org/files/issues/2020-04-21/coffee-subforlder-path-3128583-5.patch"
+        "Issue #3128583: Fix Could not load data for internal links":
+        "https://www.drupal.org/files/issues/2020-06-21/3128583-15.patch"
       }
     }
   }
