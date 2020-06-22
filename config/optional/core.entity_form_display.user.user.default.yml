@@ -12,19 +12,24 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  masquerade:
-    weight: 50
-  member_for:
+  account:
+    weight: -10
+    region: content
+  contact:
     weight: 5
     region: content
-  user_picture:
-    type: image
+  language:
     weight: 0
     region: content
+  timezone:
+    weight: 6
+    region: content
+  user_picture:
+    type: image_image
     settings:
-      image_style: thumbnail
-      image_link: content
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    label: hidden
-hidden:
-  langcode: true
+    weight: -1
+    region: content
+hidden: {  }
