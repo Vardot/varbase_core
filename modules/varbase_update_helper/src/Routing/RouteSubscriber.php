@@ -23,4 +23,5 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setRequirement('_access', 'FALSE');
     }
   }
+
 }

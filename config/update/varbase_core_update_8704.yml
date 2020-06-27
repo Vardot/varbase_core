@@ -1,0 +1,6 @@
+__global_conditions:
+  expected_modules:
+    - token
+__global_actions:
+  install_modules:
+    - token_filter

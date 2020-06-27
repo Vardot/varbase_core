@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains varbase_admin.module.
+ */
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function varbase_admin_toolbar_alter(&$items) {
+
+  // Remove the [Search] menu link and box in the toolbar as we use Coffee.
+  if (isset($items['administration_search'])) {
+    unset($items['administration_search']);
+  }
+}

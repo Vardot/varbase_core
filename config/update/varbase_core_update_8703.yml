@@ -1,0 +1,238 @@
+__global_conditions:
+  expected_modules:
+    - varbase_editor
+editor.editor.full_html:
+  expected_config:
+    settings:
+      toolbar:
+        rows:
+          0:
+            0:
+              name: 'Block Formatting'
+              items:
+                - Cut
+                - Copy
+                - Paste
+                - PasteFromWord
+                - '-'
+                - Undo
+                - Redo
+            1:
+              name: Media
+              items:
+                - media
+                - Embed
+                - '-'
+                - Blockquote
+                - HorizontalRule
+                - '-'
+                - Table
+            2:
+              name: Linking
+              items:
+                - '-'
+                - Linkit
+                - '-'
+                - Link
+                - Unlink
+                - '-'
+                - Anchor
+            3:
+              name: Tools
+              items:
+                - ShowBlocks
+                - Maximize
+                - Source
+          1:
+            0:
+              name: Style
+              items:
+                - Styles
+                - Format
+            1:
+              name: Formatting
+              items:
+                - Bold
+                - Italic
+                - Underline
+                - Strike
+                - '-'
+                - Subscript
+                - Superscript
+                - '-'
+                - RemoveFormat
+            2:
+              name: Lists
+              items:
+                - NumberedList
+                - BulletedList
+                - '-'
+                - Outdent
+                - Indent
+            3:
+              name: Alignment
+              items:
+                - JustifyLeft
+                - JustifyCenter
+                - JustifyRight
+                - '-'
+                - BidiLtr
+                - BidiRtl
+                - '-'
+                - Language
+  update_actions:
+    delete:
+      settings:
+        toolbar:
+          rows:
+            0:
+              0:
+                name: 'Block Formatting'
+                items:
+                  - Cut
+                  - Copy
+                  - Paste
+                  - PasteFromWord
+                  - '-'
+                  - Undo
+                  - Redo
+              1:
+                name: Media
+                items:
+                  - media
+                  - Embed
+                  - '-'
+                  - Blockquote
+                  - HorizontalRule
+                  - '-'
+                  - Table
+              2:
+                name: Linking
+                items:
+                  - '-'
+                  - Linkit
+                  - '-'
+                  - Link
+                  - Unlink
+                  - '-'
+                  - Anchor
+              3:
+                name: Tools
+                items:
+                  - ShowBlocks
+                  - Maximize
+                  - Source
+            1:
+              0:
+                name: Style
+                items:
+                  - Styles
+                  - Format
+              1:
+                name: Formatting
+                items:
+                  - Bold
+                  - Italic
+                  - Underline
+                  - Strike
+                  - '-'
+                  - Subscript
+                  - Superscript
+                  - '-'
+                  - RemoveFormat
+              2:
+                name: Lists
+                items:
+                  - NumberedList
+                  - BulletedList
+                  - '-'
+                  - Outdent
+                  - Indent
+              3:
+                name: Alignment
+                items:
+                  - JustifyLeft
+                  - JustifyCenter
+                  - JustifyRight
+                  - '-'
+                  - BidiLtr
+                  - BidiRtl
+                  - '-'
+                  - Language
+    add:
+      settings:
+        toolbar:
+          rows:
+            0:
+              0:
+                name: 'Block Formatting'
+                items:
+                  - Cut
+                  - Copy
+                  - Paste
+                  - PasteFromWord
+                  - '-'
+                  - Undo
+                  - Redo
+              1:
+                name: Media
+                items:
+                  - media
+                  - Embed
+                  - '-'
+                  - Blockquote
+                  - HorizontalRule
+                  - '-'
+                  - Table
+              2:
+                name: Linking
+                items:
+                  - '-'
+                  - Linkit
+                  - '-'
+                  - Link
+                  - Unlink
+                  - '-'
+                  - Anchor
+              3:
+                name: Tools
+                items:
+                  - ShowBlocks
+                  - Maximize
+                  - Source
+            1:
+              0:
+                name: Style
+                items:
+                  - Styles
+                  - Format
+              1:
+                name: Formatting
+                items:
+                  - Bold
+                  - Italic
+                  - Underline
+                  - Strike
+                  - '-'
+                  - Subscript
+                  - Superscript
+                  - '-'
+                  - RemoveFormat
+              2:
+                name: Lists
+                items:
+                  - NumberedList
+                  - BulletedList
+                  - '-'
+                  - Outdent
+                  - Indent
+              3:
+                name: Alignment
+                items:
+                  - JustifyLeft
+                  - JustifyCenter
+                  - JustifyRight
+                  - '-'
+                  - BidiLtr
+                  - BidiRtl
+                  - '-'

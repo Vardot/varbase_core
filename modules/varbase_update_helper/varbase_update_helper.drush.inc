@@ -5,6 +5,8 @@
  * Contains drush command for Varbase update helpers.
  */
 
+use Drupal\varbase_core\Utility\CommandHelper;
+
 /**
  * Implements hook_drush_command().
  */
@@ -34,17 +36,19 @@ function varbase_update_helper_drush_command() {
  * The drush_[MODULE_NAME]_[COMMAND_NAME]().
  */
 function drush_varbase_update_helper_varbase_apply_update($module = "", $update_hook = "") {
-  if (!$update_hook || !$module) {
-    return drush_print(dt('Please provide a module name and an update hook. Example: drush varbase-up <module> <update_hook>'));
-  }
+  $commandhelper = _varbase_update_helper_drush_command_helper();
   $force = drush_get_option('force', FALSE);
+  $commandhelper->varbaseApplyUpdate($module, $update_hook, $force);
+}
 
-  module_load_install($module);
-  if (function_exists($update_hook)) {
-    call_user_func($update_hook, $force);
-  }
-  else {
-    // @Todo: make this output as an error
-    drush_print(dt("Couldn't find an update hook: !update_hook. Please verify the update hook name.", ["!update_hook" => $update_hook]));
-  }
+/**
+ * Returns an instance of the command helper.
+ *
+ * @return \Drupal\varbase_core\Utility\CommandHelper
+ *   An instance of the command helper class.
+ */
+function _varbase_update_helper_drush_command_helper() {
+  $command_helper = new CommandHelper();
+  $command_helper->setLogger(\Drupal::logger('varbase_update_helper'));
+  return $command_helper;
 }

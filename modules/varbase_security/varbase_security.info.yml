@@ -2,8 +2,8 @@ name: 'Varbase Security'
 description: 'Manages general security configurations, with password policy, username enumeration prevention, security kit and review.'
 type: module
 package: Varbase
-version: 8.x-6.x-dev
-core: 8.x
+version: 8.x-8.x-dev
+core_version_requirement: ^8 || ^9
 project: varbase_core
 dependencies:
   - varbase_core:varbase_core

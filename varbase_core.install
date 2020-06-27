@@ -6,11 +6,14 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
+use Drupal\file\Entity\File;
+use Drupal\embed\Entity\EmbedButton;
 use Drupal\update_helper_checklist\Entity\Update;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Implements hook_install().
@@ -55,7 +58,7 @@ function varbase_core_install() {
     $config_installer->installDefaultConfig('module', $module_name);
 
     // Create field storage configs first in active config.
-    $storage_config_files = file_scan_directory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
+    $storage_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
     if (isset($storage_config_files) && is_array($storage_config_files)) {
       foreach ($storage_config_files as $storage_config_file) {
         $storage_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $storage_config_file->uri);
@@ -70,7 +73,7 @@ function varbase_core_install() {
     $config_installer->installOptionalConfig($storage, '');
 
     // Have the .settings.yml configs into the active config.
-    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\(settings.yml)$/i');
+    $settings_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^.*(settings.yml)$/i');
     if (isset($settings_config_files) && is_array($settings_config_files)) {
       foreach ($settings_config_files as $settings_config_file) {
         $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
@@ -80,7 +83,12 @@ function varbase_core_install() {
       }
     }
   }
-  // ---------------------------------------------------------------------------
+  // --------------------------------------------------------------------------.
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
 
 }
 
@@ -89,14 +97,19 @@ function varbase_core_install() {
  */
 function varbase_core_update_8600() {
   if (!\Drupal::moduleHandler()->moduleExists('varbase_update_helper')) {
-    \Drupal::service('module_installer')->install(['checklistapi', 'update_helper', 'update_helper_checklist', 'varbase_update_helper'], FALSE);
+    \Drupal::service('module_installer')->install(['checklistapi',
+      'update_helper',
+      'update_helper_checklist',
+      'varbase_update_helper',
+    ],
+    FALSE);
   }
 }
 
 /**
  * Enhance the usability of admin views (Content, Media, and People).
  */
-function varbase_core_optional_update_8601($force = false) {
+function varbase_core_optional_update_8601($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -110,7 +123,7 @@ function varbase_core_optional_update_8601($force = false) {
 /**
  * Enable Blazy loading for most media sizes (Image, Video, Remote Video).
  */
-function varbase_core_optional_update_8602($force = false) {
+function varbase_core_optional_update_8602($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -124,7 +137,7 @@ function varbase_core_optional_update_8602($force = false) {
 /**
  * Enable Varbase Email.
  */
-function varbase_core_optional_update_8603($force = false) {
+function varbase_core_optional_update_8603($force = FALSE) {
 
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
@@ -139,7 +152,7 @@ function varbase_core_optional_update_8603($force = false) {
 /**
  * Enable colored length indicator for Varbase Basic page.
  */
-function varbase_core_optional_update_8604($force = false) {
+function varbase_core_optional_update_8604($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -153,7 +166,7 @@ function varbase_core_optional_update_8604($force = false) {
 /**
  * Enable colored length indicator for Varbase Landing page.
  */
-function varbase_core_optional_update_8605($force = false) {
+function varbase_core_optional_update_8605($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -167,7 +180,7 @@ function varbase_core_optional_update_8605($force = false) {
 /**
  * Enable colored length indicator for Varbase Hero Slider.
  */
-function varbase_core_optional_update_8606($force = false) {
+function varbase_core_optional_update_8606($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -181,7 +194,7 @@ function varbase_core_optional_update_8606($force = false) {
 /**
  * Enable colored length indicator for Varbase Blog.
  */
-function varbase_core_optional_update_8607($force = false) {
+function varbase_core_optional_update_8607($force = FALSE) {
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
@@ -193,8 +206,9 @@ function varbase_core_optional_update_8607($force = false) {
 }
 
 /**
- * Change and shift Varbase Media responsive image styles to work with the
- * mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints
+ * Change and shift Varbase Media responsive image styles to work with.
+ *
+ * The mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints.
  */
 function varbase_core_update_8608() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
@@ -208,21 +222,22 @@ function varbase_core_update_8608() {
 }
 
 /**
- * Rename config updates in Varbase Update Helper to match with new update ids
- *  standard naming conventions.
+ * Rename config updates in Varbase Update Helper to match with new.
+ *
+ * Update ids standard naming conventions.
  */
 function varbase_core_update_8609() {
-  
+
   // Mapping old update ids naming conventions.
   $map_old_to_new_update_ids = [
-     'varbase_core:varbase_admin_vbo_8601' => 'varbase_core:varbase_core_optional_update_8601',
-     'varbase_core:varbase_media_blazy_8602' => 'varbase_core:varbase_core_optional_update_8602',
-     'varbase_core:varbase_email_enable_8603' => 'varbase_core:varbase_core_optional_update_8603',
-     'varbase_core:varbase_page_li_8604' => 'varbase_core:varbase_core_optional_update_8604',
-     'varbase_core:varbase_landing_li_8605' => 'varbase_core:varbase_core_optional_update_8605',
-     'varbase_core:varbase_heroslider_media_li_8606' => 'varbase_core:varbase_core_optional_update_8606',
-     'varbase_core:varbase_blog_li_8607' => 'varbase_core:varbase_core_optional_update_8607',
-     'varbase_core:varbase_media_bs3_to_bs4_8608' => 'varbase_core:varbase_core_update_8608',
+    'varbase_core:varbase_admin_vbo_8601' => 'varbase_core:varbase_core_optional_update_8601',
+    'varbase_core:varbase_media_blazy_8602' => 'varbase_core:varbase_core_optional_update_8602',
+    'varbase_core:varbase_email_enable_8603' => 'varbase_core:varbase_core_optional_update_8603',
+    'varbase_core:varbase_page_li_8604' => 'varbase_core:varbase_core_optional_update_8604',
+    'varbase_core:varbase_landing_li_8605' => 'varbase_core:varbase_core_optional_update_8605',
+    'varbase_core:varbase_heroslider_media_li_8606' => 'varbase_core:varbase_core_optional_update_8606',
+    'varbase_core:varbase_blog_li_8607' => 'varbase_core:varbase_core_optional_update_8607',
+    'varbase_core:varbase_media_bs3_to_bs4_8608' => 'varbase_core:varbase_core_update_8608',
   ];
 
   // Check the old update ids and change them with new update ids.
@@ -232,7 +247,8 @@ function varbase_core_update_8609() {
     if ($old_update = Update::load($old_update_id)) {
 
       // Create the new update id if it was not in the system.
-      if (!($new_update = Update::load($new_update_id))) {
+      $new_update = Update::load($new_update_id);
+      if (isset($new_update) && !$new_update) {
         Update::create(
           [
             'id' => $new_update_id,
@@ -249,8 +265,9 @@ function varbase_core_update_8609() {
 }
 
 /**
- * Fix regression of responsive image styles when updating to Bootstrap 4
- * breakpoints.
+ * Fix regression of responsive image styles when updating to.
+ *
+ * Bootstrap 4 breakpoints.
  */
 function varbase_core_update_8610() {
 
@@ -328,6 +345,161 @@ function varbase_core_update_8610() {
 
   // Execute configuration update definitions with logging of success.
   $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8610');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Add [Gallery] media type.
+ */
+function varbase_core_optional_update_8701() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8701');
+
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+
+  // Load Media types icons for the media libraray table view page.
+  $source = $module_path . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+
+  $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      FileSystemInterface::copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
+    }
+  }
+
+  // Configure Entity Embed buttons.
+  $embed_button_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^embed.button.*\\.(yml)$/i');
+  if (isset($embed_button_config_files)
+    && is_array($embed_button_config_files)) {
+    foreach ($embed_button_config_files as $embed_button_config_file) {
+      $embed_button_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $embed_button_config_file->uri);
+      $embed_button_config_file_data = (array) Yaml::parse($embed_button_config_file_content);
+      $embed_button_config_factory = \Drupal::configFactory()->getEditable($embed_button_config_file->name);
+      $embed_button_config_factory->setData($embed_button_config_file_data)->save(TRUE);
+    }
+  }
+
+  // Add Icons for Entity Embed CKEditor Media Library and Gallery.
+  $embed_buttons = [
+    // CKEditor Embed Media Library icon for the gallery embed entity button.
+    'media' => [
+      'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-media.png',
+      'destination' => 'public://embed-media.png',
+    ],
+    // CKEditor Embed Gallery icon for the gallery embed entity button.
+    'gallery' => [
+      'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png',
+      'destination' => 'public://embed-gallery.png',
+    ],
+  ];
+
+  foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
+    $target_destination = NULL;
+    if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
+      try {
+        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
+      }
+      catch (FileException $e) {
+        $target_destination = FALSE;
+      }
+    }
+    else {
+      $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
+    }
+
+    if ($target_destination) {
+      $target_file = File::create(['uri' => $target_destination]);
+      $target_file->save();
+
+      EmbedButton::load($embed_button_id)->set('icon_uuid', $target_file->uuid())->save();
+    }
+    else {
+      return t("Unable to copy @source to the public files directory.", [
+        '@source' => $embed_button_info['source'],
+      ]);
+    }
+  }
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Revamp Varbase Entity Browsers with multiple media selection behaviors.
+ */
+function varbase_core_optional_update_8702() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8702');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Remove language button from the Rich Editor text format.
+ */
+function varbase_core_update_8703() {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8703');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Issue #3085537: Add [Token Filter] module 8.1.1 ( ~1.0 )
+ */
+function varbase_core_update_8704() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8704');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable Script Manager module.
+ */
+function varbase_core_optional_update_8705($force = FALSE) {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8705');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Use blurred image loading effect for Lazy-loaded images.
+ */
+function varbase_core_optional_update_8706($force = FALSE) {
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8706');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

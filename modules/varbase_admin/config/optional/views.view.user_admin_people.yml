@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -13,7 +14,6 @@ description: 'Find and manage people interacting with your site.'
 tag: default
 base_table: users_field_data
 base_field: uid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -45,15 +45,52 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: full_html
           bef:
             general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_exclude_textfield: true
               autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+            pager:
+              plugin_id: default
+              advanced:
+                is_secondary: false
+            filter:
+              combine:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              status:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              roles_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              created:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              created_1:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
             combine:
               bef_format: default
               more_options:
@@ -85,7 +122,7 @@ display:
               more_options:
                 is_secondary: false
                 placeholder_text: ''
-          text_input_required_format: full_html
+          input_required: false
       pager:
         type: full
         options:
@@ -235,19 +272,29 @@ display:
           batch_size: 50
           form_step: true
           buttons: false
-          clear_on_exposed: 0
+          clear_on_exposed: false
           action_title: Action
           selected_actions:
-            'entity:break_lock:user': 'entity:break_lock:user'
-            user_add_role_action: user_add_role_action
-            user_remove_role_action: user_remove_role_action
-            user_block_user_action: user_block_user_action
-            user_unblock_user_action: user_unblock_user_action
-            views_bulk_edit: 0
-            vbo_cancel_user_action: vbo_cancel_user_action
-            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
-            pathauto_update_alias: pathauto_update_alias
-            'entity:save_action:user': 'entity:save_action:user'
+            0:
+              action_id: 'entity:break_lock:user'
+            1:
+              action_id: user_add_role_action
+            2:
+              action_id: user_remove_role_action
+            3:
+              action_id: user_block_user_action
+            4:
+              action_id: user_unblock_user_action
+            5:
+              action_id: views_bulk_edit
+              preconfiguration:
+                get_bundles_from_results: 1
+            6:
+              action_id: vbo_cancel_user_action
+            8:
+              action_id: pathauto_update_alias
+            9:
+              action_id: 'entity:save_action:user'
           preconfiguration:
             'entity:break_lock:user':
               label_override: ''
@@ -680,6 +727,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -721,6 +770,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Status
@@ -770,6 +821,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -807,6 +860,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -848,6 +903,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -898,6 +955,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -949,6 +1008,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

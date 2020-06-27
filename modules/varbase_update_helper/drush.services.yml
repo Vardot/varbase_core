@@ -1,0 +1,5 @@
+services:
+  varbase_update_helper.commands:
+    class: Drupal\varbase_update_helper\Commands\VarbaseUpdateHelperCommands
+    tags:
+      - { name: drush.command }

@@ -33,4 +33,5 @@ Languages, and translation support.
 Provide webforms features and settings.
 
 ### Varbase Updates Helper
-Provides a UI to review Varbase Updates that are made available in every version.
+Provides a UI to review Varbase Updates that are made available in every
+version.

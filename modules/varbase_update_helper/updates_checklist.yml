@@ -131,3 +131,98 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+8.7.1:
+    '#title': 'New Updates in Varbase 8.7.1'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_optional_update_8701:
+      '#title': 'Add a new Gallery media type'
+      '#description': '
+      <p>This update introduces a new Gallery media type. The Gallery media type includes:<ul>
+        <li>New Slick presets configuration for Gallery slider.</li>
+        <li>New form modes for all Media Types to simplify entry.</li>
+        <li>A new easy way to select Gallery media items through enhanced Entity Browsers.</li>
+      </ul></p>
+      See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> and <a href="https://www.drupal.org/project/varbase_editor/issues/3077029/" target="_blank">#3077029</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8701</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8701</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
+    varbase_core_optional_update_8702:
+      '#title': 'Improved Entity Browsers'
+      '#description': '
+      <p>This update introduces upgraded Entity Browsers with ability to select multiple media items especially when browsing accross multiple pages.</p>
+      See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8702</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
+    varbase_core_update_8703:
+      '#title': 'Remove language button from the Rich Editor text format'
+      '#description': '
+      <p>Remove language button from the Rich Editor text format
+      </p>
+      See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3077060/" target="_blank">#3077060</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8703</code> to apply this update.</span></p><br />'
+      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+      '#description_failed': '
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8703</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+      '
+8.7.2:
+    '#title': 'New Updates in Varbase 8.7.2'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_update_8704:
+        '#title': 'Ability to use Drupal Tokens inside WYSIWYG editor'
+        '#description': '
+        <p>This update enabled Token Filter module and allows site admins with access to the HTML Editor (Code Filter) to insert Drupal Tokens and render them in the markup.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_core/issues/3085537" target="_blank">#3085537</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8704</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8704</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+8.7.3:
+    '#title': 'New Updates in Varbase 8.7.3'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_optional_update_8705:
+        '#title': 'Enable Script Manager'
+        '#description': '
+        <p>This update enables you to add scripts into your header or footer HTMl pages without getting back to developers and perform deployment everytime.</p>
+        See issue <a href="https://www.drupal.org/node/3094353" target="_blank">#3094353</a> and issue <a href="https://www.drupal.org/node/3094382" target="_blank">#3094382</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8705</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8705</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+8.7.4:
+    '#title': 'New Updates in Varbase 8.7.4'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_optional_update_8706:
+        '#title': 'Use blurred image loading effect for lazy-loaded images'
+        '#description': '
+        <p>This updates adds a UX improvement to lazy-loaded images rendered through Blazy. It loads a very low-res blurred image in-place of the original one before the actual image loads. It works with both responsive and normal images.
+        To activate, navigate to "/admin/config/varbase/varbase-media" or run this update.</p>
+        See issue <a href="https://www.drupal.org/node/3095125" target="_blank">#3095125</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8706</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8706</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+

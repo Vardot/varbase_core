@@ -1,10 +1,9 @@
 name: 'Varbase Core'
 description: 'Provides core components required by other features.'
 type: module
-core: 8.x
-version: 8.x-6.x-dev
-project: varbase_core
+core_version_requirement: ^8 || ^9
 package: Varbase
+configure: varbase_core.settings_index
 components:
   - varbase_admin
   - varbase_default_content
@@ -26,7 +25,6 @@ dependencies:
   - drupal:block_content
   - drupal:config
   - drupal:config_update
-  - config_filter:config_filter
   - config_ignore:config_ignore
   - drupal:datetime
   - drupal:file
@@ -45,6 +43,7 @@ dependencies:
   - smart_trim:smart_trim
   - advanced_text_formatter:advanced_text_formatter
   - block_class:block_class
+  - varbase_core:varbase_update_helper
 install:
   - contextual
   - diff
@@ -54,6 +53,7 @@ install:
   - menu_ui
   - menu_link_content
   - filter
+  - token_filter
   - field_ui
   - help
   - page_cache
@@ -70,6 +70,7 @@ install:
   - entityqueue
   - entityqueue_form_widget
   - inline_entity_form
+  - inline_form_errors
   - persistent_login
   - ultimate_cron
   - content_lock

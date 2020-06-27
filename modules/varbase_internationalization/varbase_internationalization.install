@@ -6,10 +6,7 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
-use Drupal\Core\Config\InstallStorage;
-use Drupal\Core\Config\StorageInterface;
-use Drupal\Core\Config\FileStorage;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -20,8 +17,8 @@ function varbase_internationalization_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // ---------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -30,12 +27,18 @@ function varbase_internationalization_install() {
     }
   }
   // ---------------------------------------------------------------------------
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
 
 }
 
 /**
- * Issue #3032661: Changed [Varbase Internationalization] not to use the
- * [Localization client] module by disabling it for old sites and not to
+ * Issue #3032661: Changed [Varbase Internationalization] not to use.
+ *
+ * The [Localization client] module by disabling it for old sites and not to
  * install it in new Varbase installations.
  */
 function varbase_internationalization_update_86001() {

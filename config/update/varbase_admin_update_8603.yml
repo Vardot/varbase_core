@@ -1,0 +1,6 @@
+__global_conditions:
+  expected_modules:
+    - varbase_admin
+__global_actions:
+  install_modules:
+    - admin_toolbar_links_access_filter

@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: configure_entityqueues
+label: 'Configure entityqueues'
+route: entity.entity_queue.edit_form

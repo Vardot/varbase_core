@@ -6,7 +6,6 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
@@ -14,6 +13,7 @@ use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\shortcut\Entity\Shortcut;
 use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
+use Drupal\user\UserInterface;
 
 /**
  * Implements hook_install().
@@ -24,8 +24,8 @@ function varbase_admin_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // ---------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -41,7 +41,7 @@ function varbase_admin_install() {
     $config_installer->installDefaultConfig('module', $module_name);
 
     // Create field storage configs first in active config.
-    $storage_config_files = file_scan_directory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
+    $storage_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
     if (isset($storage_config_files) && is_array($storage_config_files)) {
       foreach ($storage_config_files as $storage_config_file) {
         $storage_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $storage_config_file->uri);
@@ -56,7 +56,7 @@ function varbase_admin_install() {
     $config_installer->installOptionalConfig($storage, '');
 
     // Have the .settings.yml configs into the active config.
-    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
+    $settings_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^.*\\.(settings.yml)$/i');
     if (isset($settings_config_files) && is_array($settings_config_files)) {
       foreach ($settings_config_files as $settings_config_file) {
         $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
@@ -67,57 +67,56 @@ function varbase_admin_install() {
     }
   }
   // ---------------------------------------------------------------------------
-  
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
 
   // Restrict user registration to admin role creation.
-  \Drupal::configFactory()->getEditable('user.settings')->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
+  \Drupal::configFactory()->getEditable('user.settings')->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
 
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 
   // Populate the default shortcut set.
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Add content'),
     'weight' => 0,
-    'link' => array('uri' => 'internal:/node/add'),
-  ));
+    'link' => ['uri' => 'internal:/node/add'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('All content'),
     'weight' => 1,
-    'link' => array('uri' => 'internal:/admin/content'),
-  ));
+    'link' => ['uri' => 'internal:/admin/content'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('All media'),
     'weight' => 2,
-    'link' => array('uri' => 'internal:/admin/content/media'),
-  ));
+    'link' => ['uri' => 'internal:/admin/content/media'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Taxonomy'),
     'weight' => 3,
-    'link' => array('uri' => 'internal:/admin/structure/taxonomy'),
-  ));
+    'link' => ['uri' => 'internal:/admin/structure/taxonomy'],
+  ]);
   $shortcut->save();
 
-  $shortcut = Shortcut::create(array(
+  $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Permissions'),
     'weight' => 4,
-    'link' => array('uri' => 'internal:/admin/people/permissions'),
-  ));
+    'link' => ['uri' => 'internal:/admin/people/permissions'],
+  ]);
   $shortcut->save();
 
   // Enable the admin theme.
@@ -129,6 +128,19 @@ function varbase_admin_install() {
     ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
+  // Have forced configs import after the entity and definitions updates.
+  $forced_configs_import_after_entity_updates = [
+    'views.view.content',
+    'views.view.user_admin_people',
+  ];
+
+  foreach ($forced_configs_import_after_entity_updates as $config_name) {
+    $config_path = $optional_install_path . '/' . $config_name . '.yml';
+    $config_content = file_get_contents($config_path);
+    $config_data = (array) Yaml::parse($config_content);
+    $config_factory = \Drupal::configFactory()->getEditable($config_name);
+    $config_factory->setData($config_data)->save(TRUE);
+  }
 }
 
 /**
@@ -144,4 +156,51 @@ function varbase_admin_update_8602() {
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
+}
+
+/**
+ * Enable Admin Toolbar Links Access Filter module.
+ */
+function varbase_admin_update_8603() {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_toolbar_links_access_filter')) {
+    \Drupal::service('module_installer')->install(['admin_toolbar_links_access_filter'], FALSE);
+  }
+}
+
+/**
+ * Enable [Events log track] module.
+ */
+function varbase_admin_update_8604() {
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track')) {
+    \Drupal::service('module_installer')->install(['event_log_track'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_file')) {
+    \Drupal::service('module_installer')->install(['event_log_track_file'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_media')) {
+    \Drupal::service('module_installer')->install(['event_log_track_media'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_user')) {
+    \Drupal::service('module_installer')->install(['event_log_track_user'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_taxonomy')) {
+    \Drupal::service('module_installer')->install(['event_log_track_taxonomy'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_node')) {
+    \Drupal::service('module_installer')->install(['event_log_track_node'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_menu')) {
+    \Drupal::service('module_installer')->install(['event_log_track_menu'], FALSE);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('event_log_track_auth')) {
+    \Drupal::service('module_installer')->install(['event_log_track_auth'], FALSE);
+  }
+
 }

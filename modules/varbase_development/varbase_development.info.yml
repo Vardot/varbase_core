@@ -2,8 +2,8 @@ name: 'Varbase Development'
 description: 'Development Environment Modules and Features, make sure to disable this feature in production.'
 type: module
 package: Varbase
-version: 8.x-6.x-dev
-core: 8.x
+version: 8.x-8.x-dev
+core_version_requirement: ^8 || ^9
 project: varbase_core
 dependencies: []
 install:
@@ -28,5 +28,5 @@ install:
 #  - tour_builder
 #  - blazy_ui
 #  - devel_generate
-#  - kit
 #  - slick_ui
+#  - config_inspector

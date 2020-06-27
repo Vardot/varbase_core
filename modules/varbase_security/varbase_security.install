@@ -6,10 +6,10 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -20,8 +20,8 @@ function varbase_security_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // ---------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -37,7 +37,7 @@ function varbase_security_install() {
     $config_installer->installDefaultConfig('module', $module_name);
 
     // Create field storage configs first in active config.
-    $storage_config_files = file_scan_directory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
+    $storage_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
     if (isset($storage_config_files) && is_array($storage_config_files)) {
       foreach ($storage_config_files as $storage_config_file) {
         $storage_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $storage_config_file->uri);
@@ -52,7 +52,7 @@ function varbase_security_install() {
     $config_installer->installOptionalConfig($storage, '');
 
     // Have the .settings.yml configs into the active config.
-    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
+    $settings_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^.*(settings.yml)$/i');
     if (isset($settings_config_files) && is_array($settings_config_files)) {
       foreach ($settings_config_files as $settings_config_file) {
         $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
@@ -63,5 +63,23 @@ function varbase_security_install() {
     }
   }
   // ---------------------------------------------------------------------------
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
+
+  // Have forced configs import after the entity and definitions updates.
+  $forced_configs_import_after_entity_updates = [
+    'core.entity_form_display.user.user.default',
+  ];
+
+  foreach ($forced_configs_import_after_entity_updates as $config_name) {
+    $config_path = $optional_install_path . '/' . $config_name . '.yml';
+    $config_content = file_get_contents($config_path);
+    $config_data = (array) Yaml::parse($config_content);
+    $config_factory = \Drupal::configFactory()->getEditable($config_name);
+    $config_factory->setData($config_data)->save(TRUE);
+  }
 
 }
