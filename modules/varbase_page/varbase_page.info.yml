@@ -2,9 +2,7 @@ name: 'Varbase Page'
 description: 'Provides Basic page content type and related configuration.'
 type: module
 package: Varbase
-version: 8.x-8.x-dev
 core_version_requirement: ^8 || ^9
-project: varbase_core
 dependencies:
   - varbase_core:varbase_core
 install:

@@ -2,9 +2,7 @@ name: 'Varbase Webform'
 description: 'Provide webforms features and settings.'
 type: module
 package: Varbase
-version: 8.x-8.x-dev
 core_version_requirement: ^8 || ^9
-project: varbase_core
 dependencies: 
   - webform:webform
 install:
