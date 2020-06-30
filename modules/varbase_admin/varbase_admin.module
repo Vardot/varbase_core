@@ -5,6 +5,8 @@
  * Contains varbase_admin.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_toolbar_alter().
  */
@@ -14,4 +16,50 @@ function varbase_admin_toolbar_alter(&$items) {
   if (isset($items['administration_search'])) {
     unset($items['administration_search']);
   }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInterface $form_state) {
+
+  // Make “Promoted to front page” default is always off.
+  if (isset($form['workflow'])
+    && isset($form['workflow']['options'])
+    && isset($form['workflow']['options']['#default_value'])
+    && isset($form['workflow']['options']['#default_value']['promote'])) {
+
+    // Remove promote from the default options.
+    unset($form['workflow']['options']['#default_value']['promote']);
+  }
+
+  // Rabbit hole “Allow these settings to be overridden for individual entities”
+  // to be default off.
+  if (isset($form['rabbit_hole'])
+    && isset($form['rabbit_hole']['rh_override'])
+    && isset($form['rabbit_hole']['rh_override']['#default_value'])) {
+
+    // Uncheck the default override for rabbit hole.
+    $form['rabbit_hole']['rh_override']['#default_value'] = 0;
+  }
+
+  // Available in Menus default off.
+  if (isset($form['menu'])
+    && isset($form['menu']['menu_options'])
+    && isset($form['menu']['menu_options']['#default_value'])) {
+
+    // Have no default menu options.
+    $form['menu']['menu_options']['#default_value'] = [];
+  }
+
+  // “Display author and date information” default off.
+  if (isset($form['display'])
+    && isset($form['display']['display_submitted'])
+    && isset($form['display']['display_submitted']['#default_value'])) {
+
+    // Uncheck the default display submitted auther option.
+    $form['display']['display_submitted']['#default_value'] = 0;
+  }
+
+  return $form;
 }
