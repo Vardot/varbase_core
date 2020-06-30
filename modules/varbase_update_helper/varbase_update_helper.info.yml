@@ -2,9 +2,7 @@ name: 'Varbase Updates Helper'
 description: 'Provides a UI to review Varbase Updates that are made available in every version.'
 type: module
 package: Varbase
-version: 8.x-8.x-dev
 core_version_requirement: ^8 || ^9
-project: varbase_core
 dependencies:
   - checklistapi:checklistapi
   - update_helper:update_helper
