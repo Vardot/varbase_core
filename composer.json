@@ -84,7 +84,7 @@
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~2.0",
     "drupal/node_edit_protection": "~1.0",
-    "drupal/rabbit_hole": "~1.0",
+    "drupal/rabbit_hole": "1.0-beta7",
     "drupal/yoast_seo": "~1.0",
     "drupal/fast_404": "~2.0",
     "drupal/diff": "~1.0",
@@ -209,6 +209,10 @@
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
         "https://www.drupal.org/files/issues/2020-05-28/optional_edit-3143422-2.patch"
+      },
+      "drupal/rabbit_hole": {
+        "Issue #3156322: Rabbit Hole bundle settings is not created on content type creation, only on editing content type":
+        "https://www.drupal.org/files/issues/2020-07-03/3156322_4.patch"
       }
     }
   }
