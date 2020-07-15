@@ -30,6 +30,7 @@ function varbase_core_install() {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
       && is_array($module_info_data['install'])) {
+
       foreach ($module_info_data['install'] as $module) {
         if (!\Drupal::moduleHandler()->moduleExists($module)) {
           \Drupal::service('module_installer')->install([$module], TRUE);
