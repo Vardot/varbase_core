@@ -66,6 +66,7 @@
     "drupal/betterlogin": "~1.0",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
+    "drupal/prevent_homepage_deletion": "~1.0",
     "drupal/admin_toolbar": "~2.0",
     "drupal/tour_ui": "1.x-dev",
     "drupal/tour_builder": "~1.0",
