@@ -81,7 +81,7 @@
     "drupal/webform": "~5.0",
     "drupal/webform_analysis": "~1.0",
     "drupal/webform_views": "~5.0",
-    "drupal/default_content": "~2.0",
+    "drupal/default_content": "2.0.x-dev",
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~2.0",
     "drupal/node_edit_protection": "~1.0",
@@ -164,6 +164,10 @@
         "https://www.drupal.org/files/issues/2019-12-03/2996114-99.patch",
         "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
         "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch"
+      },
+      "drupal/default_content": {
+        "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
+        "https://www.drupal.org/files/issues/2020-07-22/3160146-22.patch"
       },
       "drupal/persistent_login": {
         "Issue #2899530: Hide user^s local task":
