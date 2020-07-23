@@ -20,6 +20,9 @@ default:
   title:
     -
       value: Homepage
+  created:
+    -
+      value: 1594905454
   promote:
     -
       value: false
