@@ -10,7 +10,7 @@ default:
       target_id: 1
   revision_log:
     -
-      value: 'Updated the Layout field'
+      value: 'Created homepage node'
   status:
     -
       value: true
@@ -22,7 +22,7 @@ default:
       value: Homepage
   created:
     -
-      value: 1594905454
+      value: null
   promote:
     -
       value: false

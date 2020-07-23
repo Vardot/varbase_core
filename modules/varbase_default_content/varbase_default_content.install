@@ -69,4 +69,22 @@ function varbase_default_content_install() {
     ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
+  // Set front page to "/node".
+  \Drupal::configFactory()->getEditable('system.site')
+      ->set('page.front', '/node')
+      ->save();
+
+  // Rebuild permissions. The content access permissions need to be rebuilt.
+  node_access_rebuild();
+
+  // Flushes plugins caches.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+
+  // Rebuild the menu router based on all rebuilt data.
+  // Important: This rebuild must happen last, so the menu router is guaranteed
+  // to be based on up to date information.
+  \Drupal::service('router.builder')->rebuild();
+
+  // Resets all static caches.
+  drupal_static_reset();
 }
