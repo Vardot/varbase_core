@@ -71,14 +71,25 @@ function varbase_default_content_install() {
 
   // Set front page to "/node".
   \Drupal::configFactory()->getEditable('system.site')
-      ->set('page.front', '/node')
+      ->set('page.front', '/node/1')
       ->save();
+
+  // Clear cached definitions.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+
+  \Drupal::service('plugin.manager.menu.contextual_link')->clearCachedDefinitions();
+  \Drupal::service('plugin.manager.menu.local_task')->clearCachedDefinitions();
+  \Drupal::service('plugin.manager.menu.local_action')->clearCachedDefinitions();
+
+  // Invalidating.
+  \Drupal::service('cache.menu')->invalidateAll();
+  \Drupal::service('cache.render')->invalidateAll();
+
+  // Rebuilding.
+  \Drupal::service('plugin.manager.menu.link')->rebuild();
 
   // Rebuild permissions. The content access permissions need to be rebuilt.
   node_access_rebuild();
-
-  // Flushes plugins caches.
-  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 
   // Rebuild the menu router based on all rebuilt data.
   // Important: This rebuild must happen last, so the menu router is guaranteed
