@@ -248,6 +248,13 @@ function varbase_admin_update_8605() {
   if (\Drupal::moduleHandler()->moduleExists('event_log_track')) {
     \Drupal::service('module_installer')->uninstall(['event_log_track'], FALSE);
   }
+
+  if (\Drupal::moduleHandler()->moduleExists('event_log_track_workflows')) {
+    \Drupal::service('module_installer')->uninstall(['event_log_track_workflows'], FALSE);
+  }
+  // ---------------------------------------------------------------------------.
+  // .
+  // .
   // ---------------------------------------------------------------------------
   // Inastall all Admin Audit Trail moduels.
   // ---------------------------------------------------------------------------.
