@@ -20,6 +20,7 @@ install:
   - admin_audit_trail_node
   - admin_audit_trail_menu
   - admin_audit_trail_auth
+  - admin_audit_trail_workflows
   - views_bulk_operations
   - views_bulk_edit
   - admin_toolbar
