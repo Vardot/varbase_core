@@ -256,28 +256,30 @@ function varbase_admin_update_8605() {
 
   // Migrate logs from the event_log_track table to admin_audit_trail table.
   // ---------------------------------------------------------------------------.
-  $fields = [
-    'lid',
-    'type',
-    'operation',
-    'path',
-    'ref_numeric',
-    'ref_char',
-    'description',
-    'uid',
-    'ip',
-    'created',
-  ];
+  if (\Drupal::moduleHandler()->moduleExists('event_log_track')) {
+    $fields = [
+      'lid',
+      'type',
+      'operation',
+      'path',
+      'ref_numeric',
+      'ref_char',
+      'description',
+      'uid',
+      'ip',
+      'created',
+    ];
 
-  $event_log_track_query = \Drupal::database()->select('event_log_track', 'event_log_track');
-  $event_log_track_query->fields('event_log_track', $fields);
-  $event_log_track_result = $event_log_track_query->execute();
-  while ($event_log_track_row_values = $event_log_track_result->fetchAssoc()) {
-    $result = \Drupal::database()->insert('admin_audit_trail')
-      ->fields($fields)
-      ->values($event_log_track_row_values)
-      ->execute();
-    unset($result);
+    $event_log_track_query = \Drupal::database()->select('event_log_track', 'event_log_track');
+    $event_log_track_query->fields('event_log_track', $fields);
+    $event_log_track_result = $event_log_track_query->execute();
+    while ($event_log_track_row_values = $event_log_track_result->fetchAssoc()) {
+      $result = \Drupal::database()->insert('admin_audit_trail')
+        ->fields($fields)
+        ->values($event_log_track_row_values)
+        ->execute();
+      unset($result);
+    }
   }
 
   // Uninstall all Event Log Track moduels.
