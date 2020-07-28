@@ -218,39 +218,48 @@ function varbase_admin_update_8605() {
   // ---------------------------------------------------------------------------
   // Inastall all Admin Audit Trail moduels.
   // ---------------------------------------------------------------------------.
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_file')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_file')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_file')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_file'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_media')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_media')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_media')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_media'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_user')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_user')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_user')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_user'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_taxonomy')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_taxonomy')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_taxonomy')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_taxonomy'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_node')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_node')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_node')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_node'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_menu')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_menu')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_menu')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_menu'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_auth')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_auth')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_auth')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_auth'], FALSE);
   }
 
-  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_workflows')) {
+  if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail_workflows')
+    && \Drupal::moduleHandler()->moduleExists('event_log_track_workflows')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail_workflows'], FALSE);
   }
 
