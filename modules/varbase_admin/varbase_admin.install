@@ -310,12 +310,12 @@ function varbase_admin_update_8605() {
     \Drupal::service('module_installer')->uninstall(['event_log_track_auth'], FALSE);
   }
 
-  if (\Drupal::moduleHandler()->moduleExists('event_log_track')) {
-    \Drupal::service('module_installer')->uninstall(['event_log_track'], FALSE);
-  }
-
   if (\Drupal::moduleHandler()->moduleExists('event_log_track_workflows')) {
     \Drupal::service('module_installer')->uninstall(['event_log_track_workflows'], FALSE);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('event_log_track')) {
+    \Drupal::service('module_installer')->uninstall(['event_log_track'], FALSE);
   }
 
 }
