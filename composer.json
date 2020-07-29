@@ -164,7 +164,9 @@
         "Issue #2996114: Fix Argument 2 passed to Drupal jsonapi Routing closure must be an instance of ResourceType, NULL given":
         "https://www.drupal.org/files/issues/2019-12-03/2996114-99.patch",
         "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
-        "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch"
+        "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch",
+        "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
+        "https://www.drupal.org/files/issues/2020-04-20/2741877-48.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
