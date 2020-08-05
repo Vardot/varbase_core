@@ -55,6 +55,7 @@
     "drupal/views_infinite_scroll": "~1.0",
     "drupal/entity": "~1.0",
     "drupal/entity_clone": "~1.0",
+    "drupal/entity_usage": "~2.0",
     "drupal/entityqueue": "~1.0",
     "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "1.0-rc6",

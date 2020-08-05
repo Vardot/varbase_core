@@ -67,6 +67,7 @@ install:
   - panels_ipe
   - menu_block
   - views_infinite_scroll
+  - entity_usage
   - entityqueue
   - entityqueue_form_widget
   - inline_entity_form
