@@ -120,7 +120,8 @@
     "drupal/vmi": "~2.0"
   },
   "suggest": {
-    "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill"
+    "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill",
+    "bower-asset/jqueryui-touch-punch": "0.2.3 Required to use by drupal/jquery_ui_touch_punch module."
   },
   "extra": {
     "installer-types": [
@@ -129,7 +130,8 @@
     ],
     "drupal-libraries": {
       "libraries": [
-        {"name": "objectfitpolyfill", "package": "bower-asset/objectfitpolyfill"}
+        {"name": "objectfitpolyfill", "package": "bower-asset/objectfitpolyfill"},
+        {"name": "jquery-ui-touch-punch", "package": "bower-asset/jqueryui-touch-punch"}
       ]
     },
     "enable-patching": true,
