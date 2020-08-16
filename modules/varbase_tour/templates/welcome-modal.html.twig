@@ -74,7 +74,7 @@
     }
 </style>
 <div class="container">
-  <div class="modal fade bd-example-modal-xl" id="welcome-modal" role="dialog">
+  <div class="modal fade bd-example-modal-xl" id="welcome-modal" role="dialog" aria-labelledby="{{ 'Welcome to Varbase'|t }}" aria-hidden="true">
     <div class="modal-dialog modal-xl varbase-welcome">
       <div class="modal-content">
         <div class="modal-body">
@@ -174,20 +174,19 @@
 <script type="text/javascript">
   window.onload = function () {
     (function ($, _, Drupal, drupalSettings) {
-        "use strict";
+      "use strict";
 
-        Drupal.behaviors.varbaseTourWelcomeModal = {
-          attach: function (context) {
-            $('#welcome-modal').modal({
-              backdrop: 'static',
-              keyboard: false
-            });
+      $('#welcome-modal').modal('show'); 
 
-            $('#welcome-modal').on('hidden.bs.modal', function (e) {
-              window.location.href= "?tour=1&welcome=done";
-            });
-          }
-        };
+      $('#welcome-modal').modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+
+      $('#welcome-modal').on('hidden.bs.modal', function (e) {
+        window.location.href= "?tour=1&welcome=done";
+      });
+
     })(window.jQuery, window._, window.Drupal, window.drupalSettings);
   }
 </script>
