@@ -79,7 +79,7 @@
     "drupal/views_bulk_operations": "~3.3",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
-    "drupal/webform": "~5.0",
+    "drupal/webform": "~6.0",
     "drupal/webform_analysis": "~1.0",
     "drupal/webform_views": "~5.0",
     "drupal/default_content": "2.0.x-dev",
