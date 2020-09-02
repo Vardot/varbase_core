@@ -89,7 +89,6 @@
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
     "drupal/drd_agent": "~3.0",
-    "drupal/libraries_ui": "~1.0",
     "drupal/devel": "~4.0",
     "drupal/stage_file_proxy": "~1.0",
     "drupal/update_helper": "2.0",

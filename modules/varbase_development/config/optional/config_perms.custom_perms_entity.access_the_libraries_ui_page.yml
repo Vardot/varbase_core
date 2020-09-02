@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: access_the_libraries_ui_page
-label: 'Access the libraries UI page'
-route: libraries_ui.librares_ui_controller_librariesui
