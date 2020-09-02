@@ -25,7 +25,6 @@ install:
   - admin_toolbar
   - admin_toolbar_tools
   - admin_toolbar_links_access_filter
-  - mail_edit
   - masquerade
   - menu_admin_per_menu
   - responsive_preview
