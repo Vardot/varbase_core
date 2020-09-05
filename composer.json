@@ -209,7 +209,9 @@
       },
       "drupal/password_policy": {
         "Issue #2971079: Can't edit user profile because password policy validates even when password unchanged":
-        "https://www.drupal.org/files/issues/2020-03-19/password_policy-empty-password-skip-validation-2971079-37.patch"
+        "https://www.drupal.org/files/issues/2020-03-19/password_policy-empty-password-skip-validation-2971079-37.patch",
+        "Issue #3154140: Only force password change if new policies are applicable":
+        "https://www.drupal.org/files/issues/2020-07-09/password_policy-only_force_password_change_for_new_policies-3154140-4.patch"
       }
     }
   }
