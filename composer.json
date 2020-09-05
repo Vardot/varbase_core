@@ -99,7 +99,7 @@
     "drupal/update_helper": "2.0",
     "drupal/checklistapi": "~1.0",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "~3.0",
+    "drupal/password_policy": "3.0-beta1",
     "drupal/genpass": "~1.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~1.0",
@@ -206,6 +206,10 @@
       "drupal/rabbit_hole": {
         "Issue #3156322: Rabbit Hole bundle settings is not created on content type creation, only on editing content type":
         "https://www.drupal.org/files/issues/2020-07-03/3156322_4.patch"
+      },
+      "drupal/password_policy": {
+        "Issue #2971079: Can't edit user profile because password policy validates even when password unchanged":
+        "https://www.drupal.org/files/issues/2020-03-19/password_policy-empty-password-skip-validation-2971079-37.patch"
       }
     }
   }
