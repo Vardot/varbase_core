@@ -114,7 +114,6 @@
     "drupal/link_attributes": "~1.0",
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
-    "drupal/libraries": "~3.0",
     "drupal/vmi": "~2.0"
   },
   "suggest": {
