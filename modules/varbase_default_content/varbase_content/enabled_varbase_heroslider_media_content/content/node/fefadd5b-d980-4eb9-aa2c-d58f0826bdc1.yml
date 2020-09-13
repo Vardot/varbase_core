@@ -85,7 +85,7 @@ default:
             vlb_background_color: _none
             vlb_background_media: 0
             vlb_background_edge2edge: 1
-            vlb_classes: ''
+            vlb_classes: 'mt-n5'
             vlb_use_advanced: 0
           layout:
             wrapper: div
