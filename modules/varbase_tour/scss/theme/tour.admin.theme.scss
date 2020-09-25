@@ -1,11 +1,9 @@
 // Varbase Tour admin theme.
-
 .joyride-tip-guide {
 
   h1,
   .heading-a {
     font-weight: 300;
-    margin-bottom: 19px;
     margin-bottom: 1rem;
     font-size: 2.35em;
     line-height: 1.2em;
@@ -66,13 +64,19 @@
     background-color: #F9F9F9;
     text-shadow: none;
     transition: all, 0.2s;
-  }
 
-  .button:hover,
-  .button:focus {
-    background-color: #FFFFFF;
-    border-color: #008ee6;
-    background-image: none;
+    &:hover,
+    &:focus {
+      background-color: #FFFFFF;
+      border-color: #008ee6;
+      background-image: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: rgb(104, 163, 207);
+      outline: rgb(193, 224, 255) solid 2px;
+    }
   }
 
   .button-action:before {
@@ -81,51 +85,45 @@
 
   .action-links {
     margin: 2em 0;
+
+    .button--primary {
+      color: #327EBD;
+      background: #fff;
+      font-size: 14px;
+      padding: 0.33rem 1.33rem;
+      border: 2px solid #327ebd;
+      font-family: sans-serif;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .button--primary:hover,
+    .button--primary:focus {
+      color: #fff;
+      box-shadow: none;
+      background-image: none;
+      background-color: #327EBD;
+    }
+
+    .button--primary:focus {
+      border-color: #08639b;
+      outline: none;
+    }
   }
 
   .button--primary {
     background: #0071b8;
     border-color: #0071b8;
-  }
 
-  .button--primary:hover,
-  .button--primary:focus {
-    background-image: none;
-    background-color: #1f86c7;
-    border-color: #1f86c7;
-  }
-
-  .button:focus {
-    box-shadow: none;
-    border-color: rgb(104, 163, 207);
-    outline: rgb(193, 224, 255) solid 2px;
+    &:hover,
+    &:focus {
+      background-image: none;
+      background-color: #1f86c7;
+      border-color: #1f86c7;
+    }
   }
 
   .button--small:focus {
-    outline: none;
-  }
-
-  .action-links .button--primary {
-    color: #327EBD;
-    background: #fff;
-    font-size: 14px;
-    padding: 0.33rem 1.33rem;
-    border: 2px solid #327ebd;
-    font-family: sans-serif;
-    border-radius: 999px;
-    font-weight: 600;
-  }
-
-  .action-links .button--primary:hover,
-  .action-links .button--primary:focus {
-    color: #fff;
-    box-shadow: none;
-    background-image: none;
-    background-color: #327EBD;
-  }
-
-  .action-links .button--primary:focus {
-    border-color: #08639b;
     outline: none;
   }
 
@@ -150,7 +148,6 @@
     min-height: 28px;
     text-shadow: none;
   }
-
 
   label {
     margin: 0 0 0.2em;

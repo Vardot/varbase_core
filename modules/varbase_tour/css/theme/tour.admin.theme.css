@@ -1,16 +1,15 @@
 .joyride-tip-guide h1,
 .joyride-tip-guide .heading-a {
-  font-weight: 300;
-  margin-bottom: 19px;
   margin-bottom: 1rem;
-  font-size: 2.35em;
-  line-height: 1.2em;
   color: #fff;
+  font-size: 2.35em;
+  font-weight: 300;
+  line-height: 1.2em;
 }
 
 .joyride-tip-guide .content-header {
-  background-color: #333;
   padding: 1rem 0 0;
+  background-color: #333;
 }
 
 .joyride-tip-guide .toolbar-tray-open.toolbar-fixed.toolbar-horizontal {
@@ -18,19 +17,19 @@
 }
 
 .joyride-tip-guide thead th {
-  border: none;
-  color: #909090;
   text-transform: none;
-  font-weight: 500;
+  color: #909090;
+  border: none;
   font-size: 0.91rem;
+  font-weight: 500;
 }
 
 .joyride-tip-guide thead th.is-active {
-  background: #fff;
-  border-bottom: 1px solid #fff;
   border-top: 1px solid #e6e4df;
-  border-left: 1px solid #e6e4df;
   border-right: 1px solid #e6e4df;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #e6e4df;
+  background: #fff;
 }
 
 .joyride-tip-guide th.is-active > a,
@@ -57,20 +56,24 @@
 }
 
 .joyride-tip-guide .button {
-  border-radius: 0;
-  background-image: none;
-  background-color: #f9f9f9;
-  text-shadow: none;
-  -webkit-transition: all, 0.2s;
-  -o-transition: all, 0.2s;
   transition: all, 0.2s;
+  border-radius: 0;
+  background-color: #f9f9f9;
+  background-image: none;
+  text-shadow: none;
 }
 
 .joyride-tip-guide .button:hover,
 .joyride-tip-guide .button:focus {
-  background-color: #ffffff;
   border-color: #008ee6;
+  background-color: #fff;
   background-image: none;
+}
+
+.joyride-tip-guide .button:focus {
+  border-color: #68a3cf;
+  outline: #c1e0ff solid 2px;
+  box-shadow: none;
 }
 
 .joyride-tip-guide .button-action:before {
@@ -81,47 +84,23 @@
   margin: 2em 0;
 }
 
-.joyride-tip-guide .button--primary {
-  background: #0071b8;
-  border-color: #0071b8;
-}
-
-.joyride-tip-guide .button--primary:hover,
-.joyride-tip-guide .button--primary:focus {
-  background-image: none;
-  background-color: #1f86c7;
-  border-color: #1f86c7;
-}
-
-.joyride-tip-guide .button:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-color: #68a3cf;
-  outline: #c1e0ff solid 2px;
-}
-
-.joyride-tip-guide .button--small:focus {
-  outline: none;
-}
-
 .joyride-tip-guide .action-links .button--primary {
-  color: #327ebd;
-  background: #fff;
-  font-size: 14px;
   padding: 0.33rem 1.33rem;
+  color: #327ebd;
   border: 2px solid #327ebd;
-  font-family: sans-serif;
   border-radius: 999px;
+  background: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .joyride-tip-guide .action-links .button--primary:hover,
 .joyride-tip-guide .action-links .button--primary:focus {
   color: #fff;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-image: none;
   background-color: #327ebd;
+  background-image: none;
+  box-shadow: none;
 }
 
 .joyride-tip-guide .action-links .button--primary:focus {
@@ -129,12 +108,28 @@
   outline: none;
 }
 
+.joyride-tip-guide .button--primary {
+  border-color: #0071b8;
+  background: #0071b8;
+}
+
+.joyride-tip-guide .button--primary:hover,
+.joyride-tip-guide .button--primary:focus {
+  border-color: #1f86c7;
+  background-color: #1f86c7;
+  background-image: none;
+}
+
+.joyride-tip-guide .button--small:focus {
+  outline: none;
+}
+
 .joyride-tip-guide .button--small {
+  color: #b1b1b1;
   border-color: #cacaca;
   border-radius: 0.2rem;
-  color: #b1b1b1;
-  font-weight: 500;
   background: #fff;
+  font-weight: 500;
 }
 
 .joyride-tip-guide .button--danger {
@@ -170,22 +165,19 @@
 }
 
 .joyride-tip-guide .ui-dialog {
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-state-active,
 .joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-widget-content .ui-state-active {
-  background: transparent;
-  border-color: transparent;
   color: transparent;
+  border-color: transparent;
+  background: transparent;
 }
 
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar-close {
-  opacity: 0.5;
-  -webkit-transition: all, 0.2s;
-  -o-transition: all, 0.2s;
   transition: all, 0.2s;
+  opacity: 0.5;
 }
 
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar-close:hover {
@@ -194,14 +186,12 @@
 
 .joyride-tip-guide .messages {
   margin: 1rem 0 1rem 0;
-  border-width: 1px 0px 1px 0;
+  border-width: 1px 0 1px 0;
   border-radius: 0;
   background-color: transparent;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-background-size: 1.3rem 1.3rem;
-  background-size: 1.3rem;
   background-position: 5px 50%;
+  background-size: 1.3rem;
+  box-shadow: none;
 }
 
 .joyride-tip-guide .messages--error {

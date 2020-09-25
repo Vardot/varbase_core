@@ -1,8 +1,8 @@
 {
-  "name": "varbase_tour",
+  "name": "varbase_core",
   "private": true,
   "version": "9.0.0",
-  "description": "Provide Tours for varbase.",
+  "description": "Provides core components required by other features.",
   "main": "index.js",
   "scripts": {
     "eslint": "node ./node_modules/eslint/bin/eslint.js --config=.eslintrc.json .",
@@ -15,9 +15,7 @@
     "Bootstrap",
     "Drupal",
     "Varbase",
-    "Varbase Bootstrap Paragraphs",
-    "Bootstrap Paragraphs",
-    "Paragraphs"
+    "Varbase Core"
   ],
   "author": "Vardot",
   "license": "GPL-2.0",
