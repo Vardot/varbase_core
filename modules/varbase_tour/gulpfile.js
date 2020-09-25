@@ -3,7 +3,7 @@ let gulp = require('gulp'),
   postcss = require('gulp-postcss'),
   csscomb = require('gulp-csscomb'),
   autoprefixer = require('autoprefixer'),
-  browserSync = require('browser-sync').create()
+  browserSync = require('browser-sync').create();
 
 const paths = {
   scss: {
@@ -12,7 +12,7 @@ const paths = {
     watch: 'scss/**/*.scss'
   },
   js: {  }
-}
+};
 
 // Compile sass into CSS & auto-inject into browsers.
 function compile () {
@@ -25,31 +25,20 @@ function compile () {
 
   return gulp.src([paths.scss.src])
     .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(postcss([autoprefixer({
-      browsers: [
-        'Chrome >= 35',
-        'Firefox >= 38',
-        'Edge >= 12',
-        'Explorer >= 10',
-        'iOS >= 8',
-        'Safari >= 8',
-        'Android 2.3',
-        'Android >= 4',
-        'Opera >= 12']
-    })]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(csscomb())
     .pipe(gulp.dest(paths.scss.dest))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
 // Watching scss files.
 function watch () {
-  gulp.watch([paths.scss.watch], compile)
+  gulp.watch([paths.scss.watch], compile);
 }
 
-const build = gulp.series(compile, gulp.parallel(watch))
+const build = gulp.series(compile, gulp.parallel(watch));
 
-exports.compile = compile
-exports.watch = watch
+exports.compile = compile;
+exports.watch = watch;
 
-exports.default = build
+exports.default = build;

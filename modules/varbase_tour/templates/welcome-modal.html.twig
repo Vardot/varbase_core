@@ -1,77 +1,80 @@
 <style type="text/css">
-  #welcome-modal {
-    z-index: 100000;
-  }
-  @media (min-width: 1170px) {
-      .varbase-welcome {
-        width: 800px;
-        margin: 30px auto;
-      }
-      .varbase-welcome .modal-body {
-        padding-left: 60px;
-        padding-right: 60px;
-      }
-    }
-    .varbase-welcome .modal-body {
-      padding: 20px;
-    }
-    .varbase-welcome .modal-body .text-center h3 {
-      margin-top: 0;
-    }
-    .varbase-welcome .modal-footer {
-      text-align: center;
-    }
-    #varbase-full-featured-carousel img {
-      width: 80%;
-    }
-    #varbase-full-featured-carousel .carousel-indicators {
-      bottom: -30px;
-    }
-    #varbase-full-featured-carousel .carousel-inner {
-      margin-bottom: 30px;
-    }
-    #varbase-full-featured-carousel .carousel-indicators li {
-      background-color:#ccc;
-    }
-    #varbase-full-featured-carousel .carousel-control.right {
-      background-image: none;
-    }
+#welcome-modal {
+  z-index: 100000;
+}
 
-    #varbase-full-featured-carousel .carousel-control.left {
-      background-image: none;
-    }
-    #varbase-full-featured-carousel .carousel-control {
-      color: #666666;
-    }
-    @media (max-width: 1170px) {
-      .varbase-welcome .btn-group {
-        margin-left: -5px;
-      }
-      .varbase-welcome .btn-group > .btn {
-        padding-left: 8px;
-        padding-right: 8px;
-      }
-    }
-    @media (max-width: 991px) {
-      .varbase-welcome .btn-group > .btn {
-        display: block;
-        width: 100%;
-      }
-      /* making the border-radius correct */
-      .varbase-welcome .btn-group > .btn:first-child {
-        border-radius: 6px 6px 0 0;
-      }
-      .varbase-welcome .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-        border-top-right-radius: 6px;
-      }
-      .varbase-welcome .btn-group > .btn:last-child:not(:first-child) {
-        border-radius: 0 0 6px 6px;
-      }
-      /* fixing margin */
-      .varbase-welcome .btn-group .btn + .btn {
-        margin-left: 0;
-      }
-    }
+@media (min-width: 1170px) {
+  .varbase-welcome {
+    width: 50rem;
+    margin: 1.875rem auto;
+  }
+  .varbase-welcome .modal-body {
+    padding-right: 3.75rem;
+    padding-left: 3.75rem;
+  }
+}
+.varbase-welcome .modal-body {
+  padding: 1.25rem;
+}
+.varbase-welcome .modal-body .text-center h3 {
+  margin-top: 0;
+}
+.varbase-welcome .modal-footer {
+  text-align: center;
+}
+#varbase-full-featured-carousel img {
+  width: 80%;
+}
+#varbase-full-featured-carousel .carousel-indicators {
+  bottom: -1.875rem;
+}
+#varbase-full-featured-carousel .carousel-inner {
+  margin-bottom: 1.875rem;
+}
+#varbase-full-featured-carousel .carousel-indicators li {
+  background-color: #ccc;
+}
+#varbase-full-featured-carousel .carousel-control.right {
+  background-image: none;
+}
+
+#varbase-full-featured-carousel .carousel-control.left {
+  background-image: none;
+}
+#varbase-full-featured-carousel .carousel-control {
+  color: #666;
+}
+
+@media (max-width: 1170px) {
+  .varbase-welcome .btn-group {
+    margin-left: -0.3125rem;
+  }
+  .varbase-welcome .btn-group > .btn {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .varbase-welcome .btn-group > .btn {
+    display: block;
+    width: 100%;
+  }
+  /* making the border-radius correct */
+  .varbase-welcome .btn-group > .btn:first-child {
+    border-radius: 0.375rem 0.375rem 0 0;
+  }
+  .varbase-welcome .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0.375rem;
+  }
+  .varbase-welcome .btn-group > .btn:last-child:not(:first-child) {
+    border-radius: 0 0 0.375rem 0.375rem;
+  }
+  /* fixing margin */
+  .varbase-welcome .btn-group .btn + .btn {
+    margin-left: 0;
+  }
+}
 </style>
 <div class="container">
   <div class="modal fade bd-example-modal-xl" id="welcome-modal" role="dialog" aria-labelledby="{{ 'Welcome to Varbase'|t }}" aria-hidden="true">
@@ -176,7 +179,7 @@
     (function ($, _, Drupal, drupalSettings) {
       "use strict";
 
-      $('#welcome-modal').modal('show'); 
+      $('#welcome-modal').modal('show');
 
       $('#welcome-modal').modal({
         backdrop: 'static',
