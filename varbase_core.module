@@ -5,13 +5,15 @@
  * Contains varbase_core.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 // To have all varbase core general and global tokens.
 \Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
 
 /**
  * Implements hook_FORM_ID_form_alter().
  */
-function varbase_core_form_node_form_alter(&$form, $form_state) {
+function varbase_core_form_node_form_alter(&$form, FormStateInterface $form_state) {
   // Override node form sidebar order.
   if (isset($form['author'])) {
     $form['author']['#weight'] = -6;
@@ -30,6 +32,23 @@ function varbase_core_form_node_form_alter(&$form, $form_state) {
   }
   if (isset($form['ds_switch_view_mode'])) {
     $form['ds_switch_view_mode']['#weight'] = 101;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function varbase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Disable the checkbox to delete referenced entity from entityqueues.
+  $subqueue_base_form = $form_state->getBuildInfo();
+  if (array_key_exists('base_form_id', $subqueue_base_form) && $subqueue_base_form['base_form_id'] == 'entity_subqueue_form') {
+    foreach ($form['items']['widget']['entities'] as &$subqueue_entity) {
+      if (is_array($subqueue_entity)) {
+        if (array_key_exists('form', $subqueue_entity) && array_key_exists('delete', $subqueue_entity['form'])) {
+          $subqueue_entity['form']['delete']['#access'] = FALSE;
+        }
+      }
+    }
   }
 }
 
