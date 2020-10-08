@@ -77,7 +77,6 @@
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.0",
-    "drupal/webform_analysis": "~1.0",
     "drupal/webform_views": "~5.0",
     "drupal/default_content": "2.0.x-dev",
     "drupal/better_normalizers": "~1.0",

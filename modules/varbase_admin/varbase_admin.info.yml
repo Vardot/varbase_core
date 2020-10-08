@@ -2,7 +2,7 @@ name: 'Varbase Admin'
 description: 'Manage administration configurations.'
 type: module
 package: Varbase
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9
 dependencies:
   - varbase_core:varbase_core
   - drupal:shortcut
