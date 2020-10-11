@@ -59,18 +59,42 @@ default:
   layout_builder__layout:
     -
       section:
-        layout_id: layout_onecol
+        layout_id: bs_1col
         layout_settings:
+          vlb_section_config:
+            vlb_title: ''
+            vlb_width: full
+            vlb_gutter: '1'
+            vlb_background_color: _none
+            vlb_background_media: 0
+            vlb_background_edge2edge: 1
+            vlb_classes: ''
+            vlb_use_advanced: 0
+          layout:
+            wrapper: div
+            classes:
+              col-12: col-12
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            main:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
           label: ''
         components:
-          6e3b0301-9603-4450-b7f2-64e5107be8a5:
-            uuid: 6e3b0301-9603-4450-b7f2-64e5107be8a5
-            region: content
+          e827093b-a71d-437a-8400-563e45927dc2:
+            uuid: e827093b-a71d-437a-8400-563e45927dc2
+            region: main
             configuration:
+              id: 'extra_field_block:node:landing_page_lb:content_moderation_control'
+              label: 'Moderation control'
+              provider: layout_builder
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'extra_field_block:node:landing_page_lb:content_moderation_control'
             additional: {  }
             weight: 0
         third_party_settings: {  }
