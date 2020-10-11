@@ -1,0 +1,143 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: fefadd5b-d980-4eb9-aa2c-d58f0826bdc1
+  bundle: landing_page_lb
+  default_langcode: und
+default:
+  revision_uid:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created homepage node'
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Homepage
+  created:
+    -
+      value: 1594905454
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /node
+      langcode: und
+      pathauto: 0
+  publish_state:
+    -
+      value: published
+  unpublish_state:
+    -
+      value: archived
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  field_yoast_seo:
+    -
+      status: '0'
+      focus_keyword: ''
+  layout_builder__layout:
+    -
+      section:
+        layout_id: bs_1col
+        layout_settings:
+          vlb_section_config:
+            vlb_title: ''
+            vlb_width: full
+            vlb_gutter: '1'
+            vlb_background_color: _none
+            vlb_background_media: 0
+            vlb_background_edge2edge: 1
+            vlb_classes: ''
+            vlb_use_advanced: 0
+          layout:
+            wrapper: div
+            classes:
+              col-12: col-12
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            main:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+          label: ''
+        components:
+          e827093b-a71d-437a-8400-563e45927dc2:
+            uuid: e827093b-a71d-437a-8400-563e45927dc2
+            region: main
+            configuration:
+              id: 'extra_field_block:node:landing_page_lb:content_moderation_control'
+              label: 'Moderation control'
+              provider: layout_builder
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: bs_1col
+        layout_settings:
+          vlb_section_config:
+            vlb_title: ''
+            vlb_width: full
+            vlb_gutter: '1'
+            vlb_background_color: _none
+            vlb_background_media: 0
+            vlb_background_edge2edge: 1
+            vlb_classes: my-5
+            vlb_use_advanced: 0
+          layout:
+            wrapper: div
+            classes:
+              col-12: col-12
+            add_layout_class: 1
+            attributes: ''
+          regions:
+            main:
+              wrapper: div
+              classes:
+                col-sm-12: col-sm-12
+              add_region_classes: 1
+              attributes: ''
+          label: ''
+        components:
+          e2674d51-a873-4b85-b01d-cd1977624501:
+            uuid: e2674d51-a873-4b85-b01d-cd1977624501
+            region: main
+            configuration:
+              id: 'block_content:b137b5b9-7a08-4f18-9ce9-66a6a3a06954'
+              label: 'Welcome to Varbase'
+              provider: block_content
+              label_display: visible
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }

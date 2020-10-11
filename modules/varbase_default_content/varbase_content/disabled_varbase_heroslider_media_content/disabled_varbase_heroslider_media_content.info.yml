@@ -1,0 +1,7 @@
+name: 'Varbase default content which varbase heroslider media is disabled'
+type: module
+hidden: TRUE
+package: Varbase
+core_version_requirement: ^9
+description: 'Varbase default content which varbase heroslider media is disabled'
+dependencies: []
