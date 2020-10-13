@@ -142,7 +142,7 @@
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
-        "https://www.drupal.org/files/issues/2019-11-05/1356276-531-8.8.x-4.patch",
+        "https://www.drupal.org/files/issues/2020-10-13/1356276-90x-622.patch",
         "Issue #2914389: Allow profiles to exclude dependencies of their parent":
         "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
