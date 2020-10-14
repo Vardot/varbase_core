@@ -170,7 +170,7 @@
       },
       "drupal/page_manager": {
         "Issue #2665328: Variants take entity label not the variant title":
-        "https://www.drupal.org/files/issues/2020-06-09/2665328-106.patch"
+        "https://www.drupal.org/files/issues/2020-09-15/page_manager-2665328-111.patch"
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
