@@ -36,7 +36,7 @@
     "drupal/config_update": "~1.0",
     "drupal/config_ignore": "~2.0",
     "drupal/config_inspector": "~1.0",
-    "drupal/ctools": "~3.0",
+    "drupal/ctools": "3.4",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~1.0",
     "drupal/page_manager": "4.0-beta6",
@@ -172,6 +172,10 @@
         "https://www.drupal.org/files/issues/2020-04-20/2741877-48.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
         "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch"
+      },
+      "drupal/ctools": {
+        "Issue #2785499: Fix Entity Bundle Condition Plugin does not work in all situations":
+        "https://www.drupal.org/files/issues/2020-06-01/ctools_entity_bundle.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
