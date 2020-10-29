@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Varbase Update Helper module.
+ */
+
+use Drupal\update_helper_checklist\Entity\Update;
+
+/**
+ * Implements hook_install().
+ */
+function varbase_update_helper_install() {
+
+  // Issue #3179426: Fix status of Varbase update instructions to 100% on
+  // install and on an installation for optional Varbase components or in
+  // a Varbase Sub Profile
+  // https://www.drupal.org/project/varbase_core/issues/3179426
+  // --------------------------------------------------------------------------
+  // Mark all updates by the update helper checklist as successful on install.
+  if (\Drupal::moduleHandler()->moduleExists('update_helper_checklist')) {
+
+    $list = checklistapi_checklist_load('update_helper_checklist');
+
+    $update_ids = [];
+    foreach ($list->items as $checklist_key => $checklist_data) {
+      foreach ($checklist_data as $update_id => $update_data) {
+        if (strpos($update_id, "#") !== 0) {
+          if ($update = Update::load($update_id)) {
+            $update->setSuccessfulByHook(TRUE);
+            $update->save();
+          }
+          else {
+            Update::create(
+              [
+                'id' => $update_id,
+                'successful_by_hook' => TRUE,
+              ]
+            )->save();
+          }
+        }
+      }
+    }
+
+    $checkList = \Drupal::service('update_helper_checklist.update_checklist');
+    $checkList->markAllUpdates();
+  }
+}
