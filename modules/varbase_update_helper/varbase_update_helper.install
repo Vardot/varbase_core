@@ -21,7 +21,6 @@ function varbase_update_helper_install() {
   if (\Drupal::moduleHandler()->moduleExists('update_helper_checklist')) {
 
     $checklist = checklistapi_checklist_load('update_helper_checklist');
-    $checklistapi_storage_state = \Drupal::service('checklistapi_storage.state');
 
     foreach ($checklist->items as $checklist_data) {
       foreach ($checklist_data as $update_id => $update_data) {
