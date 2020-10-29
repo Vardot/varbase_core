@@ -20,10 +20,14 @@ function varbase_update_helper_install() {
   // Mark all updates by the update helper checklist as successful on install.
   if (\Drupal::moduleHandler()->moduleExists('update_helper_checklist')) {
 
-    $list = checklistapi_checklist_load('update_helper_checklist');
+    if (!\Drupal::moduleHandler()->moduleExists('varbase_core')) {
+      \Drupal::service('module_installer')->install(['varbase_core'], FALSE);
+    }
 
-    $update_ids = [];
-    foreach ($list->items as $checklist_key => $checklist_data) {
+    $checklist = checklistapi_checklist_load('update_helper_checklist');
+    $checklistapi_storage_state = \Drupal::service('checklistapi_storage.state');
+
+    foreach ($checklist->items as $checklist_data) {
       foreach ($checklist_data as $update_id => $update_data) {
         if (strpos($update_id, "#") !== 0) {
           if ($update = Update::load($update_id)) {

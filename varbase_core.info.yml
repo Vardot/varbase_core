@@ -43,7 +43,6 @@ dependencies:
   - smart_trim:smart_trim
   - advanced_text_formatter:advanced_text_formatter
   - block_class:block_class
-  - varbase_core:varbase_update_helper
 install:
   - contextual
   - diff
@@ -87,3 +86,4 @@ install:
   - rh_taxonomy
   - login_destination
   - betterlogin
+  - varbase_update_helper
