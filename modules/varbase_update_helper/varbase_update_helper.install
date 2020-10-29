@@ -46,7 +46,5 @@ function varbase_update_helper_install() {
       }
     }
 
-    $checkList = \Drupal::service('update_helper_checklist.update_checklist');
-    $checkList->markAllUpdates();
   }
 }
