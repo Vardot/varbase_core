@@ -57,7 +57,7 @@ function varbase_update_helper_install() {
     }
 
     $checklist = \Drupal::service('update_helper_checklist.update_checklist');
-    $checklist->markUpdatesSuccessful($update_ids, FALSE);
+    $checklist->markUpdatesSuccessful($update_ids, TRUE);
 
   }
 }
