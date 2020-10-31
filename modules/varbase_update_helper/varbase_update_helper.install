@@ -20,26 +20,44 @@ function varbase_update_helper_install() {
   // Mark all updates by the update helper checklist as successful on install.
   if (\Drupal::moduleHandler()->moduleExists('update_helper_checklist')) {
 
-    $checklist = checklistapi_checklist_load('update_helper_checklist');
+    $update_ids = [
+      'varbase_core:varbase_core_optional_update_8601',
+      'varbase_core:varbase_core_optional_update_8602',
+      'varbase_core:varbase_core_optional_update_8603',
+      'varbase_core:varbase_admin_update_8602',
+      'varbase_core:varbase_core_optional_update_8604',
+      'varbase_core:varbase_core_optional_update_8605',
+      'varbase_core:varbase_core_optional_update_8606',
+      'varbase_core:varbase_core_optional_update_8607',
+      'varbase_core:varbase_core_update_8608',
+      'varbase_core:varbase_core_update_8610',
+      'varbase_core:varbase_core_optional_update_8701',
+      'varbase_core:varbase_core_optional_update_8702',
+      'varbase_core:varbase_core_update_8703',
+      'varbase_core:varbase_core_update_8704',
+      'varbase_core:varbase_core_optional_update_8705',
+      'varbase_core:varbase_core_optional_update_8706',
+    ];
 
-    foreach ($checklist->items as $checklist_data) {
-      foreach ($checklist_data as $update_id => $update_data) {
-        if (strpos($update_id, "#") !== 0) {
-          if ($update = Update::load($update_id)) {
-            $update->setSuccessfulByHook(TRUE);
-            $update->save();
-          }
-          else {
-            Update::create(
-              [
-                'id' => $update_id,
-                'successful_by_hook' => TRUE,
-              ]
-            )->save();
-          }
+    foreach ($update_ids as $update_id) {
+      if (strpos($update_id, "#") !== 0) {
+        if ($update = Update::load($update_id)) {
+          $update->setSuccessfulByHook(TRUE);
+          $update->save();
+        }
+        else {
+          Update::create(
+            [
+              'id' => $update_id,
+              'successful_by_hook' => TRUE,
+            ]
+          )->save();
         }
       }
     }
+
+    $checklist = \Drupal::service('update_helper_checklist.update_checklist');
+    $checklist->markUpdatesSuccessful($update_ids);
 
   }
 }
