@@ -86,4 +86,5 @@ install:
   - rh_taxonomy
   - login_destination
   - betterlogin
+  - jquery_ui_accordion
   - varbase_update_helper
