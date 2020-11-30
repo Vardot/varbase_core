@@ -3,7 +3,6 @@
   "description": "This is the Core Varbase feature. Provides core components required by other features.",
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/varbase_core",
-  "notification-url": "https://packages.drupal.org/8/downloads",
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
@@ -28,11 +27,10 @@
     }
   },
   "require": {
-    "composer/installers": "~1.0",
-    "oomphinc/composer-installers-extender": "~1.0",
+    "composer/installers": "~1.0 || ~2.0",
+    "oomphinc/composer-installers-extender": "~1.0 || ~2.0",
     "cweagans/composer-patches": "~1.0",
-    "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "^9",
+    "drupal/core": "~9.0",
     "drupal/config_update": "~1.0",
     "drupal/config_ignore": "~2.0",
     "drupal/config_inspector": "~1.0",
