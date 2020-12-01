@@ -1,4 +1,6 @@
 __global_conditions:
+  expected_config: {}
+  update_actions: {}
   expected_modules:
     - varbase_admin
 views.view.content:
