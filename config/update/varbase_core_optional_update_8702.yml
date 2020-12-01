@@ -1,7 +1,11 @@
 __global_conditions:
+  expected_config: {}
+  update_actions: {}
   expected_modules:
     - varbase_media
 __global_actions:
+  expected_config: {}
+  update_actions: {}
   import_configs:
     - core.entity_form_mode.media.simplified
     - core.entity_form_mode.media.editor
