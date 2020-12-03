@@ -30,7 +30,7 @@
     "composer/installers": "~1.0 || ~2.0",
     "oomphinc/composer-installers-extender": "~1.0 || ~2.0",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "~9.1",
+    "drupal/core": "~9.0",
     "drupal/config_update": "~1.0",
     "drupal/config_ignore": "~2.0",
     "drupal/config_inspector": "~1.0",
@@ -161,7 +161,7 @@
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
-        "https://www.drupal.org/files/issues/2020-07-22/3160146-22.patch"
+        "https://www.drupal.org/files/issues/2020-08-24/default_content-add-normalizer-denormalizer-for-layout-builder-3160146-25.patch"
       },
       "drupal/persistent_login": {
         "Issue #2899530: Hide user^s local task":
@@ -173,7 +173,7 @@
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
-        "https://www.drupal.org/files/issues/2020-08-24/default_content-add-normalizer-denormalizer-for-layout-builder-3160146-25.patch"
+        "https://www.drupal.org/files/issues/2020-10-31/3024165-44.patch"
       },
       "drupal/bootstrap_layouts": {
         "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
