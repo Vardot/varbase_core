@@ -141,7 +141,7 @@
         "Issue #2815221: Add quickedit to the latest-revision route":
         "https://www.drupal.org/files/issues/2020-10-29/2815221-135.patch",
         "Issue #1356276: Allow profiles to define a base/parent profile":
-        "https://www.drupal.org/files/issues/2020-10-13/1356276-621.patch",
+        "https://www.drupal.org/files/issues/2020-12-03/1356276-91x-626.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
         "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch",
         "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
