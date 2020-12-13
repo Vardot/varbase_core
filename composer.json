@@ -151,7 +151,9 @@
         "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
         "https://www.drupal.org/files/issues/2020-04-20/2741877-48.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
-        "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch"
+        "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
+        "Issue #3128548: Add optional parameters to StatementInterface::fetchObject() to be in line with the PDO implementation of the method fetchObject()":
+        "https://www.drupal.org/files/issues/2020-12-12/3128548-25-StatementInterface.patch"
       },
       "drupal/ctools": {
         "Issue #2785499: Fix Entity Bundle Condition Plugin does not work in all situations":
