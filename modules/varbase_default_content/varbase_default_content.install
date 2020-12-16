@@ -70,7 +70,7 @@ function varbase_default_content_install() {
     ->applyUpdates();
 
   // Set front page to "/node".
-  $front_page_path_by_alias = \Drupal::service('path.alias_manager')->getPathByAlias('/node');
+  $front_page_path_by_alias = \Drupal::service('path_alias.manager')->getPathByAlias('/node');
   \Drupal::configFactory()->getEditable('system.site')
     ->set('page.front', $front_page_path_by_alias)
     ->save();
