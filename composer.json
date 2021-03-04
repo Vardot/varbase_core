@@ -152,8 +152,6 @@
         "https://www.drupal.org/files/issues/2020-04-20/2741877-48.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
         "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
-        "Issue #3128548: Add optional parameters to StatementInterface::fetchObject() to be in line with the PDO implementation of the method fetchObject()":
-        "https://www.drupal.org/files/issues/2020-12-12/3128548-25-StatementInterface.patch",
         "Issue #2958588: Off-canvas style resets are overriding styles (especially SVGs) in Safari, Firefox and Chromium Edge resulting in display issues":
         "https://www.drupal.org/files/issues/2021-01-06/off-canvas-style-resets-2958588-13.patch"
       },
