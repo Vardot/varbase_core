@@ -144,16 +144,20 @@ default:
                 class: null
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
-          container: container
+          container: container-fluid
           section_classes: ''
           section_attributes: null
           regions_classes:
             blb_region_col_1: ''
+            section_header: ''
           regions_attributes:
             blb_region_col_1: {  }
+            section_header: null
           breakpoints: {  }
-          layout_regions_classes: {  }
-          remove_gutters: '0'
+          layout_regions_classes:
+            section_header: null
+          remove_gutters: '1'
+          gutters_between: null
         components:
           9a32ad22-8e25-40de-a0cf-2efbe0cfebea:
             uuid: 9a32ad22-8e25-40de-a0cf-2efbe0cfebea
@@ -267,7 +271,7 @@ default:
               background:
                 background_type: color
               background_color:
-                class: null
+                class: _none
               background_media:
                 image:
                   media_id: null
@@ -353,11 +357,15 @@ default:
           section_attributes: null
           regions_classes:
             blb_region_col_1: ''
+            section_header: ''
           regions_attributes:
             blb_region_col_1: {  }
+            section_header: null
           breakpoints: {  }
-          layout_regions_classes: {  }
+          layout_regions_classes:
+            section_header: null
           remove_gutters: '1'
+          gutters_between: null
         components:
           3233db7c-2e89-467d-9c0e-198fd83276d7:
             uuid: 3233db7c-2e89-467d-9c0e-198fd83276d7
@@ -550,16 +558,20 @@ default:
                 class: null
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
-          container: container
+          container: container-fluid
           section_classes: ''
           section_attributes: null
           regions_classes:
             blb_region_col_1: ''
+            section_header: ''
           regions_attributes:
             blb_region_col_1: {  }
+            section_header: null
           breakpoints: {  }
-          layout_regions_classes: {  }
-          remove_gutters: '0'
+          layout_regions_classes:
+            section_header: null
+          remove_gutters: '1'
+          gutters_between: null
         components:
           4c282ef3-5f17-4af8-9ca1-df0c0f319762:
             uuid: 4c282ef3-5f17-4af8-9ca1-df0c0f319762
