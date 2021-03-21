@@ -68,7 +68,7 @@
     "drupal/prevent_homepage_deletion": "~1.0",
     "drupal/admin_toolbar": "~2.0",
     "drupal/tour_ui": "1.x-dev",
-    "drupal/coffee": "1.0",
+    "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~1.0",
     "drupal/views_bulk_operations": "~3.3",
     "drupal/views_bulk_edit": "~2.0",
@@ -180,10 +180,6 @@
         "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch",
         "Issue #3092032: Fix Unsupported operand types in Set Configuration line 213":
         "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
-      },
-      "drupal/coffee": {
-        "Issue #3128583: Fix Could not load data for internal links":
-        "https://www.drupal.org/files/issues/2020-06-21/3128583-16.patch"
       },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
