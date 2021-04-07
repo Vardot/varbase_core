@@ -151,9 +151,7 @@
         "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
         "https://www.drupal.org/files/issues/2020-04-20/2741877-48.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
-        "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
-        "Issue #2958588: Off-canvas style resets are overriding styles (especially SVGs) in Safari, Firefox and Chromium Edge resulting in display issues":
-        "https://www.drupal.org/files/issues/2021-01-06/off-canvas-style-resets-2958588-13.patch"
+        "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch"
       },
       "drupal/ctools": {
         "Issue #2785499: Fix Entity Bundle Condition Plugin does not work in all situations":
