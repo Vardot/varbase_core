@@ -41,7 +41,11 @@ function varbase_core_form_node_form_alter(&$form, FormStateInterface $form_stat
 function varbase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Disable the checkbox to delete referenced entity from entityqueues.
   $subqueue_base_form = $form_state->getBuildInfo();
-  if (array_key_exists('base_form_id', $subqueue_base_form) && $subqueue_base_form['base_form_id'] == 'entity_subqueue_form') {
+  if (array_key_exists('base_form_id', $subqueue_base_form)
+    && $subqueue_base_form['base_form_id'] == 'entity_subqueue_form'
+    && isset($form['items']['widget']['entities'])
+    && !empty($form['items']['widget']['entities'])) {
+
     foreach ($form['items']['widget']['entities'] as &$subqueue_entity) {
       if (is_array($subqueue_entity)) {
         if (array_key_exists('form', $subqueue_entity) && array_key_exists('delete', $subqueue_entity['form'])) {
