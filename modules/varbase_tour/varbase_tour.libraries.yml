@@ -5,6 +5,7 @@ admin-theme:
       css/theme/tour.admin.theme.css: { media: screen }
   dependencies:
     - system/base
+    - claro/tour-styling
 default-theme:
   version: VERSION
   css:
@@ -12,3 +13,4 @@ default-theme:
       css/theme/tour.default.theme.css: { media: screen }
   dependencies:
     - system/base
+    - claro/tour-styling

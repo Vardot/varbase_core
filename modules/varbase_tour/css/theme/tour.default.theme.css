@@ -117,3 +117,36 @@
   right: auto;
   left: 28px;
 }
+
+.shepherd-element {
+  z-index: 999;
+}
+
+.shepherd-element .button:not(:focus) {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+}
+
+.shepherd-element .button {
+  display: inline-block;
+  margin: 1rem 0.75rem 1rem 0;
+  padding: calc(1rem - 1px) calc(1.5rem - 1px);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #222330;
+  border: 1px solid transparent !important;
+  border-radius: 2px;
+  background-color: #d4d4d8;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shepherd-element .button--primary {
+  color: #fff !important;
+  background-color: #003cc5 !important;
+}
