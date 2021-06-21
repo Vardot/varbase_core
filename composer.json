@@ -70,7 +70,7 @@
     "drupal/tour_ui": "1.x-dev",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~1.0",
-    "drupal/views_bulk_operations": "~3.3",
+    "drupal/views_bulk_operations": "~4.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.0",
