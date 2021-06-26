@@ -153,7 +153,7 @@
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
-        "https://www.drupal.org/files/issues/2020-08-24/default_content-add-normalizer-denormalizer-for-layout-builder-3160146-25.patch"
+        "https://www.drupal.org/files/issues/2021-04-07/3160146-37.patch"
       },
       "drupal/persistent_login": {
         "Issue #2899530: Hide user^s local task":
