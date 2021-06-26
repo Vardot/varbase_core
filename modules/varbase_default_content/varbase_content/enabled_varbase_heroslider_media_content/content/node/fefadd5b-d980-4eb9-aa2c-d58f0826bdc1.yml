@@ -38,7 +38,7 @@ default:
   path:
     -
       alias: /node
-      langcode: und
+      langcode: en
       pathauto: 0
   publish_state:
     -
@@ -46,6 +46,12 @@ default:
   unpublish_state:
     -
       value: archived
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
   field_yoast_seo:
     -
       status: '0'
@@ -142,6 +148,10 @@ default:
                   class: _none
               scroll_effects:
                 class: null
+              horizontal_alignment:
+                class: null
+              vertical_alignment:
+                class: null
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
           container: container-fluid
@@ -158,6 +168,8 @@ default:
             section_header: null
           remove_gutters: '1'
           gutters_between: null
+          container_width: ''
+          context_mapping: {  }
         components:
           9a32ad22-8e25-40de-a0cf-2efbe0cfebea:
             uuid: 9a32ad22-8e25-40de-a0cf-2efbe0cfebea
@@ -189,7 +201,7 @@ default:
                       background_repeat: no-repeat
                       background_attachment: not_fixed
                       background_size: cover
-                  background_edgetoedge: false
+                  background_edgetoedge: null
                   text_color:
                     class: null
                   text_alignment:
@@ -350,6 +362,10 @@ default:
                   class: _none
               scroll_effects:
                 class: null
+              horizontal_alignment:
+                class: null
+              vertical_alignment:
+                class: null
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
           container: w-100
@@ -366,6 +382,8 @@ default:
             section_header: null
           remove_gutters: '1'
           gutters_between: null
+          container_width: ''
+          context_mapping: {  }
         components:
           3233db7c-2e89-467d-9c0e-198fd83276d7:
             uuid: 3233db7c-2e89-467d-9c0e-198fd83276d7
@@ -395,7 +413,7 @@ default:
                       background_repeat: no-repeat
                       background_attachment: not_fixed
                       background_size: cover
-                  background_edgetoedge: true
+                  background_edgetoedge: null
                   text_color:
                     class: null
                   text_alignment:
@@ -556,6 +574,10 @@ default:
                   class: _none
               scroll_effects:
                 class: null
+              horizontal_alignment:
+                class: null
+              vertical_alignment:
+                class: null
           container_wrapper_bg_color_class: ''
           container_wrapper_bg_media: null
           container: container-fluid
@@ -572,6 +594,8 @@ default:
             section_header: null
           remove_gutters: '1'
           gutters_between: null
+          container_width: ''
+          context_mapping: {  }
         components:
           4c282ef3-5f17-4af8-9ca1-df0c0f319762:
             uuid: 4c282ef3-5f17-4af8-9ca1-df0c0f319762
@@ -602,7 +626,7 @@ default:
                       background_repeat: no-repeat
                       background_attachment: not_fixed
                       background_size: cover
-                  background_edgetoedge: false
+                  background_edgetoedge: null
                   text_color:
                     class: null
                   text_alignment:
