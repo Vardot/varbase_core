@@ -91,7 +91,7 @@
     "drupal/update_helper": "2.0",
     "drupal/checklistapi": "~2.0",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "3.0-beta1",
+    "drupal/password_policy": "~3.0",
     "drupal/genpass": "~1.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "1.x-dev",
@@ -176,12 +176,6 @@
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
         "https://www.drupal.org/files/issues/2020-05-28/optional_edit-3143422-2.patch"
-      },
-      "drupal/password_policy": {
-        "Issue #2971079: Can't edit user profile because password policy validates even when password unchanged":
-        "https://www.drupal.org/files/issues/2020-03-19/password_policy-empty-password-skip-validation-2971079-37.patch",
-        "Issue #3154140: Only force password change if new policies are applicable":
-        "https://www.drupal.org/files/issues/2020-07-09/password_policy-only_force_password_change_for_new_policies-3154140-4.patch"
       },
       "drupal/menu_position": {
         "Issue #3146668: Fix adding a new rule on drupal 9 fails with SchemaIncompleteException":
