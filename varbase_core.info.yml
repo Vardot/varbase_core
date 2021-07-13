@@ -24,7 +24,7 @@ dependencies:
   - drupal:block
   - drupal:block_content
   - drupal:config
-  - drupal:config_update
+  - config_update:config_update
   - config_ignore:config_ignore
   - drupal:datetime
   - drupal:file
