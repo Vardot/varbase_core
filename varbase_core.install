@@ -12,7 +12,7 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
 use Drupal\update_helper_checklist\Entity\Update;
-use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
+use Vardot\Entity\EntityDefinitionUpdateManager;
 use Drupal\Core\File\FileSystemInterface;
 
 /**
@@ -75,7 +75,7 @@ function varbase_core_install() {
   // Entity updates to clear up any mismatched entity and/or field definitions
   // And Fix changes were detected in the entity type and field definitions.
   \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
 }

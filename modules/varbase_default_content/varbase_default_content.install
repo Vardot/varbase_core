@@ -9,7 +9,7 @@ use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
-use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
+use Vardot\Entity\EntityDefinitionUpdateManager;
 use Drupal\path_alias\Entity\PathAlias;
 
 /**
@@ -67,7 +67,7 @@ function varbase_default_content_install() {
   // Entity updates to clear up any mismatched entity and/or field definitions
   // And Fix changes were detected in the entity type and field definitions.
   \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
   // Set front page to "/node".

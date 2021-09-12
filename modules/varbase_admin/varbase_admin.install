@@ -12,7 +12,7 @@ use Drupal\Core\Config\FileStorage;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\shortcut\Entity\Shortcut;
-use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
+use Vardot\Entity\EntityDefinitionUpdateManager;
 use Drupal\user\UserInterface;
 
 /**
@@ -130,7 +130,7 @@ function varbase_admin_install() {
   // Entity updates to clear up any mismatched entity and/or field definitions
   // And Fix changes were detected in the entity type and field definitions.
   \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
   // Have forced configs import after the entity and definitions updates.
