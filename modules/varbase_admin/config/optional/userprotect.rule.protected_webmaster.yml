@@ -4,9 +4,9 @@ dependencies:
   module:
     - user
 name: protected_webmaster
-label: 'Protected webmaster'
+label: "Protected webmaster"
 protectedEntityTypeId: user
-protectedEntityId: '1'
+protectedEntityId: "1"
 protections:
   user_pass:
     id: user_pass

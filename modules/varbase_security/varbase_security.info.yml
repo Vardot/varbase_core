@@ -1,5 +1,5 @@
-name: 'Varbase Security'
-description: 'Manages general security configurations, with password policy, username enumeration prevention, security kit and review.'
+name: "Varbase Security"
+description: "Manages general security configurations, with password policy, username enumeration prevention, security kit and review."
 type: module
 package: Varbase
 core_version_requirement: ^9

@@ -5,6 +5,7 @@ object-fit-polyfill:
     name: MIT
     gpl-compatible: true
   js:
-    /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js: { minified: true }
+    /libraries/objectfitpolyfill/dist/objectFitPolyfill.min.js:
+      { minified: true }
   dependencies:
     - core/picturefill

@@ -1,5 +1,5 @@
-name: 'Varbase Development'
-description: 'Development Environment Modules and Features, make sure to disable this feature in production.'
+name: "Varbase Development"
+description: "Development Environment Modules and Features, make sure to disable this feature in production."
 type: module
 package: Varbase
 core_version_requirement: ^9
@@ -11,7 +11,7 @@ install:
   - devel
   - tour_ui
 #uninstall:
-#  - migrate_drupal_ui 
+#  - migrate_drupal_ui
 #  - dblog
 #  - views_ui
 #  - config_update_ui

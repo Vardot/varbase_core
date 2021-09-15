@@ -7,11 +7,11 @@ id: node.page.created
 field_name: created
 entity_type: node
 bundle: page
-label: 'Authored on'
-description: 'The time that the node was created.'
+label: "Authored on"
+description: "The time that the node was created."
 required: false
 translatable: false
-default_value: {  }
-default_value_callback: ''
-settings: {  }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: created

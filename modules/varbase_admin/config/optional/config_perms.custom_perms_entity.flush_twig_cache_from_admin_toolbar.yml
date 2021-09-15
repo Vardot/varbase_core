@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: flush_twig_cache_from_admin_toolbar
-label: 'Flush twig cache from admin toolbar'
+label: "Flush twig cache from admin toolbar"
 route: admin_toolbar_tools.flush_twig

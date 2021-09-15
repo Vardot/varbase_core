@@ -1,28 +1,22 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: redirect
   uuid: 1f7b1638-0f87-4884-ac34-011f92264269
   bundle: redirect
   default_langcode: en
 default:
   hash:
-    -
-      value: fMaRGaqS59Kz1th8JnKkTSZ3pUsBj5SSr2kbPTMRP9I
+    - value: fMaRGaqS59Kz1th8JnKkTSZ3pUsBj5SSr2kbPTMRP9I
   uid:
-    -
-      target_id: 1
+    - target_id: 1
   redirect_source:
-    -
-      path: homepage
-      query: {  }
+    - path: homepage
+      query: {}
   redirect_redirect:
-    -
-      uri: 'internal:/node/1'
-      title: ''
-      options: {  }
+    - uri: "internal:/node/1"
+      title: ""
+      options: {}
   status_code:
-    -
-      value: 301
+    - value: 301
   created:
-    -
-      value: 1594908189
+    - value: 1594908189

@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: administer_account_settings
-label: 'Administer account settings'
+label: "Administer account settings"
 route: entity.user.admin_form

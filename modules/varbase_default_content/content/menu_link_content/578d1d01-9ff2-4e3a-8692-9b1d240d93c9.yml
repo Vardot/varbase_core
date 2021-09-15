@@ -1,42 +1,31 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: menu_link_content
   uuid: 578d1d01-9ff2-4e3a-8692-9b1d240d93c9
   bundle: menu_link_content
   default_langcode: en
 default:
   revision_user:
-    -
-      target_id: 1
+    - target_id: 1
   revision_log_message:
-    -
-      value: 'Created new Custom menu link'
+    - value: "Created new Custom menu link"
   enabled:
-    -
-      value: true
+    - value: true
   title:
-    -
-      value: 'About Varbase'
+    - value: "About Varbase"
   menu_name:
-    -
-      value: main
+    - value: main
   link:
-    -
-      uri: 'https://www.vardot.com/products-services/product-info/varbase-enterprise-website-platform??utm_source=varbase&utm_campaign=varbase%20default%20links'
-      title: ''
-      options: {  }
+    - uri: "https://www.vardot.com/products-services/product-info/varbase-enterprise-website-platform??utm_source=varbase&utm_campaign=varbase%20default%20links"
+      title: ""
+      options: {}
   external:
-    -
-      value: false
+    - value: false
   rediscover:
-    -
-      value: false
+    - value: false
   weight:
-    -
-      value: -49
+    - value: -49
   expanded:
-    -
-      value: false
+    - value: false
   revision_translation_affected:
-    -
-      value: true
+    - value: true

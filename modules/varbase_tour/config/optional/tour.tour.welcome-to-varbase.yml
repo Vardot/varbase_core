@@ -4,63 +4,62 @@ dependencies:
   module:
     - varbase_tour
 id: welcome-to-varbase
-label: 'Welcome to Varbase'
+label: "Welcome to Varbase"
 module: varbase_tour
 routes:
-  -
-    route_name: '<front>'
+  - route_name: "<front>"
 tips:
   tour-switch:
     id: tour-switch
     plugin: text
-    label: 'Tour Switch'
+    label: "Tour Switch"
     weight: -100
     attributes:
       data-class: toolbar-icon.toolbar-icon-help.toolbar-item
-    body: 'Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.'
+    body: "Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site."
     location: right
   editing-your-homepage-layout:
     id: editing-your-homepage-layout
     plugin: text
-    label: 'Editing Your Homepage Layout'
+    label: "Editing Your Homepage Layout"
     weight: -99
     attributes:
       data-class: moderation-sidebar-toolbar-tab.edit-mode-inactive.toolbar-tab
-    body: 'You can change your homepage layout and customize what to appear in it from the <b>tasks</b> moderation sidebar menu link.'
+    body: "You can change your homepage layout and customize what to appear in it from the <b>tasks</b> moderation sidebar menu link."
     location: right
   start-configuring-your-site-structure:
     id: start-configuring-your-site-structure
     plugin: text
-    label: 'Start Configuring Your Site Structure'
+    label: "Start Configuring Your Site Structure"
     weight: -98
     attributes:
       data-class: toolbar-icon-system-admin-structure
-    body: 'Define your content types, fields, taxonomy, views, and other structural building blocks from here.'
+    body: "Define your content types, fields, taxonomy, views, and other structural building blocks from here."
     location: bottom
   define-your-site-settings:
     id: define-your-site-settings
     plugin: text
-    label: 'Define Your Site Settings'
+    label: "Define Your Site Settings"
     weight: -97
     attributes:
       data-class: toolbar-icon-system-admin-config
-    body: 'Other configuration for your site such as registration, search settings, web services, multilingual settings and content authoring can be managed from here.'
+    body: "Other configuration for your site such as registration, search settings, web services, multilingual settings and content authoring can be managed from here."
     location: bottom
   sites-content:
     id: sites-content
     plugin: text
-    label: 'Site''s Content'
+    label: "Site's Content"
     weight: -96
     attributes:
       data-class: toolbar-icon-system-admin-content
-    body: 'All your site''s content, media, and files can be found here.'
+    body: "All your site's content, media, and files can be found here."
     location: bottom
   your-dashboard:
     id: your-dashboard
     plugin: text
-    label: 'Your Dashboard'
+    label: "Your Dashboard"
     weight: -95
     attributes:
       data-class: 'toolbar-menu-administration a[href="/admin/dashboard"]'
-    body: 'Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site''s traffic once you go live.'
+    body: "Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site's traffic once you go live."
     location: bottom

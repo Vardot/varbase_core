@@ -1,5 +1,5 @@
-name: 'Varbase Page'
-description: 'Provides Basic page content type and related configuration.'
+name: "Varbase Page"
+description: "Provides Basic page content type and related configuration."
 type: module
 package: Varbase
 core_version_requirement: ^9

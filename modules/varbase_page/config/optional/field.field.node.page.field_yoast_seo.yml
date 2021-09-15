@@ -10,11 +10,11 @@ id: node.page.field_yoast_seo
 field_name: field_yoast_seo
 entity_type: node
 bundle: page
-label: 'Real-time SEO'
-description: ''
+label: "Real-time SEO"
+description: ""
 required: false
 translatable: true
-default_value: {  }
-default_value_callback: ''
-settings: {  }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: yoast_seo

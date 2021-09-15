@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: rebuild_theme_registry_from_admin_toolbar
-label: 'Rebuild theme registry from admin toolbar'
+label: "Rebuild theme registry from admin toolbar"
 route: admin_toolbar_tools.theme_rebuild

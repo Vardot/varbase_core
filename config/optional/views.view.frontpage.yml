@@ -10,7 +10,7 @@ dependencies:
 id: frontpage
 label: Frontpage
 module: node
-description: 'All content promoted to the front page.'
+description: "All content promoted to the front page."
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -21,30 +21,30 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: "access content"
       cache:
         type: tag
-        options: {  }
+        options: {}
       empty:
         area_text_custom:
-          admin_label: ''
-          content: 'No front page content has been created yet.'
+          admin_label: ""
+          content: "No front page content has been created yet."
           empty: true
           field: area_text_custom
           group_type: group
           id: area_text_custom
-          label: ''
+          label: ""
           relationship: none
           table: views
           tokenize: false
           plugin_id: text_custom
         node_listing_empty:
-          admin_label: ''
+          admin_label: ""
           empty: true
           field: node_listing_empty
           group_type: group
           id: node_listing_empty
-          label: ''
+          label: ""
           relationship: none
           table: node
           plugin_id: node_listing_empty
@@ -55,10 +55,10 @@ display:
           field: title
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           empty: true
-          title: 'Welcome to [site:name]'
-          label: ''
+          title: "Welcome to [site:name]"
+          label: ""
           plugin_id: title
       exposed_form:
         type: basic
@@ -66,20 +66,20 @@ display:
           submit_button: Apply
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: "Sort by"
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       filters:
         promote:
-          admin_label: ''
+          admin_label: ""
           expose:
-            description: ''
-            identifier: ''
-            label: ''
+            description: ""
+            identifier: ""
+            label: ""
             multiple: false
-            operator: ''
-            operator_id: ''
+            operator: ""
+            operator_id: ""
             remember: false
             remember_roles:
               authenticated: authenticated
@@ -90,11 +90,11 @@ display:
           group: 1
           group_info:
             default_group: All
-            default_group_multiple: {  }
-            description: ''
-            group_items: {  }
-            identifier: ''
-            label: ''
+            default_group_multiple: {}
+            description: ""
+            group_items: {}
+            identifier: ""
+            label: ""
             multiple: false
             optional: true
             remember: false
@@ -102,21 +102,21 @@ display:
           group_type: group
           id: promote
           is_grouped: false
-          operator: '='
+          operator: "="
           relationship: none
           table: node_field_data
-          value: '1'
+          value: "1"
           plugin_id: boolean
           entity_type: node
           entity_field: promote
         status:
           expose:
-            operator: ''
+            operator: ""
           field: status
           group: 1
           id: status
           table: node_field_data
-          value: '1'
+          value: "1"
           plugin_id: boolean
           entity_type: node
           entity_field: status
@@ -126,19 +126,19 @@ display:
           field: langcode
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           operator: in
           value:
-            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+            "***LANGUAGE_language_content***": "***LANGUAGE_language_content***"
           group: 1
           exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
+            operator_id: ""
+            label: ""
+            description: ""
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: ""
+            identifier: ""
             required: false
             remember: false
             multiple: false
@@ -147,16 +147,16 @@ display:
             reduce: false
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: ""
+            description: ""
+            identifier: ""
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            default_group_multiple: {}
+            group_items: {}
           plugin_id: language
           entity_type: node
           entity_field: langcode
@@ -169,17 +169,17 @@ display:
           total_pages: 0
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_label: "Items per page"
+            items_per_page_options: "5, 10, 25, 50"
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: "- All -"
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
+            previous: "‹ Previous"
+            next: "Next ›"
+            first: "« First"
+            last: "Last »"
           quantity: 9
       query:
         type: views_query
@@ -187,17 +187,17 @@ display:
           disable_sql_rewrite: false
           distinct: false
           replica: false
-          query_comment: ''
-          query_tags: {  }
+          query_comment: ""
+          query_tags: {}
       row:
-        type: 'entity:node'
+        type: "entity:node"
         options:
           view_mode: teaser
       sorts:
         sticky:
-          admin_label: ''
+          admin_label: ""
           expose:
-            label: ''
+            label: ""
           exposed: false
           field: sticky
           group_type: group
@@ -216,39 +216,39 @@ display:
           plugin_id: date
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           exposed: false
           expose:
-            label: ''
+            label: ""
           granularity: second
           entity_type: node
           entity_field: created
       style:
         type: default
         options:
-          grouping: {  }
-          row_class: ''
+          grouping: {}
+          row_class: ""
           default_row_class: true
           uses_fields: false
-      title: ''
-      header: {  }
-      footer: {  }
-      relationships: {  }
-      fields: {  }
-      arguments: {  }
-      display_extenders: {  }
+      title: ""
+      header: {}
+      footer: {}
+      relationships: {}
+      fields: {}
+      arguments: {}
+      display_extenders: {}
     display_plugin: default
     display_title: Master
     id: default
     position: 0
     cache_metadata:
       contexts:
-        - 'languages:language_interface'
+        - "languages:language_interface"
         - url.query_args
-        - 'user.node_grants:view'
+        - "user.node_grants:view"
         - user.permissions
       max-age: -1
-      tags: {  }
+      tags: {}
   feed_1:
     display_plugin: feed
     id: feed_1
@@ -259,7 +259,7 @@ display:
       path: rss.xml
       displays:
         page_1: page_1
-        default: ''
+        default: ""
       pager:
         type: some
         options:
@@ -268,31 +268,31 @@ display:
       style:
         type: rss
         options:
-          description: ''
-          grouping: {  }
+          description: ""
+          grouping: {}
           uses_fields: false
       row:
         type: node_rss
         options:
           relationship: none
           view_mode: rss
-      display_extenders: {  }
+      display_extenders: {}
     cache_metadata:
       contexts:
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
+        - "languages:language_interface"
+        - "user.node_grants:view"
         - user.permissions
       max-age: -1
-      tags: {  }
+      tags: {}
   frontpage_block:
     display_plugin: block
     id: frontpage_block
     display_title: Block
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders: {}
       enabled: true
-      title: ''
+      title: ""
       defaults:
         title: false
         header: false
@@ -302,11 +302,11 @@ display:
         pager: pager
         sort_fields: sort_fields
         configure_sorts: configure_sorts
-        offset: '0'
-        hide_fields: '0'
-        disable_filters: '0'
-      block_description: 'Frontpage block'
-      block_category: 'Lists (Views)'
+        offset: "0"
+        hide_fields: "0"
+        disable_filters: "0"
+      block_description: "Frontpage block"
+      block_category: "Lists (Views)"
       header:
         area:
           id: area
@@ -314,11 +314,11 @@ display:
           field: area
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           empty: true
           tokenize: true
           content:
-            value: '<h1>Welcome to [site:name]</h1>'
+            value: "<h1>Welcome to [site:name]</h1>"
             format: code_html
           plugin_id: text
       empty:
@@ -328,24 +328,24 @@ display:
           field: area_text_custom
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: ""
           empty: true
           tokenize: false
           content: "<p>No front page content has been created yet. This page is created through \"Panels\" module.</p>\n<p>You can edit it from \"Manage Content\" at the bottom of the page, or enable \"Page Manager UI\" module to edit it from Administration \\ Structure.</p>"
-          label: ''
+          label: ""
           plugin_id: text_custom
     cache_metadata:
       contexts:
-        - 'languages:language_interface'
+        - "languages:language_interface"
         - url.query_args
-        - 'user.node_grants:view'
+        - "user.node_grants:view"
         - user.permissions
       max-age: -1
-      tags: {  }
+      tags: {}
   page_1:
     display_options:
       path: node
-      display_extenders: {  }
+      display_extenders: {}
       enabled: false
     display_plugin: page
     display_title: Page
@@ -353,9 +353,9 @@ display:
     position: 1
     cache_metadata:
       contexts:
-        - 'languages:language_interface'
+        - "languages:language_interface"
         - url.query_args
-        - 'user.node_grants:view'
+        - "user.node_grants:view"
         - user.permissions
       max-age: -1
-      tags: {  }
+      tags: {}

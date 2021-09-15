@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - webform
-title: 'Default cron handler'
+title: "Default cron handler"
 id: webform_cron
 weight: 0
 module: webform

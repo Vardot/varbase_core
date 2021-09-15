@@ -2,3 +2,6 @@
 **/gulpfile.js
 **/node_modules
 **/modules/varbase_tour/node_modules
+**/modules/varbase_update_helper/updates_checklist.yml
+drupalci.yml
+**/drupalci.yml

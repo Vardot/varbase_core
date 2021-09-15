@@ -1,79 +1,79 @@
 verbose: 1
 types:
-  block_content: {  }
-  consumer: {  }
-  crop: {  }
-  entity_subqueue: {  }
-  file: {  }
-  media: {  }
+  block_content: {}
+  consumer: {}
+  crop: {}
+  entity_subqueue: {}
+  file: {}
+  media: {}
   node:
-    '*': '*'
-  redirect: {  }
-  search_api_task: {  }
-  shortcut: {  }
-  oauth2_token: {  }
-  social_auth: {  }
-  taxonomy_term: {  }
-  update_helper_checklist_update: {  }
-  user: {  }
-  webform_submission: {  }
-  menu_link_content: {  }
-  paragraph: {  }
-types_translation_lock: {  }
-types_js_lock: {  }
+    "*": "*"
+  redirect: {}
+  search_api_task: {}
+  shortcut: {}
+  oauth2_token: {}
+  social_auth: {}
+  taxonomy_term: {}
+  update_helper_checklist_update: {}
+  user: {}
+  webform_submission: {}
+  menu_link_content: {}
+  paragraph: {}
+types_translation_lock: {}
+types_js_lock: {}
 form_op_lock:
   block_content:
     mode: 0
-    values: {  }
+    values: {}
   consumer:
     mode: 0
-    values: {  }
+    values: {}
   crop:
     mode: 0
-    values: {  }
+    values: {}
   entity_subqueue:
     mode: 0
-    values: {  }
+    values: {}
   file:
     mode: null
-    values: {  }
+    values: {}
   media:
     mode: 0
-    values: {  }
+    values: {}
   node:
     mode: 1
     values:
       edit: edit
   redirect:
     mode: 0
-    values: {  }
+    values: {}
   search_api_task:
     mode: null
-    values: {  }
+    values: {}
   shortcut:
     mode: 0
-    values: {  }
+    values: {}
   oauth2_token:
     mode: 0
-    values: {  }
+    values: {}
   social_auth:
     mode: null
-    values: {  }
+    values: {}
   taxonomy_term:
     mode: 0
-    values: {  }
+    values: {}
   update_helper_checklist_update:
     mode: null
-    values: {  }
+    values: {}
   user:
     mode: 0
-    values: {  }
+    values: {}
   webform_submission:
     mode: 0
-    values: {  }
+    values: {}
   menu_link_content:
     mode: 0
-    values: {  }
+    values: {}
   paragraph:
     mode: 0
-    values: {  }
+    values: {}

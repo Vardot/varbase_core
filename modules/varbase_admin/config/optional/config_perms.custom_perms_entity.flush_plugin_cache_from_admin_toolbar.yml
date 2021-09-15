@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: flush_plugin_cache_from_admin_toolbar
-label: 'Flush plugin cache from admin toolbar'
+label: "Flush plugin cache from admin toolbar"
 route: admin_toolbar_tools.plugin

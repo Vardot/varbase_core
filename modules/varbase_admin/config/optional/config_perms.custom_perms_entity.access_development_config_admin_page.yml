@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: access_development_config_admin_page
-label: 'Access development admin config page'
+label: "Access development admin config page"
 route: system.admin_config_development

@@ -1,39 +1,29 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: block_content
   uuid: b858d97d-eaa5-4cfe-af6f-b92c21bbca95
   bundle: basic
   default_langcode: en
 default:
   revision_log:
-    -
-      value: 'Created new Basic block'
+    - value: "Created new Basic block"
   status:
-    -
-      value: true
+    - value: true
   info:
-    -
-      value: Copyright
+    - value: Copyright
   reusable:
-    -
-      value: true
+    - value: true
   revision_translation_affected:
-    -
-      value: true
+    - value: true
   content_translation_source:
-    -
-      value: und
+    - value: und
   content_translation_outdated:
-    -
-      value: false
+    - value: false
   content_translation_uid:
-    -
-      target_id: 1
+    - target_id: 1
   content_translation_created:
-    -
-      value: 1594907136
+    - value: 1594907136
   body:
-    -
-      value: 'Powered by <a href="https://www.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links">Vardot</a>. Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links">get a quote</a> for enterprise support and fully functional websites.'
+    - value: 'Powered by <a href="https://www.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links">Vardot</a>. Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links">get a quote</a> for enterprise support and fully functional websites.'
       format: code_html
-      summary: ''
+      summary: ""

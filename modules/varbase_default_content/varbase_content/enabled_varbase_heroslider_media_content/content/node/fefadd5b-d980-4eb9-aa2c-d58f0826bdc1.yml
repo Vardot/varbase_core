@@ -1,68 +1,51 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: node
   uuid: fefadd5b-d980-4eb9-aa2c-d58f0826bdc1
   bundle: landing_page_lb
   default_langcode: und
 default:
   revision_uid:
-    -
-      target_id: 1
+    - target_id: 1
   revision_log:
-    -
-      value: 'Created homepage node'
+    - value: "Created homepage node"
   status:
-    -
-      value: true
+    - value: true
   uid:
-    -
-      target_id: 1
+    - target_id: 1
   title:
-    -
-      value: Homepage
+    - value: Homepage
   created:
-    -
-      value: 1594905454
+    - value: 1594905454
   promote:
-    -
-      value: false
+    - value: false
   sticky:
-    -
-      value: false
+    - value: false
   revision_translation_affected:
-    -
-      value: true
+    - value: true
   moderation_state:
-    -
-      value: published
+    - value: published
   path:
-    -
-      alias: /node
+    - alias: /node
       langcode: en
       pathauto: 0
   publish_state:
-    -
-      value: published
+    - value: published
   unpublish_state:
-    -
-      value: archived
+    - value: archived
   content_translation_source:
-    -
-      value: und
+    - value: und
   content_translation_outdated:
-    -
-      value: false
+    - value: false
   field_yoast_seo:
-    -
-      status: '0'
-      focus_keyword: ''
+    - status: "0"
+      focus_keyword: ""
   layout_builder__layout:
-    -
-      section:
-        layout_id: 'bootstrap_layout_builder:blb_col_1'
+    - section:
+        layout_id: "bootstrap_layout_builder:blb_col_1"
         layout_settings:
-          label: ''
-          container_wrapper_classes: ''
+          label: ""
+          container_wrapper_classes: ""
           container_wrapper_attributes: null
           container_wrapper:
             bootstrap_styles:
@@ -152,36 +135,36 @@ default:
                 class: null
               vertical_alignment:
                 class: null
-          container_wrapper_bg_color_class: ''
+          container_wrapper_bg_color_class: ""
           container_wrapper_bg_media: null
           container: container-fluid
-          section_classes: ''
+          section_classes: ""
           section_attributes: null
           regions_classes:
-            blb_region_col_1: ''
-            section_header: ''
+            blb_region_col_1: ""
+            section_header: ""
           regions_attributes:
-            blb_region_col_1: {  }
+            blb_region_col_1: {}
             section_header: null
-          breakpoints: {  }
+          breakpoints: {}
           layout_regions_classes:
             section_header: null
-          remove_gutters: '1'
+          remove_gutters: "1"
           gutters_between: null
-          container_width: ''
-          context_mapping: {  }
+          container_width: ""
+          context_mapping: {}
         components:
           9a32ad22-8e25-40de-a0cf-2efbe0cfebea:
             uuid: 9a32ad22-8e25-40de-a0cf-2efbe0cfebea
             region: blb_region_col_1
             configuration:
-              id: 'extra_field_block:node:landing_page_lb:content_moderation_control'
-              label: 'Moderation control'
+              id: "extra_field_block:node:landing_page_lb:content_moderation_control"
+              label: "Moderation control"
               provider: layout_builder
               label_display: 0
               formatter:
-                settings: {  }
-                third_party_settings: {  }
+                settings: {}
+                third_party_settings: {}
               context_mapping:
                 entity: layout_builder.entity
             additional:
@@ -270,12 +253,11 @@ default:
                   scroll_effects:
                     class: null
             weight: 0
-        third_party_settings: {  }
-    -
-      section:
-        layout_id: 'bootstrap_layout_builder:blb_col_1'
+        third_party_settings: {}
+    - section:
+        layout_id: "bootstrap_layout_builder:blb_col_1"
         layout_settings:
-          label: ''
+          label: ""
           container_wrapper_classes: mt-n5
           container_wrapper_attributes: null
           container_wrapper:
@@ -366,36 +348,36 @@ default:
                 class: null
               vertical_alignment:
                 class: null
-          container_wrapper_bg_color_class: ''
+          container_wrapper_bg_color_class: ""
           container_wrapper_bg_media: null
           container: w-100
-          section_classes: ''
+          section_classes: ""
           section_attributes: null
           regions_classes:
-            blb_region_col_1: ''
-            section_header: ''
+            blb_region_col_1: ""
+            section_header: ""
           regions_attributes:
-            blb_region_col_1: {  }
+            blb_region_col_1: {}
             section_header: null
-          breakpoints: {  }
+          breakpoints: {}
           layout_regions_classes:
             section_header: null
-          remove_gutters: '1'
+          remove_gutters: "1"
           gutters_between: null
-          container_width: ''
-          context_mapping: {  }
+          container_width: ""
+          context_mapping: {}
         components:
           3233db7c-2e89-467d-9c0e-198fd83276d7:
             uuid: 3233db7c-2e89-467d-9c0e-198fd83276d7
             region: blb_region_col_1
             configuration:
-              id: 'views_block:varbase_heroslider_media-varbase_heroslider_media'
-              label: ''
+              id: "views_block:varbase_heroslider_media-varbase_heroslider_media"
+              label: ""
               provider: views
               label_display: 0
-              views_label: ''
+              views_label: ""
               items_per_page: none
-              context_mapping: {  }
+              context_mapping: {}
             additional:
               bootstrap_styles:
                 block_style:
@@ -482,13 +464,12 @@ default:
                   scroll_effects:
                     class: null
             weight: 0
-        third_party_settings: {  }
-    -
-      section:
-        layout_id: 'bootstrap_layout_builder:blb_col_1'
+        third_party_settings: {}
+    - section:
+        layout_id: "bootstrap_layout_builder:blb_col_1"
         layout_settings:
-          label: ''
-          container_wrapper_classes: ''
+          label: ""
+          container_wrapper_classes: ""
           container_wrapper_attributes: null
           container_wrapper:
             bootstrap_styles:
@@ -578,37 +559,37 @@ default:
                 class: null
               vertical_alignment:
                 class: null
-          container_wrapper_bg_color_class: ''
+          container_wrapper_bg_color_class: ""
           container_wrapper_bg_media: null
           container: container-fluid
-          section_classes: ''
+          section_classes: ""
           section_attributes: null
           regions_classes:
-            blb_region_col_1: ''
-            section_header: ''
+            blb_region_col_1: ""
+            section_header: ""
           regions_attributes:
-            blb_region_col_1: {  }
+            blb_region_col_1: {}
             section_header: null
-          breakpoints: {  }
+          breakpoints: {}
           layout_regions_classes:
             section_header: null
-          remove_gutters: '1'
+          remove_gutters: "1"
           gutters_between: null
-          container_width: ''
-          context_mapping: {  }
+          container_width: ""
+          context_mapping: {}
         components:
           4c282ef3-5f17-4af8-9ca1-df0c0f319762:
             uuid: 4c282ef3-5f17-4af8-9ca1-df0c0f319762
             region: blb_region_col_1
             configuration:
-              id: 'block_content:b137b5b9-7a08-4f18-9ce9-66a6a3a06954'
-              label: 'Welcome to Varbase'
+              id: "block_content:b137b5b9-7a08-4f18-9ce9-66a6a3a06954"
+              label: "Welcome to Varbase"
               provider: block_content
               label_display: visible
               status: true
-              info: ''
+              info: ""
               view_mode: full
-              context_mapping: {  }
+              context_mapping: {}
             additional:
               bootstrap_styles:
                 block_style:
@@ -695,4 +676,4 @@ default:
                   scroll_effects:
                     class: null
             weight: 0
-        third_party_settings: {  }
+        third_party_settings: {}

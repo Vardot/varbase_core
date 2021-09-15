@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: node_type_page
 action: display_page
 allow_override: 0
-redirect: ''
+redirect: ""
 redirect_code: 301

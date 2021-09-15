@@ -1,9 +1,9 @@
-name: 'Varbase default content'
+name: "Varbase default content"
 type: module
 hidden: TRUE
 package: Varbase
 core_version_requirement: ^8 || ^9
-description: 'Provides starter default content for varbase.'
+description: "Provides starter default content for varbase."
 dependencies:
   - drupal:block
   - drupal:block_content

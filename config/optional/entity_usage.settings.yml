@@ -65,4 +65,4 @@ track_enabled_plugins:
   - media_embed
   - dynamic_entity_reference
   - html_link
-site_domains: {  }
+site_domains: {}

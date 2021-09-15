@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: administer_error_logs
-label: 'Administer error logs'
+label: "Administer error logs"
 route: dblog.overview

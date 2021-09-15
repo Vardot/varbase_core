@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: flush_views_cache_from_admin_toolbar
-label: 'Flush views cache from admin toolbar'
+label: "Flush views cache from admin toolbar"
 route: admin_toolbar_tools.flush_views

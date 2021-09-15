@@ -1,42 +1,31 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: menu_link_content
   uuid: b446aefb-7b73-40af-9f03-5e466dacc4f9
   bundle: menu_link_content
   default_langcode: en
 default:
   revision_user:
-    -
-      target_id: 1
+    - target_id: 1
   revision_log_message:
-    -
-      value: 'Created new Custom menu link'
+    - value: "Created new Custom menu link"
   enabled:
-    -
-      value: true
+    - value: true
   title:
-    -
-      value: 'Contact Us'
+    - value: "Contact Us"
   menu_name:
-    -
-      value: main
+    - value: main
   link:
-    -
-      uri: 'internal:/form/contact'
-      title: ''
-      options: {  }
+    - uri: "internal:/form/contact"
+      title: ""
+      options: {}
   external:
-    -
-      value: false
+    - value: false
   rediscover:
-    -
-      value: true
+    - value: true
   weight:
-    -
-      value: -48
+    - value: -48
   expanded:
-    -
-      value: false
+    - value: false
   revision_translation_affected:
-    -
-      value: true
+    - value: true

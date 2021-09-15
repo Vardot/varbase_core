@@ -1,5 +1,5 @@
-name: 'Varbase Core'
-description: 'Provides core components required by other features.'
+name: "Varbase Core"
+description: "Provides core components required by other features."
 type: module
 core_version_requirement: ^9
 package: Varbase

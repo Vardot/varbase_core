@@ -15,38 +15,38 @@ content:
   account:
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
   contact:
     weight: 5
     region: content
   google_analytics:
     weight: 3
     region: content
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
   language:
     weight: 1
     region: content
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
   path:
     type: path
     weight: 30
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
     region: content
   timezone:
     weight: 2
     region: content
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
   user_picture:
     type: image_image
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+    third_party_settings: {}
     weight: -1
     region: content
 hidden:

@@ -10,13 +10,13 @@ editor.editor.full_html:
         rows:
           0:
             0:
-              name: 'Block Formatting'
+              name: "Block Formatting"
               items:
                 - Cut
                 - Copy
                 - Paste
                 - PasteFromWord
-                - '-'
+                - "-"
                 - Undo
                 - Redo
             1:
@@ -24,20 +24,20 @@ editor.editor.full_html:
               items:
                 - media
                 - Embed
-                - '-'
+                - "-"
                 - Blockquote
                 - HorizontalRule
-                - '-'
+                - "-"
                 - Table
             2:
               name: Linking
               items:
-                - '-'
+                - "-"
                 - Linkit
-                - '-'
+                - "-"
                 - Link
                 - Unlink
-                - '-'
+                - "-"
                 - Anchor
             3:
               name: Tools
@@ -58,17 +58,17 @@ editor.editor.full_html:
                 - Italic
                 - Underline
                 - Strike
-                - '-'
+                - "-"
                 - Subscript
                 - Superscript
-                - '-'
+                - "-"
                 - RemoveFormat
             2:
               name: Lists
               items:
                 - NumberedList
                 - BulletedList
-                - '-'
+                - "-"
                 - Outdent
                 - Indent
             3:
@@ -77,10 +77,10 @@ editor.editor.full_html:
                 - JustifyLeft
                 - JustifyCenter
                 - JustifyRight
-                - '-'
+                - "-"
                 - BidiLtr
                 - BidiRtl
-                - '-'
+                - "-"
                 - Language
   update_actions:
     delete:
@@ -89,13 +89,13 @@ editor.editor.full_html:
           rows:
             0:
               0:
-                name: 'Block Formatting'
+                name: "Block Formatting"
                 items:
                   - Cut
                   - Copy
                   - Paste
                   - PasteFromWord
-                  - '-'
+                  - "-"
                   - Undo
                   - Redo
               1:
@@ -103,20 +103,20 @@ editor.editor.full_html:
                 items:
                   - media
                   - Embed
-                  - '-'
+                  - "-"
                   - Blockquote
                   - HorizontalRule
-                  - '-'
+                  - "-"
                   - Table
               2:
                 name: Linking
                 items:
-                  - '-'
+                  - "-"
                   - Linkit
-                  - '-'
+                  - "-"
                   - Link
                   - Unlink
-                  - '-'
+                  - "-"
                   - Anchor
               3:
                 name: Tools
@@ -137,17 +137,17 @@ editor.editor.full_html:
                   - Italic
                   - Underline
                   - Strike
-                  - '-'
+                  - "-"
                   - Subscript
                   - Superscript
-                  - '-'
+                  - "-"
                   - RemoveFormat
               2:
                 name: Lists
                 items:
                   - NumberedList
                   - BulletedList
-                  - '-'
+                  - "-"
                   - Outdent
                   - Indent
               3:
@@ -156,10 +156,10 @@ editor.editor.full_html:
                   - JustifyLeft
                   - JustifyCenter
                   - JustifyRight
-                  - '-'
+                  - "-"
                   - BidiLtr
                   - BidiRtl
-                  - '-'
+                  - "-"
                   - Language
     add:
       settings:
@@ -167,13 +167,13 @@ editor.editor.full_html:
           rows:
             0:
               0:
-                name: 'Block Formatting'
+                name: "Block Formatting"
                 items:
                   - Cut
                   - Copy
                   - Paste
                   - PasteFromWord
-                  - '-'
+                  - "-"
                   - Undo
                   - Redo
               1:
@@ -181,20 +181,20 @@ editor.editor.full_html:
                 items:
                   - media
                   - Embed
-                  - '-'
+                  - "-"
                   - Blockquote
                   - HorizontalRule
-                  - '-'
+                  - "-"
                   - Table
               2:
                 name: Linking
                 items:
-                  - '-'
+                  - "-"
                   - Linkit
-                  - '-'
+                  - "-"
                   - Link
                   - Unlink
-                  - '-'
+                  - "-"
                   - Anchor
               3:
                 name: Tools
@@ -215,17 +215,17 @@ editor.editor.full_html:
                   - Italic
                   - Underline
                   - Strike
-                  - '-'
+                  - "-"
                   - Subscript
                   - Superscript
-                  - '-'
+                  - "-"
                   - RemoveFormat
               2:
                 name: Lists
                 items:
                   - NumberedList
                   - BulletedList
-                  - '-'
+                  - "-"
                   - Outdent
                   - Indent
               3:
@@ -234,7 +234,7 @@ editor.editor.full_html:
                   - JustifyLeft
                   - JustifyCenter
                   - JustifyRight
-                  - '-'
+                  - "-"
                   - BidiLtr
                   - BidiRtl
-                  - '-'
+                  - "-"

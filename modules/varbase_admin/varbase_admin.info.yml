@@ -1,5 +1,5 @@
-name: 'Varbase Admin'
-description: 'Manage administration configurations.'
+name: "Varbase Admin"
+description: "Manage administration configurations."
 type: module
 package: Varbase
 core_version_requirement: ^9

@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: access_the_webform_submission_from_user_profile
-label: 'Access the webform submission from user profile'
+label: "Access the webform submission from user profile"
 route: entity.webform_submission.user

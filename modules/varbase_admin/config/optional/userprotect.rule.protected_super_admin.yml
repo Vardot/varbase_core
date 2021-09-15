@@ -6,7 +6,7 @@ dependencies:
   module:
     - user
 name: protected_super_admin
-label: 'Protected super admin'
+label: "Protected super admin"
 protectedEntityTypeId: user_role
 protectedEntityId: administrator
 protections:

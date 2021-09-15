@@ -24,14 +24,14 @@ third_party_settings:
           classes:
             row: row
           add_layout_class: 1
-          attributes: ''
+          attributes: ""
         regions:
           main:
             wrapper: div
             classes:
               col-sm-12: col-sm-12
             add_region_classes: 1
-            attributes: ''
+            attributes: ""
     regions:
       main:
         - node_title
@@ -44,10 +44,10 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
-          'link text': 'Read more'
-          'link class': ''
-          wrapper: ''
-          class: ''
+          "link text": "Read more"
+          "link class": ""
+          wrapper: ""
+          class: ""
       node_title:
         plugin_id: node_title
         weight: 0
@@ -56,7 +56,7 @@ third_party_settings:
         settings:
           link: true
           wrapper: h3
-          class: ''
+          class: ""
 id: node.page.teaser
 targetEntityType: node
 bundle: page
@@ -69,14 +69,14 @@ content:
     settings:
       trim_length: 600
       trim_type: chars
-      trim_suffix: ''
+      trim_suffix: ""
       more_link: false
       more_text: More
       summary_handler: trim
       trim_options:
         text: true
       more_class: more-link
-    third_party_settings: {  }
+    third_party_settings: {}
     region: main
 hidden:
   field_meta_tags: true

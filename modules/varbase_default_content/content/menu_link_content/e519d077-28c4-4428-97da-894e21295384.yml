@@ -1,42 +1,31 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: menu_link_content
   uuid: e519d077-28c4-4428-97da-894e21295384
   bundle: menu_link_content
   default_langcode: en
 default:
   revision_user:
-    -
-      target_id: 1
+    - target_id: 1
   revision_log_message:
-    -
-      value: 'Created new Custom menu link'
+    - value: "Created new Custom menu link"
   enabled:
-    -
-      value: true
+    - value: true
   title:
-    -
-      value: 'Community Support'
+    - value: "Community Support"
   menu_name:
-    -
-      value: footer
+    - value: footer
   link:
-    -
-      uri: 'https://www.drupal.org/project/issues/varbase'
-      title: ''
-      options: {  }
+    - uri: "https://www.drupal.org/project/issues/varbase"
+      title: ""
+      options: {}
   external:
-    -
-      value: false
+    - value: false
   rediscover:
-    -
-      value: false
+    - value: false
   weight:
-    -
-      value: 0
+    - value: 0
   expanded:
-    -
-      value: false
+    - value: false
   revision_translation_affected:
-    -
-      value: true
+    - value: true

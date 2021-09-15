@@ -7,7 +7,7 @@ core.entity_form_display.node.varbase_blog.default:
   expected_config:
     content:
       title:
-        third_party_settings: {  }
+        third_party_settings: {}
   update_actions:
     change:
       content:
@@ -23,4 +23,4 @@ core.entity_form_display.node.varbase_blog.default:
                 tolerance: 10
             maxlength:
               maxlength_js: null
-              maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+              maxlength_js_label: "Content limited to @limit characters, remaining: <strong>@remaining</strong>"

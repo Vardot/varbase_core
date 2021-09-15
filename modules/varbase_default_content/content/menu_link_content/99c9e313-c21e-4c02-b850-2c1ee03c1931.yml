@@ -1,42 +1,31 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: menu_link_content
   uuid: 99c9e313-c21e-4c02-b850-2c1ee03c1931
   bundle: menu_link_content
   default_langcode: en
 default:
   revision_user:
-    -
-      target_id: 1
+    - target_id: 1
   revision_log_message:
-    -
-      value: 'Created new Custom menu link'
+    - value: "Created new Custom menu link"
   enabled:
-    -
-      value: true
+    - value: true
   title:
-    -
-      value: Documentation
+    - value: Documentation
   menu_name:
-    -
-      value: footer
+    - value: footer
   link:
-    -
-      uri: 'https://docs.varbase.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links'
-      title: ''
-      options: {  }
+    - uri: "https://docs.varbase.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links"
+      title: ""
+      options: {}
   external:
-    -
-      value: false
+    - value: false
   rediscover:
-    -
-      value: false
+    - value: false
   weight:
-    -
-      value: 0
+    - value: 0
   expanded:
-    -
-      value: false
+    - value: false
   revision_translation_affected:
-    -
-      value: true
+    - value: true

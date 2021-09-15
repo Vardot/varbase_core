@@ -1,7 +1,7 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: basic
-label: 'Basic block'
+label: "Basic block"
 revision: 1
-description: 'A basic block contains a title and a body.'
+description: "A basic block contains a title and a body."

@@ -1,6 +1,6 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: flush_css_js_cache_from_admin_toolbar
-label: 'Flush css/js cache from admin toolbar'
+label: "Flush css/js cache from admin toolbar"
 route: admin_toolbar_tools.cssjs

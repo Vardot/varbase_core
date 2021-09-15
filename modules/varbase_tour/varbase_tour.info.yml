@@ -1,5 +1,5 @@
-name: 'Varbase Tour'
-description: 'Provide Tours for varbase.'
+name: "Varbase Tour"
+description: "Provide Tours for varbase."
 type: module
 package: Varbase
 core_version_requirement: ^9
