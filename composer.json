@@ -163,8 +163,6 @@
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #3101231: Fix multilingual site's layout edit context issue with TypeError: Argument 1 passed to UrlHelper::buildQuery() must be of the type array, null given":
         "https://www.drupal.org/files/issues/2019-12-19/3101231-19.patch",
-        "Issue #2996114: Fix Argument 2 passed to Drupal jsonapi Routing closure must be an instance of ResourceType, NULL given":
-        "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
         "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
         "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch",
         "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
