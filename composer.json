@@ -46,7 +46,7 @@
     "drupal/views_bootstrap": "~4.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
-    "drupal/advanced_text_formatter": "~2.0",
+    "drupal/advanced_text_formatter": "2.1.0",
     "drupal/allowed_formats": "~1.0",
     "drupal/block_class": "~1.0",
     "drupal/menu_block": "~1.0",
@@ -195,6 +195,12 @@
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
         "https://www.drupal.org/files/issues/2020-05-28/optional_edit-3143422-2.patch"
+      },
+      "drupal/advanced_text_formatter": {
+        "Issue #3231760: addNotice Method does not exist":
+        "https://www.drupal.org/files/issues/2021-09-10/3231760-addNotice-method-does-not-exist-3.patch",
+        "Issue #3231764: Filter html tags is taken for php filter in field formater since 2.1.0":
+        "https://www.drupal.org/files/issues/2021-09-10/3231764-allowedhtml-and-autoop-are-shown-for-deprecated-php-filter-4.patch"
       }
     }
   }
