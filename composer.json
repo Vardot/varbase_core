@@ -46,7 +46,7 @@
     "drupal/views_bootstrap": "~4.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
-    "drupal/advanced_text_formatter": "2.1.0",
+    "drupal/advanced_text_formatter": "~2.0",
     "drupal/allowed_formats": "~1.0",
     "drupal/block_class": "~1.0",
     "drupal/menu_block": "~1.0",
@@ -183,12 +183,6 @@
       "drupal/menu_position": {
         "Issue #3146668: Fix adding a new rule on drupal 9 fails with SchemaIncompleteException":
         "https://www.drupal.org/files/issues/2020-06-08/drupal9_schemaexception-3146668-2.patch"
-      },
-      "drupal/advanced_text_formatter": {
-        "Issue #3231760: addNotice Method does not exist":
-        "https://www.drupal.org/files/issues/2021-09-10/3231760-addNotice-method-does-not-exist-3.patch",
-        "Issue #3231764: Filter html tags is taken for php filter in field formater since 2.1.0":
-        "https://www.drupal.org/files/issues/2021-09-10/3231764-allowedhtml-and-autoop-are-shown-for-deprecated-php-filter-4.patch"
       }
     }
   }
