@@ -31,7 +31,6 @@ install:
   - revision_log_default
   - syslog
   - update
-  - quickedit
   - settings_tray
   - entity_clone
   - taxonomy_access_fix
