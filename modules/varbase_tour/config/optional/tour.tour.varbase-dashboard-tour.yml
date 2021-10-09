@@ -15,7 +15,7 @@ tips:
     plugin: text
     label: "Welcome to Your Dashboard"
     weight: 1
-    attributes: null
+    selector: null
     body: "<p>As an editor or a site manager, this dashboard includes quick access links and summarized information for you.</p>\r\n<p>Press \"Next\" to get a quick overview of its elements.</p>"
     position: top
   your-account:
@@ -23,30 +23,30 @@ tips:
     plugin: text
     label: "Your Account"
     weight: 2
-    body: "You can always edit your account by going clicking this button."
     selector: ".block-varbase-dashboard-user .button-action"
+    body: "<p>You can always edit your account by going clicking this button.</p>"
     position: top
   create-content:
     id: create-content
     plugin: text
     label: "Create Content"
     weight: 3
-    body: "<p>This block will list the most important content for you or your editors to create.</p>\r\n<p>You can edit what content types to appear here by going to the <b>Dashboard Panel edit page</b>. <em>If you don't have permission to do so, contact your site administrator.</em></p>"
     selector: .block-varbase-create-content
+    body: "<p>This block will list the most important content for you or your editors to create.</p>\r\n<p>You can edit what content types to appear here by going to the <b>Dashboard Panel edit page</b>. <em>If you don't have permission to do so, contact your site administrator.</em></p>"
     position: right
   google-analytics:
     id: google-analytics
     plugin: text
     label: "Google Analytics"
     weight: 4
-    body: "<p>Connect your Google Analytics account to your site to start seeing stats directly in your dashboard.<p>"
     selector: ".block-views-blockvarbase-google-analytics-summary-sessions-and-pageviews .panel__content"
+    body: "<p>Connect your Google Analytics account to your site to start seeing stats directly in your dashboard.</p>"
     position: bottom
   your-content-statistics:
     id: your-content-statistics
     plugin: text
     label: "Your Content Statistics"
     weight: 5
-    body: "Finally, once you start adding content to your site, your content's statistics will appear here."
     selector: '.block-varbase-content-overview  a[href="/admin/content?type=page"]'
+    body: "<p>Finally, once you start adding content to your site, your content's statistics will appear here.</p>"
     position: right
