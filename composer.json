@@ -180,7 +180,9 @@
       },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
-        "https://www.drupal.org/files/issues/2020-05-28/optional_edit-3143422-2.patch"
+        "https://www.drupal.org/files/issues/2020-05-28/optional_edit-3143422-2.patch",
+        "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
+        "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
       },
       "drupal/menu_position": {
         "Issue #3146668: Fix adding a new rule on drupal 9 fails with SchemaIncompleteException":
