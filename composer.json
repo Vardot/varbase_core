@@ -154,7 +154,7 @@
         "Issue #3226791: Fix Validation error saving untranslatable Media reference field":
         "https://www.drupal.org/files/issues/2021-08-04/media_required_validation-3226791-2.patch",
         "Issue #3059955: It is possible to overflow the number of items allowed in Media Library":
-        "https://www.drupal.org/files/issues/2020-11-16/3059955-107.patch"
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/760.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
