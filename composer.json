@@ -71,7 +71,7 @@
     "drupal/tour_ui": "1.0-beta3",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~1.0",
-    "drupal/views_bulk_operations": "~4.0",
+    "drupal/views_bulk_operations": "4.0.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.0",
@@ -189,6 +189,10 @@
       "drupal/tour_ui": {
         "Issue #3214357: Will changes from (core 9.2+) Tour hurt?":
         "https://www.drupal.org/files/issues/2021-05-28/tour_ui-3214357-7.patch"
+      },
+      "drupal/views_bulk_operations": {
+        "Issue #3222477: Pager is broken when Items Per Page is exposed":
+        "https://www.drupal.org/files/issues/2021-08-19/3222477-4-pager-broken-when-items-per-page-exposed.patch"
       }
     }
   }
