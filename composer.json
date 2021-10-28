@@ -194,7 +194,7 @@
       },
       "drupal/views_bulk_operations": {
         "Issue #3222477: Pager is broken when Items Per Page is exposed":
-        "https://www.drupal.org/files/issues/2021-08-19/3222477-4-pager-broken-when-items-per-page-exposed.patch"
+        "https://www.drupal.org/files/issues/2021-10-28/3222477-8.patch"
       }
     }
   }
