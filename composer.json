@@ -103,7 +103,7 @@
     "drupal/recaptcha": "~3.0",
     "drupal/mailsystem": "~4.0",
     "drupal/length_indicator": "~1.0",
-    "drupal/maxlength": "~1.0",
+    "drupal/maxlength": "~2.0",
     "drupal/menu_position": "1.0-beta1",
     "drupal/taxonomy_access_fix": "~3.0",
     "drupal/better_exposed_filters": "~5.0",
