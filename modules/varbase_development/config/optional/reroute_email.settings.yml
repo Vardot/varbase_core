@@ -1,0 +1,6 @@
+enable: true
+description: true
+message: true
+mailkeys: ''
+address: dev-catchall@vardot.com
+whitelist: '*@vardot.com'

@@ -10,6 +10,7 @@ install:
   - config_update_ui
   - devel
   - tour_ui
+  - reroute_email
 #uninstall:
 #  - migrate_drupal_ui
 #  - dblog
