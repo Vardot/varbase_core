@@ -225,3 +225,16 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8706</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+9.0.3:
+    '#title': 'New Updates in Varbase 9.0.3'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_core_update_9001:
+        '#title': 'Add Reroute Email module with default config checked for Varbase Development'
+        '#description': '
+        <p>This is a notice that the <b><a href="https://www.drupal.org/project/reroute_email" target="_blank">Reroute Email</a></b> module was added to Varbase, with a basic config for new installations.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3248635" target="_blank">#3248635</a> and <a href="https://www.drupal.org/i/3248644" target="_blank">#3248644</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">No update action. Only a notice.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">No update action. Only a notice.<p><br />
+        '
