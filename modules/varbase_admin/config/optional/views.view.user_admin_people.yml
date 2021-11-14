@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - better_exposed_filters
-    - roleassign
     - user
     - views_bulk_operations
 id: user_admin_people
@@ -272,29 +271,43 @@ display:
           batch_size: 50
           form_step: true
           buttons: false
-          clear_on_exposed: false
+          clear_on_exposed: true
           action_title: Action
           selected_actions:
             0:
               action_id: "entity:break_lock:user"
+              preconfiguration:
+                add_confirmation: false
             1:
-              action_id: user_add_role_action
+              action_id: user_unblock_user_action
+              preconfiguration:
+                add_confirmation: false
             2:
               action_id: user_remove_role_action
+              preconfiguration:
+                add_confirmation: false
             3:
               action_id: user_block_user_action
+              preconfiguration:
+                add_confirmation: false
             4:
-              action_id: user_unblock_user_action
+              action_id: user_add_role_action
+              preconfiguration:
+                add_confirmation: false
             5:
               action_id: views_bulk_edit
               preconfiguration:
-                get_bundles_from_results: 1
-            6:
+                add_confirmation: false
+                get_bundles_from_results: true
+            7:
               action_id: vbo_cancel_user_action
+              preconfiguration:
+                add_confirmation: false
             8:
-              action_id: pathauto_update_alias
-            9:
               action_id: "entity:save_action:user"
+              preconfiguration:
+                add_confirmation: false
+          force_selection_info: false
           preconfiguration:
             "entity:break_lock:user":
               label_override: ""

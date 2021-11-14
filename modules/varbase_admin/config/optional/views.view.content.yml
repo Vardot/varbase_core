@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -311,47 +312,29 @@ display:
           batch_size: 50
           form_step: true
           buttons: false
-          clear_on_exposed: false
+          clear_on_exposed: true
           action_title: Action
           selected_actions:
             0:
               action_id: "entity:break_lock:node"
-            1:
+              preconfiguration:
+                add_confirmation: false
+            3:
               action_id: node_assign_owner_action
-            5:
-              action_id: node_publish_action
-            6:
-              action_id: node_unpublish_by_keyword_action
+              preconfiguration:
+                add_confirmation: false
             7:
-              action_id: node_unpublish_action
-            8:
-              action_id: node_save_action
-            10:
               action_id: views_bulk_edit
               preconfiguration:
-                get_bundles_from_results: 1
-            11:
+                add_confirmation: false
+                get_bundles_from_results: true
+            8:
               action_id: views_bulk_operations_delete_entity
-            12:
-              action_id: pathauto_update_alias
-            15:
+            11:
               action_id: "entity:save_action:node"
-          preconfiguration:
-            node_assign_owner_action:
-              label_override: ""
-            node_publish_action:
-              label_override: ""
-            node_unpublish_action:
-              label_override: ""
-            node_save_action:
-              label_override: ""
-            views_bulk_edit:
-              label_override: ""
-              get_bundles_from_results: 1
-            views_bulk_operations_delete_entity:
-              label_override: ""
-            pathauto_update_alias:
-              label_override: ""
+              preconfiguration:
+                add_confirmation: false
+          force_selection_info: false
           plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
