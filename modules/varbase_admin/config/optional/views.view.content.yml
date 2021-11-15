@@ -41,10 +41,12 @@ display:
             general:
               autosubmit: false
               autosubmit_exclude_textfield: true
+              autosubmit_textfield_delay: 500
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: "Advanced options"
+              secondary_open: false
             pager:
               plugin_id: default
               advanced:
@@ -69,6 +71,7 @@ display:
               title:
                 plugin_id: default
                 advanced:
+                  placeholder_text: ""
                   collapsible: false
                   is_secondary: false
               langcode:
@@ -82,11 +85,21 @@ display:
               created:
                 plugin_id: bef_datepicker
                 advanced:
+                  placeholder_text: ""
                   collapsible: false
                   is_secondary: false
               created_1:
                 plugin_id: bef_datepicker
                 advanced:
+                  placeholder_text: ""
+                  collapsible: false
+                  is_secondary: false
+              uid:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ""
+                  rewrite:
+                    filter_rewrite_values: ""
                   collapsible: false
                   is_secondary: false
             status:
@@ -900,6 +913,53 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ""
+          operator: in
+          value: {}
+          group: 1
+          exposed: true
+          expose:
+            operator_id: uid_op
+            label: "Authored by"
+            description: ""
+            use_operator: false
+            operator: uid_op
+            operator_limit_selection: false
+            operator_list: {}
+            identifier: uid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              editor: "0"
+              content_admin: "0"
+              seo_admin: "0"
+              site_admin: "0"
+              administrator: "0"
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: node
+          entity_field: uid
+          plugin_id: user_name
       sorts: {}
       title: Content
       empty:
@@ -939,7 +999,8 @@ display:
         - "user.node_grants:view"
         - user.permissions
       max-age: 0
-      tags: {}
+      tags:
+        - "config:field.storage.node.field_yoast_seo"
   page_1:
     display_options:
       path: admin/content/node
@@ -972,4 +1033,5 @@ display:
         - "user.node_grants:view"
         - user.permissions
       max-age: 0
-      tags: {}
+      tags:
+        - "config:field.storage.node.field_yoast_seo"
