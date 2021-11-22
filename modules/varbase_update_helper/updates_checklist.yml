@@ -238,3 +238,25 @@
         '#description_failed': '
         <p class="messages messages--warning">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.<p><br />
         '
+    varbase_core_update_9002:
+        '#title': 'Add "Authored by" filter to admin content views in Varbase Admin'
+        '#description': '
+        <p>This update is mainly targeted to provide an Authored by exposed filter to the content administration page. Only if it was not changed.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3227277" target="_blank">#3227277</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9002</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_core_update_9003:
+        '#title': 'Add "Authored by" filter to Media Table and Media Grid views in Varbase Media'
+        '#description': '
+        <p>This update is mainly targeted to provide an Authored by exposed filter to the media administration pages. Only if they were not changed.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3249476" target="_blank">#3249476</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9003</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
