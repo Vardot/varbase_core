@@ -260,3 +260,14 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9003</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+    varbase_security_update_9001:
+        '#title': 'Remove the Flood Unblock module as it will be discontinued by its maintainers'
+        '#description': '
+        <p>In favour of using the Flood Control module instead, which now contains the functionality.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> for details.</p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_security_update_9001</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
