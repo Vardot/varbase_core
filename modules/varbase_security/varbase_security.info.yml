@@ -17,3 +17,4 @@ install:
   - password_policy_username
   - seckit
   - username_enumeration_prevention
+  - flood_control
