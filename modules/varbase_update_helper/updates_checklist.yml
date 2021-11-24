@@ -239,46 +239,24 @@
         <p class="messages messages--warning">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.<p><br />
         '
     varbase_core_update_9002:
-        '#title': 'Add "Authored by" filter to admin content views in Varbase Admin'
+        '#title': 'Add the ability to filter by "Author" in administration views (Content and Media)'
         '#description': '
-        <p>This update is mainly targeted to provide an Authored by exposed filter to the content administration page. Only if it was not changed.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3227277" target="_blank">#3227277</a> for details.</p><br />'
+        <p>This update adds a new filter to the <a href="../../../admin/content" target="_blank">Content administration</a> page and the <a href="../../../admin/content/media" target="_blank">Media administration</a> page.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3227277" target="_blank">#3227277</a> and <a href="https://www.drupal.org/i/3249476" target="_blank">#3249476</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9002</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
-    varbase_core_update_9003:
-        '#title': 'Add "Authored by" filter to Media Table and Media Grid views in Varbase Media'
-        '#description': '
-        <p>This update is mainly targeted to provide an Authored by exposed filter to the media administration pages. Only if they were not changed.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3249476" target="_blank">#3249476</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9003</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
     varbase_security_update_9001:
-        '#title': 'Remove the Flood Unblock module as it will be discontinued by its maintainers'
+        '#title': 'Add Flood Control module for login attempt limiting and remove the Flood Unblock module as it will be discontinued by its maintainers'
         '#description': '
-        <p>In favour of using the Flood Control module instead, which now contains the functionality.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> for details.</p><br />'
+        <p>This update adds security hardening policies and rules such as rate limiting for password requests and login attempt limiter.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> and <a href="https://www.drupal.org/i/3187308" target="_blank">#3187308</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_security_update_9001</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_security_update_9002:
-        '#title': 'Add Flood Control module to Varbase Security for login attempt limiting'
-        '#description': '
-        <p>This update is mainly targeted to provide Some security hardening policies and rules are not in Varbase. Such as rate limiting for password requests and login attempt limiters</p>
-        <p>See issue <a href="https://www.drupal.org/i/3187308" target="_blank">#3187308</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9002</code> to force applying this update.</span>
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9001</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '

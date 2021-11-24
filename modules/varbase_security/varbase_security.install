@@ -90,11 +90,10 @@ function varbase_security_install() {
 }
 
 /**
- * Issue #3250823: Remove the Flood Unblock module.
+ * Add Flood Control module for login attempt limiting.
  *
- * As it will be discontinued by its maintainers in favour
- * of using the Flood Control module instead,
- * which now contains the functionality
+ * And remove the Flood Unblock module as it will be
+ * discontinued by its maintainers.
  */
 function varbase_security_update_9001() {
 
@@ -131,23 +130,6 @@ function varbase_security_update_9001() {
 
   // Execute configuration update definitions with logging of success.
   $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9001');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
-
-/**
- * Issue #3187308: Add Flood Control module.
- *
- * To Varbase Security for login attempt limiting.
- */
-function varbase_security_update_9002() {
-
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9002');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
