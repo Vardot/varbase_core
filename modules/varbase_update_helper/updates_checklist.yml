@@ -252,7 +252,7 @@
     varbase_security_update_9001:
         '#title': 'Ability to set configurable rate limits for failed login attempts, and an interface to review and unblock locked IPs and usernames.'
         '#description': '
-        <p>This update adds security hardening policies and rules by replacing the legacy <a href="https://www.drupal.org/project/flood_unblock" target="_blank">Flood Unblock</a> module with its successor, the <a href="https://www.drupal.org/project/flood_control" target="_blank">Flood Control</a> module. Flood Control provides an interface for hidden flood control variables (e.g. login attempt limiters) and makes it possible for site administrators to remove IP addresses and user ID''s from the flood table.</p>
+        <p>This update adds security hardening policies and rules by replacing the legacy <a href="https://www.drupal.org/project/flood_unblock" target="_blank">Flood Unblock</a> module with its successor, the <a href="https://www.drupal.org/project/flood_control" target="_blank">Flood Control</a> module. Flood Control provides an interface for hidden flood control variables (e.g. login attempt limiters) and makes it possible for site administrators to remove IP addresses and user ID''s from the flood table. Make sure to review <a href="../../../admin/people/permissions#module-flood_control">the permissions</a> for unblocking unblock locked IPs and usernames.</p>
         <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> and <a href="https://www.drupal.org/i/3187308" target="_blank">#3187308</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
