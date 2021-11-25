@@ -538,7 +538,7 @@ function varbase_core_update_8707() {
 }
 
 /**
- * Issue #3248635: Add Reroute Email ~2.0 module
+ * Issue #3248635: Add Reroute Email ~2.0 module.
  *
  * And enable with default config to Varbase Development module.
  */

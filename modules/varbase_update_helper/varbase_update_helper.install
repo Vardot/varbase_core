@@ -20,28 +20,37 @@ function varbase_update_helper_install() {
   // Mark all updates by the update helper checklist as successful on install.
   if (\Drupal::moduleHandler()->moduleExists('update_helper_checklist')) {
 
-    $update_ids = [
-      'varbase_core:varbase_core_optional_update_8601',
-      'varbase_core:varbase_core_optional_update_8602',
-      'varbase_core:varbase_core_optional_update_8603',
-      'varbase_core:varbase_admin_update_8602',
-      'varbase_core:varbase_core_optional_update_8604',
-      'varbase_core:varbase_core_optional_update_8605',
-      'varbase_core:varbase_core_optional_update_8606',
-      'varbase_core:varbase_core_optional_update_8607',
-      'varbase_core:varbase_core_update_8608',
-      'varbase_core:varbase_core_update_8610',
-      'varbase_core:varbase_core_optional_update_8701',
-      'varbase_core:varbase_core_optional_update_8702',
-      'varbase_core:varbase_core_update_8703',
-      'varbase_core:varbase_core_update_8704',
-      'varbase_core:varbase_core_optional_update_8705',
-      'varbase_core:varbase_core_optional_update_8706',
+    $checklist_update_ids = [
+      'varbase_core' => [
+        'varbase_core_optional_update_8601',
+        'varbase_core_optional_update_8602',
+        'varbase_core_optional_update_8603',
+        'varbase_core_optional_update_8604',
+        'varbase_core_optional_update_8605',
+        'varbase_core_optional_update_8606',
+        'varbase_core_optional_update_8607',
+        'varbase_core_update_8608',
+        'varbase_core_update_8610',
+        'varbase_core_optional_update_8701',
+        'varbase_core_optional_update_8702',
+        'varbase_core_update_8703',
+        'varbase_core_update_8704',
+        'varbase_core_optional_update_8705',
+        'varbase_core_optional_update_8706',
+        'varbase_core_update_9001',
+        'varbase_core_update_9002',
+      ],
+      'varbase_admin' => [
+        'varbase_admin_update_8602',
+      ],
+      'varbase_security' => [
+        'varbase_security_update_9001',
+      ],
     ];
 
-    foreach ($update_ids as $update_id) {
-      if (strpos($update_id, "#") !== 0) {
-        if ($update = Update::load($update_id)) {
+    foreach ($checklist_update_ids as $checklist_update_module => $checklist_update_list) {
+      foreach ($checklist_update_list as $update_id) {
+        if ($update = Update::load($checklist_update_module . ":" . $update_id)) {
           $update->setSuccessfulByHook(TRUE);
           $update->save();
         }
@@ -55,9 +64,6 @@ function varbase_update_helper_install() {
         }
       }
     }
-
-    $checklist = \Drupal::service('update_helper_checklist.update_checklist');
-    $checklist->markUpdatesSuccessful($update_ids, TRUE);
 
   }
 }
