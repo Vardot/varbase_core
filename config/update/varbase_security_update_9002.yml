@@ -1,0 +1,58 @@
+__global_conditions:
+  expected_config: {}
+  update_actions: {}
+  expected_modules:
+    - honeypot
+__global_actions:
+  expected_config: {}
+  update_actions: {}
+  install_modules:
+    - honeypot
+honeypot.settings:
+  expected_config:
+    unprotected_forms:
+      - search_form
+      - search_block_form
+      - views_exposed_form
+      - honeypot_settings_form
+    protect_all_forms: false
+    log: true
+    element_name: url
+    time_limit: 2
+    expire: 300
+    form_settings:
+      user_register_form: true
+      user_login_form: true
+      user_pass: true
+      node_landing_page_lb_form: false
+      node_page_form: false
+      node_landing_page_form: false
+      node_varbase_heroslider_media_form: false
+      node_webform_form: true
+      comment_comment_form: true
+      webforms: true
+      webform_submission_contact_add_form: true
+  update_actions:
+    change:
+      unprotected_forms:
+        - search_form
+        - search_block_form
+        - views_exposed_form
+        - honeypot_settings_form
+      protect_all_forms: false
+      log: true
+      element_name: url
+      time_limit: 2
+      expire: 300
+      form_settings:
+        user_register_form: true
+        user_login_form: true
+        user_pass: true
+        node_landing_page_lb_form: false
+        node_page_form: false
+        node_landing_page_form: false
+        node_varbase_heroslider_media_form: false
+        node_webform_form: true
+        comment_comment_form: true
+        webforms: true
+        webform_submission_contact_add_form: true
