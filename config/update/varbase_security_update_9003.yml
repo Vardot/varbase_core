@@ -8,5 +8,3 @@ __global_actions:
   update_actions: {}
   install_modules:
     - antibot
-  import_configs:
-    - antibot.settings.yml
