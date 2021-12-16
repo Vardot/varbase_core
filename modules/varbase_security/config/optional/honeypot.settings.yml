@@ -1,5 +1,4 @@
 unprotected_forms:
-  - user_login_form
   - search_form
   - search_block_form
   - views_exposed_form
@@ -7,13 +6,18 @@ unprotected_forms:
 protect_all_forms: false
 log: true
 element_name: url
-time_limit: 5
+time_limit: 2
 expire: 300
 form_settings:
   user_register_form: true
+  user_login_form: true
   user_pass: true
-  webforms: true
-  node_landing_page_form: false
+  node_landing_page_lb_form: false
   node_page_form: false
+  node_landing_page_form: false
   node_varbase_heroslider_media_form: false
   node_webform_form: true
+  comment_comment_form: true
+  webforms: true
+  webform_submission_contact_add_form: true
+
