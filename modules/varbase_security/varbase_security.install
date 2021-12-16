@@ -135,11 +135,10 @@ function varbase_security_update_9001() {
   return $updateHelper->logger()->output();
 }
 
-
 /**
  * Honeypot should protect more forms by default.
  *
- * Honeypot should protect more forms by default, also a time restriction of 2 seconds.
+ * Also a time restriction of 2 seconds.
  */
 function varbase_security_update_9002() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
@@ -147,6 +146,22 @@ function varbase_security_update_9002() {
 
   // Execute configuration update definitions with logging of success.
   $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9002');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
+
+/**
+ * Issue #3252064: Add Antibot module with config to Varbase Security.
+ *
+ * Antibot should protect more forms by default, webform, comment, ...
+ */
+function varbase_security_update_9003() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9003');
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();

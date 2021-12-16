@@ -2,6 +2,7 @@ __global_conditions:
   expected_config: {}
   update_actions: {}
   expected_modules:
+    - varbase_security
     - honeypot
 __global_actions:
   expected_config: {}
@@ -11,6 +12,7 @@ __global_actions:
 honeypot.settings:
   expected_config:
     unprotected_forms:
+      - user_login_form
       - search_form
       - search_block_form
       - views_exposed_form
@@ -18,20 +20,16 @@ honeypot.settings:
     protect_all_forms: false
     log: true
     element_name: url
-    time_limit: 2
+    time_limit: 5
     expire: 300
     form_settings:
       user_register_form: true
-      user_login_form: true
       user_pass: true
-      node_landing_page_lb_form: false
-      node_page_form: false
+      webforms: true
       node_landing_page_form: false
+      node_page_form: false
       node_varbase_heroslider_media_form: false
       node_webform_form: true
-      comment_comment_form: true
-      webforms: true
-      webform_submission_contact_add_form: true
   update_actions:
     change:
       unprotected_forms:

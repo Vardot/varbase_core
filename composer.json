@@ -97,6 +97,7 @@
     "drupal/seckit": "~2.0",
     "drupal/security_review": "1.x-dev",
     "drupal/honeypot": "~2.0",
+    "drupal/antibot": "~1.0",
     "drupal/shield": "~1.0",
     "drupal/flood_control": "~2.0",
     "drupal/captcha": "~1.0",

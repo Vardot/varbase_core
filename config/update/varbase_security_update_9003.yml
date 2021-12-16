@@ -1,0 +1,12 @@
+__global_conditions:
+  expected_config: {}
+  update_actions: {}
+  expected_modules:
+    - varbase_security
+__global_actions:
+  expected_config: {}
+  update_actions: {}
+  install_modules:
+    - antibot
+  import_configs:
+    - antibot.settings.yml
