@@ -261,6 +261,9 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
 9.0.4:
+    '#title': 'New Updates in Varbase 9.0.4'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
     varbase_security_update_9002:
         '#title': 'Honeypot should protect more forms by default, also a time restriction of 2 seconds'
         '#description': '
