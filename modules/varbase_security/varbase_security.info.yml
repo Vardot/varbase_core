@@ -9,6 +9,7 @@ install:
   - captcha
   - recaptcha
   - honeypot
+  - antibot
   - password_policy
   - password_policy_character_types
   - password_policy_characters

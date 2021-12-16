@@ -260,6 +260,7 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9001</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+9.0.4:
     varbase_security_update_9002:
         '#title': 'Honeypot should protect more forms by default, also a time restriction of 2 seconds'
         '#description': '
@@ -269,5 +270,16 @@
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9002</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '
+    varbase_security_update_9003:
+        '#title': 'Antibot should protect more forms by default'
+        '#description': '
+        <p>This add more form to protect, comment_*, user_login_form, contact_*, webform_*,...</p>
+        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3252064" target="_blank">#3252064</a></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9003</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
