@@ -265,10 +265,10 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_security_update_9002:
-        '#title': 'Honeypot should protect more forms by default, also a time restriction of 2 seconds'
+        '#title': 'Reinforce spam protection and enable "Honeypot" spam detection on webforms by default'
         '#description': '
-        <p>This add more form to protect, moved user_login_form to protected forms under honeypot settings.</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3252060" target="_blank">#3252060</a></p><br />'
+        <p>This update reinforces spam protection from the <a href="../../../admin/config/content/honeypot">Honeypot</a> module by enabling protection on a wider array of forms and enabling time limit of 2 seconds.</p>
+        <p>See issue <a href="https://www.drupal.org/i/3252060" target="_blank">#3252060</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
@@ -276,10 +276,10 @@
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
     varbase_security_update_9003:
-        '#title': 'Antibot should protect more forms by default'
+        '#title': 'Reinforce spam protection via the "Antibot" spam detection mechanism'
         '#description': '
-        <p>This add more form to protect, comment_*, user_login_form, contact_*, webform_*,...</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3252064" target="_blank">#3252064</a></p><br />'
+        <p>This update reinforces spam protection by enabling the <a href="https://www.drupal.org/project/antibot">Antibot</a> module, which requires end users to have JavaScript enabled to submit forms. You can choose which forms are protected by Antibot in the <a href="../../../admin/config/user-interface/antibot">Antibot configuration page</a>.</p></p>
+        <p>See issue <a href="https://www.drupal.org/i/3252064" target="_blank">#3252064</a> for details.</p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
         <p class="messages messages--warning">This update failed to be done automatically.<br />
