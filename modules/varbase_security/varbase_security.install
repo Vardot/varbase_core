@@ -136,9 +136,9 @@ function varbase_security_update_9001() {
 }
 
 /**
- * Honeypot should protect more forms by default.
+ * Reinforce spam protection and enable "Honeypot" spam detection.
  *
- * Also a time restriction of 2 seconds.
+ * Enabling protection on a wider array of forms and enabling time limit of 2 seconds.
  */
 function varbase_security_update_9002() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
@@ -154,7 +154,7 @@ function varbase_security_update_9002() {
 /**
  * Issue #3252064: Add Antibot module with config to Varbase Security.
  *
- * Antibot should protect more forms by default, webform, comment, ...
+ * Reinforce spam protection via the "Antibot" spam detection mechanism.
  */
 function varbase_security_update_9003() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
