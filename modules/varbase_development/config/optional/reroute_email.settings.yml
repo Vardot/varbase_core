@@ -1,6 +1,8 @@
 enable: true
+address: dev-catchall@vardot.com
+roles: {}
+allowed: "*@vardot.com"
 description: true
 message: true
-mailkeys: ''
-address: dev-catchall@vardot.com
-whitelist: '*@vardot.com'
+mailkeys: ""
+mailkeys_skip: ""
