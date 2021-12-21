@@ -115,7 +115,7 @@
     "drupal/viewsreference": "~2.0",
     "drupal/vmi": "~3.0 || 3.0.x-dev",
     "drupal/jquery_ui_accordion": "~1.0",
-    "drupal/reroute_email": "~2.0"
+    "drupal/reroute_email": "2.1.0"
   },
   "suggest": {
     "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill",
@@ -197,6 +197,10 @@
       "drupal/views_bulk_operations": {
         "Issue #3222477: Pager is broken when Items Per Page is exposed":
         "https://www.drupal.org/files/issues/2021-10-28/3222477-8.patch"
+      },
+      "drupal/reroute_email": {
+        "Issue #3254806: Fix Invalid argument supplied for foreach() in reroute_email_check_email_by_permission() (line 316)":
+        "https://git.drupalcode.org/project/reroute_email/-/commit/438a67caeb0b0cc47d1deb0cee50afda9a907dc8.diff"
       }
     }
   }
