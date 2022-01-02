@@ -1,0 +1,11 @@
+__global_actions:
+  expected_config: {}
+  update_actions: {}
+  install_modules:
+    - email_registration
+email_registration.settings:
+  expected_config:
+    login_with_username: true
+  update_actions:
+    change:
+      login_with_username: true
