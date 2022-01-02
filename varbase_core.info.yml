@@ -44,7 +44,6 @@ dependencies:
   - advanced_text_formatter:advanced_text_formatter
   - block_class:block_class
 install:
-  - email_registration
   - contextual
   - diff
   - extlink
@@ -87,5 +86,6 @@ install:
   - rh_taxonomy
   - login_destination
   - betterlogin
+  - email_registration
   - jquery_ui_accordion
   - varbase_update_helper

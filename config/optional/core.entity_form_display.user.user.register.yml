@@ -2,18 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.register
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_password_expiration
     - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - user
-id: user.user.default
+id: user.user.register
 targetEntityType: user
 bundle: user
-mode: default
+mode: register
 content:
   account:
     weight: 0
@@ -28,32 +27,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  language:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   path:
     type: path
     weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
-  timezone:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  user_picture:
-    type: image_image
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
 hidden:
   field_last_password_reset: true
   field_password_expiration: true
   field_pending_expire_sent: true
   langcode: true
+  language: true
+  timezone: true
+  user_picture: true
