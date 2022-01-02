@@ -286,3 +286,15 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9003</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+    varbase_core_optional_update_9003:
+        '#title': 'Enable Email Registration'
+        '#description': '
+        <p>This update enables Email Registration to allow user to login via email.</p>
+        See issue <a href="https://www.drupal.org/project/varbase_core/issues/3255491" target="_blank">#3043869</a> for details.<br />
+        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_9003</code> to apply this update.</span></p><br />'
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_9003</code> to force applying this update.</span>
+        This will likely override your previous configuration! Do this on your own risk.<p><br />
+        '

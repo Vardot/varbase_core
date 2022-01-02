@@ -1,0 +1,111 @@
+__global_conditions:
+  expected_config: {}
+  update_actions: {}
+  expected_modules:
+    - varbase_core
+__global_actions:
+  expected_config: {}
+  update_actions: {}
+  install_modules:
+    - email_registration
+  import_configs:
+    - core.entity_form_display.user.user.register
+email_registration.settings:
+  expected_config:
+    login_with_username: true
+  update_actions:
+    change:
+      login_with_username: true
+core.entity_form_display.user.user.default:
+  expected_config:
+    dependencies:
+      config:
+        - field.field.user.user.user_picture
+        - image.style.thumbnail
+      module:
+        - image
+        - user
+    id: user.user.default
+    targetEntityType: user
+    bundle: user
+    mode: default
+    content:
+      account:
+        weight: -10
+        region: content
+      contact:
+        weight: 5
+        region: content
+      language:
+        weight: 0
+        region: content
+      timezone:
+        weight: 6
+        region: content
+      user_picture:
+        type: image_image
+        settings:
+          progress_indicator: throbber
+          preview_image_style: thumbnail
+        third_party_settings: {}
+        weight: -1
+        region: content
+    hidden: {}
+  update_actions:
+    dependencies:
+      config:
+        - field.field.user.user.field_last_password_reset
+        - field.field.user.user.field_password_expiration
+        - field.field.user.user.field_pending_expire_sent
+        - field.field.user.user.user_picture
+        - image.style.thumbnail
+      module:
+        - image
+        - user
+    id: user.user.default
+    targetEntityType: user
+    bundle: user
+    mode: default
+    content:
+      account:
+        weight: 0
+        region: content
+        settings: {  }
+        third_party_settings: {  }
+      contact:
+        weight: 5
+        region: content
+      google_analytics:
+        weight: 3
+        region: content
+        settings: {  }
+        third_party_settings: {  }
+      language:
+        weight: 1
+        region: content
+        settings: {  }
+        third_party_settings: {  }
+      path:
+        type: path
+        weight: 30
+        region: content
+        settings: {  }
+        third_party_settings: {  }
+      timezone:
+        weight: 2
+        region: content
+        settings: {  }
+        third_party_settings: {  }
+      user_picture:
+        type: image_image
+        weight: 3
+        region: content
+        settings:
+          progress_indicator: throbber
+          preview_image_style: thumbnail
+        third_party_settings: {  }
+    hidden:
+      field_last_password_reset: true
+      field_password_expiration: true
+      field_pending_expire_sent: true
+      langcode: true
