@@ -9,7 +9,7 @@ __global_actions:
   install_modules:
     - email_registration
   import_configs:
-    - core.entity_form_display.user.user.register.yml
+    - core.entity_form_display.user.user.register
 email_registration.settings:
   expected_config:
     login_with_username: true
