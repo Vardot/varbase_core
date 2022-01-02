@@ -16,12 +16,3 @@ email_registration.settings:
   update_actions:
     change:
       login_with_username: true
-core.entity_form_display.user.user.default:
-  expected_config:
-    content:
-      user_picture:
-        weight: -1
-  update_actions:
-    content:
-      user_picture:
-        weight: 30
