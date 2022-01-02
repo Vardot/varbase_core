@@ -9,26 +9,10 @@ __global_actions:
   install_modules:
     - email_registration
   import_configs:
+    - email_registration.settings
     - core.entity_form_display.user.user.register
-email_registration.settings:
-  expected_config:
-    login_with_username: true
-  update_actions:
-    change:
-      login_with_username: true
 core.entity_form_display.user.user.default:
   expected_config:
-    dependencies:
-      config:
-        - field.field.user.user.user_picture
-        - image.style.thumbnail
-      module:
-        - image
-        - user
-    id: user.user.default
-    targetEntityType: user
-    bundle: user
-    mode: default
     content:
       account:
         weight: -10
@@ -50,22 +34,7 @@ core.entity_form_display.user.user.default:
         third_party_settings: {}
         weight: -1
         region: content
-    hidden: {}
   update_actions:
-    dependencies:
-      config:
-        - field.field.user.user.field_last_password_reset
-        - field.field.user.user.field_password_expiration
-        - field.field.user.user.field_pending_expire_sent
-        - field.field.user.user.user_picture
-        - image.style.thumbnail
-      module:
-        - image
-        - user
-    id: user.user.default
-    targetEntityType: user
-    bundle: user
-    mode: default
     content:
       account:
         weight: 0
@@ -104,8 +73,3 @@ core.entity_form_display.user.user.default:
           progress_indicator: throbber
           preview_image_style: thumbnail
         third_party_settings: {  }
-    hidden:
-      field_last_password_reset: true
-      field_password_expiration: true
-      field_pending_expire_sent: true
-      langcode: true
