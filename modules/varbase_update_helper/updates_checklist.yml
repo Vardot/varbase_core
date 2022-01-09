@@ -289,8 +289,8 @@
     varbase_core_optional_update_9003:
         '#title': 'Enable logging in using email address'
         '#description': '
-        <p>This update enables users of the this site to login via email address, along with the default username login. This functionality is provided via the <a href="https://www.drupal.org/project/email_registration">Email Registration</a> module. You can configure more options (such as setting the login to be via email only, without a username) from the Email Registration settings under the <a href="../../../admin/config/people/accounts">Account Settings</a> page.</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3255491" target="_blank">#3043869</a> for details.</p><br />
+        <p>This update enables users of the site to login via email address, along with the default username login. This functionality is provided via the <a href="https://www.drupal.org/project/email_registration">Email Registration</a> module. You can configure more options (such as setting the login to be via email only, without a username) from the Email Registration settings under the <a href="../../../admin/config/people/accounts">Account Settings</a> page.</p>
+        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3255491" target="_blank">#3255491</a> for details.</p><br />
         <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_9003</code> to apply this update.</span></p><br />'
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
         '#description_failed': '
