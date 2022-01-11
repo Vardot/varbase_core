@@ -44,7 +44,7 @@ tips:
   sites-content:
     id: sites-content
     plugin: text
-    label: "Site's Content"
+    label: "Site Content"
     weight: -96
     selector: ".toolbar-icon-system-admin-content"
     body: "<p>All your site's content, media, and files can be found here.</p>"
