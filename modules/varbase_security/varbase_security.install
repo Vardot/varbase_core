@@ -97,34 +97,6 @@ function varbase_security_install() {
  */
 function varbase_security_update_9001() {
 
-  // Get list of enabled modules.
-  $core_extension_config_factory = \Drupal::service('config.factory')->getEditable('core.extension');
-  $core_extension_data = $core_extension_config_factory->get();
-
-  // If the Flood Unblock module still enabled.
-  if (isset($core_extension_data['module']['flood_unblock'])) {
-
-    // Unset the module from the modules array.
-    unset($core_extension_data['module']['flood_unblock']);
-
-    // Save changes for modules.
-    $core_extension_config_factory->setData($core_extension_data)->save(TRUE);
-
-  }
-
-  $query = \Drupal::database()->delete('key_value')
-    ->condition('collection', 'system.schema')
-    ->condition('name', 'flood_unblock')
-    ->execute();
-
-  if (isset($query)) {
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-      ->applyUpdates();
-  }
-
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
 
