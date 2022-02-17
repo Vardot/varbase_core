@@ -298,3 +298,19 @@
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_9003</code> to force applying this update.</span>
         This will likely override your previous configuration! Do this on your own risk.<p><br />
         '
+9.0.6:
+    '#title': 'New Updates in Varbase 9.0.6'
+    '#description': '<h2>These are the new features for this release:</h2>'
+    '#module': 'varbase_core'
+    varbase_editor_update_90002:
+        '#title': 'Install and enable CKEditor paste filter module'
+        '#description': '
+        <p>This update will install paste filter module to ckeditor that will be make users to copy any styled text from word documents and paste it to ckeditor and the style will removed automatically.</p>
+        <p>This functionality provided by: <a href="https://www.drupal.org/project/ckeditor_paste_filter">CKEditor paste filter</a>.</p>
+        <p>See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3264445" target="_blank">#3264445</a> for details.</p><br />
+        '
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_editor varbase_editor_update_90002</code> to force applying this update.</span>
+        '
