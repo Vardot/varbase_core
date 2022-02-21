@@ -303,10 +303,9 @@
     '#description': '<h2>These are the new features for this release:</h2>'
     '#module': 'varbase_core'
     varbase_editor_update_90002:
-        '#title': 'Install and enable CKEditor paste filter module'
+        '#title': 'Enable CKEditor Paste Filter for extra filtering of text pasted from Word and similar applications.'
         '#description': '
-        <p>This update will install paste filter module to ckeditor that will be make users to copy any styled text from word documents and paste it to ckeditor and the style will removed automatically.</p>
-        <p>This functionality provided by: <a href="https://www.drupal.org/project/ckeditor_paste_filter">CKEditor paste filter</a>.</p>
+        <p>This update will enable a paste filter on all <a href="../../../admin/config/content/formats">CKEditor-enabled text formats</a> to clear the extra formatting that comes with pasted content copied from Microsoft Word or other similar applications, ensuring the website styles are enforced and retained. This functionality is made possible by the <a href="https://www.drupal.org/project/ckeditor_paste_filter">CKEditor Paste Filter</a> module.</p>
         <p>See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3264445" target="_blank">#3264445</a> for details.</p><br />
         '
         '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
