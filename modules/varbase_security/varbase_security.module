@@ -2,6 +2,13 @@
 
 /**
  * @file
+ */
+
+use Symfony\Component\Yaml\Yaml;
+use Vardot\Entity\EntityDefinitionUpdateManager;
+
+/**
+ * @file
  * Contains varbase_security.module.
  */
 
@@ -51,4 +58,47 @@ function varbase_security_user_form_process_password_confirm($element) {
 
   // @todo Convert _password_policy_constraints_validate to change drupal core.
   return $element;
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function varbase_security_modules_installed($modules, $is_syncing) {
+  if (in_array('security_review', $modules)) {
+    $managed_config_module_path = 'security_review';
+    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath() . '/config/managed/' . $managed_configs_module_path;
+
+    // Managed configs for the Security Review module.
+    $managed_configs = [
+      'security_review.settings',
+      'security_review.check.security_review-admin_permissions',
+      'security_review.check.security_review-error_reporting',
+      'security_review.check.security_review-executable_php',
+      'security_review.check.security_review-failed_logins',
+      'security_review.check.security_review-field',
+      'security_review.check.security_review-file_perms',
+      'security_review.check.security_review-input_formats',
+      'security_review.check.security_review-private_files',
+      'security_review.check.security_review-query_errors',
+      'security_review.check.security_review-temporary_files',
+      'security_review.check.security_review-trusted_hosts',
+      'security_review.check.security_review-upload_extensions',
+      'security_review.check.security_review-views_access',
+    ];
+
+    // Import managed configs to the site active configs.
+    foreach ($managed_configs as $config_name) {
+      $config_path = $managed_config_path . '/' . $config_name . '.yml';
+      $config_content = file_get_contents($config_path);
+      $config_data = (array) Yaml::parse($config_content);
+      $config_factory = \Drupal::configFactory()->getEditable($config_name);
+      $config_factory->setData($config_data)->save(TRUE);
+    }
+
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
+      ->applyUpdates();
+  }
 }
