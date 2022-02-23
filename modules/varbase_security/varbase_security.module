@@ -61,8 +61,8 @@ function varbase_security_user_form_process_password_confirm($element) {
  */
 function varbase_security_modules_installed($modules, $is_syncing) {
   if (in_array('security_review', $modules)) {
-    $managed_config_module_path = 'security_review';
-    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath() . '/config/managed/' . $managed_configs_module_path;
+    $managed_config_module_name = 'security_review';
+    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath() . '/config/managed/' . $managed_config_module_name;
 
     // Managed configs for the Security Review module.
     $managed_configs = [

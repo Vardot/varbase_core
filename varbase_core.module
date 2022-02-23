@@ -72,8 +72,8 @@ function varbase_core_template_preprocess_default_variables_alter(&$variables) {
 function varbase_core_modules_installed($modules, $is_syncing) {
   if (in_array('automated_cron', $modules)) {
 
-    $managed_config_module_path = 'automated_cron';
-    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_core')->getPath() . '/config/managed/' . $managed_configs_module_path;
+    $managed_config_module_name = 'automated_cron';
+    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_core')->getPath() . '/config/managed/' . $managed_config_module_name;
 
     // Import managed configs to the site active configs.
     $config_name = 'automated_cron.settings';
