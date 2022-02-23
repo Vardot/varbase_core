@@ -2,15 +2,11 @@
 
 /**
  * @file
+ * Contains varbase_security.module.
  */
 
 use Symfony\Component\Yaml\Yaml;
 use Vardot\Entity\EntityDefinitionUpdateManager;
-
-/**
- * @file
- * Contains varbase_security.module.
- */
 
 /**
  * Implements hook_form_FORM_ID_alter() for user_form().
