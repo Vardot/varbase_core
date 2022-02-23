@@ -585,3 +585,16 @@ function varbase_core_optional_update_9003($force = FALSE) {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Issue #3265975: Fix errors on validating Automated Cron config synchronization.
+ *
+ * When the module is not enabled yet.
+ */
+function varbase_core_update_9004() {
+  if (!\Drupal::moduleHandler()->moduleExists('automated_cron')) {
+    // Delete Automated Cron configs if the module is not enable yet.
+    // Which they will be imported again after installing the module.
+    \Drupal::configFactory()->getEditable('automated_cron.settings')->delete();
+  }
+}
