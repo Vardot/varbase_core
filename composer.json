@@ -103,7 +103,6 @@
     "drupal/flood_control": "~2.0",
     "drupal/captcha": "~1.0",
     "drupal/recaptcha": "~3.0",
-    "drupal/mailsystem": "~4.0",
     "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~2.0",
     "drupal/menu_position": "1.0-beta1",
