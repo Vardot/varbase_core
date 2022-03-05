@@ -72,7 +72,7 @@
     "drupal/tour_ui": "1.0-beta3",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~1.0",
-    "drupal/views_bulk_operations": "4.0.1",
+    "drupal/views_bulk_operations": "4.1.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.0",
@@ -197,7 +197,7 @@
         "https://www.drupal.org/files/issues/2021-05-28/tour_ui-3214357-7.patch"
       },
       "drupal/views_bulk_operations": {
-        "Issue #3222477: Pager is broken when Items Per Page is exposed":
+        "Issue #3222477: Fix broken Pager when Items Per Page is exposed":
         "https://www.drupal.org/files/issues/2021-10-28/3222477-8.patch"
       },
       "drupal/reroute_email": {
