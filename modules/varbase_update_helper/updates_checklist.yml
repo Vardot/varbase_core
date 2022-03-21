@@ -313,3 +313,15 @@
         <p class="messages messages--warning">This update failed to be done automatically.<br />
         <span class="icon-help">Try running <code>drush varbase-up --force varbase_editor varbase_editor_update_90002</code> to force applying this update.</span>
         '
+    varbase_security_update_90004:
+        '#title': 'Have a password confirmation suggestions message settings'
+        '#description': '
+        <p>This update will add new menu for Varbase Security settings <a href="../../../admin/config/system/varbase/security">Varbase Security settings</a>.</p>
+        <p>Which allow to change the password confirmation suggestions message at  <a href="../../../admin/config/system/varbase/varbase-security/password-suggestions-settings">Password Suggestion settings</a>.</p>
+        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3256029" target="_blank">#3256029</a> for details.</p><br />
+        '
+        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+        '#description_failed': '
+        <p class="messages messages--warning">This update failed to be done automatically.<br />
+        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_90004</code> to force applying this update.</span>
+        '

@@ -587,9 +587,9 @@ function varbase_core_optional_update_9003($force = FALSE) {
 }
 
 /**
- * Issue #3265975: Fix errors on validating Automated Cron config synchronization.
+ * Issue #3265975: Fix errors on validating Automated Cron.
  *
- * When the module is not enabled yet.
+ * Config synchronization when the module is not enabled yet.
  */
 function varbase_core_update_9004() {
   if (!\Drupal::moduleHandler()->moduleExists('automated_cron')) {

@@ -1,0 +1,15 @@
+varbase_security.settings:
+  path: '/admin/config/system/varbase/varbase-security'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Varbase Security settings'
+  requirements:
+    _permission: "administer varbase security settings"
+
+varbase_security.password_suggestions.settings:
+  path: "/admin/config/system/varbase/varbase-security/password-suggestions-settings"
+  defaults:
+    _form: '\Drupal\varbase_security\Form\PasswordSuggestionsSettingsForm'
+    _title: "Password Suggestions settings"
+  requirements:
+    _permission: "administer password suggestions settings"
