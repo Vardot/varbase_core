@@ -1,0 +1,11 @@
+varbase_security.settings:
+  route_name: varbase_security.settings
+  title: "Varbase Security settings"
+  description: "Configure Varbase Security settings."
+  parent: varbase_core.settings_index
+
+varbase_security.password_suggestions.settings:
+  route_name: 'varbase_security.password_suggestions.settings'
+  title: "Password Suggestions settings"
+  description: "Configuring password confirmation suggestions message settings."
+  parent: varbase_security.settings

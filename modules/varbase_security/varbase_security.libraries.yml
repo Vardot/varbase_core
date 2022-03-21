@@ -1,0 +1,3 @@
+password-suggestions:
+  js:
+    js/varbase-security.password-suggestions.js: {}

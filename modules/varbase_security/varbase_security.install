@@ -16,8 +16,8 @@ use Vardot\Entity\EntityDefinitionUpdateManager;
  */
 function varbase_security_install() {
 
-  $module_name = preg_replace('/_install$/', '', __FUNCTION__);
-  $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
+  $module_name = 'varbase_security';
+  $module_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
   // ---------------------------------------------------------------------------.
@@ -32,6 +32,8 @@ function varbase_security_install() {
           \Drupal::service('module_installer')->install([$module], TRUE);
         }
       }
+
+      _varbase_security_set_module_weight_after_installation($module_info_file);
     }
   }
 
@@ -90,6 +92,42 @@ function varbase_security_install() {
 }
 
 /**
+ * Get set module waht after installation.
+ *
+ * @param string $file_name
+ *   The file name and path the varbase_security.info.yml.
+ */
+function _varbase_security_set_module_weight_after_installation(string $file_name) {
+  // Get all modules from core.extension.
+  $installed_modules = (array) \Drupal::service('config.factory')->getEditable('core.extension')->get('module');
+  // Get weight of varbase security.
+  $varbase_security_weight = $installed_modules['varbase_security'];
+  // Get all modules installed by varbase security.
+  $varbase_security_modules = (array) Yaml::parse(file_get_contents($file_name))['install'];
+  // Empty array to put all modules weight [modules installed].
+  $varase_security_modules_weight = [];
+
+  foreach ($installed_modules as $module => $weight) {
+    foreach ($varbase_security_modules as $vs_module_key => $vs_module_name) {
+      if ($module === $vs_module_name) {
+        $varase_security_modules_weight += [$module => $weight];
+      }
+    }
+  }
+
+  // Get max weight of modules installed by varbase_security.
+  $max_wight = max($varase_security_modules_weight);
+
+  // Set varbase_security weight to be grater than higher one by 1 if it's
+  // less than or equal to max.
+  if ($varbase_security_weight <= $max_wight) {
+    module_set_weight('varbase_security', $max_wight + 1);
+  }
+
+  module_set_weight('varbase_security', $max_wight + 1);
+}
+
+/**
  * Add Flood Control module for login attempt limiting.
  *
  * And remove the Flood Unblock module as it will be
@@ -110,7 +148,7 @@ function varbase_security_update_9001() {
 /**
  * Reinforce spam protection and enable "Honeypot" spam detection.
  *
- * Enabling protection on a wider array of forms and enabling time limit of 2 seconds.
+ * Enabling protection on a wider forms and enabling time limit of 2 seconds.
  */
 function varbase_security_update_9002() {
   /** @var \Drupal\update_helper\Updater $updateHelper */
@@ -140,9 +178,9 @@ function varbase_security_update_9003() {
 }
 
 /**
- * Issue #3265975: Fix errors on validating Security Review config synchronization.
+ * Issue #3265975: Fix errors on validating Security Review.
  *
- * When the module is not enabled yet.
+ * Config synchronization when the module is not enabled yet.
  */
 function varbase_security_update_9004() {
   if (!\Drupal::moduleHandler()->moduleExists('security_review')) {
@@ -170,4 +208,31 @@ function varbase_security_update_9004() {
       \Drupal::configFactory()->getEditable($config_name)->delete();
     }
   }
+}
+
+/**
+ * Issue #3256029: Fix Revise password policy and password suggestions message.
+ *
+ * Change varbase security weight and make it after all modules installed by it.
+ */
+function varbase_security_update_90004() {
+
+  $module_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath();
+  $module_info_file = $module_path . '/varbase_security.info.yml';
+  if (file_exists($module_info_file)) {
+    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
+    if (isset($module_info_data['install'])
+      && is_array($module_info_data['install'])) {
+      _varbase_security_set_module_weight_after_installation($module_info_file);
+    }
+  }
+
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_90004');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
 }

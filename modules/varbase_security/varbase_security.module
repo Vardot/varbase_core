@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Contains varbase_security.module.
@@ -45,13 +46,39 @@ function varbase_security_element_info_alter(array &$types) {
  * elements to add the JavaScript and string translations for dynamic password
  * validation.
  */
-function varbase_security_user_form_process_password_confirm($element) {
-  // Get Drupal core user form process password confirm over the password.
-  $element = user_form_process_password_confirm($element);
-  // Update the too short message.
-  $element['#attached']['drupalSettings']['password']['tooShort'] = t('Make it at least 6 characters');
+function varbase_security_user_form_process_password_confirm(array $element) {
+  $config = \Drupal::service('config.factory')
+    ->getEditable('varbase_security.password_suggestions.settings')
+    ->get();
 
-  // @todo Convert _password_policy_constraints_validate to change drupal core.
+  $password_minimal_length = \Drupal::service('config.factory')
+    ->getEditable('password_policy.password_policy.default_policy')
+    ->get('policy_constraints')[2]["character_length"];
+
+  $password_settings = [
+    'confirmTitle' => $config['confirmTitle'] ?? t('Password match:'),
+    'confirmSuccess' => $config['confirmSuccess'] ?? t('yes'),
+    'confirmFailure' => $config['confirmFailure'] ?? t('no'),
+    'strengthTitle' => $config['strengthTitle'] ?? t('Password strength:'),
+    'showStrengthIndicator' => TRUE,
+    'hasWeaknesses' => $config['hasWeaknesses'] ?? t('Recommendations to make your password stronger:'),
+    'tooShort' => $config['tooShort'] ?? t('Make it at least 8 characters'),
+    'addLowerCase' => $config['addLowerCase'] ?? t('Add lowercase letters'),
+    'addUpperCase' => $config['addUpperCase'] ?? t('Add uppercase letters'),
+    'addNumbers' => $config['addNumbers'] ?? t('Add numbers'),
+    'addPunctuation' => $config['addPunctuation'] ?? t('Add punctuation'),
+    'sameAsUsername' => $config['sameAsUsername'] ?? t('Make it different from your username'),
+    'weak' => $config['weak'] ?? t('Weak'),
+    'fair' => $config['fair'] ?? t('Fair'),
+    'good' => $config['good'] ?? t('Good'),
+    'strong' => $config['strong'] ?? t('Strong'),
+    'username' => \Drupal::currentUser()->getAccountName(),
+    'minimal_length' => $password_minimal_length ?? 12,
+  ];
+
+  $element['#attached']['library'][] = 'varbase_security/password-suggestions';
+  $element['#attached']['drupalSettings']['password'] = $password_settings;
+
   return $element;
 }
 

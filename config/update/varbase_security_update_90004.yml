@@ -1,0 +1,10 @@
+__global_conditions:
+  expected_config: {}
+  update_actions: {}
+  expected_modules:
+    - varbase_security
+__global_actions:
+  expected_config: {}
+  update_actions: {}
+  import_configs:
+    - varbase_security.password_suggestions.settings
