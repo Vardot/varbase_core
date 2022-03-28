@@ -5,7 +5,6 @@
  * Install, update and uninstall functions for the Varbase admin.
  */
 
-use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
@@ -90,21 +89,12 @@ function varbase_admin_install() {
     ->applyUpdates();
 
   // Have forced configs import after the entity and definitions updates.
-  $forced_configs_import_after_entity_updates = [
+  $forced_configs = [
     'views.view.content',
     'views.view.user_admin_people',
   ];
 
-  $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
-  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
-
-  foreach ($forced_configs_import_after_entity_updates as $config_name) {
-    $config_path = $optional_install_path . '/' . $config_name . '.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable($config_name);
-    $config_factory->setData($config_data)->save(TRUE);
-  }
+  ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 }
 
 /**

@@ -5,8 +5,8 @@
  * Contains varbase_security.module.
  */
 
-use Symfony\Component\Yaml\Yaml;
 use Vardot\Entity\EntityDefinitionUpdateManager;
+use Vardot\Installer\ModuleInstallerFactory;
 
 /**
  * Implements hook_form_FORM_ID_alter() for user_form().
@@ -87,9 +87,11 @@ function varbase_security_user_form_process_password_confirm(array $element) {
  */
 function varbase_security_modules_installed($modules, $is_syncing) {
   if (in_array('security_review', $modules)) {
-    $managed_config_module_name = 'security_review';
-    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath() . '/config/managed/' . $managed_config_module_name;
-
+    // The module will be Enabled and Disabled many times
+    // with development and deployments to production sites.
+    // But the need to have the basic extra change for config over
+    // the Security Review default configs.
+    // -------------------------------------------------
     // Managed configs for the Security Review module.
     $managed_configs = [
       'security_review.settings',
@@ -109,13 +111,7 @@ function varbase_security_modules_installed($modules, $is_syncing) {
     ];
 
     // Import managed configs to the site active configs.
-    foreach ($managed_configs as $config_name) {
-      $config_path = $managed_config_path . '/' . $config_name . '.yml';
-      $config_content = file_get_contents($config_path);
-      $config_data = (array) Yaml::parse($config_content);
-      $config_factory = \Drupal::configFactory()->getEditable($config_name);
-      $config_factory->setData($config_data)->save(TRUE);
-    }
+    ModuleInstallerFactory::importConfigsFromList('varbase_security', $managed_configs, 'config/managed/security_review');
 
     // Entity updates to clear up any mismatched entity and/or field definitions
     // And Fix changes were detected in the entity type and field definitions.

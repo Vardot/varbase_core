@@ -272,16 +272,7 @@ function varbase_core_update_8610() {
     'responsive_image.styles.default',
   ];
 
-  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
-
-  foreach ($responsive_image_styles_config_names as $config_name) {
-    $config_path = $optional_install_path . '/' . $config_name . '.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable($config_name);
-    $config_factory->setData($config_data)->save(TRUE);
-  }
+  ModuleInstallerFactory::importConfigsFromList('varbase_media', $responsive_image_styles_config_names, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');
