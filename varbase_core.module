@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\Yaml\Yaml;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 
 // To have all varbase core general and global tokens.
@@ -71,17 +70,16 @@ function varbase_core_template_preprocess_default_variables_alter(&$variables) {
  */
 function varbase_core_modules_installed($modules, $is_syncing) {
   if (in_array('automated_cron', $modules)) {
-
-    $managed_config_module_name = 'automated_cron';
-    $managed_config_path = Drupal::service('module_handler')->getModule('varbase_core')->getPath() . '/config/managed/' . $managed_config_module_name;
-
-    // Import managed configs to the site active configs.
-    $config_name = 'automated_cron.settings';
-    $config_path = $managed_config_path . '/' . $config_name . '.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable($config_name);
-    $config_factory->setData($config_data)->save(TRUE);
+    // When the Automated Cron module is enabled, which not enabled by default.
+    // with development and deployments to production sites.
+    // But the need to have the basic extra change for the settings over
+    // the Automated Cron default settings.
+    // -------------------------------------------------
+    // Managed configs for the Automated Cron module.
+    $managed_configs = [
+      'automated_cron.settings',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/automated_cron');
 
     // Entity updates to clear up any mismatched entity and/or field definitions
     // And Fix changes were detected in the entity type and field definitions.

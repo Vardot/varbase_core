@@ -6,21 +6,12 @@
  */
 
 use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\path_alias\Entity\PathAlias;
 
 /**
  * Implements hook_install().
  */
 function varbase_default_content_install() {
-
-  // Processer for install: in varbase_default_content.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
-  ModuleInstallerFactory::installList('varbase_default_content');
-
-  // Install optional configs.
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_default_content', '/^field.storage.*\\.(yml)$/i');
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_default_content', '/^.*(settings.yml)$/i');
 
   // ---------------------------------------------------------------------------
   // Entity updates to clear up any mismatched entity and/or field definitions

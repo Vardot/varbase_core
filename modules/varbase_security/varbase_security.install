@@ -31,20 +31,11 @@ function varbase_security_install() {
     ->applyUpdates();
 
   // Have forced configs import after the entity and definitions updates.
-  $forced_configs_import_after_entity_updates = [
+  $forced_configs = [
     'core.entity_form_display.user.user.default',
   ];
 
-  $module_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath();
-  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
-
-  foreach ($forced_configs_import_after_entity_updates as $config_name) {
-    $config_path = $optional_install_path . '/' . $config_name . '.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable($config_name);
-    $config_factory->setData($config_data)->save(TRUE);
-  }
+  ModuleInstallerFactory::importConfigsFromList('varbase_security', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 
 }
 

@@ -39,12 +39,16 @@ function varbase_update_helper_install() {
         'varbase_core_optional_update_8706',
         'varbase_core_update_9001',
         'varbase_core_update_9002',
+        'varbase_core_optional_update_9003',
       ],
       'varbase_admin' => [
         'varbase_admin_update_8602',
       ],
       'varbase_security' => [
         'varbase_security_update_9001',
+        'varbase_security_update_9002',
+        'varbase_security_update_9003',
+        'varbase_security_update_90004',
       ],
     ];
 
