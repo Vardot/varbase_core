@@ -13,9 +13,12 @@ config/**/*.yml
 *.svg
 *.ico
 *.json
+*.install
+*.module
+*.lock
 modules/varbase_tour/node_modules/**/*.css
 modules/varbase_tour/vendor/**/*.css
-modules/varbase_tour/**/*.min.css"
+modules/varbase_tour/**/*.min.css
 modules/varbase_tour/scss/*
 modules/varbase_tour/images/*
 modules/varbase_tour/fonts/*
@@ -28,3 +31,6 @@ modules/varbase_tour/*.png
 modules/varbase_tour/*.svg
 modules/varbase_tour/*.ico
 modules/varbase_tour/*.json
+modules/varbase_tour/*.install
+modules/varbase_tour/*.module
+modules/varbase_tour/*.lock

@@ -1,6 +1,4 @@
 **/*.min.js
-**/gulpfile.js
+gulpfile.js
 **/node_modules
-modules/varbase_tour/node_modules
-drupalci.yml
-**/drupalci.yml
+.md
