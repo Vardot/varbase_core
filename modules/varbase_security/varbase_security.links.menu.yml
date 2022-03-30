@@ -9,4 +9,3 @@ varbase_security.password_suggestions.settings:
   title: "Password Suggestions settings"
   description: "Configuring password confirmation suggestions message settings."
   parent: varbase_security.settings
-

@@ -6,16 +6,13 @@
   font-weight: 300;
   line-height: 1.2em;
 }
-
 .joyride-tip-guide .content-header {
   padding: 1rem 0 0;
   background-color: #333;
 }
-
 .joyride-tip-guide .toolbar-tray-open.toolbar-fixed.toolbar-horizontal {
   padding-top: 4rem !important;
 }
-
 .joyride-tip-guide thead th {
   text-transform: none;
   color: #909090;
@@ -23,7 +20,6 @@
   font-size: 0.91rem;
   font-weight: 500;
 }
-
 .joyride-tip-guide thead th.is-active {
   border-top: 1px solid #e6e4df;
   border-right: 1px solid #e6e4df;
@@ -31,30 +27,24 @@
   border-left: 1px solid #e6e4df;
   background: #fff;
 }
-
 .joyride-tip-guide th.is-active > a,
 .joyride-tip-guide th.is-active > a:hover {
   color: #333;
 }
-
 .joyride-tip-guide th > a:hover {
   text-decoration: underline;
 }
-
 .joyride-tip-guide th > a:after,
 .joyride-tip-guide th.is-active > a:after {
   display: none;
 }
-
 .joyride-tip-guide thead > tr {
   border-bottom: 1px solid #e6e4df;
 }
-
 .joyride-tip-guide .is-collapse-enabled .tabs:before,
 .joyride-tip-guide .is-horizontal .tabs:before {
   display: none;
 }
-
 .joyride-tip-guide .button {
   transition: all, 0.2s;
   border-radius: 0;
@@ -62,28 +52,23 @@
   background-image: none;
   text-shadow: none;
 }
-
 .joyride-tip-guide .button:hover,
 .joyride-tip-guide .button:focus {
   border-color: #008ee6;
   background-color: #fff;
   background-image: none;
 }
-
 .joyride-tip-guide .button:focus {
   border-color: #68a3cf;
   outline: #c1e0ff solid 2px;
   box-shadow: none;
 }
-
 .joyride-tip-guide .button-action:before {
   display: none;
 }
-
 .joyride-tip-guide .action-links {
   margin: 2em 0;
 }
-
 .joyride-tip-guide .action-links .button--primary {
   padding: 0.33rem 1.33rem;
   color: #327ebd;
@@ -94,7 +79,6 @@
   font-size: 14px;
   font-weight: 600;
 }
-
 .joyride-tip-guide .action-links .button--primary:hover,
 .joyride-tip-guide .action-links .button--primary:focus {
   color: #fff;
@@ -102,28 +86,23 @@
   background-image: none;
   box-shadow: none;
 }
-
 .joyride-tip-guide .action-links .button--primary:focus {
   border-color: #08639b;
   outline: none;
 }
-
 .joyride-tip-guide .button--primary {
   border-color: #0071b8;
   background: #0071b8;
 }
-
 .joyride-tip-guide .button--primary:hover,
 .joyride-tip-guide .button--primary:focus {
   border-color: #1f86c7;
   background-color: #1f86c7;
   background-image: none;
 }
-
 .joyride-tip-guide .button--small:focus {
   outline: none;
 }
-
 .joyride-tip-guide .button--small {
   color: #b1b1b1;
   border-color: #cacaca;
@@ -131,59 +110,47 @@
   background: #fff;
   font-weight: 500;
 }
-
 .joyride-tip-guide .button--danger {
   text-decoration: none;
   background-color: transparent;
 }
-
 .joyride-tip-guide .button--danger:hover {
   text-decoration: underline;
 }
-
 .joyride-tip-guide select {
   min-height: 28px;
   text-shadow: none;
 }
-
 .joyride-tip-guide label {
   margin: 0 0 0.2em;
 }
-
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar {
   border-radius: 0;
   background: #333;
 }
-
 .joyride-tip-guide .ui-dialog .ui-widget-content.ui-dialog-buttonpane {
   border-radius: 0;
 }
-
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar,
 .joyride-tip-guide .ui-dialog {
   outline: none;
 }
-
 .joyride-tip-guide .ui-dialog {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-
 .joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-state-active,
 .joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-widget-content .ui-state-active {
   color: transparent;
   border-color: transparent;
   background: transparent;
 }
-
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar-close {
   transition: all, 0.2s;
   opacity: 0.5;
 }
-
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar-close:hover {
   opacity: 1;
 }
-
 .joyride-tip-guide .messages {
   margin: 1rem 0 1rem 0;
   border-width: 1px 0 1px 0;
@@ -193,15 +160,12 @@
   background-size: 1.3rem;
   box-shadow: none;
 }
-
 .joyride-tip-guide .messages--error {
   border-color: #e32700;
 }
-
 .joyride-tip-guide .messages--warning {
   border-color: #e29700;
 }
-
 .joyride-tip-guide .messages--status {
   border-color: #73b355;
 }

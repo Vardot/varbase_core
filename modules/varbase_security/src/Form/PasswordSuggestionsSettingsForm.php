@@ -44,14 +44,13 @@ class PasswordSuggestionsSettingsForm extends ConfigFormBase {
     $change_config_message = $this->t('If you want to edit password policy constraints, please click:');
     $link_text = $this->t('Change default password constraints');
     $link_path = Url::fromRoute('entity.password_policy.collection')->toString();
-    
+
     $form['#prefix'] =
     '<h6>' . $note_message . '</h6>
     <p>' . $change_config_message .
       "<a href=" . $link_path . ">
       <strong>" . $link_text . "</strong></a>" .
     '</p>';
-
 
     $form['confirm_password_settings'] = [
       '#type' => 'details',

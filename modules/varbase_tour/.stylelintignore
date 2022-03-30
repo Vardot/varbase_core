@@ -7,9 +7,16 @@ fonts/*
 js/*
 tests/*
 config/**/*.yml
+gulpfile.js
 *.yml
 .*
 *.png
 *.svg
 *.ico
 *.json
+*.md
+*.install
+*.module
+*.twig
+*.php
+*.lock
