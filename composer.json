@@ -193,10 +193,6 @@
         "Issue #3146668: Fix adding a new rule on drupal 9 fails with SchemaIncompleteException":
         "https://www.drupal.org/files/issues/2020-06-08/drupal9_schemaexception-3146668-2.patch"
       },
-      "drupal/reroute_email": {
-        "Issue #3254806: Fix Invalid argument supplied for foreach() in reroute_email_check_email_by_permission() (line 316)":
-        "https://git.drupalcode.org/project/reroute_email/-/commit/438a67caeb0b0cc47d1deb0cee50afda9a907dc8.diff"
-      },
       "drupal/flood_control": {
         "Issue #3270061: Better accessibility for Removed selected items from the flood table button text":
         "https://www.drupal.org/files/issues/2022-03-28/17-3270061%239.diff",
