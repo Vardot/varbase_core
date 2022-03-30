@@ -19,7 +19,7 @@ seckit_xss:
     seckit_x_xss_option_0: "0"
     seckit_x_xss_option_1: 1;
     seckit_x_xss_option_1_block: "1; mode=block"
-    select: 0
+    select: 2
   x_content_type:
     checkbox: true
 seckit_csrf:
