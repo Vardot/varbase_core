@@ -41,11 +41,9 @@ class PasswordSuggestionsSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS)->get();
 
-    $link_text = $this->t('this configuration page.');
-    $link_path = Url::fromRoute('entity.password_policy.collection')->toString();
-    $link_html = Link::fromTextAndUrl($link_text, $link_path);
+    $password_policy_link_html = Link::fromTextAndUrl($this->t('this configuration page.'), Url::fromRoute('entity.password_policy.collection'))->toString();
 
-    $form['#prefix'] = $this->t("Note: This form is used to update the password suggestions appearing to the end-user when creating or changing a password. Editing the text below will not affect the Password Policy constraints. If you want to edit your site’s Password Policy constraints, you must edit your default Password Policy from") . " " . $link_html . $this->t("After you change your Password Policy settings, reflect your changes in this form to properly communicate your policy to your users.");
+    $form['#prefix'] = '<div class="messages messages--warning"><strong> ' . $this->t("Note:") . ' </strong>' . $this->t("This form is used to update the password suggestions appearing to the end-user when creating or changing a password. Editing the text below will not affect the Password Policy constraints. If you want to edit your site's Password Policy constraints, you must edit your default Password Policy from") . " " . $password_policy_link_html . " " . $this->t("After you change your Password Policy settings, reflect your changes in this form to properly communicate your policy to your users.") . "</div>";
 
     $form['confirm_password_settings'] = [
       '#type' => 'details',
