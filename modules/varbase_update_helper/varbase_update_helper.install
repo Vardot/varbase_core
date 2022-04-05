@@ -44,6 +44,9 @@ function varbase_update_helper_install() {
       'varbase_admin' => [
         'varbase_admin_update_8602',
       ],
+      'varbase_editor' => [
+        'varbase_editor_update_90002'
+      ],
       'varbase_security' => [
         'varbase_security_update_9001',
         'varbase_security_update_9002',
