@@ -5,6 +5,7 @@ namespace Drupal\varbase_security\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Configure example settings for this site.
@@ -40,17 +41,11 @@ class PasswordSuggestionsSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config(static::SETTINGS)->get();
 
-    $note_message = $this->t('Note: this form will not affect default password policy constraints.');
-    $change_config_message = $this->t('If you want to edit password policy constraints, please click:');
-    $link_text = $this->t('Change default password constraints');
+    $link_text = $this->t('this configuration page.');
     $link_path = Url::fromRoute('entity.password_policy.collection')->toString();
+    $link_html = Link::fromTextAndUrl($link_text, $link_path);
 
-    $form['#prefix'] =
-    '<h6>' . $note_message . '</h6>
-    <p>' . $change_config_message .
-      "<a href=" . $link_path . ">
-      <strong>" . $link_text . "</strong></a>" .
-    '</p>';
+    $form['#prefix'] = $this->t("Note: This form is used to update the password suggestions appearing to the end-user when creating or changing a password. Editing the text below will not affect the Password Policy constraints. If you want to edit your site’s Password Policy constraints, you must edit your default Password Policy from") . " " . $link_html . $this->t("After you change your Password Policy settings, reflect your changes in this form to properly communicate your policy to your users.");
 
     $form['confirm_password_settings'] = [
       '#type' => 'details',
