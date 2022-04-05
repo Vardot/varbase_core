@@ -1,326 +1,300 @@
 8.6.7:
-    '#title': 'New Updates in Varbase 8.6.7'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_optional_update_8601:
-        '#title': 'Enhance the usability of admin views (Content, Media, and People)'
-        '#description': '
-        <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
-        See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8601</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8602:
-        '#title': 'Enable lazy loading for media in frontend (Images, Videos, Remote Videos)'
-        '#description': '
-        <p>This update enables Blazy module formatter to handle the rendering of media entities for all media view modes. This was previously rendered by Responsive image formatter.</p>
-        See issue <a href="https://www.drupal.org/node/3046616" target="_blank">#3046616</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8602</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8602</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8603:
-        '#title': 'Enable nicely designed HTML emails'
-        '#description': '
-        <p>This update adds a nicely designed HTML template to all emails sent from your site.</p>
-        See issue <a href="https://www.drupal.org/node/3043869" target="_blank">#3043869</a> and issue <a href="https://www.drupal.org/node/3042113" target="_blank">#3042113</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8603</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8603</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.6.7'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_optional_update_8601:
+    '#title': 'Enhance the usability of admin views (Content, Media, and People)'
+    '#description': |
+      <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
+      See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8601</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8602:
+    '#title': 'Enable lazy loading for media in frontend (Images, Videos, Remote Videos)'
+    '#description': |
+      <p>This update enables Blazy module formatter to handle the rendering of media entities for all media view modes. This was previously rendered by Responsive image formatter.</p>
+      See issue <a href="https://www.drupal.org/node/3046616" target="_blank">#3046616</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8602</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8602</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8603:
+    '#title': 'Enable nicely designed HTML emails'
+    '#description': |
+      <p>This update adds a nicely designed HTML template to all emails sent from your site.</p>
+      See issue <a href="https://www.drupal.org/node/3043869" target="_blank">#3043869</a> and issue <a href="https://www.drupal.org/node/3042113" target="_blank">#3042113</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8603</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8603</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.6.8:
-    '#title': 'New Updates in Varbase 8.6.8'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_admin_update_8602:
-        '#title': 'Enable Length Indicator module to be used by entities'
-        '#description': '
-        <p>This update adds a colored, configurable length indicator to form fields.</p>
-        <p>See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_admin varbase_admin_update_8602</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8604:
-        '#title': 'Add title Length Indicator to the Basic page content type'
-        '#description': '
-        <p>This update adds a colored length indicator to Basic page title field in the form.</p>
-        See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8604</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8604</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8605:
-        '#title': 'Add title Length Indicator to the Landing page content type'
-        '#description': '
-        <p>This update adds a colored length indicator to Landing page title field in the form.</p>
-        See issue <a href="https://www.drupal.org/project/varbase_landing/issues/3049759" target="_blank">#3049759</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8605</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8605</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8606:
-        '#title': 'Add title Length Indicator to the Hero slider content type'
-        '#description': '
-        <p>This update adds a colored length indicator to Hero slider title field in the form.</p>
-        See issue <a href="https://www.drupal.org/project/varbase_heroslider_media/issues/3049762" target="_blank">#3049762</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8606</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8606</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_8607:
-        '#title': 'Add title Length Indicator to the Blog post content type'
-        '#description': '
-        <p>This update adds a colored length indicator to Blog post title field in the form.</p>
-        See issue <a href="https://www.drupal.org/project/varbase_blog/issues/3049760" target="_blank">#3049760</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8607</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8607</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.6.8'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_admin_update_8602:
+    '#title': 'Enable Length Indicator module to be used by entities'
+    '#description': |
+      <p>This update adds a colored, configurable length indicator to form fields.</p>
+      <p>See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_admin varbase_admin_update_8602</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8604:
+    '#title': 'Add title Length Indicator to the Basic page content type'
+    '#description': |
+      <p>This update adds a colored length indicator to Basic page title field in the form.</p>
+      See issue <a href="https://www.drupal.org/node/3048206" target="_blank">#3048206</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8604</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8604</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8605:
+    '#title': 'Add title Length Indicator to the Landing page content type'
+    '#description': |
+      <p>This update adds a colored length indicator to Landing page title field in the form.</p>
+      See issue <a href="https://www.drupal.org/project/varbase_landing/issues/3049759" target="_blank">#3049759</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8605</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8605</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8606:
+    '#title': 'Add title Length Indicator to the Hero slider content type'
+    '#description': |
+      <p>This update adds a colored length indicator to Hero slider title field in the form.</p>
+      See issue <a href="https://www.drupal.org/project/varbase_heroslider_media/issues/3049762" target="_blank">#3049762</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8606</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8606</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_8607:
+    '#title': 'Add title Length Indicator to the Blog post content type'
+    '#description': |
+      <p>This update adds a colored length indicator to Blog post title field in the form.</p>
+      See issue <a href="https://www.drupal.org/project/varbase_blog/issues/3049760" target="_blank">#3049760</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8607</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8607</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.6.9:
-    '#title': 'New Updates in Varbase 8.6.9'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_update_8608:
-        '#title': 'Change all responsive image styles to make use of Bootstrap 4 breakpoints'
-        '#description': '
-        <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
-        <p>See issue <a href="https://www.drupal.org/node/3052293" target="_blank">#3052293</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8608</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.6.9'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_update_8608:
+    '#title': 'Change all responsive image styles to make use of Bootstrap 4 breakpoints'
+    '#description': |
+      <p>This update works for any theme, whether you are using Bootstrap 3, Bootstrap 4, or any theme. It adds new breakpoints provided from Varbase Media module (based on Bootstrap 4 media queries) to unify the way responsive images are displayed.</p>
+      <p>See issue <a href="https://www.drupal.org/node/3052293" target="_blank">#3052293</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8608</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.6.10:
-    '#title': 'New Updates in Varbase 8.6.10'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_update_8610:
-        '#title': 'Fix regression of responsive image styles when updating to Bootstrap 4 breakpoints'
-        '#description': '
-        <p>This update fixes regression issues introduced by previous update.</p>
-        <p>See issue <a href="https://www.drupal.org/node/3056083" target="_blank">#3056083</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.6.10'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_update_8610:
+    '#title': 'Fix regression of responsive image styles when updating to Bootstrap 4 breakpoints'
+    '#description': |
+      <p>This update fixes regression issues introduced by previous update.</p>
+      <p>See issue <a href="https://www.drupal.org/node/3056083" target="_blank">#3056083</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8610</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.7.1:
-    '#title': 'New Updates in Varbase 8.7.1'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_optional_update_8701:
-      '#title': 'Add a new Gallery media type'
-      '#description': '
-      <p>This update introduces a new Gallery media type. The Gallery media type includes:<ul>
+  '#title': 'New Updates in Varbase 8.7.1'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_optional_update_8701:
+    '#title': 'Add a new Gallery media type'
+    '#description': |
+      <p>This update introduces a new Gallery media type. The Gallery media type includes:
+      <ul>
         <li>New Slick presets configuration for Gallery slider.</li>
         <li>New form modes for all Media Types to simplify entry.</li>
         <li>A new easy way to select Gallery media items through enhanced Entity Browsers.</li>
       </ul></p>
       See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> and <a href="https://www.drupal.org/project/varbase_editor/issues/3077029/" target="_blank">#3077029</a> for details.<br />
-      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8701</code> to apply this update.</span></p><br />'
-      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-      '#description_failed': '
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8701</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
       <p class="messages messages--warning">This update failed to be done automatically.<br />
       <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8701</code> to force applying this update.</span>
       This will likely override your previous configuration! Do this on your own risk.<p><br />
-      '
-    varbase_core_optional_update_8702:
-      '#title': 'Improved Entity Browsers'
-      '#description': '
+  varbase_core_optional_update_8702:
+    '#title': 'Improved Entity Browsers'
+    '#description': |
       <p>This update introduces upgraded Entity Browsers with ability to select multiple media items especially when browsing accross multiple pages.</p>
       See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
-      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />'
-      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-      '#description_failed': '
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
       <p class="messages messages--warning">This update failed to be done automatically.<br />
       <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8702</code> to force applying this update.</span>
       This will likely override your previous configuration! Do this on your own risk.<p><br />
-      '
-    varbase_core_update_8703:
-      '#title': 'Remove language button from the Rich Editor text format'
-      '#description': '
-      <p>Remove language button from the Rich Editor text format
-      </p>
+  varbase_core_update_8703:
+    '#title': 'Remove language button from the Rich Editor text format'
+    '#description': |
+      <p>Remove language button from the Rich Editor text format</p>
       See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3077060/" target="_blank">#3077060</a> for details.<br />
-      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8703</code> to apply this update.</span></p><br />'
-      '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-      '#description_failed': '
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8703</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
       <p class="messages messages--warning">This update failed to be done automatically.<br />
       <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8703</code> to force applying this update.</span>
       This will likely override your previous configuration! Do this on your own risk.<p><br />
-      '
 8.7.2:
-    '#title': 'New Updates in Varbase 8.7.2'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_update_8704:
-        '#title': 'Ability to use Drupal Tokens inside WYSIWYG editor'
-        '#description': '
-        <p>This update enabled Token Filter module and allows site admins with access to the HTML Editor (Code Filter) to insert Drupal Tokens and render them in the markup.</p>
-        See issue <a href="https://www.drupal.org/project/varbase_core/issues/3085537" target="_blank">#3085537</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8704</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8704</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.7.2'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_update_8704:
+    '#title': 'Ability to use Drupal Tokens inside WYSIWYG editor'
+    '#description': |
+      <p>This update enabled Token Filter module and allows site admins with access to the HTML Editor (Code Filter) to insert Drupal Tokens and render them in the markup.</p>
+      See issue <a href="https://www.drupal.org/project/varbase_core/issues/3085537" target="_blank">#3085537</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_update_8704</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_8704</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.7.3:
-    '#title': 'New Updates in Varbase 8.7.3'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_optional_update_8705:
-        '#title': 'Enable Script Manager'
-        '#description': '
-        <p>This update enables you to add scripts into your header or footer HTMl pages without getting back to developers and perform deployment everytime.</p>
-        See issue <a href="https://www.drupal.org/node/3094353" target="_blank">#3094353</a> and issue <a href="https://www.drupal.org/node/3094382" target="_blank">#3094382</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8705</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8705</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.7.3'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_optional_update_8705:
+    '#title': 'Enable Script Manager'
+    '#description': |
+      <p>This update enables you to add scripts into your header or footer HTMl pages without getting back to developers and perform deployment everytime.</p>
+      See issue <a href="https://www.drupal.org/node/3094353" target="_blank">#3094353</a> and issue <a href="https://www.drupal.org/node/3094382" target="_blank">#3094382</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8705</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8705</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 8.7.4:
-    '#title': 'New Updates in Varbase 8.7.4'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_optional_update_8706:
-        '#title': 'Use blurred image loading effect for lazy-loaded images'
-        '#description': '
-        <p>This updates adds a UX improvement to lazy-loaded images rendered through Blazy. It loads a very low-res blurred image in-place of the original one before the actual image loads. It works with both responsive and normal images.
-        To activate, navigate to "/admin/config/varbase/varbase-media" or run this update.</p>
-        See issue <a href="https://www.drupal.org/node/3095125" target="_blank">#3095125</a> for details.<br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8706</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8706</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 8.7.4'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_optional_update_8706:
+    '#title': 'Use blurred image loading effect for lazy-loaded images'
+    '#description': |
+      <p>This updates adds a UX improvement to lazy-loaded images rendered through Blazy. It loads a very low-res blurred image in-place of the original one before the actual image loads. It works with both responsive and normal images.
+      To activate, navigate to "/admin/config/varbase/varbase-media" or run this update.</p>
+      See issue <a href="https://www.drupal.org/node/3095125" target="_blank">#3095125</a> for details.<br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8706</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_8706</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 9.0.3:
-    '#title': 'New Updates in Varbase 9.0.3'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_core_update_9001:
-        '#title': 'Adds the ability to reroute emails when working on non-production environments'
-        '#description': '
-        <p>This update is mainly targeted to provide an easy and secure way for developers working on Varbase to reroute all emails sent out from a Varbase site to a specific email. The update is made possible via the <b><a href="https://www.drupal.org/project/reroute_email" target="_blank">Reroute Email</a></b> module.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3248635" target="_blank">#3248635</a> and <a href="https://www.drupal.org/i/3248644" target="_blank">#3248644</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.<p><br />
-        '
-    varbase_core_update_9002:
-        '#title': 'Add the ability to filter by "Author" in administration views (Content and Media)'
-        '#description': '
-        <p>This update adds a new filter to the <a href="../../../admin/content" target="_blank">Content administration</a> page and the <a href="../../../admin/content/media" target="_blank">Media administration</a> page.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3227277" target="_blank">#3227277</a> and <a href="https://www.drupal.org/i/3249476" target="_blank">#3249476</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9002</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_security_update_9001:
-        '#title': 'Ability to set configurable rate limits for failed login attempts, and an interface to review and unblock locked IPs and usernames.'
-        '#description': '
-        <p>This update adds security hardening policies and rules by replacing the legacy <a href="https://www.drupal.org/project/flood_unblock" target="_blank">Flood Unblock</a> module with its successor, the <a href="https://www.drupal.org/project/flood_control" target="_blank">Flood Control</a> module. Flood Control provides an interface for hidden flood control variables (e.g. login attempt limiters) and makes it possible for site administrators to remove IP addresses and user ID''s from the flood table. Make sure to review <a href="../../../admin/people/permissions#module-flood_control">the permissions</a> for unblocking unblock locked IPs and usernames.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> and <a href="https://www.drupal.org/i/3187308" target="_blank">#3187308</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9001</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 9.0.3'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_core_update_9001:
+    '#title': 'Adds the ability to reroute emails when working on non-production environments'
+    '#description': |
+      <p>This update is mainly targeted to provide an easy and secure way for developers working on Varbase to reroute all emails sent out from a Varbase site to a specific email. The update is made possible via the <b><a href="https://www.drupal.org/project/reroute_email" target="_blank">Reroute Email</a></b> module.</p>
+      <p>See issue <a href="https://www.drupal.org/i/3248635" target="_blank">#3248635</a> and <a href="https://www.drupal.org/i/3248644" target="_blank">#3248644</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This functionality is now available. You can enable the Reroute Email functionality from <a href="../../../admin/modules" target="_blank">here</a>. Ensure that this done on non-production environments only.<p><br />
+  varbase_core_update_9002:
+    '#title': 'Add the ability to filter by "Author" in administration views (Content and Media)'
+    '#description': |
+      <p>This update adds a new filter to the <a href="../../../admin/content" target="_blank">Content administration</a> page and the <a href="../../../admin/content/media" target="_blank">Media administration</a> page.</p>
+      <p>See issue <a href="https://www.drupal.org/i/3227277" target="_blank">#3227277</a> and <a href="https://www.drupal.org/i/3249476" target="_blank">#3249476</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_update_9002</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_security_update_9001:
+    '#title': 'Ability to set configurable rate limits for failed login attempts, and an interface to review and unblock locked IPs and usernames.'
+    '#description': |
+      <p>This update adds security hardening policies and rules by replacing the legacy <a href="https://www.drupal.org/project/flood_unblock" target="_blank">Flood Unblock</a> module with its successor, the <a href="https://www.drupal.org/project/flood_control" target="_blank">Flood Control</a> module. Flood Control provides an interface for hidden flood control variables (e.g. login attempt limiters) and makes it possible for site administrators to remove IP addresses and user ID''s from the flood table. Make sure to review <a href="../../../admin/people/permissions#module-flood_control">the permissions</a> for unblocking unblock locked IPs and usernames.</p>
+      <p>See issue <a href="https://www.drupal.org/i/3250823" target="_blank">#3250823</a> and <a href="https://www.drupal.org/i/3187308" target="_blank">#3187308</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9001</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 9.0.4:
-    '#title': 'New Updates in Varbase 9.0.4'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_security_update_9002:
-        '#title': 'Reinforce spam protection and enable "Honeypot" spam detection on webforms by default'
-        '#description': '
-        <p>This update reinforces spam protection from the <a href="../../../admin/config/content/honeypot">Honeypot</a> module by enabling protection on a wider array of forms and enabling time limit of 2 seconds.</p>
-        <p>See issue <a href="https://www.drupal.org/i/3252060" target="_blank">#3252060</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9002</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_security_update_9003:
-        '#title': 'Reinforce spam protection via the "Antibot" spam detection mechanism'
-        '#description': '
-        <p>This update reinforces spam protection by enabling the <a href="https://www.drupal.org/project/antibot">Antibot</a> module, which requires end users to have JavaScript enabled to submit forms. You can choose which forms are protected by Antibot in the <a href="../../../admin/config/user-interface/antibot">Antibot configuration page</a>.</p></p>
-        <p>See issue <a href="https://www.drupal.org/i/3252064" target="_blank">#3252064</a> for details.</p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9003</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
-    varbase_core_optional_update_9003:
-        '#title': 'Enable logging in using email address'
-        '#description': '
-        <p>This update enables users of the site to login via email address, along with the default username login. This functionality is provided via the <a href="https://www.drupal.org/project/email_registration">Email Registration</a> module. You can configure more options (such as setting the login to be via email only, without a username) from the Email Registration settings under the <a href="../../../admin/config/people/accounts">Account Settings</a> page.</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3255491" target="_blank">#3255491</a> for details.</p><br />
-        <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_9003</code> to apply this update.</span></p><br />'
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_9003</code> to force applying this update.</span>
-        This will likely override your previous configuration! Do this on your own risk.<p><br />
-        '
+  '#title': 'New Updates in Varbase 9.0.4'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_security_update_9002:
+    '#title': 'Reinforce spam protection and enable "Honeypot" spam detection on webforms by default'
+    '#description': |
+      <p>This update reinforces spam protection from the <a href="../../../admin/config/content/honeypot">Honeypot</a> module by enabling protection on a wider array of forms and enabling time limit of 2 seconds.</p>
+      <p>See issue <a href="https://www.drupal.org/i/3252060" target="_blank">#3252060</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9002</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_security_update_9003:
+    '#title': 'Reinforce spam protection via the "Antibot" spam detection mechanism'
+    '#description': |
+      <p>This update reinforces spam protection by enabling the <a href="https://www.drupal.org/project/antibot">Antibot</a> module, which requires end users to have JavaScript enabled to submit forms. You can choose which forms are protected by Antibot in the <a href="../../../admin/config/user-interface/antibot">Antibot configuration page</a>.</p>
+      <p>See issue <a href="https://www.drupal.org/i/3252064" target="_blank">#3252064</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_9003</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
+  varbase_core_optional_update_9003:
+    '#title': 'Enable logging in using email address'
+    '#description': |
+      <p>This update enables users of the site to login via email address, along with the default username login. This functionality is provided via the <a href="https://www.drupal.org/project/email_registration">Email Registration</a> module. You can configure more options (such as setting the login to be via email only, without a username) from the Email Registration settings under the <a href="../../../admin/config/people/accounts">Account Settings</a> page.</p>
+      <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3255491" target="_blank">#3255491</a> for details.</p><br />
+      <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_9003</code> to apply this update.</span></p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_core varbase_core_optional_update_9003</code> to force applying this update.</span>
+      This will likely override your previous configuration! Do this on your own risk.<p><br />
 9.0.6:
-    '#title': 'New Updates in Varbase 9.0.6'
-    '#description': '<h2>These are the new features for this release:</h2>'
-    '#module': 'varbase_core'
-    varbase_editor_update_90002:
-        '#title': 'Enable CKEditor Paste Filter for extra filtering of text pasted from Word and similar applications.'
-        '#description': '
-        <p>This update will enable a paste filter on all <a href="../../../admin/config/content/formats">CKEditor-enabled text formats</a> to clear the extra formatting that comes with pasted content copied from Microsoft Word or other similar applications, ensuring the website styles are enforced and retained. This functionality is made possible by the <a href="https://www.drupal.org/project/ckeditor_paste_filter">CKEditor Paste Filter</a> module.</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3264445" target="_blank">#3264445</a> for details.</p><br />
-        '
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_editor varbase_editor_update_90002</code> to force applying this update.</span>
-        '
-    varbase_security_update_90004:
-        '#title': "Provide configurable password suggestions to match the site’s Password Policy'
-        '#description': '
-        <p>This update brings a new <a href="/admin/config/system/varbase/varbase-security/password-suggestions-settings">Password Suggestions settings</a> page under the <a href="../../../admin/config/system/varbase/security">Varbase Security settings</a> administration page allowing the site administrator to control the password suggestions appearing to the site’s end-users when creating or changing a password. This update fixes the descrepency in password suggestions appearing to users (due to Drupal core’s noneditable password suggestions) when having a custom Password Policy via the <a href="../../../admin/config/security/password-policy">Password Policy module</a>.</p>
-        <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3256029" target="_blank">#3256029</a> for details.</p><br />
-        '
-        '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
-        '#description_failed': '
-        <p class="messages messages--warning">This update failed to be done automatically.<br />
-        <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_90004</code> to force applying this update.</span>
-        '
+  '#title': 'New Updates in Varbase 9.0.6'
+  '#description': '<h2>These are the new features for this release:</h2>'
+  '#module': 'varbase_core'
+  varbase_editor_update_90002:
+    '#title': 'Enable CKEditor Paste Filter for extra filtering of text pasted from Word and similar applications.'
+    '#description': |
+      <p>This update will enable a paste filter on all <a href="../../../admin/config/content/formats">CKEditor-enabled text formats</a> to clear the extra formatting that comes with pasted content copied from Microsoft Word or other similar applications, ensuring the website styles are enforced and retained. This functionality is made possible by the <a href="https://www.drupal.org/project/ckeditor_paste_filter">CKEditor Paste Filter</a> module.</p>
+      <p>See issue <a href="https://www.drupal.org/project/varbase_editor/issues/3264445" target="_blank">#3264445</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_editor varbase_editor_update_90002</code> to force applying this update.</span>
+  varbase_security_update_90004:
+    '#title': 'Provide configurable password suggestions to match the site`s Password Policy'
+    '#description': |
+      <p>This update brings a new <a href="/admin/config/system/varbase/varbase-security/password-suggestions-settings">Password Suggestions settings</a> page under the <a href="../../../admin/config/system/varbase/security">Varbase Security settings</a> administration page allowing the site administrator to control the password suggestions appearing to the site`s end-users when creating or changing a password. This update fixes the descrepency in password suggestions appearing to users (due to Drupal core`s noneditable password suggestions) when having a custom Password Policy via the <a href="../../../admin/config/security/password-policy">Password Policy module</a>.</p>
+      <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3256029" target="_blank">#3256029</a> for details.</p><br />
+    '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
+    '#description_failed': |
+      <p class="messages messages--warning">This update failed to be done automatically.<br />
+      <span class="icon-help">Try running <code>drush varbase-up --force varbase_security varbase_security_update_90004</code> to force applying this update.</span>
