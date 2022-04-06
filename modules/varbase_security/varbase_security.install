@@ -125,19 +125,12 @@ function varbase_security_update_9004() {
 /**
  * Issue #3256029: Fix Revise password policy and password suggestions message.
  *
- * Change varbase security weight and make it after all modules installed by it.
+ * Change Varbase Security weight and make it after all modules installed by it.
  */
 function varbase_security_update_90004() {
-
-  $module_path = Drupal::service('module_handler')->getModule('varbase_security')->getPath();
-  $module_info_file = $module_path . '/varbase_security.info.yml';
-  if (file_exists($module_info_file)) {
-    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
-    if (isset($module_info_data['install'])
-      && is_array($module_info_data['install'])) {
-      ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_security');
-    }
-  }
+  // Set the weight of the module after installation of list of modules.
+  // To make sure that any hook or event subscriber workes after all used modules.
+  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_security');
 
   /** @var \Drupal\update_helper\Updater $updateHelper */
   $updateHelper = \Drupal::service('update_helper.updater');

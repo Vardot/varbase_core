@@ -544,3 +544,14 @@ function varbase_core_update_9004() {
     \Drupal::configFactory()->getEditable('automated_cron.settings')->delete();
   }
 }
+
+/**
+ * Issue #3270834: Switch to use the Module Installer Factory.
+ *
+ * In the Varbase Core module.
+ */
+function varbase_core_update_90005() {
+  // Set the weight of the module after installation of list of modules.
+  // To make sure that any hook or event subscriber workes after all used modules.
+  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_core');
+}
