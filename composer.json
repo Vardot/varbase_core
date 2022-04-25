@@ -65,7 +65,7 @@
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
     "drupal/betterlogin": "~1.0",
-    "drupal/email_registration": "~1.0",
+    "drupal/email_registration": "1.1",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
     "drupal/prevent_homepage_deletion": "~1.0",
@@ -198,6 +198,10 @@
         "https://www.drupal.org/files/issues/2022-03-28/17-3270061%239.diff",
         "Issue #3270116: Better to hide Flood Control settings page link from top markup if the user doesn't has a permission":
         "https://www.drupal.org/files/issues/2022-03-28/18-3270116%238.diff"
+      },
+      "drupal/email_registration": {
+        "Issue #3276910: Fix changing the user name when creating a new account. As it always takes the first part of the email":
+        "https://www.drupal.org/files/issues/2022-04-25/3276910-3_0.patch"
       }
     }
   }
