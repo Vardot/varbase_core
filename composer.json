@@ -106,7 +106,7 @@
     "drupal/recaptcha": "~3.0",
     "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~2.0",
-    "drupal/menu_position": "1.0-beta1",
+    "drupal/menu_position": "~1.0",
     "drupal/taxonomy_access_fix": "~3.0",
     "drupal/better_exposed_filters": "~5.0",
     "drupal/autocomplete_deluxe": "~2.0",
@@ -190,10 +190,6 @@
         "https://www.drupal.org/files/issues/2021-05-03/optional_edit-3143422-10.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
-      },
-      "drupal/menu_position": {
-        "Issue #3146668: Fix adding a new rule on drupal 9 fails with SchemaIncompleteException":
-        "https://www.drupal.org/files/issues/2020-06-08/drupal9_schemaexception-3146668-2.patch"
       },
       "drupal/email_registration": {
         "Issue #3276910: Fix changing the user name when creating a new account. As it always takes the first part of the email":
