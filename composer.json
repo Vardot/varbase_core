@@ -194,6 +194,10 @@
       "drupal/email_registration": {
         "Issue #3276910: Fix changing the user name when creating a new account. As it always takes the first part of the email":
         "https://www.drupal.org/files/issues/2022-04-25/3276910-3_0.patch"
+      },
+      "drupal/views_bootstrap": {
+        "Issue #3255808: Add xxl break point (part of support bootstrap 5 in views_bootstrap module)":
+        "https://www.drupal.org/files/issues/2022-05-15/Add-xxl-breakpoint-to-view-format-settings.patch"
       }
     }
   }
