@@ -183,7 +183,9 @@
         "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
         "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch",
         "Issue #3092032: Fix Unsupported operand types in Set Configuration line 213":
-        "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
+        "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch",
+        "Issue #3281144: Change data-something in description text to data-bs-something to support Bootstrap 5":
+        "https://git.drupalcode.org/project/bootstrap_layouts/-/commit/92c5fac1462b4d603c11a33aa105c16056468b89.patch"
       },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
