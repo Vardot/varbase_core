@@ -178,7 +178,7 @@
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
-        "https://www.drupal.org/files/issues/2022-06-05/3024165-53.patch"
+        "https://www.drupal.org/files/issues/2022-06-05/3024165-55.patch"
       },
       "drupal/bootstrap_layouts": {
         "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
