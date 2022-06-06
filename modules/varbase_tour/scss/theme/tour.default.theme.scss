@@ -125,8 +125,6 @@
 .shepherd-element {
   z-index: 999;
 
-
-
   .button {
     display: inline-block;
     margin: 1rem 0.75rem 1rem 0;
@@ -154,5 +152,36 @@
   .button--primary {
     color: #fff !important;
     background-color: #003cc5 !important;
+  }
+
+  // Override tour arrows to make it adjacent to the tour box
+  &[data-popper-placement^=bottom] {
+    &.tip-module-varbase-tour {
+      > .shepherd-arrow {
+        top: -1.55rem;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  &[data-popper-placement^=left] {
+    &.tip-module-varbase-tour {
+      > .shepherd-arrow {
+        right: -1.55rem;
+      }
+    }
+  }
+}
+
+// Override tour box on focus to remove the white border and green box shadow and border radius.
+.shepherd-element {
+  &.tip-module-varbase-tour {
+    border-radius: 0;
+
+    &:focus {
+      box-shadow: #3f8dc2 0px 0px 5px 0px;
+    }
   }
 }

@@ -34,6 +34,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   line-height: normal;
+
   -webkit-font-smoothing: antialiased;
   /* 6 */
 }
@@ -67,6 +68,7 @@
   background-image: linear-gradient(to bottom, #007bc6, #0071b8);
   text-shadow: 0 1px rgba(0, 0, 0, 0.5);
   font-weight: 700;
+
   -webkit-font-smoothing: antialiased;
 }
 .joyride-tip-guide .button--primary:hover,
@@ -123,6 +125,7 @@
   font-size: 1rem;
   font-weight: 700;
   line-height: 1rem;
+
   -webkit-font-smoothing: antialiased;
 }
 .shepherd-element .button:not(:focus) {
@@ -131,4 +134,20 @@
 .shepherd-element .button--primary {
   color: #fff !important;
   background-color: #003cc5 !important;
+}
+.shepherd-element[data-popper-placement^=bottom].tip-module-varbase-tour > .shepherd-arrow {
+  top: -1.55rem;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.shepherd-element[data-popper-placement^=left].tip-module-varbase-tour > .shepherd-arrow {
+  right: -1.55rem;
+}
+
+.shepherd-element.tip-module-varbase-tour {
+  border-radius: 0;
+}
+.shepherd-element.tip-module-varbase-tour:focus {
+  box-shadow: #3f8dc2 0 0 5px 0;
 }
