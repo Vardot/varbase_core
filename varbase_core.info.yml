@@ -88,3 +88,5 @@ install:
   - email_registration
   - jquery_ui_accordion
   - varbase_update_helper
+  - components
+  - ui_patterns
