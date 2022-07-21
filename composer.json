@@ -68,7 +68,7 @@
     "drupal/email_registration": "1.1",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
-    "drupal/prevent_homepage_deletion": "~1.0",
+    "drupal/prevent_homepage_deletion": "~2.0",
     "drupal/admin_toolbar": "~3.0",
     "drupal/tour_ui": "~1.0",
     "drupal/coffee": "~1.0",
