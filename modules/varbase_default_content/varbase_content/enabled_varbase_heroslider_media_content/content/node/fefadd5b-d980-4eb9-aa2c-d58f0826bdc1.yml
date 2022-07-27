@@ -258,7 +258,6 @@ default:
         layout_id: "bootstrap_layout_builder:blb_col_1"
         layout_settings:
           label: ""
-          container_wrapper_classes: mt-n5
           container_wrapper_attributes: null
           container_wrapper:
             bootstrap_styles:
