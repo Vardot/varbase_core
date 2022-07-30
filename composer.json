@@ -44,7 +44,7 @@
     "drupal/bootstrap_layouts": "5.2",
     "drupal/layout_builder_restrictions": "~2.0",
     "drupal/ds": "~3.0 || ~4.0",
-    "drupal/views_bootstrap": "5.5.x-dev",
+    "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~1.0",
     "drupal/advanced_text_formatter": "~2.0",
