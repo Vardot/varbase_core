@@ -147,6 +147,7 @@
 
 .shepherd-element.tip-module-varbase-tour {
   border-radius: 0;
+  z-index: 3000;
 }
 .shepherd-element.tip-module-varbase-tour:focus {
   box-shadow: #3f8dc2 0 0 5px 0;
