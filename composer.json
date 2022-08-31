@@ -65,7 +65,7 @@
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
     "drupal/betterlogin": "~1.0",
-    "drupal/email_registration": "1.1",
+    "drupal/email_registration": "~1.0",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
     "drupal/prevent_homepage_deletion": "~2.0",
@@ -194,10 +194,6 @@
         "https://www.drupal.org/files/issues/2021-05-03/optional_edit-3143422-10.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
-      },
-      "drupal/email_registration": {
-        "Issue #3276910: Fix changing the user name when creating a new account. As it always takes the first part of the email":
-        "https://www.drupal.org/files/issues/2022-04-25/3276910-3_0.patch"
       }
     }
   }
