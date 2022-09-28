@@ -74,7 +74,7 @@
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~1.0",
     "drupal/views_bulk_operations": "~4.1",
-    "drupal/views_bulk_edit": "2.6",
+    "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.0",
     "drupal/webform_views": "~5.0",
@@ -191,10 +191,6 @@
         "https://www.drupal.org/files/issues/2021-05-03/optional_edit-3143422-10.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
-      },
-      "drupal/views_bulk_edit": {
-        "Issue #3311552: Fix Match method declarations with interface":
-        "https://git.drupalcode.org/project/views_bulk_edit/-/commit/8ed61876260de3333545151adeedc82356f84e2f.diff"
       }
     }
   }
