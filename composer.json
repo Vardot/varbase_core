@@ -91,7 +91,7 @@
     "drupal/drd_agent": "~3.0",
     "drupal/devel": "~5.0",
     "drupal/stage_file_proxy": "~1.0",
-    "drupal/update_helper": "3.0.3",
+    "drupal/update_helper": "3.0.4",
     "drupal/checklistapi": "~2.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~3.0",
