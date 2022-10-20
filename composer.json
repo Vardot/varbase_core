@@ -198,7 +198,7 @@
       },
       "drupal/views_bulk_edit": {
         "Issue #3316334: Fix Interface incompatible with views_bulk_operations":
-        "https://git.drupalcode.org/project/views_bulk_edit/-/merge_requests/14.diff"
+        "https://git.drupalcode.org/project/views_bulk_edit/-/commit/7268c84.patch"
       }
     }
   }
