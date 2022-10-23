@@ -46,7 +46,7 @@
     "drupal/ds": "~3.0 || ~4.0",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3.0",
-    "drupal/smart_trim": "~1.0",
+    "drupal/smart_trim": "~2.0",
     "drupal/advanced_text_formatter": "~2.0",
     "drupal/allowed_formats": "~1.0",
     "drupal/block_class": "~1.0",
