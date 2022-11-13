@@ -94,7 +94,7 @@
     "drupal/update_helper": "3.0.4",
     "drupal/checklistapi": "~2.0",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "3.2.0",
+    "drupal/password_policy": "~4.0",
     "drupal/genpass": "~1.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~2.0",
@@ -197,10 +197,6 @@
       "drupal/webform": {
         "Issue #3283614: Support PHP 8.1":
         "https://git.drupalcode.org/project/webform/-/commit/9cd201a.patch"
-      },
-      "drupal/password_policy": {
-        "Issue #3313959: Fix Some mandatory parameters missing WSOD":
-        "https://www.drupal.org/files/issues/2022-10-17/3313959-3-password_policy-edit-form-path.patch"
       }
     }
   }
