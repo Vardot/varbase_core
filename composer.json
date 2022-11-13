@@ -39,7 +39,7 @@
     "drupal/ctools": "~3.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~1.0",
-    "drupal/page_manager": "4.0-rc1",
+    "drupal/page_manager": "~4.0",
     "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "5.2",
     "drupal/layout_builder_restrictions": "~2.0",
@@ -174,10 +174,6 @@
       "drupal/persistent_login": {
         "Issue #2899530: Hide user^s local task":
         "https://www.drupal.org/files/issues/persistent_login-user_task_permission-2899530-6.patch"
-      },
-      "drupal/page_manager": {
-        "Issue #2665328: Variants take entity label not the variant title":
-        "https://www.drupal.org/files/issues/2020-09-15/page_manager-2665328-111.patch"
       },
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
