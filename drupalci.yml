@@ -14,8 +14,6 @@ build:
           - 'sudo -u www-data composer config extra.installer-types.0 "npm-asset"'
           - 'sudo -u www-data composer config extra.installer-types.1 "bower-asset"'
           - 'sudo -u www-data composer config extra.installer-paths.web\/libraries\/\{\$name\} [DOUBLE_QUOTATIONtype:drupal-libraryDOUBLE_QUOTATION,DOUBLE_QUOTATIONtype:bower-assetDOUBLE_QUOTATION,DOUBLE_QUOTATIONtype:npm-assetDOUBLE_QUOTATION]'
-          - 'sudo -u www-data composer config extra.installer-paths.web\/libraries\/objectfitpolyfill [DOUBLE_QUOTATIONbower-asset/objectfitpolyfillDOUBLE_QUOTATION]'
-          - 'sudo -u www-data composer config extra.libraries "[{DOUBLE_QUOTATIONnameDOUBLE_QUOTATION: DOUBLE_QUOTATIONobjectfitpolyfillDOUBLE_QUOTATION, DOUBLE_QUOTATIONpackageDOUBLE_QUOTATION: DOUBLE_QUOTATIONbower-asset/objectfitpolyfillDOUBLE_QUOTATION}]"'
           - sed -i 's/DOUBLE_QUOTATION/"/g' composer.json
           - sed -i 's/\"\[\"/["/g' composer.json
           - sed -i 's/\"\]\"/"]/g' composer.json
@@ -23,7 +21,6 @@ build:
           - sed -i 's/\"}\"]\"/"}/g' composer.json
           - sed -i 's/\"\[{\"/[{"/g' composer.json
           - sed -i 's/\"}\]\"/"}]/g' composer.json
-          - 'sudo -u www-data composer require bower-asset/objectfitpolyfill:~3.0'
           - 'dir libraries'
       phplint:
       csslint:
