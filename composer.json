@@ -72,7 +72,7 @@
     "drupal/admin_toolbar": "~3.0",
     "drupal/tour_ui": "~1.0",
     "drupal/coffee": "~1.0",
-    "drupal/responsive_preview": "~1.0",
+    "drupal/responsive_preview": "~2.0",
     "drupal/views_bulk_operations": "4.2.1",
     "drupal/views_bulk_edit": "2.8.0",
     "drupal/revision_log_default": "~1.0",
