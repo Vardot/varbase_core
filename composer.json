@@ -118,7 +118,8 @@
     "drupal/jquery_ui_accordion": "~1.0",
     "drupal/reroute_email": "~2.0",
     "drupal/components": "~3.0",
-    "drupal/ui_patterns": "~1.0"
+    "drupal/ui_patterns": "~1.0",
+    "drupal/ui_patterns_settings": "~1.0"
   },
   "suggest": {
     "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill",
