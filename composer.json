@@ -119,7 +119,7 @@
     "drupal/reroute_email": "~2.0",
     "drupal/components": "2.4.0",
     "drupal/ui_patterns": "~1.0",
-    "drupal/ui_patterns_settings": "~1.0"
+    "drupal/ui_patterns_settings": "~2.0"
   },
   "suggest": {
     "bower-asset/jqueryui-touch-punch": "0.2.3 Required to use by drupal/jquery_ui_touch_punch module."
