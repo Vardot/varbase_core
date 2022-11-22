@@ -117,7 +117,7 @@
     "drupal/vmi": "~3.0 || 3.0.x-dev",
     "drupal/jquery_ui_accordion": "~1.0",
     "drupal/reroute_email": "~2.0",
-    "drupal/components": "~3.0",
+    "drupal/components": "2.4.0",
     "drupal/ui_patterns": "~1.0",
     "drupal/ui_patterns_settings": "~1.0"
   },
@@ -195,6 +195,10 @@
       "drupal/webform": {
         "Issue #3283614: Support PHP 8.1":
         "https://git.drupalcode.org/project/webform/-/commit/9cd201a.patch"
+      },
+      "drupal/components": {
+        "Issue #3107993: Fix Template is not defined error on node edit / admin pages":
+        "https://www.drupal.org/files/issues/2021-06-24/DRUP86-template_not_defined.patch"
       }
     }
   }
