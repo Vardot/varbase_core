@@ -48,7 +48,7 @@
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~2.0",
     "drupal/advanced_text_formatter": "~2.0",
-    "drupal/allowed_formats": "~1.0",
+    "drupal/allowed_formats": "~2.0",
     "drupal/block_class": "~1.0",
     "drupal/menu_block": "~1.0",
     "drupal/block_content_permissions": "~1.0",
