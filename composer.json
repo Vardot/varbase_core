@@ -64,7 +64,7 @@
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
-    "drupal/admin_toolbar": "~1.0", 
+    "drupal/admin_toolbar": "~3.0", 
     "drupal/gin": "~3.0",
     "drupal/gin_login": "~2.0",
     "drupal/gin_toolbar": "~1.0",
