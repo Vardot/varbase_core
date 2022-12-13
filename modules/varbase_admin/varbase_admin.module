@@ -8,17 +8,6 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_toolbar_alter().
- */
-function varbase_admin_toolbar_alter(&$items) {
-
-  // Remove the [Search] menu link and box in the toolbar as we use Coffee.
-  if (isset($items['administration_search'])) {
-    unset($items['administration_search']);
-  }
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInterface $form_state) {

@@ -22,9 +22,6 @@ install:
   - admin_audit_trail_auth
   - views_bulk_operations
   - views_bulk_edit
-  - admin_toolbar
-  - admin_toolbar_tools
-  - admin_toolbar_links_access_filter
   - masquerade
   - menu_admin_per_menu
   - responsive_preview
@@ -36,3 +33,5 @@ install:
   - taxonomy_access_fix
   - coffee
   - length_indicator
+  - gin_toolbar
+  - gin_login
