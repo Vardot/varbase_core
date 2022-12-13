@@ -33,5 +33,6 @@ install:
   - taxonomy_access_fix
   - coffee
   - length_indicator
+  - admin_toolbar
   - gin_toolbar
   - gin_login
