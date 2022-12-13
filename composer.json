@@ -64,7 +64,6 @@
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
-    "drupal/betterlogin": "~1.0",
     "drupal/email_registration": "~1.0",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~1.0",
