@@ -1,0 +1,5 @@
+logo:
+  use_default: false
+  path: themes/contrib/vartheme_bs5/logo.svg
+brand_image:
+  use_default: true
