@@ -60,7 +60,7 @@
     "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "1.0-rc14",
     "drupal/ultimate_cron": "~2.0",
-    "drupal/persistent_login": "1.3",
+    "drupal/persistent_login": "1.4.0",
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
@@ -168,7 +168,7 @@
         "https://www.drupal.org/files/issues/2021-04-07/3160146-37.patch"
       },
       "drupal/persistent_login": {
-        "Issue #2899530: Hide user^s local task":
+        "Issue #2899530 by josebc: Provide a permission for users to see Persistent Logins tab in their profiles":
         "https://www.drupal.org/files/issues/persistent_login-user_task_permission-2899530-6.patch"
       },
       "drupal/update_helper": {
