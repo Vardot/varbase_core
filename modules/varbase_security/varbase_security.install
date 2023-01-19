@@ -5,7 +5,6 @@
  * Install, update and uninstall functions for the Varbase Security.
  */
 
-use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
@@ -15,7 +14,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_security_install() {
 
-  // Processer for install: in varbase_security.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_security.info.yml file using ModuleInstallerFactory.
   // ---------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_security');
 
@@ -129,7 +128,7 @@ function varbase_security_update_9004() {
  */
 function varbase_security_update_90004() {
   // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workes after all used modules.
+  // To make sure that any hook or event subscriber workers after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_security');
 
   /** @var \Drupal\update_helper\Updater $updateHelper */
@@ -140,4 +139,19 @@ function varbase_security_update_90004() {
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
+}
+
+/**
+ * Issue #3332656: Remove the hook implementation that unset password_policy_status key.
+ *
+ * And add show_policy_table: false to the configuration of the default policy.
+ */
+function varbase_security_update_90005() {
+
+  // Given that the Password Policy was enabled.
+  if (\Drupal::moduleHandler()->moduleExists('password_policy')) {
+    $password_policy_default_policy = \Drupal::service('config.factory')->getEditable('password_policy.password_policy.default_policy');
+    $password_policy_default_policy->set('show_policy_table', FALSE)->save(TRUE);
+  }
+
 }
