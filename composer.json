@@ -90,7 +90,7 @@
     "drupal/diff": "~1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
-    "drupal/drd_agent": "~3.0",
+    "drupal/drd_agent": "~4.0",
     "drupal/devel": "~5.0",
     "drupal/stage_file_proxy": "~2.0",
     "drupal/update_helper": "3.0.4",
