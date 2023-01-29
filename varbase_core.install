@@ -555,3 +555,23 @@ function varbase_core_update_90005() {
   // To make sure that any hook or event subscriber workers after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_core');
 }
+
+/**
+ * Issue #3317082: Update Block Class module from ~1.0 to ~2.0
+ *
+ * Import default config on update.
+ */
+function varbase_core_update_90006() {
+  if (\Drupal::moduleHandler()->moduleExists('block_class')) {
+    $managed_configs = [
+      'block_class.settings',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/optional');
+
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
+      ->applyUpdates();
+  }
+}
