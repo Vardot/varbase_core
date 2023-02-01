@@ -557,7 +557,7 @@ function varbase_core_update_90005() {
 }
 
 /**
- * Issue #3317082: Update Block Class module from ~1.0 to ~2.0
+ * Issue #3317082: Update Block Class module from ~1.0 to ~2.0.
  *
  * Import default config on update.
  */
@@ -573,5 +573,17 @@ function varbase_core_update_90006() {
     \Drupal::classResolver()
       ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
       ->applyUpdates();
+  }
+}
+
+/**
+ * Issue #3338305: Have a smooth update for Config Ignore module.
+ *
+ * Which removed the use of Config Filter module using core
+ * API instead of Config Filter.
+ */
+function varbase_core_update_90007() {
+  if (\Drupal::moduleHandler()->moduleExists('config_filter')) {
+    \Drupal::service('module_installer')->uninstall(['config_filter'], FALSE);
   }
 }
