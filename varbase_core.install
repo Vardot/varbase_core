@@ -575,3 +575,14 @@ function varbase_core_update_90006() {
       ->applyUpdates();
   }
 }
+
+/**
+ * Issue #3338305: Have a smooth update for Config Ignore module.
+ *
+ * Which removed the use of Config Filter module using core API instead of Config Filter
+ */
+function varbase_core_update_90007() {
+  if (\Drupal::moduleHandler()->moduleExists('config_filter')) {
+    \Drupal::service('module_installer')->uninstall(['config_filter'], FALSE);
+  }
+}

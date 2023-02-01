@@ -35,6 +35,7 @@
     "vardot/module-installer-factory": "~1.0",
     "drupal/config_update": "~1.0",
     "drupal/config_ignore": "~3.0",
+    "drupal/config_filter": "~2.0",
     "drupal/config_inspector": "~2.0",
     "drupal/ctools": "~3.0",
     "drupal/token": "~1.0",
