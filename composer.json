@@ -97,7 +97,7 @@
     "drupal/checklistapi": "~2.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~4.0",
-    "drupal/genpass": "~1.0",
+    "drupal/genpass": "~2.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~2.0",
     "drupal/honeypot": "~2.0",
