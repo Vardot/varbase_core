@@ -331,7 +331,7 @@ display:
           admin_label: ""
           empty: true
           tokenize: false
-          content: "<p>No front page content has been created yet. This page is created through \"Panels\" module.</p>\n<p>You can edit it from \"Manage Content\" at the bottom of the page, or enable \"Page Manager UI\" module to edit it from Administration \\ Structure.</p>"
+          content: "<p>No front page content has been created yet.</p>"
           label: ""
           plugin_id: text_custom
     cache_metadata:

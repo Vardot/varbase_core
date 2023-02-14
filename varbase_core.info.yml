@@ -60,8 +60,6 @@ install:
   - bootstrap_layouts
   - views_bootstrap
   - ds_extras
-  - panels
-  - panels_ipe
   - menu_block
   - views_infinite_scroll
   - entity_usage
