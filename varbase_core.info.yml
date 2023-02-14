@@ -60,8 +60,6 @@ install:
   - bootstrap_layouts
   - views_bootstrap
   - ds_extras
-  - page_manager
-  - page_manager_ui
   - panels
   - panels_ipe
   - menu_block

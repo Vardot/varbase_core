@@ -10,7 +10,6 @@ install:
   - editor
   - ckeditor
   - menu_ui
-  - page_manager
   - rabbit_hole
   - yoast_seo
   - metatag
