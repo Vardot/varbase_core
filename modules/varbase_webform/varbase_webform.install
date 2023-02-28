@@ -13,7 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_webform_install() {
 
-  // Processor for install: in varbase_webform.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_webform.info.yml file.
   ModuleInstallerFactory::installList('varbase_webform');
 
   // Install optional configs.
@@ -36,9 +36,7 @@ function varbase_webform_install() {
  * Enable [Webform Analysis] module.
  */
 function varbase_webform_update_8601() {
-  // If (!\Drupal::moduleHandler()->moduleExists('webform_analysis')) {
-  // \Drupal::service('module_installer')->install(['webform_analysis'], TRUE);
-  // }.
+
 }
 
 /**
