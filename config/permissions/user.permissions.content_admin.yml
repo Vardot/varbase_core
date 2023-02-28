@@ -1,0 +1,11 @@
+id: content_admin
+permissions:
+  - 'access contextual links'
+  - 'revert page revisions'
+  - 'create url aliases'
+  - 'access taxonomy overview'
+  - 'administer taxonomy'
+  - 'break content lock'
+  - 'manipulate all entityqueues'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'

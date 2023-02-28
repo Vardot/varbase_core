@@ -14,7 +14,6 @@ use Vardot\Installer\ModuleInstallerFactory;
 function varbase_webform_install() {
 
   // Processor for install: in varbase_webform.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_webform');
 
   // Install optional configs.
@@ -27,6 +26,9 @@ function varbase_webform_install() {
   \Drupal::classResolver()
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_webform');
 
 }
 

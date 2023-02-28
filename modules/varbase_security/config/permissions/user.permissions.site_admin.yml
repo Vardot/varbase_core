@@ -1,0 +1,3 @@
+id: site_admin
+permissions:
+  - 'access flood unblock'

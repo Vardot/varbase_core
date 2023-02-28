@@ -1,0 +1,8 @@
+id: seo_admin
+permissions:
+  - 'access contextual links'
+  - 'administer url aliases'
+  - 'create url aliases'
+  - 'break content lock'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'

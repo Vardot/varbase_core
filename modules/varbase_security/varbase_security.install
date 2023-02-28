@@ -15,7 +15,7 @@ use Vardot\Installer\ModuleInstallerFactory;
 function varbase_security_install() {
 
   // Processor for install: in varbase_security.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
+
   ModuleInstallerFactory::installList('varbase_security');
 
   // Install optional configs.
@@ -36,6 +36,8 @@ function varbase_security_install() {
 
   ModuleInstallerFactory::importConfigsFromList('varbase_security', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_security');
 }
 
 /**

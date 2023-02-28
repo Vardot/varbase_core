@@ -1,0 +1,7 @@
+id: editor
+permissions:
+  - 'customize shortcut links'
+  - 'access toolbar'
+  - 'access admin audit trail'
+  - 'access coffee'
+  - 'access responsive preview'

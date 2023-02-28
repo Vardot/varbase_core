@@ -1,0 +1,4 @@
+id: seo_admin
+permissions:
+  - 'update content translations'
+  - 'translate any entity'

@@ -1,0 +1,3 @@
+id: site_admin
+permissions:
+  - 'administer devel menu items'

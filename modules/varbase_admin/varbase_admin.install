@@ -7,7 +7,6 @@
 
 use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
-use Drupal\user\RoleInterface;
 use Drupal\shortcut\Entity\Shortcut;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
@@ -19,7 +18,7 @@ use Drupal\user\UserInterface;
 function varbase_admin_install() {
 
   // Processor for install: in varbase_admin.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
+
   ModuleInstallerFactory::installList('varbase_admin');
 
   // Install optional configs.
@@ -34,9 +33,6 @@ function varbase_admin_install() {
 
   // Restrict user registration to admin role creation.
   \Drupal::configFactory()->getEditable('user.settings')->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
-
-  // Allow authenticated users to use shortcuts.
-  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 
   // Populate the default shortcut set.
   $shortcut = Shortcut::create([
@@ -95,6 +91,9 @@ function varbase_admin_install() {
   ];
 
   ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_admin');
 }
 
 /**
@@ -165,8 +164,8 @@ function varbase_admin_update_8604() {
 function varbase_admin_update_8605() {
 
   // ---------------------------------------------------------------------------
-  // Inastall all Admin Audit Trail moduels.
-  // ---------------------------------------------------------------------------.
+  // Install all Admin Audit Trail modules.
+
   if (!\Drupal::moduleHandler()->moduleExists('admin_audit_trail')
     && \Drupal::moduleHandler()->moduleExists('event_log_track')) {
     \Drupal::service('module_installer')->install(['admin_audit_trail'], FALSE);
@@ -213,7 +212,7 @@ function varbase_admin_update_8605() {
   }
 
   // Migrate logs from the event_log_track table to admin_audit_trail table.
-  // ---------------------------------------------------------------------------.
+
   if (\Drupal::moduleHandler()->moduleExists('event_log_track')) {
     $fields = [
       'lid',
@@ -240,8 +239,8 @@ function varbase_admin_update_8605() {
     }
   }
 
-  // Uninstall all Event Log Track moduels.
-  // ---------------------------------------------------------------------------.
+  // Uninstall all Event Log Track modules.
+
   if (\Drupal::moduleHandler()->moduleExists('event_log_track_file')) {
     \Drupal::service('module_installer')->uninstall(['event_log_track_file'], FALSE);
   }

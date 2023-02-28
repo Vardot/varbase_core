@@ -1,0 +1,5 @@
+id: site_admin
+permissions:
+  - 'create content translations'
+  - 'delete content translations'
+  - 'update content translations'

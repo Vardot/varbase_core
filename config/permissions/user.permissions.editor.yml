@@ -1,0 +1,7 @@
+id: editor
+permissions:
+  - 'access contextual links'
+  - 'create url aliases'
+  - 'access taxonomy overview'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'
