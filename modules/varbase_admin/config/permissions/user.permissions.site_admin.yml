@@ -17,5 +17,6 @@ permissions:
   - 'masquerade as editor'
   - 'masquerade as seo_admin'
   - 'masquerade as site_admin'
+  - 'assign roles'
   - 'userprotect.protected_site_admin.bypass'
   - 'access responsive preview'

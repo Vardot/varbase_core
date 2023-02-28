@@ -9,6 +9,5 @@ permissions:
   - 'manipulate entityqueues'
   - 'rabbit hole bypass node'
   - 'rabbit hole bypass taxonomy_term'
-  - 'assign roles'
   - 'administer block classes'
   - 'access varbase settings'
