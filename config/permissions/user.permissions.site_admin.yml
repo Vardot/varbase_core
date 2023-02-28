@@ -1,7 +1,6 @@
 id: site_admin
 permissions:
   - 'access contextual links'
-  - 'revert page revisions'
   - 'create url aliases'
   - 'access taxonomy overview'
   - 'administer taxonomy'

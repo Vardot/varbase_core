@@ -4,3 +4,4 @@ permissions:
   - 'delete any page content'
   - 'edit any page content'
   - 'view page revisions'
+  - 'revert page revisions'
