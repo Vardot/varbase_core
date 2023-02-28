@@ -2,8 +2,8 @@ name: "Varbase Development"
 description: "Development Environment Modules and Features, make sure to disable this feature in production."
 type: module
 package: Varbase
-core_version_requirement: ^9 || ^10
-dependencies: []
+core_version_requirement: ~10.0
+dependencies: {  }
 install:
   - dblog
   - views_ui
@@ -11,17 +11,3 @@ install:
   - devel
   - tour_ui
   - reroute_email
-#uninstall:
-#  - migrate_drupal_ui
-#  - dblog
-#  - views_ui
-#  - config_update_ui
-#  - webprofiler
-#  - ds_devel
-#  - webform_devel
-#  - devel
-#  - tour_ui
-#  - blazy_ui
-#  - devel_generate
-#  - slick_ui
-#  - config_inspector
