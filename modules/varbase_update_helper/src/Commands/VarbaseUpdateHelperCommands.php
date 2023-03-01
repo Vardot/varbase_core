@@ -4,7 +4,6 @@ namespace Drupal\varbase_update_helper\Commands;
 
 use Drush\Commands\DrushCommands;
 use Drupal\varbase_core\Utility\CommandHelper;
-use Psr\Log\LoggerInterface;
 
 /**
  * Class VarbaseUpdateHelperCommands.
@@ -27,14 +26,6 @@ class VarbaseUpdateHelperCommands extends DrushCommands {
    */
   public function __construct() {
     $this->commandHelper = new CommandHelper();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setLogger(LoggerInterface $logger) {
-    parent::setLogger($logger);
-    $this->commandHelper->setLogger($logger);
   }
 
   /**
