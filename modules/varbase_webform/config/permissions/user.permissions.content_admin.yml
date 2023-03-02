@@ -5,3 +5,4 @@ permissions:
   - 'delete any webform submission'
   - 'edit any webform'
   - 'view any webform submission'
+  - 'clone webform entity'

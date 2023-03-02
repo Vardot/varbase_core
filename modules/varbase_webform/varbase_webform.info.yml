@@ -11,3 +11,4 @@ install:
   - webform_ui
   - taxonomy
   - webform_views
+  - entity_clone
