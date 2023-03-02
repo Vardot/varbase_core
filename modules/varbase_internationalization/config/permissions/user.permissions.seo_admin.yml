@@ -1,4 +1,5 @@
 id: seo_admin
 permissions:
+  - 'create content translations'
   - 'update content translations'
   - 'translate any entity'
