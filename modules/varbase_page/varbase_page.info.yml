@@ -8,7 +8,7 @@ dependencies:
 install:
   - text
   - editor
-  - ckeditor
+  - ckeditor5
   - menu_ui
   - rabbit_hole
   - yoast_seo
