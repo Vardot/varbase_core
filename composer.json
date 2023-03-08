@@ -186,10 +186,6 @@
       "drupal/checklistapi": {
         "Issue #3345172: Fix Drupal 10 - PHP Fatal error: Type of ChecklistapiCommands::$logger must be LoggerInterface":
         "https://git.drupalcode.org/project/checklistapi/-/commit/4b02386.patch"
-      },
-      "drupal/maxlength": {
-        "Issue #3267413: Countdown not working for ckeditor5":
-        "docroot/modules/contrib/varbase_core/patches/maxlength-2023-03-03T17-53-47--3267413-25.diff"
       }
     }
   }
