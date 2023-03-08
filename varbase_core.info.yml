@@ -72,4 +72,3 @@ install:
   - login_destination
   - email_registration
   - jquery_ui_accordion
-  - varbase_update_helper
