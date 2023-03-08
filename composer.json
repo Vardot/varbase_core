@@ -105,7 +105,7 @@
     "drupal/captcha": "~1.0",
     "drupal/recaptcha": "~3.0",
     "drupal/length_indicator": "~1.0",
-    "drupal/maxlength": "2.1.x-dev",
+    "drupal/maxlength": "~2.0",
     "drupal/menu_position": "~1.0",
     "drupal/taxonomy_access_fix": "~4.0",
     "drupal/better_exposed_filters": "~6.0",
