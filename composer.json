@@ -64,7 +64,7 @@
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
-    "drupal/admin_toolbar": "~3.0", 
+    "drupal/admin_toolbar": "3.3.0", 
     "drupal/gin": "~3.0",
     "drupal/gin_login": "2.0.1",
     "drupal/gin_toolbar": "~1.0",
@@ -186,6 +186,10 @@
       "drupal/checklistapi": {
         "Issue #3345172: Fix Drupal 10 - PHP Fatal error: Type of ChecklistapiCommands::$logger must be LoggerInterface":
         "https://git.drupalcode.org/project/checklistapi/-/commit/4b02386.patch"
+      },
+      "drupal/admin_toolbar": {
+        "Issue #3338408: Resolve access check errors for D10 compatibility":
+        "https://www.drupal.org/files/issues/2023-02-01/admin_toolbar-resolve_access_check-3338408-2.patch"
       }
     }
   }
