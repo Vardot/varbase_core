@@ -193,7 +193,7 @@
       },
       "drupal/diff": {
         "Issue #3348096: Fix Entity queries must explicitly set whether the query should be access checked or not in Diff":
-        ""
+        "https://www.drupal.org/files/issues/2023-03-15/3348096-2.patch"
       }
     }
   }
