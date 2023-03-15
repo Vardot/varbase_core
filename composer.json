@@ -85,7 +85,7 @@
     "drupal/node_edit_protection": "~1.0",
     "drupal/rabbit_hole": "~1.0",
     "drupal/yoast_seo": "~1.0",
-    "drupal/diff": "~1.0",
+    "drupal/diff": "1.1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
     "drupal/drd_agent": "~4.0",
@@ -190,6 +190,10 @@
       "drupal/admin_toolbar": {
         "Issue #3338408: Resolve access check errors for D10 compatibility":
         "https://www.drupal.org/files/issues/2023-02-01/admin_toolbar-resolve_access_check-3338408-2.patch"
+      },
+      "drupal/diff": {
+        "Issue #3348096: Fix Entity queries must explicitly set whether the query should be access checked or not in Diff":
+        ""
       }
     }
   }
