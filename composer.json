@@ -201,7 +201,7 @@
       },
       "drupal/entity_usage": {
         "Issue #3348439: Fix Entity queries must explicitly set whether the query should be access checked or not in Entity Usage":
-        "https://www.drupal.org/files/issues/2023-03-16/3348424-3_0.patch"
+        "https://www.drupal.org/files/issues/2023-03-16/3348439-3.patch"
       }
     }
   }
