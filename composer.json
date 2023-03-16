@@ -94,7 +94,7 @@
     "drupal/update_helper": "3.0.4",
     "drupal/checklistapi": "2.1.1",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "~4.0",
+    "drupal/password_policy": "4.0.0",
     "drupal/genpass": "~2.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~2.0",
@@ -202,6 +202,10 @@
       "drupal/entity_usage": {
         "Issue #3348439: Fix Entity queries must explicitly set whether the query should be access checked or not in Entity Usage":
         "https://www.drupal.org/files/issues/2023-03-16/3348439-3.patch"
+      },
+      "drupal/password_policy": {
+        "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
+        "https://www.drupal.org/files/issues/2023-03-16/3348548-3.patch"
       }
     }
   }
