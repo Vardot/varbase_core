@@ -34,5 +34,6 @@ install:
   - coffee
   - length_indicator
   - admin_toolbar
+  - admin_toolbar_tools
   - gin_toolbar
   - gin_login
