@@ -68,6 +68,7 @@
     "drupal/gin": "~3.0",
     "drupal/gin_login": "2.0.1",
     "drupal/gin_toolbar": "~1.0",
+    "drupal/gin_moderation_sidebar": "~1.0",
     "drupal/email_registration": "~1.0",
     "drupal/config_perms": "2.x-dev",
     "drupal/roleassign": "~2.0",

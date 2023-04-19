@@ -37,3 +37,4 @@ install:
   - admin_toolbar_tools
   - gin_toolbar
   - gin_login
+  - gin_moderation_sidebar
