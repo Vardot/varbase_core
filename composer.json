@@ -108,7 +108,7 @@
     "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~2.0",
     "drupal/menu_position": "~1.0",
-    "drupal/taxonomy_access_fix": "~4.0",
+    "drupal/taxonomy_access_fix": "4.0.0-beta1",
     "drupal/better_exposed_filters": "~6.0",
     "drupal/autocomplete_deluxe": "~2.0",
     "drupal/extlink": "~1.0",
@@ -207,6 +207,10 @@
       "drupal/password_policy": {
         "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
         "https://www.drupal.org/files/issues/2023-03-16/3348548-3.patch"
+      },
+      "drupal/taxonomy_access_fix": {
+        "Issue #3342219: Unexpected requirements of /admin/structure/taxonomy/manage/{taxonomy_vocabulary}/reset route with Drupal 9.5+":
+        "https://www.drupal.org/files/issues/2023-05-01/3342219-06.patch"
       }
     }
   }
