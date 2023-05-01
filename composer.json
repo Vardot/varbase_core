@@ -190,7 +190,7 @@
       },
       "drupal/admin_toolbar": {
         "Issue #3338408: Resolve access check errors for D10 compatibility":
-        "https://www.drupal.org/files/issues/2023-02-01/admin_toolbar-resolve_access_check-3338408-2.patch"
+        "https://www.drupal.org/files/issues/2023-05-01/3338408-11.patch"
       },
       "drupal/diff": {
         "Issue #3348096: Fix Entity queries must explicitly set whether the query should be access checked or not in Diff":
