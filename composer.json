@@ -65,10 +65,10 @@
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
     "drupal/admin_toolbar": "3.3.1",
-    "drupal/gin": "~3.0",
-    "drupal/gin_login": "2.0.1",
-    "drupal/gin_toolbar": "~1.0",
-    "drupal/gin_moderation_sidebar": "~1.0",
+    "drupal/gin": "~3.0.0",
+    "drupal/gin_login": "~2.0.0",
+    "drupal/gin_toolbar": "~1.0.0",
+    "drupal/gin_moderation_sidebar": "~1.0.0",
     "drupal/email_registration": "~1.0",
     "drupal/config_perms": "2.x-dev",
     "drupal/roleassign": "~2.0",
@@ -179,10 +179,6 @@
         "https://www.drupal.org/files/issues/2023-03-13/optional_edit-3143422-16.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
-      },
-      "drupal/gin_login": {
-        "Issue #3342318: Fix Gin Login Wallpaper images with the Origin URL (scheme and HTTP host) of the site":
-        "https://www.drupal.org/files/issues/2023-02-16/3342318-3.patch"
       },
       "drupal/checklistapi": {
         "Issue #3345172: Fix Drupal 10 - PHP Fatal error: Type of ChecklistapiCommands::$logger must be LoggerInterface":
