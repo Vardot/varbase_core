@@ -59,8 +59,8 @@
   background-image: none;
 }
 .joyride-tip-guide .button:focus {
-  border-color: #68a3cf;
-  outline: #c1e0ff solid 2px;
+  border-color: rgb(104, 163, 207);
+  outline: rgb(193, 224, 255) solid 2px;
   box-shadow: none;
 }
 .joyride-tip-guide .button-action:before {
