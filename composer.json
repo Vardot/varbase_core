@@ -59,7 +59,7 @@
     "drupal/entity_usage": "~2.0",
     "drupal/entityqueue": "~1.0",
     "drupal/entityqueue_form_widget": "~2.0",
-    "drupal/inline_entity_form": "1.0-rc15",
+    "drupal/inline_entity_form": "2.0.0-beta3",
     "drupal/ultimate_cron": "~2.0",
     "drupal/persistent_login": "1.6.0",
     "drupal/userprotect": "~1.0",
@@ -177,7 +177,7 @@
       },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
-        "https://www.drupal.org/files/issues/2023-03-13/optional_edit-3143422-16.patch",
+        "https://www.drupal.org/files/issues/2023-05-11/3143422-18.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
       }
