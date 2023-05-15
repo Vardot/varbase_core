@@ -147,8 +147,6 @@
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #3101231: Fix multilingual site's layout edit context issue with TypeError: Argument 1 passed to UrlHelper::buildQuery() must be of the type array, null given":
         "https://www.drupal.org/files/issues/2019-12-19/3101231-19.patch",
-        "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
-        "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch",
         "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
         "https://www.drupal.org/files/issues/2021-04-29/2741877-77.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
