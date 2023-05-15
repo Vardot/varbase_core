@@ -79,7 +79,7 @@
     "drupal/views_bulk_operations": "~4.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
-    "drupal/webform": "~6.2.0",
+    "drupal/webform": "6.2.0-beta5",
     "drupal/webform_views": "~5.0",
     "drupal/default_content": "2.0.x-dev",
     "drupal/content_lock": "~2.0",
@@ -199,6 +199,10 @@
       "drupal/password_policy": {
         "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
         "https://www.drupal.org/files/issues/2023-03-16/3348548-3.patch"
+      },
+      "drupal/webform": {
+        "Issue #3360357: Fix the declaration of the getQuery function for query building classes in Drupal 10":
+        "https://www.drupal.org/files/issues/2023-05-15/webform-6-2-beta5-3360357-11.patch"
       }
     }
   }
