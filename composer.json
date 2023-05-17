@@ -40,7 +40,6 @@
     "drupal/ctools": "~3.0.0 || ~4.0.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~2.0",
-    "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~2.0",
     "drupal/ds": "~3.0 || ~4.0",
