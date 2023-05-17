@@ -55,7 +55,7 @@
     "drupal/views_infinite_scroll": "~2.0",
     "drupal/entity": "~1.0",
     "drupal/entity_clone": "~2.0",
-    "drupal/entity_usage": "2.0-beta11",
+    "drupal/entity_usage": "~2.0.0",
     "drupal/entityqueue": "~1.0",
     "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "2.0.0-beta6",
@@ -191,10 +191,6 @@
       "drupal/drd_agent": {
         "Issue #3348413: Fix Entity queries must explicitly set whether the query should be access checked or not in DRD Agent":
         "https://www.drupal.org/files/issues/2023-03-16/3348413-2.patch"
-      },
-      "drupal/entity_usage": {
-        "Issue #3348439: Fix Entity queries must explicitly set whether the query should be access checked or not in Entity Usage":
-        "https://www.drupal.org/files/issues/2023-03-16/3348439-3.patch"
       },
       "drupal/password_policy": {
         "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
