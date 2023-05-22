@@ -1,6 +1,5 @@
 # Ignore node modules
 node_modules
-/*/modules/varbase_core/node_modules
 
 # Ignore vim swp files and gedit temp files
 *.swp
@@ -13,11 +12,6 @@ node_modules
 .settings
 .buildpath
 
-# netbeans settings files.
-nbproject
-/nbproject
-/nbproject/
-/nbproject/private/
 
 # Ignore OS settings files.
 .DS_Store*

@@ -1,6 +1,7 @@
-**/*.min.js
-**/gulpfile.js
-**/node_modules
-**/modules/varbase_tour/node_modules
+node_modules/**/*
+# Ignore deliberately malformed YAML files.
 drupalci.yml
-**/drupalci.yml
+
+webpack.config.build.js
+webpack.config.dev.js
+webpack.config.js
