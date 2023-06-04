@@ -69,7 +69,7 @@
     "drupal/gin_toolbar": "~1.0.0",
     "drupal/gin_moderation_sidebar": "~1.0.0",
     "drupal/email_registration": "~1.0",
-    "drupal/config_perms": "2.x-dev",
+    "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~2.0",
     "drupal/prevent_homepage_deletion": "~2.0",
     "drupal/tour_ui": "1.x-dev",
