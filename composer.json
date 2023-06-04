@@ -85,6 +85,7 @@
     "drupal/node_edit_protection": "~1.0",
     "drupal/rabbit_hole": "~1.0",
     "drupal/yoast_seo": "~1.0",
+    "drupal/fast_404": "~3.0",
     "drupal/diff": "1.1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
