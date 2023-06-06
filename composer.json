@@ -50,7 +50,6 @@
     "drupal/allowed_formats": "~1.0 || ~2.0",
     "drupal/block_class": "~2.0",
     "drupal/menu_block": "~1.0",
-    "drupal/block_content_permissions": "~1.0",
     "drupal/views_infinite_scroll": "~2.0",
     "drupal/entity": "~1.0",
     "drupal/entity_clone": "~2.0",
