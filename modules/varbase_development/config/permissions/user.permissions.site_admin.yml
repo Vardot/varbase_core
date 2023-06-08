@@ -1,3 +1,2 @@
 id: site_admin
-permissions:
-  - 'access devel information'
+permissions: {  }
