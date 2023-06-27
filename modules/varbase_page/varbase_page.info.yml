@@ -2,7 +2,7 @@ name: "Varbase Page"
 description: "Provides Basic page content type and related configuration."
 type: module
 package: Varbase
-core_version_requirement: ~10.0
+core_version_requirement: ~10.1.0
 dependencies:
   - varbase_core:varbase_core
 install:
