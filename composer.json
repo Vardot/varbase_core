@@ -58,7 +58,7 @@
     "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "1.0-rc15",
     "drupal/ultimate_cron": "~2.0",
-    "drupal/persistent_login": "2.0.0",
+    "drupal/persistent_login": "2.1.0",
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
