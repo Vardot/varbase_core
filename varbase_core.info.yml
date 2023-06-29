@@ -67,8 +67,6 @@ install:
   - autocomplete_deluxe
   - link_attributes
   - rabbit_hole
-  - rh_node
-  - rh_taxonomy
   - login_destination
   - email_registration
   - jquery_ui_accordion
