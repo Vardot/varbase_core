@@ -7,7 +7,5 @@ permissions:
   - 'break content lock'
   - 'manipulate all entityqueues'
   - 'manipulate entityqueues'
-  - 'rabbit hole bypass node'
-  - 'rabbit hole bypass taxonomy_term'
   - 'administer block classes'
   - 'access varbase settings'

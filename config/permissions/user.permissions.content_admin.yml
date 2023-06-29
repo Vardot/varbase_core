@@ -6,5 +6,3 @@ permissions:
   - 'administer taxonomy'
   - 'break content lock'
   - 'manipulate all entityqueues'
-  - 'rabbit hole bypass node'
-  - 'rabbit hole bypass taxonomy_term'
