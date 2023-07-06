@@ -71,7 +71,7 @@
     "drupal/roleassign": "~2.0",
     "drupal/prevent_homepage_deletion": "~2.0",
     "drupal/admin_toolbar": "~3.4.0",
-    "drupal/tour_ui": "~1.0",
+    "drupal/tour_ui": "~2.0.0",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~2.0",
     "drupal/views_bulk_operations": "~4.0",
