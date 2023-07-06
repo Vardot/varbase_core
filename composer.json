@@ -71,7 +71,7 @@
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~2.0",
     "drupal/prevent_homepage_deletion": "~2.0",
-    "drupal/tour_ui": "1.x-dev",
+    "drupal/tour_ui": "~2.0.0",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~2.0",
     "drupal/views_bulk_operations": "~4.0",
@@ -114,7 +114,7 @@
     "drupal/link_attributes": "~2.0.0",
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
-    "drupal/vmi": "~3.0 || 3.0.x-dev",
+    "drupal/vmi": "~3.0",
     "drupal/jquery_ui_accordion": "~1.0 || ~2.0",
     "drupal/reroute_email": "~2.0"
   },
