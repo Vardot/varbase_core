@@ -161,7 +161,9 @@
         "Issue #3272720: Fix PHP8.1 Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
         "https://www.drupal.org/files/issues/2022-07-21/3272720-6.patch",
         "Issue #3046152: Video media needs playsinline & muted options":
-        "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch"
+        "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch",
+        "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
+        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
