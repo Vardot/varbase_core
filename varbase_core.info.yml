@@ -66,6 +66,7 @@ install:
   - menu_position
   - autocomplete_deluxe
   - link_attributes
+  - link_attributes_menu_link_content
   - rabbit_hole
   - login_destination
   - email_registration
