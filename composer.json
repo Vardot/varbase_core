@@ -113,7 +113,7 @@
     "drupal/better_exposed_filters": "~6.0",
     "drupal/autocomplete_deluxe": "~2.0",
     "drupal/extlink": "~1.0",
-    "drupal/link_attributes": "~2.0.0",
+    "drupal/link_attributes": "~2.1.0",
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
     "drupal/vmi": "~2.0",
