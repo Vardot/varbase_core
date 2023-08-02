@@ -587,3 +587,14 @@ function varbase_core_update_90007() {
     \Drupal::service('module_installer')->uninstall(['config_filter'], FALSE);
   }
 }
+
+/**
+ * Issue #3378806: Update Link Attributes widget module from ~2.0.0 to ~2.1.0.
+ *
+ * Enable the new sub module Link attributes: Menu Link Content integration.
+ */
+function varbase_core_update_90008() {
+  if (!\Drupal::moduleHandler()->moduleExists('link_attributes_menu_link_content')) {
+    \Drupal::service('module_installer')->install(['link_attributes_menu_link_content'], FALSE);
+  }
+}
