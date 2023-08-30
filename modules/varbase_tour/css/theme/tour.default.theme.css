@@ -163,3 +163,9 @@
 .shepherd-element.tip-module-varbase-tour:focus {
   box-shadow: #3f8dc2 0px 0px 5px 0px;
 }
+
+#toolbar-tab-tour .toolbar-icon.is-active {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: 0 0 0 1px var(--gin-color-focus-border), 0 0 0 4px var(--gin-color-focus);
+}

@@ -186,3 +186,11 @@
     }
   }
 }
+
+#toolbar-tab-tour {
+  .toolbar-icon.is-active {
+    background-image: none !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 0 1px var(--gin-color-focus-border), 0 0 0 4px var(--gin-color-focus);
+  }
+}

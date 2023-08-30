@@ -15,8 +15,8 @@ tips:
     plugin: text
     label: 'Tour Switch'
     weight: -100
-    position: right-start
-    selector: .toolbar-icon.toolbar-icon-help-main
+    position: bottom
+    selector: '#toolbar-tab-tour'
     body: '<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>'
   editing-your-homepage-layout:
     id: editing-your-homepage-layout
