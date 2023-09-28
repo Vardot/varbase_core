@@ -13,7 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_tour_install() {
 
-  // Processer for install: in varbase_tour.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_tour.info.yml file using ModuleInstallerFactory.
   // ---------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_tour');
 
