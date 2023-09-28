@@ -555,3 +555,46 @@ function varbase_core_update_90005() {
   // To make sure that any hook or event subscriber workers after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_core');
 }
+
+/**
+ * Issue #3317082: Update Block Class module from ~1.0 to ~2.0.
+ *
+ * Import default config on update.
+ */
+function varbase_core_update_90006() {
+  if (\Drupal::moduleHandler()->moduleExists('block_class')) {
+    $managed_configs = [
+      'block_class.settings',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/optional');
+
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
+      ->applyUpdates();
+  }
+}
+
+/**
+ * Issue #3338305: Have a smooth update for Config Ignore module.
+ *
+ * Which removed the use of Config Filter module using core
+ * API instead of Config Filter.
+ */
+function varbase_core_update_90007() {
+  if (\Drupal::moduleHandler()->moduleExists('config_filter')) {
+    \Drupal::service('module_installer')->uninstall(['config_filter'], FALSE);
+  }
+}
+
+/**
+ * Issue #3378806: Update Link Attributes widget module from ~2.0.0 to ~2.1.0.
+ *
+ * Enable the new sub module Link attributes: Menu Link Content integration.
+ */
+function varbase_core_update_90008() {
+  if (!\Drupal::moduleHandler()->moduleExists('link_attributes_menu_link_content')) {
+    \Drupal::service('module_installer')->install(['link_attributes_menu_link_content'], FALSE);
+  }
+}

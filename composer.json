@@ -30,47 +30,48 @@
     "composer/installers": "~2.0",
     "oomphinc/composer-installers-extender": "~2.0",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "~9.5.0",
+    "drupal/core": "~9.5.0 || ~10.1.0",
     "vardot/entity-definition-update-manager": "~1.0",
     "vardot/module-installer-factory": "~1.0",
-    "drupal/config_update": "~1.0",
-    "drupal/config_ignore": "~2.0",
-    "drupal/config_inspector": "~1.0",
-    "drupal/ctools": "~3.0",
+    "drupal/config_update": "~1.0 || ~2.0",
+    "drupal/config_ignore": "~3.0",
+    "drupal/config_filter": "~2.0",
+    "drupal/config_inspector": "~2.0",
+    "drupal/ctools": "~3.0.0 || ~4.0.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~2.0",
     "drupal/page_manager": "~4.0",
     "drupal/panels": "~4.0",
-    "drupal/bootstrap_layouts": "5.2",
+    "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~2.0",
     "drupal/ds": "~3.0",
     "drupal/views_bootstrap": "~5.4.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~2.0",
-    "drupal/advanced_text_formatter": "~2.0",
+    "drupal/advanced_text_formatter": "~3.0",
     "drupal/allowed_formats": "~1.0 || ~2.0",
-    "drupal/block_class": "~1.0",
+    "drupal/block_class": "~2.0",
     "drupal/menu_block": "~1.0",
     "drupal/block_content_permissions": "~1.0",
     "drupal/views_infinite_scroll": "~2.0",
     "drupal/entity": "~1.0",
-    "drupal/entity_clone": "~1.0",
+    "drupal/entity_clone": "~2.0",
     "drupal/entity_usage": "~2.0",
     "drupal/entityqueue": "~1.0",
     "drupal/entityqueue_form_widget": "~2.0",
-    "drupal/inline_entity_form": "1.0-rc14",
+    "drupal/inline_entity_form": "1.0-rc15",
     "drupal/ultimate_cron": "~2.0",
-    "drupal/persistent_login": "1.4.0",
+    "drupal/persistent_login": "1.6.0",
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
     "drupal/betterlogin": "~1.0",
     "drupal/email_registration": "~1.0",
     "drupal/config_perms": "~2.0",
-    "drupal/roleassign": "~1.0",
+    "drupal/roleassign": "~2.0",
     "drupal/prevent_homepage_deletion": "~2.0",
-    "drupal/admin_toolbar": "~3.0",
-    "drupal/tour_ui": "~1.0",
+    "drupal/admin_toolbar": "~3.4.0",
+    "drupal/tour_ui": "~2.0.0",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~2.0",
     "drupal/views_bulk_operations": "~4.0",
@@ -88,31 +89,31 @@
     "drupal/diff": "~1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
-    "drupal/drd_agent": "~3.0",
+    "drupal/drd_agent": "~4.0",
     "drupal/devel": "~5.0",
-    "drupal/stage_file_proxy": "~1.0",
+    "drupal/stage_file_proxy": "~2.0",
     "drupal/update_helper": "3.0.4",
     "drupal/checklistapi": "~2.0",
     "drupal/username_enumeration_prevention": "~1.0",
     "drupal/password_policy": "~4.0",
-    "drupal/genpass": "~1.0",
+    "drupal/genpass": "~2.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~2.0",
     "drupal/honeypot": "~2.0",
     "drupal/antibot": "~2.0",
     "drupal/shield": "~1.0",
     "drupal/flood_control": "~2.0",
-    "drupal/captcha": "~1.0",
+    "drupal/captcha": "~1.0 || ~2.0",
     "drupal/recaptcha": "~3.0",
     "drupal/mailsystem": "~4.0",
     "drupal/length_indicator": "~1.0",
     "drupal/maxlength": "~2.0",
     "drupal/menu_position": "~1.0",
-    "drupal/taxonomy_access_fix": "~3.0",
+    "drupal/taxonomy_access_fix": "~4.0",
     "drupal/better_exposed_filters": "~6.0",
     "drupal/autocomplete_deluxe": "~2.0",
     "drupal/extlink": "~1.0",
-    "drupal/link_attributes": "~1.0",
+    "drupal/link_attributes": "~2.1.0",
     "drupal/entity_reference_revisions": "~1.0",
     "drupal/viewsreference": "~2.0",
     "drupal/vmi": "~2.0",
@@ -149,8 +150,6 @@
         "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
         "Issue #3101231: Fix multilingual site's layout edit context issue with TypeError: Argument 1 passed to UrlHelper::buildQuery() must be of the type array, null given":
         "https://www.drupal.org/files/issues/2019-12-19/3101231-19.patch",
-        "Issue #2985882: Fix Error: Call to a member function getLabel() after enabling layout_builder":
-        "https://www.drupal.org/files/issues/2020-01-20/2985882-53.patch",
         "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
         "https://www.drupal.org/files/issues/2021-04-29/2741877-77.patch",
         "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
@@ -162,7 +161,9 @@
         "Issue #3272720: Fix PHP8.1 Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
         "https://www.drupal.org/files/issues/2022-07-21/3272720-6.patch",
         "Issue #3046152: Video media needs playsinline & muted options":
-        "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch"
+        "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch",
+        "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
+        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
@@ -176,15 +177,9 @@
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
         "https://www.drupal.org/files/issues/2022-06-05/3024165-55.patch"
       },
-      "drupal/bootstrap_layouts": {
-        "Issue #3018633: Fix Incompatible with Layout builder drag and drop":
-        "https://www.drupal.org/files/issues/2019-04-24/bootstrap_layouts-3018633-6.patch",
-        "Issue #3092032: Fix Unsupported operand types in Set Configuration line 213":
-        "https://www.drupal.org/files/issues/2019-11-03/3092032-2.patch"
-      },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
-        "https://www.drupal.org/files/issues/2021-05-03/optional_edit-3143422-10.patch",
+        "https://www.drupal.org/files/issues/2023-03-13/optional_edit-3143422-16.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
       }
