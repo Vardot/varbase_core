@@ -78,7 +78,7 @@
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
     "drupal/webform": "~6.1.0",
-    "drupal/webform_views": "~5.0",
+    "drupal/webform_views": "5.2.0",
     "drupal/default_content": "2.0.x-dev",
     "drupal/better_normalizers": "~1.0",
     "drupal/content_lock": "~2.0",
@@ -182,6 +182,10 @@
         "https://www.drupal.org/files/issues/2023-03-13/optional_edit-3143422-16.patch",
         "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
         "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
+      },
+      "drupal/webform_views": {
+        "Issue #3386492: Fix Fatal error on Drupal 9/10 : ArgumentCountError: Too few arguments to function EntityViewsData::__construct(), 6 passed":
+        "https://www.drupal.org/files/issues/2023-09-11/3386492-2.patch"
       }
     }
   }
