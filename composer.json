@@ -30,13 +30,12 @@
     "composer/installers": "~2.0",
     "oomphinc/composer-installers-extender": "~2.0",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "~9.5.0 || ~10.1.0",
+    "drupal/core": "~10.1.0",
     "vardot/entity-definition-update-manager": "~1.0",
     "vardot/module-installer-factory": "~1.0",
-    "drupal/config_update": "~1.0 || ~2.0",
+    "drupal/config_update": "~2.0",
     "drupal/config_ignore": "~3.0",
-    "drupal/config_filter": "~2.0",
-    "drupal/config_inspector": "~2.0",
+    "drupal/config_inspector": "~2.1.0",
     "drupal/ctools": "~3.0.0 || ~4.0.0",
     "drupal/token": "~1.0",
     "drupal/token_filter": "~2.0",
@@ -44,58 +43,56 @@
     "drupal/panels": "~4.0",
     "drupal/bootstrap_layouts": "~5.0",
     "drupal/layout_builder_restrictions": "~2.0",
-    "drupal/ds": "~3.0",
-    "drupal/views_bootstrap": "~5.4.0",
+    "drupal/ds": "~3.0 || ~4.0",
+    "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3.0",
     "drupal/smart_trim": "~2.0",
     "drupal/advanced_text_formatter": "~3.0",
-    "drupal/allowed_formats": "~1.0 || ~2.0",
+    "drupal/allowed_formats": "~3.0",
     "drupal/block_class": "~2.0",
     "drupal/menu_block": "~1.0",
     "drupal/block_content_permissions": "~1.0",
     "drupal/views_infinite_scroll": "~2.0",
     "drupal/entity": "~1.0",
     "drupal/entity_clone": "~2.0",
-    "drupal/entity_usage": "~2.0",
+    "drupal/entity_usage": "~2.0.0",
     "drupal/entityqueue": "~1.0",
     "drupal/entityqueue_form_widget": "~2.0",
     "drupal/inline_entity_form": "1.0-rc15",
     "drupal/ultimate_cron": "~2.0",
-    "drupal/persistent_login": "1.6.0",
+    "drupal/persistent_login": "2.1.1",
     "drupal/userprotect": "~1.0",
     "drupal/admin_audit_trail": "~1.0",
     "drupal/login_destination": "~2.0",
-    "drupal/betterlogin": "~1.0",
     "drupal/email_registration": "~1.0",
     "drupal/config_perms": "~2.0",
     "drupal/roleassign": "~2.0",
     "drupal/prevent_homepage_deletion": "~2.0",
-    "drupal/admin_toolbar": "~3.4.0",
+    "drupal/admin_toolbar": "3.4.2",
     "drupal/tour_ui": "~2.0.0",
     "drupal/coffee": "~1.0",
     "drupal/responsive_preview": "~2.0",
     "drupal/views_bulk_operations": "~4.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/revision_log_default": "~1.0",
-    "drupal/webform": "~6.1.0",
+    "drupal/webform": "~6.2.0",
     "drupal/webform_views": "~5.0",
     "drupal/default_content": "2.0.x-dev",
-    "drupal/better_normalizers": "~1.0",
-    "drupal/content_lock": "~2.0",
+    "drupal/content_lock": "2.3.0",
     "drupal/node_edit_protection": "~1.0",
-    "drupal/rabbit_hole": "~1.0",
+    "drupal/rabbit_hole": "~2.0.0",
     "drupal/yoast_seo": "~1.0",
-    "drupal/fast_404": "~2.0",
-    "drupal/diff": "~1.0",
+    "drupal/fast_404": "~3.0",
+    "drupal/diff": "1.1.0",
     "drupal/masquerade": "~2.0",
     "drupal/menu_admin_per_menu": "~1.0",
-    "drupal/drd_agent": "~4.0",
-    "drupal/devel": "~5.0",
+    "drupal/drd_agent": "4.0.4",
+    "drupal/devel": "~5.1.0",
     "drupal/stage_file_proxy": "~2.0",
     "drupal/update_helper": "3.0.4",
-    "drupal/checklistapi": "~2.0",
+    "drupal/checklistapi": "2.1.1",
     "drupal/username_enumeration_prevention": "~1.0",
-    "drupal/password_policy": "~4.0",
+    "drupal/password_policy": "4.0.0",
     "drupal/genpass": "~2.0",
     "drupal/seckit": "~2.0",
     "drupal/security_review": "~2.0",
@@ -103,7 +100,7 @@
     "drupal/antibot": "~2.0",
     "drupal/shield": "~1.0",
     "drupal/flood_control": "~2.0",
-    "drupal/captcha": "~1.0 || ~2.0",
+    "drupal/captcha": "~2.0",
     "drupal/recaptcha": "~3.0",
     "drupal/mailsystem": "~4.0",
     "drupal/length_indicator": "~1.0",
@@ -121,7 +118,6 @@
     "drupal/reroute_email": "~2.0"
   },
   "suggest": {
-    "bower-asset/objectfitpolyfill": "~2.0: Provides JavaScript library necessary for the Object Fit Polyfill",
     "bower-asset/jqueryui-touch-punch": "0.2.3 Required to use by drupal/jquery_ui_touch_punch module."
   },
   "extra": {
@@ -131,7 +127,6 @@
     ],
     "drupal-libraries": {
       "libraries": [
-        {"name": "objectfitpolyfill", "package": "bower-asset/objectfitpolyfill"},
         {"name": "jquery-ui-touch-punch", "package": "bower-asset/jqueryui-touch-punch"}
       ]
     },
@@ -156,12 +151,12 @@
         "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
         "Issue #3226791: Fix Validation error saving untranslatable Media reference field":
         "https://www.drupal.org/files/issues/2021-08-04/media_required_validation-3226791-2.patch",
-        "Issue #3059955: It is possible to overflow the number of items allowed in Media Library":
-        "https://www.drupal.org/files/issues/2020-11-16/3059955-107.patch",
         "Issue #3272720: Fix PHP8.1 Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
         "https://www.drupal.org/files/issues/2022-07-21/3272720-6.patch",
         "Issue #3046152: Video media needs playsinline & muted options":
         "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch",
+        "Issue #3080606: Reorder Layout Builder sections":
+        "https://www.drupal.org/files/issues/2023-05-30/3080606-100.patch",
         "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
         "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch"
       },
@@ -176,6 +171,30 @@
       "drupal/update_helper": {
         "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
         "https://www.drupal.org/files/issues/2022-06-05/3024165-55.patch"
+      },
+      "drupal/checklistapi": {
+        "Issue #3345172: Fix Drupal 10 - PHP Fatal error: Type of ChecklistapiCommands::$logger must be LoggerInterface":
+        "https://git.drupalcode.org/project/checklistapi/-/commit/4b02386.patch"
+      },
+      "drupal/admin_toolbar": {
+        "Issue #3338408: Resolve access check errors for D10 compatibility":
+        "https://www.drupal.org/files/issues/2023-05-30/3338408-fix-access-check-error.patch"
+      },
+      "drupal/diff": {
+        "Issue #3348096: Fix Entity queries must explicitly set whether the query should be access checked or not in Diff":
+        "https://www.drupal.org/files/issues/2023-03-15/3348096-2.patch"
+      },
+      "drupal/drd_agent": {
+        "Issue #3348413: Fix Entity queries must explicitly set whether the query should be access checked or not in DRD Agent":
+        "https://www.drupal.org/files/issues/2023-03-16/3348413-2.patch"
+      },
+      "drupal/password_policy": {
+        "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
+        "https://www.drupal.org/files/issues/2023-03-16/3348548-3.patch"
+      },
+      "drupal/content_lock": {
+        "Issue #3343964: Fix PHP 8.2 Content locking (anti-concurrent editing) deprecation notices":
+        "https://www.drupal.org/files/issues/2023-05-22/3343964-5.patch"
       },
       "drupal/inline_entity_form": {
         "Issue #3143422: Allow to hide the Edit button in Complex widget":
