@@ -14,10 +14,7 @@ function varbase_tour_page_attachments(array &$page) {
 
     // When the url is NOT an admin route or in the admin theme.
     if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
-      // Then attach the seven tour styling library.
-      // And attach the varbase tour default theme library.
-      $page['#attached']['library'][] = 'seven/tour-styling';
-      // $page['#attached']['library'][] = 'varbase_tour/admin-theme';
+      // Attach the Varbase tour default theme library.
       $page['#attached']['library'][] = 'varbase_tour/default-theme';
     }
 

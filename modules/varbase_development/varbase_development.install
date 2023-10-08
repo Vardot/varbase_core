@@ -13,7 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_development_install() {
 
-  // Processer for install: in varbase_development.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_development.info.yml file using ModuleInstallerFactory.
   // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_development');
 

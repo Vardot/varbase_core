@@ -6,7 +6,7 @@
   "main": "gulpfile.js",
   "engines": {
     "yarn": ">= 1.6",
-    "node": ">= 16.0"
+    "node": ">= 18.0"
   },
   "scripts": {
     "theme:init": "gulp",
@@ -88,7 +88,7 @@
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "tabbable": "^5.2.0",
-    "terser": "^5.3.4",
+    "terser": "^5.14.2",
     "terser-webpack-plugin": "^5.2.0",
     "underscore": "^1.13.1",
     "webpack": "^5.51.1",
@@ -129,9 +129,7 @@
     "last 2 Edge major versions",
     "last 2 Opera versions",
     "last 2 iOS major versions",
-    "last 1 Explorer major version",
     "last 1 ChromeAndroid version",
-    "last 1 UCAndroid version",
     "last 1 Samsung version",
     "Firefox ESR"
   ]
