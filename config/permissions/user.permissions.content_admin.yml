@@ -1,0 +1,8 @@
+id: content_admin
+permissions:
+  - 'access contextual links'
+  - 'create url aliases'
+  - 'access taxonomy overview'
+  - 'administer taxonomy'
+  - 'break content lock'
+  - 'manipulate all entityqueues'

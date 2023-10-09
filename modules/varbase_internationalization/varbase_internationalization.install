@@ -13,8 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_internationalization_install() {
 
-  // Processor for install: in varbase_internationalization.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
+  // Processor for install: in varbase_internationalization.info.yml file.
   ModuleInstallerFactory::installList('varbase_internationalization');
 
   // ---------------------------------------------------------------------------

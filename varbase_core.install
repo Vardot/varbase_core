@@ -19,7 +19,7 @@ use Drupal\Core\File\FileSystemInterface;
  */
 function varbase_core_install() {
 
-  // Processor for install: in varbase_core.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_core.info.yml file.
   // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_core');
 
@@ -33,6 +33,9 @@ function varbase_core_install() {
   \Drupal::classResolver()
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_core');
 }
 
 /**

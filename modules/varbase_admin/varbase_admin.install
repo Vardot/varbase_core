@@ -18,8 +18,7 @@ use Drupal\user\UserInterface;
  */
 function varbase_admin_install() {
 
-  // Processor for install: in varbase_admin.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
+  // Processor for install: in varbase_admin.info.yml file.
   ModuleInstallerFactory::installList('varbase_admin');
 
   // Install optional configs.
@@ -95,6 +94,10 @@ function varbase_admin_install() {
   ];
 
   ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_admin');
+
 }
 
 /**
