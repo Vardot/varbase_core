@@ -6,6 +6,7 @@
  */
 
 use Drupal\update_helper_checklist\Entity\Update;
+use Vardot\Installer\ModuleInstallerFactory;
 
 /**
  * Implements hook_install().
