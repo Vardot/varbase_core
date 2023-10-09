@@ -1,0 +1,7 @@
+id: site_admin
+permissions:
+  - 'create page content'
+  - 'delete any page content'
+  - 'edit any page content'
+  - 'view page revisions'
+  - 'revert page revisions'

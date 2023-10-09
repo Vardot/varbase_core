@@ -1,0 +1,8 @@
+id: content_admin
+permissions:
+  - 'access webform overview'
+  - 'create webform'
+  - 'delete any webform submission'
+  - 'edit any webform'
+  - 'view any webform submission'
+  - 'clone webform entity'

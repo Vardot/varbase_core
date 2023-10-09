@@ -1,0 +1,16 @@
+id: content_admin
+permissions:
+  - 'customize shortcut links'
+  - 'access toolbar'
+  - 'access admin audit trail'
+  - 'administer footer menu items'
+  - 'administer main menu items'
+  - 'access coffee'
+  - 'access responsive preview'
+  - 'clone block entity'
+  - 'clone block_content entity'
+  - 'clone node entity'
+  - 'clone menu_link_content entity'
+  - 'clone user entity'
+  - 'clone taxonomy_term entity'
+  - 'clone taxonomy_vocabulary entity'

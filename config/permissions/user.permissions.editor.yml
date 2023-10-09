@@ -1,0 +1,5 @@
+id: editor
+permissions:
+  - 'access contextual links'
+  - 'create url aliases'
+  - 'access taxonomy overview'

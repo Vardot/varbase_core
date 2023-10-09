@@ -73,4 +73,8 @@ function varbase_update_helper_install() {
     }
 
   }
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_update_helper');
+
 }

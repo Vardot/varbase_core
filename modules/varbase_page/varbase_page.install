@@ -13,8 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_page_install() {
 
-  // Processor for install: in varbase_page.info.yml file using ModuleInstallerFactory.
-  // ---------------------------------------------------------------------------.
+  // Processor for install: in varbase_page.info.yml file.
   ModuleInstallerFactory::installList('varbase_page');
 
   // Install optional configs.
@@ -26,6 +25,9 @@ function varbase_page_install() {
   \Drupal::classResolver()
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_page');
 
 }
 

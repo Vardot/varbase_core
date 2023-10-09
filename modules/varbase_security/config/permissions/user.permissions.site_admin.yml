@@ -1,0 +1,4 @@
+id: site_admin
+permissions:
+  - 'administer flood unblock'
+  - 'flood unblock ips'
