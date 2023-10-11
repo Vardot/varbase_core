@@ -27,7 +27,7 @@ function varbase_default_content_install() {
   try {
     $path_alias_query = \Drupal::entityQuery('path_alias');
     $path_alias_query->condition('alias', '/node', '=');
-    $alias_ids = $path_alias_query->execute();
+    $alias_ids = $path_alias_query->accessCheck(FALSE)->execute();
 
     if (count($alias_ids) > 0) {
       foreach ($alias_ids as $alias_id) {
