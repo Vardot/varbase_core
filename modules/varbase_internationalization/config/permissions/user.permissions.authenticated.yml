@@ -1,4 +1,2 @@
 id: authenticated
-permissions:
-  - 'delete own page content'
-  - 'edit own page content'
+permissions: {  }
