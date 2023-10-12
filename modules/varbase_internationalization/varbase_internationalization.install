@@ -23,6 +23,9 @@ function varbase_internationalization_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_internationalization');
+
 }
 
 /**
