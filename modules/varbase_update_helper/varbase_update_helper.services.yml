@@ -3,3 +3,7 @@ services:
     class: Drupal\varbase_update_helper\Routing\RouteSubscriber
     tags:
       - { name: event_subscriber }
+  varbase_update_helper.commands:
+    class: Drupal\varbase_update_helper\Commands\VarbaseUpdateHelperCommands
+    tags:
+      - { name: drush.command }
