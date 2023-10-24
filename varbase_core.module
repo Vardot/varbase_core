@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Vardot\Entity\EntityDefinitionUpdateManager;
+use Vardot\Installer\ModuleInstallerFactory;
 
 // To have all varbase core general and global tokens.
 \Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
