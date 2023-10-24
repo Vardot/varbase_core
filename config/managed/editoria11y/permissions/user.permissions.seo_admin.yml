@@ -1,0 +1,7 @@
+id: seo_admin
+permissions:
+  - 'access contextual links'
+  - 'view editoria11y checker'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
+  - 'manage editoria11y results'
