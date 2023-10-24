@@ -115,7 +115,8 @@
     "drupal/viewsreference": "~2.0",
     "drupal/vmi": "~3.0",
     "drupal/jquery_ui_accordion": "~1.0 || ~2.0",
-    "drupal/reroute_email": "~2.0"
+    "drupal/reroute_email": "~2.0",
+    "drupal/editoria11y": "~2.1.0"
   },
   "suggest": {
     "bower-asset/jqueryui-touch-punch": "0.2.3 Required to use by drupal/jquery_ui_touch_punch module."
