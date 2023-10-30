@@ -28,7 +28,7 @@ final class VarbaseCoreCommands extends DrushCommands {
   public function removeNoneExistentPermissions() {
 
     // Remove non-existent permissions Testing uninstall hook.
-    ModuleInstallerFactory::removeNoneExistentPermissions();
+    $this->logger->info(ModuleInstallerFactory::removeNoneExistentPermissions());
 
     $this->logger()->success(dt('Removed non-existent permissions.'));
   }
@@ -43,9 +43,7 @@ final class VarbaseCoreCommands extends DrushCommands {
 
     // Entity updates to clear up any mismatched entity and/or field definitions
     // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-      ->applyUpdates();
+    $this->logger->info(\Drupal::classResolver()->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)->applyUpdates());
 
     $this->logger()->success(dt('Applied Entity updates for mismatched entity and/or field definitions'));
   }
