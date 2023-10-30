@@ -26,11 +26,22 @@ final class VarbaseCoreCommands extends DrushCommands {
   #[CLI\Command(name: 'varbase:remove-non-existent-permissions', aliases: ['rnep'])]
   #[CLI\Usage(name: 'varbase:remove-non-existent-permissions', description: 'Remove non-existent permissions, to be used for upgrades with missing static and dynamic permissions')]
   public function removeNoneExistentPermissions() {
+    try {
+      // Remove non-existent permissions Testing uninstall hook.
+      $outoutMessage = ModuleInstallerFactory::removeNoneExistentPermissions();
 
-    // Remove non-existent permissions Testing uninstall hook.
-    $this->logger->info(ModuleInstallerFactory::removeNoneExistentPermissions());
+      if (isset($outoutMessage) && is_string($outoutMessage)) {
+        $this->logger->info($outoutMessage);
+      }
 
-    $this->logger()->success(dt('Removed non-existent permissions.'));
+      $this->logger()->success(dt('Removed non-existent permissions.'));
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('Varbase')->critical('Error while drush varbase:remove-non-existent-permissions. !code !exception', [
+        '!code' => $e->getCode(),
+        '!exception' => $e->getMessage(),
+      ]);
+    }
   }
 
   /**
@@ -40,12 +51,23 @@ final class VarbaseCoreCommands extends DrushCommands {
   #[CLI\Command(name: 'varbase:entity-update', aliases: ['edupdb'])]
   #[CLI\Usage(name: 'varbase:entity-update', description: 'Entity updates to clear up any mismatched entity and/or field definitions. Fix changes were detected in the entity type and field definitions.')]
   public function applyUpdatesWithEntityDefinitionUpdateManager() {
+    try {
+      // Entity updates to clear up any mismatched entity and/or field definitions
+      // And Fix changes were detected in the entity type and field definitions.
+      $outoutMessage = \Drupal::classResolver()->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)->applyUpdates();
 
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    $this->logger->info(\Drupal::classResolver()->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)->applyUpdates());
+      if (isset($outoutMessage) && is_string($outoutMessage)) {
+        $this->logger->info($outoutMessage);
+      }
 
-    $this->logger()->success(dt('Applied Entity updates for mismatched entity and/or field definitions'));
+      $this->logger()->success(dt('Applied Entity updates for mismatched entity and/or field definitions'));
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('Varbase')->critical('Error while drush varbase:entity-update. !code !exception', [
+        '!code' => $e->getCode(),
+        '!exception' => $e->getMessage(),
+      ]);
+    }
   }
 
 }
