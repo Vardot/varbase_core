@@ -1,0 +1,5 @@
+services:
+  varbase_core.commands:
+    class: Drupal\varbase_core\Drush\Commands\VarbaseCoreCommands
+    tags:
+      - { name: drush.command }
