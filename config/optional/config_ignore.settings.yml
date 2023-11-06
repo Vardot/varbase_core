@@ -1,4 +1,6 @@
+mode: simple
 ignored_config_entities:
-  - "webform.webform.*"
-  - "xmlsitemap.xmlsitemap.*"
-  - "varbase_core.general_settings.*"
+  - 'image.style.drimage_*'
+  - 'varbase_core.general_settings.*'
+  - 'webform.webform.*'
+  - 'xmlsitemap.xmlsitemap.*'
