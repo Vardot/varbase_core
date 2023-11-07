@@ -1,5 +1,5 @@
 varbase_core.settings:
-  type: mapping
+  type: config_object
   mapping:
     welcome_status:
       type: boolean
