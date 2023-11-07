@@ -623,6 +623,26 @@ function varbase_core_update_90009() {
 }
 
 /**
+ * Issue #3399834: Add Allow custom account name to Varbase general settings.
+ *
+ * To work with Email Registration ~2.0.0
+ */
+function varbase_core_update_90010() {
+  if (\Drupal::moduleHandler()->moduleExists('email_registration')) {
+
+    $config_factory = \Drupal::configFactory()->getEditable('varbase_core.general_settings');
+
+    $allow_custom_account_name = $config_factory->get('allow_custom_account_name');
+
+    if (!isset($allow_custom_account_name)) {
+      $config_factory->set('allow_custom_account_name', 1);
+    }
+
+    $config_factory->save(TRUE);
+  }
+}
+
+/**
  * Issue #3399650: Add Config ignore for Import/Export for Dynamic Responsive Image (drimage).
  *
  * Generated image styles.
