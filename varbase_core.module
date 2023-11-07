@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\user\UserInterface;
 
 // To have all varbase core general and global tokens.
 \Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
@@ -93,6 +94,25 @@ function varbase_core_modules_installed($modules, $is_syncing) {
     // When the Editoria11y Accessibility Checker module is enabled, which not enabled by default.
     // Add permissions for default user roles.
     ModuleInstallerFactory::addPermissions('varbase_core', 'config/managed/editoria11y/permissions');
+  }
+}
+
+/**
+ * Implements hook_email_registration_name_alter().
+ */
+function varbase_core_email_registration_name_alter(string &$accountName, UserInterface $account) {
+
+  $varbase_general_settings = \Drupal::service('config.factory')->getEditable('varbase_core.general_settings');
+  $allow_custom_account_name = $varbase_general_settings->get('allow_custom_account_name');
+
+  if (!isset($allow_custom_account_name)) {
+    $allow_custom_account_name = TRUE;
+  }
+
+  $custom_account_name = $account->getAccountName();
+
+  if ($allow_custom_account_name && $custom_account_name != '') {
+    $accountName = email_registration_unique_username($custom_account_name, (int) $account->id());
   }
 
 }
