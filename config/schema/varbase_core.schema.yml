@@ -1,0 +1,9 @@
+varbase_core.general_settings:
+  type: config_object
+  mapping:
+    welcome_status:
+      type: boolean
+      label: 'Allow site to show welcome message'
+    allow_custom_account_name:
+      type: boolean
+      label: 'Allow custom account name'
