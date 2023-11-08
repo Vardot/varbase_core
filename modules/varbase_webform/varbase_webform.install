@@ -32,31 +32,5 @@ function varbase_webform_install() {
 
 }
 
-/**
- * Enable [Webform Analysis] module.
- */
-function varbase_webform_update_8601() {
-  // If (!\Drupal::moduleHandler()->moduleExists('webform_analysis')) {
-  // \Drupal::service('module_installer')->install(['webform_analysis'], TRUE);
-  // }.
-}
-
-/**
- * Enable [Webform Views Integration] module.
- */
-function varbase_webform_update_8602() {
-  if (!\Drupal::moduleHandler()->moduleExists('webform_views')) {
-    \Drupal::service('module_installer')->install(['webform_views'], TRUE);
-  }
-}
-
-/**
- * Issue #3270834: Switch to use the Module Installer Factory.
- *
- * In the Varbase Webform module.
- */
-function varbase_webform_update_90001() {
-  // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workers after all used modules.
-  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_webform');
-}
+// Load include all updates and apply them.
+\Drupal::moduleHandler()->loadInclude('varbase_webform', 'inc', 'include/updates/all');
