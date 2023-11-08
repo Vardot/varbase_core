@@ -6,4 +6,3 @@
  */
 
 \Drupal::moduleHandler()->loadInclude('varbase_tour', 'inc', 'include/updates/v9');
-\Drupal::moduleHandler()->loadInclude('varbase_tour', 'inc', 'include/updates/v10');
