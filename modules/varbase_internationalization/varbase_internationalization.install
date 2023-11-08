@@ -13,8 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_internationalization_install() {
 
-  // Processor for install: in varbase_internationalization.info.yml file using ModuleInstallerFactory.
-
+  // Processor for install: in varbase_internationalization.info.yml file.
   ModuleInstallerFactory::installList('varbase_internationalization');
 
   // ---------------------------------------------------------------------------
@@ -29,26 +28,5 @@ function varbase_internationalization_install() {
 
 }
 
-/**
- * Issue #3032661: Changed [Varbase Internationalization] not to use.
- *
- * The [Localization client] module by disabling it for old sites and not to
- * install it in new Varbase installations.
- */
-function varbase_internationalization_update_86001() {
-
-  if (\Drupal::moduleHandler()->moduleExists('l10n_client_ui')) {
-    \Drupal::service('module_installer')->uninstall(['l10n_client_ui'], FALSE);
-  }
-}
-
-/**
- * Issue #3270834: Switch to use the Module Installer Factory.
- *
- * In the Varbase Internationalization module.
- */
-function varbase_internationalization_update_90001() {
-  // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workers after all used modules.
-  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_internationalization');
-}
+// Load include all updates and apply them.
+\Drupal::moduleHandler()->loadInclude('varbase_internationalization', 'inc', 'include/updates/all');

@@ -91,7 +91,8 @@ function varbase_core_modules_installed($modules, $is_syncing) {
   }
 
   if (in_array('editoria11y', $modules)) {
-    // When the Editoria11y Accessibility Checker module is enabled, which not enabled by default.
+    // When the Editoria11y Accessibility Checker module is enabled,
+    // which not enabled by default.
     // Add permissions for default user roles.
     ModuleInstallerFactory::addPermissions('varbase_core', 'config/managed/editoria11y/permissions');
   }

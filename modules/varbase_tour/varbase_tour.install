@@ -13,7 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_tour_install() {
 
-  // Processor for install: in varbase_tour.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_tour.info.yml file.
   ModuleInstallerFactory::installList('varbase_tour');
 
   // Install optional configs.
@@ -29,3 +29,6 @@ function varbase_tour_install() {
   ModuleInstallerFactory::addPermissions('varbase_tour');
 
 }
+
+// Load include all updates and apply them.
+\Drupal::moduleHandler()->loadInclude('varbase_tour', 'inc', 'include/updates/all');
