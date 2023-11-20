@@ -161,7 +161,9 @@
         "Issue #3080606: Reorder Layout Builder sections":
         "https://www.drupal.org/files/issues/2023-05-30/3080606-100.patch",
         "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
-        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch"
+        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch",
+        "Issue #3348789: Compress ajax_page_state":
+        "https://www.drupal.org/files/issues/2023-11-16/3348789-core-compress-ajax.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
