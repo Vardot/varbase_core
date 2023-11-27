@@ -95,6 +95,12 @@ function varbase_core_modules_installed($modules, $is_syncing) {
     // which not enabled by default.
     // Add permissions for default user roles.
     ModuleInstallerFactory::addPermissions('varbase_core', 'config/managed/editoria11y/permissions');
+    // Import the default configuration recipe for Editoria11y Settings as a managed config.
+    $editoria11y_managed_configs = [
+      'editoria11y.settings',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $editoria11y_managed_configs, 'config/managed/editoria11y/recipes');
+
   }
 }
 
