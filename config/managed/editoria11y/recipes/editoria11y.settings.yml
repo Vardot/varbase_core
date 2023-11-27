@@ -1,0 +1,13 @@
+content_root: ''
+assertiveness: smart
+no_load: '.layout-builder-form, #layout-builder, #drupal-off-canvas, #layout-builder-modal'
+ignore_all_if_absent: ''
+ignore_elements: ''
+embedded_content_warning: ''
+download_links: "a[href$='.pdf'], a[href*='.pdf?'], a[href$='.doc'], a[href$='.docx'], a[href*='.doc?'], a[href*='.docx?'], a[href$='.ppt'], a[href$='.pptx'], a[href*='.ppt?'], a[href*='.pptx?'], a[href^='https://docs.google']"
+ignore_link_strings: '\(link is external\)|\(link sends email\)|\(download\)'
+hidden_handlers: ''
+ed11y_theme: sleekTheme
+shadow_components: ''
+disable_sync: false
+preserve_params: 'search,keys,page,language,language_content_entity'
