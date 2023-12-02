@@ -1,8 +1,8 @@
-name: "Varbase Internationalization"
-description: "Varbase internationalization, languages, and translation support."
+name: Varbase Internationalization
+description: Varbase internationalization, languages, and translation support.
 type: module
 package: Varbase
-core_version_requirement: ~9.5.0
+core_version_requirement: ~9
 dependencies: []
 install:
   - language
