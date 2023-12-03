@@ -57,7 +57,7 @@ function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInte
     && isset($form['display']['display_submitted'])
     && isset($form['display']['display_submitted']['#default_value'])) {
 
-    // Uncheck the default display submitted auther option.
+    // Uncheck the default display submitted author option.
     $form['display']['display_submitted']['#default_value'] = 0;
   }
 

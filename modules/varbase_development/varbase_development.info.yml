@@ -1,8 +1,8 @@
-name: "Varbase Development"
-description: "Development Environment Modules and Features, make sure to disable this feature in production."
+name: Varbase Development
+description: Development Environment Modules and Features, make sure to disable this feature in production.
 type: module
 package: Varbase
-core_version_requirement: ~10.1.0
+core_version_requirement: ~10
 dependencies: []
 install:
   - dblog

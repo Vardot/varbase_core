@@ -11,7 +11,7 @@ use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\user\UserInterface;
 
 // To have all varbase core general and global tokens.
-\Drupal::moduleHandler()->loadInclude('varbase_core', 'inc', 'varbase_core.tokens');
+include_once __DIR__ . '/varbase_core.tokens.inc';
 
 /**
  * Implements hook_FORM_ID_form_alter().
