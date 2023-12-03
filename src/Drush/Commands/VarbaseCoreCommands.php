@@ -45,7 +45,8 @@ final class VarbaseCoreCommands extends DrushCommands {
   }
 
   /**
-   * Entity updates to clear up any mismatched entity and/or field definitions
+   * Entity updates to clear up any mismatched entity and/or field definitions.
+   *
    * Fix changes were detected in the entity type and field definitions.
    */
   #[CLI\Command(name: 'varbase:entity-update', aliases: ['edupdb'])]

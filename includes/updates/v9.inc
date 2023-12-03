@@ -77,7 +77,8 @@ function varbase_core_update_9004() {
  */
 function varbase_core_update_90005() {
   // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workers after all used modules.
+  // To make sure that any hook or event subscriber worker
+  // after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_core');
 }
 

@@ -7,7 +7,6 @@
 
 use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
-use Drupal\shortcut\Entity\Shortcut;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\user\UserInterface;
@@ -34,45 +33,7 @@ function varbase_admin_install() {
   \Drupal::configFactory()->getEditable('user.settings')->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
 
   // Populate the default shortcut set.
-  $shortcut = Shortcut::create([
-    'shortcut_set' => 'default',
-    'title' => t('Add content'),
-    'weight' => 0,
-    'link' => ['uri' => 'internal:/node/add'],
-  ]);
-  $shortcut->save();
-
-  $shortcut = Shortcut::create([
-    'shortcut_set' => 'default',
-    'title' => t('All content'),
-    'weight' => 1,
-    'link' => ['uri' => 'internal:/admin/content'],
-  ]);
-  $shortcut->save();
-
-  $shortcut = Shortcut::create([
-    'shortcut_set' => 'default',
-    'title' => t('All media'),
-    'weight' => 2,
-    'link' => ['uri' => 'internal:/admin/content/media'],
-  ]);
-  $shortcut->save();
-
-  $shortcut = Shortcut::create([
-    'shortcut_set' => 'default',
-    'title' => t('Taxonomy'),
-    'weight' => 3,
-    'link' => ['uri' => 'internal:/admin/structure/taxonomy'],
-  ]);
-  $shortcut->save();
-
-  $shortcut = Shortcut::create([
-    'shortcut_set' => 'default',
-    'title' => t('Permissions'),
-    'weight' => 4,
-    'link' => ['uri' => 'internal:/admin/people/permissions'],
-  ]);
-  $shortcut->save();
+  varbase_admin__add_default_shortcuts();
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
@@ -94,6 +55,3 @@ function varbase_admin_install() {
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_admin');
 }
-
-// Load include all updates and apply them.
-\Drupal::moduleHandler()->loadInclude('varbase_admin', 'inc', 'include/updates/all');
