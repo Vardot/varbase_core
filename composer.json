@@ -44,7 +44,7 @@
     "drupal/panels": "~4",
     "drupal/bootstrap_layouts": "~5",
     "drupal/layout_builder_restrictions": "~2",
-    "drupal/ds": "~3 || ~4",
+    "drupal/ds": "3.15.0",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~2",
@@ -210,6 +210,10 @@
       "drupal/ultimate_cron": {
         "Issue #3331284: Fix PHP 8.2 deprecation issue with CronRule-class":
         "https://www.drupal.org/files/issues/2023-10-24/ultimate_cron-3331284-m27.diff"
+      },
+      "drupal/ds": {
+        "Issue #3373675: Fix PHP 8.2 Deprecated function: Creation of dynamic property":
+        "https://www.drupal.org/files/issues/2023-12-13/ds-8-x-3-x--3373675-15.patch"
       }
     }
   }
