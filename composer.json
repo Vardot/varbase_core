@@ -153,8 +153,16 @@
         "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
         "Issue #3226791: Fix Validation error saving untranslatable Media reference field":
         "https://www.drupal.org/files/issues/2021-08-04/media_required_validation-3226791-2.patch",
-        "Issue #3272720: Fix PHP8.1 Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
+        "Issue #3272720: Fix PHP8.1+ Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
         "https://www.drupal.org/files/issues/2022-07-21/3272720-6.patch",
+        "Issue #3326684: Fix PHP8.1+ Deprecated function: mb_strtolower(): Passing null to parameter #1 ($string) of type string is deprecated":
+        "https://www.drupal.org/files/issues/2023-11-21/3199.patch",
+        "Issue #3302838: Fix PHP8.1+ Querying with NULL values results in warning mb_strtolower(): Passing null to parameter is deprecated":
+        "https://www.drupal.org/files/issues/2023-07-05/3302838-38.patch",
+        "Issue #3049332: Fix PHP message: Error: Call to a member function getEntityTypeId() on null (Layout Builder)":
+        "https://www.drupal.org/files/issues/2023-06-12/3049332-82.diff",
+        "":
+        "",
         "Issue #3046152: Video media needs playsinline & muted options":
         "https://www.drupal.org/files/issues/2022-04-11/3046152-28.patch",
         "Issue #3080606: Reorder Layout Builder sections":
