@@ -167,7 +167,9 @@
         "Issue #3080606: Reorder Layout Builder sections":
         "https://www.drupal.org/files/issues/2023-05-30/3080606-100.patch",
         "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
-        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch"
+        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch",
+        "Issue #3412378: Fix vertical tabs and media library styling issues within Dialog and Media Library Modal by Claro after the Drupal 10.2.0 Release":
+        "https://www.drupal.org/files/issues/2024-01-04/drupal-10-2-0--2023-12-26--3404866-34--mr-5583--dab99638.patch"
       },
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
