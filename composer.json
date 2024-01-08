@@ -51,7 +51,7 @@
     "drupal/menu_block": "~1",
     "drupal/views_infinite_scroll": "~2",
     "drupal/entity": "~1",
-    "drupal/entity_clone": "~2",
+    "drupal/entity_clone": "2.0.0-beta4",
     "drupal/entity_usage": "~2",
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~2",
@@ -219,6 +219,10 @@
       "drupal/ds": {
         "Issue #3373675: Fix PHP 8.2 Deprecated function: Creation of dynamic property":
         "https://www.drupal.org/files/issues/2023-12-13/ds-8-x-3-x--3373675-15.patch"
+      },
+      "drupal/entity_clone": {
+        "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
+        "https://www.drupal.org/files/issues/2023-10-17/3388460-7.patch"
       }
     }
   }
