@@ -225,7 +225,7 @@
         "Issue #3387318: [PHP8.1] Deprecated function: str_replace(): Passing null to parameter #3 ($subject) of type array|string":
         "https://git.drupalcode.org/project/ds/-/commit/47c1a6eafab0e5549b39313b04e75cde3f03d802.patch",
         "Issue #3402783: Preview new node with Link to content":
-        "https://git.drupalcode.org/project/ds/-/commit/12d6d71643c21576d354b00f449e3ef431c3a87f.patch"
+        "https://www.drupal.org/files/issues/2023-11-20/preview-new-node-3402783-2.patch"
       },
       "drupal/entity_clone": {
         "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
