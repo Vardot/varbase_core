@@ -42,7 +42,7 @@
     "drupal/token_filter": "~2",
     "drupal/bootstrap_layouts": "~5",
     "drupal/layout_builder_restrictions": "~2",
-    "drupal/ds": "~3",
+    "drupal/ds": "3.16.0",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~2",
@@ -217,6 +217,14 @@
       "drupal/ultimate_cron": {
         "Issue #3331284: Fix PHP 8.2 deprecation issue with CronRule-class":
         "https://www.drupal.org/files/issues/2023-10-24/ultimate_cron-3331284-m27.diff"
+      },
+      "drupal/ds": {
+        "Issue #3373675: Fix PHP 8.2 Deprecated function: Creation of dynamic property":
+        "https://www.drupal.org/files/issues/2023-12-13/ds-8-x-3-x--3373675-15.patch",
+        "Issue #3387318: [PHP8.1] Deprecated function: str_replace(): Passing null to parameter #3 ($subject) of type array|string":
+        "https://git.drupalcode.org/project/ds/-/commit/47c1a6eafab0e5549b39313b04e75cde3f03d802.patch",
+        "Issue #3402783: Preview new node with Link to content":
+        "https://git.drupalcode.org/project/ds/-/commit/12d6d71643c21576d354b00f449e3ef431c3a87f.patch"
       },
       "drupal/entity_clone": {
         "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
