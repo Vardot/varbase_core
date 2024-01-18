@@ -74,7 +74,7 @@
     "drupal/tour_ui": "~2",
     "drupal/coffee": "~1",
     "drupal/responsive_preview": "~2",
-    "drupal/views_bulk_operations": "~4",
+    "drupal/views_bulk_operations": "4.2.6",
     "drupal/views_bulk_edit": "~2",
     "drupal/revision_log_default": "~1",
     "drupal/webform": "~6.2.0",
@@ -226,6 +226,10 @@
       "drupal/entity_clone": {
         "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
         "https://www.drupal.org/files/issues/2023-10-17/3388460-7.patch"
+      },
+      "drupal/views_bulk_operations": {
+        "Issue #3334229: Update existing node entity while changing the ID is not supported when using delete action":
+        "https://www.drupal.org/files/issues/2023-10-24/entity-delete-translation-3334229-7.patch"
       }
     }
   }
