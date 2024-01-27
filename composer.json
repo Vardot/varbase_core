@@ -65,7 +65,7 @@
     "drupal/userprotect": "~1",
     "drupal/admin_audit_trail": "~1",
     "drupal/login_destination": "~2",
-    "vardot/betterlogin": "~2",
+    "drupal/betterlogin": "~2",
     "drupal/email_registration": "~2",
     "drupal/config_perms": "~2",
     "drupal/roleassign": "~2",
