@@ -286,17 +286,17 @@ default:
               padding_left:
                 class: _none
               padding_top:
-                class: _none
+                class: pt-5
               padding_right:
                 class: _none
               padding_bottom:
-                class: _none
+                class: pb-5
               margin:
                 class: _none
               margin_left:
                 class: _none
               margin_top:
-                class: mt-4
+                class: mt-5
               margin_right:
                 class: _none
               margin_bottom:
