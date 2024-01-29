@@ -583,7 +583,7 @@ default:
             region: blb_region_col_1
             configuration:
               id: "block_content:b137b5b9-7a08-4f18-9ce9-66a6a3a06954"
-              label: "Welcome to Varbase"
+              label: "Build Your Site Using Varbase!"
               provider: block_content
               label_display: visible
               status: true
