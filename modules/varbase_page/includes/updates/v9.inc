@@ -51,7 +51,7 @@ function varbase_page_update_90002() {
 /**
  * Issue #3419075: Fix fatal error when editing settings for Rabbit Hole.
  *
- * Configurations over entity types. 
+ * Configurations over entity types.
  */
 function varbase_page_update_90003() {
   $varbase_page_config = [
