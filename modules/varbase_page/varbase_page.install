@@ -23,6 +23,12 @@ function varbase_page_install() {
   // Install optional configs.
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_page', '/^.*(settings.yml)$/i');
 
+  $varbase_page_config = [
+    'rabbit_hole.behavior_settings.node_type_page',
+  ];
+
+  ModuleInstallerFactory::importConfigsFromList('varbase_page', $varbase_page_config, 'config/optional');
+
   // ---------------------------------------------------------------------------
   // Entity updates to clear up any mismatched entity and/or field definitions
   // And Fix changes were detected in the entity type and field definitions.
