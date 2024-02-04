@@ -24,7 +24,7 @@ function varbase_page_install() {
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_page', '/^.*(settings.yml)$/i');
 
   $varbase_page_config = [
-    'rabbit_hole.behavior_settings.node_type_page',
+    'rabbit_hole.behavior_settings.node.page',
   ];
 
   ModuleInstallerFactory::importConfigsFromList('varbase_page', $varbase_page_config, 'config/optional');
