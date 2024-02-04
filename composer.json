@@ -60,7 +60,7 @@
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~2",
     "drupal/inline_entity_form": "1.0-rc17",
-    "drupal/ultimate_cron": "2.0-alpha6",
+    "drupal/ultimate_cron": "~2",
     "drupal/persistent_login": "2.1.1",
     "drupal/userprotect": "~1",
     "drupal/admin_audit_trail": "~1",
@@ -210,10 +210,6 @@
       "drupal/webform_views": {
         "Issue #3386492: Fix Fatal error on Drupal 9/10 : ArgumentCountError: Too few arguments to function EntityViewsData::__construct(), 6 passed":
         "https://www.drupal.org/files/issues/2023-09-11/3386492-2.patch"
-      },
-      "drupal/ultimate_cron": {
-        "Issue #3331284: Fix PHP 8.2 deprecation issue with CronRule-class":
-        "https://www.drupal.org/files/issues/2023-10-24/ultimate_cron-3331284-m27.diff"
       },
       "drupal/ds": {
         "Issue #3415545: Limit DS block Field Entity Context to Entity types which only has View Builder Class":
