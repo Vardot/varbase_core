@@ -82,7 +82,7 @@
     "drupal/default_content": "2.0.x-dev",
     "drupal/content_lock": "2.3.0",
     "drupal/node_edit_protection": "~1",
-    "drupal/rabbit_hole": "~1 || ~2",
+    "drupal/rabbit_hole": "2.0.0-alpha5",
     "drupal/yoast_seo": "~1",
     "drupal/fast_404": "~3",
     "drupal/diff": "1.1.0",
@@ -226,6 +226,10 @@
       "drupal/views_bulk_operations": {
         "Issue #3334229: Update existing node entity while changing the ID is not supported when using delete action":
         "https://www.drupal.org/files/issues/2023-10-24/entity-delete-translation-3334229-7.patch"
+      },
+      "drupal/rabbit_hole": {
+        "Issue #3419073: Fix Return value must be of type bool fatal error":
+        "https://www.drupal.org/files/issues/2024-02-04/rabbit_hole--2024-02-04--3419073-3.patch"
       }
     }
   }
