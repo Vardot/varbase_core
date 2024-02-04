@@ -5,6 +5,8 @@
  * Contains varbase_page_update_10###(s) hook updates.
  */
 
+use Vardot\Installer\ModuleInstallerFactory;
+
 /**
  * Issue #3419075: Fix fatal error when editing settings for Rabbit Hole.
  *
