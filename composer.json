@@ -42,7 +42,7 @@
     "drupal/token_filter": "~2",
     "drupal/bootstrap_layouts": "~5",
     "drupal/layout_builder_restrictions": "~2",
-    "drupal/ds": "3.18.0",
+    "drupal/ds": "~3.0",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~2",
@@ -209,10 +209,6 @@
       "drupal/webform_views": {
         "Issue #3386492: Fix Fatal error on Drupal 9/10 : ArgumentCountError: Too few arguments to function EntityViewsData::__construct(), 6 passed":
         "https://www.drupal.org/files/issues/2023-09-11/3386492-2.patch"
-      },
-      "drupal/ds": {
-        "Issue #3415545: Limit DS block Field Entity Context to Entity types which only has View Builder Class":
-        "https://www.drupal.org/files/issues/2024-01-18/ds-2024-01-18--3415545-3.patch"
       },
       "drupal/entity_clone": {
         "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
