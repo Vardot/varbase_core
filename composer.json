@@ -139,7 +139,7 @@
     },
     "patches": {
       "drupal/core": {
-        "Issue #3426062: Add the local patch from Drupal Distributions Recipes patch for Drupal core in Varbase Core to have Recipes functionality applied to Drupal core from the Distributions and Recipes project": 
+        "Issue #3426062: Add the local patch from Drupal Distributions Recipes patch for Drupal core in Varbase Core to have Recipes functionality": 
         "https://git.drupalcode.org/project/distributions_recipes/-/raw/patch/recipe-10.2.x.patch",
         "Issue #2869592: Disabled update module shouldn't produce a status report warning":
         "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
