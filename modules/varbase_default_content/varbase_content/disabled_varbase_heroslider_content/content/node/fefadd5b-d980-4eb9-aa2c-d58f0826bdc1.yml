@@ -286,7 +286,7 @@ default:
               padding_left:
                 class: _none
               padding_top:
-                class: _none
+                class: pt-5
               padding_right:
                 class: _none
               padding_bottom:
