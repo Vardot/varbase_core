@@ -497,7 +497,7 @@ default:
               padding_left:
                 class: _none
               padding_top:
-                class: pt-5
+                class: _none
               padding_right:
                 class: _none
               padding_bottom:
@@ -507,7 +507,7 @@ default:
               margin_left:
                 class: _none
               margin_top:
-                class: mt-5
+                class: _none
               margin_right:
                 class: _none
               margin_bottom:
