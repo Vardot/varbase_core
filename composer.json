@@ -30,7 +30,7 @@
     "composer/installers": "~2",
     "oomphinc/composer-installers-extender": "~2",
     "cweagans/composer-patches": "~1",
-    "drupal/core": "~10",
+    "drupal/core": "~10.2.0",
     "vardot/entity-definition-update-manager": "~1",
     "vardot/module-installer-factory": "~1",
     "drupal/config_update": "~2",
