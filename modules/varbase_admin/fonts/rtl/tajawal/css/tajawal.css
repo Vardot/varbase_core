@@ -1,0 +1,14 @@
+/*
+ * Tajawal Regular TrueType Font https://fonts.google.com/specimen/Tajawal
+ */
+@font-face {
+  font-family: 'Tajawal';
+  src: url('../webfonts/tajawal-regular-webfont.eot');
+  src: url('../webfonts/tajawal-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../webfonts/tajawal-regular-webfont.woff2') format('woff2'),
+       url('../webfonts/tajawal-regular-webfont.woff') format('woff'),
+       url('../webfonts/tajawal-regular-webfont.ttf') format('truetype'),
+       url('../webfonts/tajawal-regular-webfont.svg#tajawalregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

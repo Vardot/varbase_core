@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageInterface;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -57,7 +58,15 @@ function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInte
  * Implements hook_library_info_alter().
  */
 function varbase_admin_library_info_alter(&$libraries, $extension) {
-  if ($extension === 'moderation_sidebar' && isset($libraries['main'])) {
-    $libraries['main']['dependencies'][] = 'vartheme_claro/toolbar-secondary-moderation-sidebar';
+
+  if ($extension === 'gin' && isset($libraries['gin'])) {
+
+    // Add the global Varbase Admin styling.
+    $libraries['main']['dependencies'][] = 'varbase_admin/admin';
+
+    // Add the global Varbase Admin right to left (RTL) styling.
+    if (\Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getDirection() === 'rtl') {
+      $libraries['main']['dependencies'][] = 'varbase_admin/admin-rtl';
+    }
   }
 }

@@ -1,0 +1,176 @@
+input[type="text"] {
+  max-width: 100%;
+}
+
+.views-exposed-form__item {
+
+  [id*="edit-created-from"],
+  [id*="edit-created-to"],
+  [id*="edit-user-created-from"],
+  [id*="edit-user-created-to"],
+  [id*="edit-content-created-from"],
+  [id*="edit-content-created-to"] {
+    width: 9rem;
+  }
+
+  [id*="edit-langcode"],
+  [id*="edit-uid"] {
+    width: 12rem;
+  }
+
+  .ui-autocomplete-input {
+    padding-right: 32px;
+  }
+
+}
+
+.gin--edit-form {
+  .field--name-title {
+    .form-element {
+      font-size: 1.6em;
+      width: 100%;
+    }
+
+    input {
+      min-height: 4rem;
+    }
+  }
+}
+
+.node-form {
+  .field--name-title {
+    .length-indicator {
+      margin-top: -1rem;
+    }
+  }
+}
+
+.media-library-widget {
+  .fieldset-wrapper {
+    padding: var(--gin-spacing-density-s);
+  }
+}
+
+body.path-admin .panel.dashboard-block {
+  display: block;
+  margin-top: var(--gin-spacing-m);
+  margin-bottom: var(--gin-spacing-m);
+  border: var(--gin-border-xxs) solid var(--gin-border-color-layer2);
+  background-color: var(--gin-bg-layer3);
+  box-shadow: var(--gin-shadow-l1);
+
+  p {
+    padding: var(--gin-spacing-m);
+  }
+}
+
+.node-form {
+  div.autocomplete-deluxe-container {
+    width: 65%;
+
+    @media screen and (max-width: 81.25rem){
+      width: 100%;
+    }
+
+    &:not(.autocomplete-deluxe-multiple) {
+      input {
+        &.autocomplete-deluxe-form {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .field--type-yoast-seo {
+    input {
+      width: 66%;
+
+      @media screen and (max-width: 81.25rem){
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Style Focal point of Focal point "Preview" link cover image for a Video.
+.focal-point-preview-link {
+  padding: var(--gin-spacing-l);
+  text-decoration: none;
+}
+
+.media-library-item {
+  .media-library-item__preview {
+    padding-bottom: 0 !important;
+  }
+} 
+
+.media-library-item--grid {
+  .field--name-thumbnail img {
+    width: 100% !important;
+  }
+}
+
+aside#admin-toolbar {
+  .admin-toolbar__logo {
+    border-radius: 0;
+    margin: 1rem;
+  }
+}
+
+.views-exposed-form.views-exposed-form {
+  fieldset[data-drupal-selector$="-from-wrapper"],
+  fieldset[data-drupal-selector$="-to-wrapper"] {
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 0.9rem 0 0 0 !important;
+
+    > .fieldset__legend > .fieldset__label {
+      padding: 0;
+      margin-bottom: var(--gin-spacing-xxs);
+    }
+
+    legend {
+      margin-bottom: var(--gin-spacing-xs);
+    }
+
+    input {
+      height: 1rem !important;
+      margin-top: var(--gin-spacing-xxs) !important;
+    }
+
+  }
+}
+
+[dir="ltr"] .views-exposed-form.views-exposed-form {
+  fieldset[data-drupal-selector$="-from-wrapper"],
+  fieldset[data-drupal-selector$="-to-wrapper"] {
+
+    .fieldset__wrapper {
+      margin-left: 0 !important;
+    }
+
+    .form-item {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+[dir="rtl"] .views-exposed-form.views-exposed-form {
+  fieldset[data-drupal-selector$="-from-wrapper"],
+  fieldset[data-drupal-selector$="-to-wrapper"] {
+
+    .fieldset__wrapper {
+      margin-right: 0 !important;
+    }
+
+    .form-item {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.views-exposed-form__item {
+  input[data-drupal-selector*="edit-uid"] {
+    width: 18rem;
+  }
+}

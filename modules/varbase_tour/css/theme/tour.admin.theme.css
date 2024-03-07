@@ -1,5 +1,4 @@
-.joyride-tip-guide h1,
-.joyride-tip-guide .heading-a {
+.joyride-tip-guide h1,.joyride-tip-guide .heading-a {
   font-weight: 300;
   margin-bottom: 1rem;
   font-size: 2.35em;
@@ -32,26 +31,23 @@
   border-right: 1px solid #e6e4df;
 }
 
-.joyride-tip-guide th.is-active > a,
-.joyride-tip-guide th.is-active > a:hover {
+.joyride-tip-guide th.is-active>a,.joyride-tip-guide th.is-active>a:hover {
   color: #333;
 }
 
-.joyride-tip-guide th > a:hover {
+.joyride-tip-guide th>a:hover {
   text-decoration: underline;
 }
 
-.joyride-tip-guide th > a:after,
-.joyride-tip-guide th.is-active > a:after {
+.joyride-tip-guide th>a:after,.joyride-tip-guide th.is-active>a:after {
   display: none;
 }
 
-.joyride-tip-guide thead > tr {
+.joyride-tip-guide thead>tr {
   border-bottom: 1px solid #e6e4df;
 }
 
-.joyride-tip-guide .is-collapse-enabled .tabs:before,
-.joyride-tip-guide .is-horizontal .tabs:before {
+.joyride-tip-guide .is-collapse-enabled .tabs:before,.joyride-tip-guide .is-horizontal .tabs:before {
   display: none;
 }
 
@@ -63,8 +59,7 @@
   transition: all, .2s;
 }
 
-.joyride-tip-guide .button:hover,
- .joyride-tip-guide .button:focus {
+.joyride-tip-guide .button:hover,.joyride-tip-guide .button:focus {
   background-color: #fff;
   border-color: #008ee6;
   background-image: none;
@@ -72,8 +67,8 @@
 
 .joyride-tip-guide .button:focus {
   box-shadow: none;
-  border-color: rgb(104, 163, 207);
-  outline: rgb(193, 224, 255) solid 2px;
+  border-color: #68a3cf;
+  outline: #c1e0ff solid 2px;
 }
 
 .joyride-tip-guide .button-action:before {
@@ -95,8 +90,7 @@
   font-weight: 600;
 }
 
-.joyride-tip-guide .action-links .button--primary:hover,
-.joyride-tip-guide .action-links .button--primary:focus {
+.joyride-tip-guide .action-links .button--primary:hover,.joyride-tip-guide .action-links .button--primary:focus {
   color: #fff;
   box-shadow: none;
   background-image: none;
@@ -113,8 +107,7 @@
   border-color: #0071b8;
 }
 
-.joyride-tip-guide .button--primary:hover,
- .joyride-tip-guide .button--primary:focus {
+.joyride-tip-guide .button--primary:hover,.joyride-tip-guide .button--primary:focus {
   background-image: none;
   background-color: #1f86c7;
   border-color: #1f86c7;
@@ -134,7 +127,7 @@
 
 .joyride-tip-guide .button--danger {
   text-decoration: none;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .joyride-tip-guide .button--danger:hover {
@@ -159,8 +152,7 @@
   border-radius: 0;
 }
 
-.joyride-tip-guide .ui-dialog .ui-dialog-titlebar,
-.joyride-tip-guide .ui-dialog {
+.joyride-tip-guide .ui-dialog .ui-dialog-titlebar,.joyride-tip-guide .ui-dialog {
   outline: none;
 }
 
@@ -168,11 +160,10 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 }
 
-.joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-state-active,
-.joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-widget-content .ui-state-active {
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
+.joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-state-active,.joyride-tip-guide .ui-button-icon-only.ui-dialog-titlebar-close.ui-widget-content .ui-state-active {
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
 }
 
 .joyride-tip-guide .ui-dialog .ui-dialog-titlebar-close {
@@ -188,7 +179,7 @@
   margin: 1rem 0 1rem 0;
   border-width: 1px 0px 1px 0;
   border-radius: 0;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   box-shadow: none;
   background-size: 1.3rem;
   background-position: 5px 50%;
@@ -205,3 +196,4 @@
 .joyride-tip-guide .messages--status {
   border-color: #73b355;
 }
+

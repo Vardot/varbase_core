@@ -1,0 +1,31 @@
+[dir=rtl]:root {
+  --gin-font: "Tajawal", sans-serif;
+  --gin-font-size-xxs: .75rem;
+  --gin-font-size-xs: small;
+  --gin-font-size-s: .875rem;
+  --gin-font-size: 1rem;
+  --gin-font-size-m: var(--gin-font-size);
+  --gin-font-size-l: 1.125rem;
+  --gin-font-size-xl: 1.25rem;
+  --gin-font-size-h3: 1.5rem;
+  --gin-font-size-h2: 1.75rem;
+  --gin-font-size-h1: 1.6rem;
+  --gin-font-size-quote: 1.1em;
+  --gin-font-weight-normal: 500;
+  --gin-font-weight-semibold: 626;
+  --gin-font-weight-bold: 600;
+  --gin-font-weight-heavy: 700;
+}
+
+[dir=rtl] .page-title {
+  letter-spacing: normal;
+}
+
+[dir=rtl] .gin--edit-form .field--name-title .form-element {
+  letter-spacing: normal;
+}
+
+#yoast-wrapper {
+  direction: ltr;
+}
+

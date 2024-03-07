@@ -8,8 +8,9 @@
     "node": ">= 18.0"
   },
   "scripts": {
-    "theme:build": "webpack --progress --config webpack.config.build.js",
-    "theme:watch": "webpack --progress --config webpack.config.dev.js --watch",
+    "theme:build:admin": "webpack --progress --config webpack.config.admin.js",
+    "theme:build:tour": "webpack --progress --config webpack.config.tour.js",
+    "theme:build": "yarn theme:build:admin; yarn theme:build:tour;",
     "phpcs": "phpcs --standard=./.phpcs.xml .",
     "phpcbf": "phpcbf --standard=./.phpcs.xml .",
     "lint:js": "node ./node_modules/eslint/bin/eslint.js .",

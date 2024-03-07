@@ -1,0 +1,12 @@
+# Global Varbase Admin styling.
+admin:
+  css:
+    theme:
+      css/theme/varbase-admin.theme.style.css: { }
+
+# Global Varbase Admin right to left (RTL) styling.
+admin-rtl:
+  css:
+    theme:
+      fonts/rtl/tajawal/css/tajawal.css: { }
+      css/theme/varbase-admin.theme.style-rtl.css: { }

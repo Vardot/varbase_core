@@ -62,7 +62,7 @@
     "drupal/admin_audit_trail": "~1",
     "drupal/login_destination": "~2",
     "drupal/admin_toolbar": "3.4.2",
-    "drupal/gin": "~3",
+    "drupal/gin": "3.0.0-rc9",
     "drupal/gin_login": "~2",
     "drupal/gin_toolbar": "~1",
     "drupal/gin_moderation_sidebar": "~1",
@@ -177,6 +177,12 @@
       "drupal/default_content": {
         "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
         "https://www.drupal.org/files/issues/2021-04-07/3160146-37.patch"
+      },
+      "drupal/gin": {
+        "Issue #3325263: Fix user.data ServiceNotFoundException when using Gin as distribution installer theme":
+        "https://www.drupal.org/files/issues/2023-10-22/3325263-24.patch",
+        "Issue #3398040: Fix issue with changing between responsive views and Gin Toolbar over menus":
+        "https://www.drupal.org/files/issues/2023-10-31/3398040-8.patch"
       },
       "drupal/persistent_login": {
         "Issue #2899530 by josebc: Provide a permission for users to see Persistent Logins tab in their profiles":
