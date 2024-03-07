@@ -1,0 +1,16 @@
+name: Varbase Admin - Add Taxonomy Manager
+description: A recipe to manage default configs and permission for the Taxonomy Manager module.
+type: update
+install:
+  - taxonomy_manager
+config:
+  actions:
+    user.role.site_admin:
+      grantPermissions:
+        - 'access taxonomy manager list'
+    user.role.content_admin:
+      grantPermissions:
+        - 'access taxonomy manager list'
+    user.role.editor:
+      grantPermissions:
+        - 'access taxonomy manager list'

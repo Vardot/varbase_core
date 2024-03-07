@@ -7,6 +7,8 @@
 
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 /**
  * Issue #3398817: Add Views Date Filter ~1.0.0 module.
@@ -39,5 +41,18 @@ function varbase_admin_update_100001() {
 function varbase_admin_update_100002() {
   if (!\Drupal::moduleHandler()->moduleExists('gin_everywhere')) {
     \Drupal::service('module_installer')->install(['gin_everywhere'], FALSE);
+  }
+}
+
+/**
+ * Issue #3426347: Add Taxonomy Manager ~2 module to Varbase Admin.
+ *
+ * As part of enhancing Editorial UX for taxonomy and term management.
+ */
+function varbase_admin_update_100003() {
+  if (!\Drupal::moduleHandler()->moduleExists('taxonomy_manager')) {
+    $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
+    $add_taxonomy_manager_recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/add-taxonomy-manager');
+    RecipeRunner::processRecipe($add_taxonomy_manager_recipe);
   }
 }

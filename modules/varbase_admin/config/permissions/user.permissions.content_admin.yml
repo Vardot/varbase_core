@@ -14,3 +14,4 @@ permissions:
   - 'clone user entity'
   - 'clone taxonomy_term entity'
   - 'clone taxonomy_vocabulary entity'
+  - 'access taxonomy manager list'

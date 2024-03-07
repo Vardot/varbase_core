@@ -107,6 +107,7 @@
     "drupal/length_indicator": "~1",
     "drupal/maxlength": "~2",
     "drupal/menu_position": "~1",
+    "drupal/taxonomy_manager": "~2",
     "drupal/taxonomy_access_fix": "~4",
     "drupal/better_exposed_filters": "~6",
     "drupal/date_filter": "~1.0.1",

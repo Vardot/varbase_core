@@ -6,3 +6,4 @@ permissions:
   - 'access coffee'
   - 'access responsive preview'
   - 'clone node entity'
+  - 'access taxonomy manager list'
