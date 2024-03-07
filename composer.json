@@ -66,6 +66,7 @@
     "drupal/gin_login": "~2",
     "drupal/gin_toolbar": "~1",
     "drupal/gin_moderation_sidebar": "~1",
+    "drupal/gin_everywhere": "~1",
     "drupal/email_registration": "~2",
     "drupal/config_perms": "~2",
     "drupal/roleassign": "~2",

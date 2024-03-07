@@ -30,3 +30,14 @@ function varbase_admin_update_100001() {
       ->applyUpdates();
   }
 }
+
+/**
+ * Issue #3426342: Add Gin Everywhere ~1 module to Varbase Admin.
+ *
+ * As part of enhancing Editorial UX for taxonomy and term management.
+ */
+function varbase_admin_update_100002() {
+  if (!\Drupal::moduleHandler()->moduleExists('gin_everywhere')) {
+    \Drupal::service('module_installer')->install(['gin_everywhere'], FALSE);
+  }
+}
