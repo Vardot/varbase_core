@@ -9,3 +9,7 @@ dependencies:
   - drupal:toolbar
   - config_perms:config_perms
   - userprotect:userprotect
+  - roleassign:roleassign
+  - prevent_homepage_deletion:prevent_homepage_deletion
+  - views_bulk_operations:views_bulk_operations
+  - views_bulk_edit:views_bulk_edit

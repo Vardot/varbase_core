@@ -2,8 +2,6 @@ name: Varbase Admin - Default
 description: A recipe to manage default installed modules, configs and permissions.
 type: install
 install:
-  - roleassign
-  - prevent_homepage_deletion
   - admin_audit_trail
   - admin_audit_trail_file
   - admin_audit_trail_media
@@ -12,8 +10,6 @@ install:
   - admin_audit_trail_node
   - admin_audit_trail_menu
   - admin_audit_trail_auth
-  - views_bulk_operations
-  - views_bulk_edit
   - masquerade
   - menu_admin_per_menu
   - responsive_preview
