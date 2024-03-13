@@ -8,6 +8,8 @@
 use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
