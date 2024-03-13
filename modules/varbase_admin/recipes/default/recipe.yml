@@ -40,6 +40,44 @@ config:
     node.settings:
       simple_config_update:
         use_admin_theme: true
+    gin.settings:
+      simple_config_update:
+        logo:
+          path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
+          use_default: false
+        favicon:
+          mimetype: image/vnd.microsoft.icon
+          path: profiles/contrib/varbase/images/favicon.ico
+          use_default: false
+    gin_login.settings:
+      simple_config_update:
+        logo:
+          use_default: false
+          path: themes/contrib/vartheme_bs5/logo.svg
+        brand_image:
+          use_default: true
+    roleassign_roles:
+      simple_config_update:
+        editor: editor
+        content_admin: content_admin
+        site_admin: site_admin
+        administrator: "0"
+    config_perms.custom_perms_entity.administer_account_settings:
+      simple_config_update:
+        label: "Administer account settings"
+        route: entity.user.admin_form
+    config_perms.custom_perms_entity.administer_date_time:
+      simple_config_update:
+        label: "Administer date-time"
+        route: entity.date_format.collection
+    config_perms.custom_perms_entity.administer_error_logs:
+      simple_config_update:
+        label: "Administer error logs"
+        route: dblog.overview
+    config_perms.custom_perms_entity.administer_file_system:
+      simple_config_update:
+        label: "Administer file system"
+        route: system.file_system_settings
     user.role.authenticated:
       grantPermissions:
         - 'access shortcuts'
@@ -109,25 +147,3 @@ config:
         - 'clone taxonomy_term entity'
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
-    gin.settings:
-      simple_config_update:
-        logo:
-          path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
-          use_default: false
-        favicon:
-          mimetype: image/vnd.microsoft.icon
-          path: profiles/contrib/varbase/images/favicon.ico
-          use_default: false
-    gin_login.settings:
-      simple_config_update:
-        logo:
-          use_default: false
-          path: themes/contrib/vartheme_bs5/logo.svg
-        brand_image:
-          use_default: true
-    roleassign_roles:
-      simple_config_update:
-        editor: editor
-        content_admin: content_admin
-        site_admin: site_admin
-        administrator: "0"
