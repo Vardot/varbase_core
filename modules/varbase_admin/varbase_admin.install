@@ -5,11 +5,9 @@
  * Install, update and uninstall functions for the Varbase admin.
  */
 
-use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
-use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
-use Drupal\user\UserInterface;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -20,42 +18,15 @@ include_once __DIR__ . '/includes/updates.inc';
  */
 function varbase_admin_install() {
 
-  // Processor for install: in varbase_admin.info.yml file.
-  ModuleInstallerFactory::installList('varbase_admin');
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
-  // Install optional configs.
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_admin', '/^field.storage.*\\.(yml)$/i');
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_admin', '/^.*(settings.yml)$/i');
-
-  // ---------------------------------------------------------------------------
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
 
-  // Restrict user registration to admin role creation.
-  \Drupal::configFactory()->getEditable('user.settings')->set('register', UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
-
   // Populate the default shortcut set.
   varbase_admin__add_default_shortcuts();
 
-  // Enable the admin theme.
-  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
-
-  // Entity updates to clear up any mismatched entity and/or field definitions
-  // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::classResolver()
-    ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-    ->applyUpdates();
-
-  // Have forced configs import after the entity and definitions updates.
-  $forced_configs = [
-    'views.view.content',
-    'views.view.user_admin_people',
-  ];
-
-  ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
-
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_admin');
 }

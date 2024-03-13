@@ -1,0 +1,124 @@
+name: Varbase Admin - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+install:
+  - config_perms
+  - roleassign
+  - prevent_homepage_deletion
+  - userprotect
+  - admin_audit_trail
+  - admin_audit_trail_file
+  - admin_audit_trail_media
+  - admin_audit_trail_user
+  - admin_audit_trail_taxonomy
+  - admin_audit_trail_node
+  - admin_audit_trail_menu
+  - admin_audit_trail_auth
+  - views_bulk_operations
+  - views_bulk_edit
+  - masquerade
+  - menu_admin_per_menu
+  - responsive_preview
+  - revision_log_default
+  - syslog
+  - update
+  - settings_tray
+  - entity_clone
+  - taxonomy_manager
+  - taxonomy_access_fix
+  - coffee
+  - length_indicator
+  - admin_toolbar
+  - admin_toolbar_tools
+  - gin_toolbar
+  - gin_login
+  - gin_moderation_sidebar
+  - gin_everywhere
+config:
+  import:
+    varbase_admin: '*'
+  actions:
+    user.settings:
+      simple_config_update:
+        register: admin_only
+    node.settings:
+      simple_config_update:
+        use_admin_theme: true
+    user.role.authenticated:
+      grantPermissions:
+        - 'access shortcuts'
+        - 'userprotect.account.edit'
+        - 'userprotect.mail.edit'
+        - 'userprotect.pass.edit'
+    user.role.editor:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'access coffee'
+        - 'access responsive preview'
+        - 'clone node entity'
+        - 'access taxonomy manager list'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'access coffee'
+        - 'access responsive preview'
+    user.role.content_admin:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'administer footer menu items'
+        - 'administer main menu items'
+        - 'access coffee'
+        - 'access responsive preview'
+        - 'clone block entity'
+        - 'clone block_content entity'
+        - 'clone node entity'
+        - 'clone menu_link_content entity'
+        - 'clone user entity'
+        - 'clone taxonomy_term entity'
+        - 'clone taxonomy_vocabulary entity'
+        - 'access taxonomy manager list'
+    user.role.site_admin:
+      grantPermissions:
+        - 'administer shortcuts'
+        - 'customize shortcut links'
+        - 'switch shortcut sets'
+        - 'access toolbar'
+        - 'delete_homepage_node'
+        - 'access admin audit trail'
+        - 'administer admin menu items'
+        - 'administer footer menu items'
+        - 'administer main menu items'
+        - 'administer tools menu items'
+        - 'administer account menu items'
+        - 'access coffee'
+        - 'masquerade as authenticated'
+        - 'masquerade as content_admin'
+        - 'masquerade as editor'
+        - 'masquerade as seo_admin'
+        - 'masquerade as site_admin'
+        - 'assign roles'
+        - 'userprotect.protected_site_admin.bypass'
+        - 'access responsive preview'
+        - 'clone block entity'
+        - 'clone block_content entity'
+        - 'clone node entity'
+        - 'clone menu_link_content entity'
+        - 'clone user entity'
+        - 'clone taxonomy_term entity'
+        - 'clone taxonomy_vocabulary entity'
+        - 'access taxonomy manager list'
+    gin.settings:
+      simple_config_update:
+        logo:
+          path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
+          use_default: false
+        favicon:
+          mimetype: image/vnd.microsoft.icon
+          path: profiles/contrib/varbase/images/favicon.ico
+          use_default: false

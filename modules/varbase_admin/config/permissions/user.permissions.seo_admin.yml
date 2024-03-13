@@ -1,7 +1,0 @@
-id: seo_admin
-permissions:
-  - 'customize shortcut links'
-  - 'access toolbar'
-  - 'access admin audit trail'
-  - 'access coffee'
-  - 'access responsive preview'

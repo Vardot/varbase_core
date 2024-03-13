@@ -1,6 +1,0 @@
-id: authenticated
-permissions:
-  - 'access shortcuts'
-  - 'userprotect.account.edit'
-  - 'userprotect.mail.edit'
-  - 'userprotect.pass.edit'
