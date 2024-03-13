@@ -52,12 +52,13 @@ config:
           path: themes/contrib/vartheme_bs5/logo.svg
         brand_image:
           use_default: true
-    roleassign_roles:
+    roleassign.settings:
       simple_config_update:
-        editor: editor
-        content_admin: content_admin
-        site_admin: site_admin
-        administrator: "0"
+        roleassign_roles:
+          editor: editor
+          content_admin: content_admin
+          site_admin: site_admin
+          administrator: "0"
     config_perms.custom_perms_entity.administer_account_settings:
       simple_config_update:
         label: "Administer account settings"
