@@ -7,3 +7,5 @@ dependencies:
   - varbase_core:varbase_core
   - drupal:shortcut
   - drupal:toolbar
+  - config_perms:config_perms
+  - userprotect:userprotect

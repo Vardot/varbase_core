@@ -2,10 +2,8 @@ name: Varbase Admin - Default
 description: A recipe to manage default installed modules, configs and permissions.
 type: install
 install:
-  - config_perms
   - roleassign
   - prevent_homepage_deletion
-  - userprotect
   - admin_audit_trail
   - admin_audit_trail_file
   - admin_audit_trail_media
