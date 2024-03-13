@@ -35,8 +35,6 @@ install:
   - gin_moderation_sidebar
   - gin_everywhere
 config:
-  import:
-    varbase_admin: '/^.*(settings)$/'
   actions:
     user.settings:
       simple_config_update:
@@ -122,3 +120,16 @@ config:
           mimetype: image/vnd.microsoft.icon
           path: profiles/contrib/varbase/images/favicon.ico
           use_default: false
+    gin_login.settings:
+      simple_config_update:
+        logo:
+          use_default: false
+          path: themes/contrib/vartheme_bs5/logo.svg
+        brand_image:
+          use_default: true
+    roleassign_roles:
+      simple_config_update:
+        editor: editor
+        content_admin: content_admin
+        site_admin: site_admin
+        administrator: "0"
