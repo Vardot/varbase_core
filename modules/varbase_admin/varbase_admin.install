@@ -5,9 +5,9 @@
  * Install, update and uninstall functions for the Varbase admin.
  */
 
+use Drupal\Core\Config\InstallStorage;
 use Drupal\user\Entity\User;
-use Drupal\Core\Recipe\Recipe;
-use Drupal\Core\Recipe\RecipeRunner;
+use Vardot\Installer\ModuleInstallerFactory;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -26,7 +26,12 @@ function varbase_admin_install() {
   $user->roles[] = 'administrator';
   $user->save();
 
-  // Populate the default shortcut set.
-  varbase_admin__add_default_shortcuts();
+  // Have forced configs import after the entity and definitions updates.
+  $forced_configs = [
+    'views.view.content',
+    'views.view.user_admin_people',
+  ];
+
+  ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 
 }
