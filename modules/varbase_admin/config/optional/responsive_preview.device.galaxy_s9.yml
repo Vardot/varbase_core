@@ -1,0 +1,10 @@
+id: galaxy_s9
+label: 'Galaxy S9'
+weight: -8
+status: 1
+orientation: portrait
+dimensions:
+  width: 1440
+  height: 2960
+  dppx: !!float 4
+langcode: en

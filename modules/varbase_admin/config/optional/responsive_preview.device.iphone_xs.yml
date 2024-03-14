@@ -1,0 +1,10 @@
+id: iphone_xs
+label: 'iPhone XS'
+weight: -9
+status: 1
+orientation: portrait
+dimensions:
+  width: 1125
+  height: 2436
+  dppx: !!float 3
+langcode: en

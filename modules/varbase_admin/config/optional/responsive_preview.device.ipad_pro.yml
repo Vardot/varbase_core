@@ -1,0 +1,10 @@
+id: ipad_pro
+label: 'iPad Pro'
+weight: -7
+status: 1
+orientation: portrait
+dimensions:
+  width: 2048
+  height: 2732
+  dppx: !!float 2
+langcode: en
