@@ -29,6 +29,16 @@ install:
   - gin_moderation_sidebar
   - gin_everywhere
 config:
+  import:
+    varbase_admin:
+      - responsive_preview.device.galaxy_s9
+      - responsive_preview.device.galaxy_tab_s4
+      - responsive_preview.device.ipad_pro
+      - responsive_preview.device.iphone_xs_max
+      - responsive_preview.device.iphone_xs
+      - responsive_preview.device.large
+      - responsive_preview.device.medium
+      - responsive_preview.device.small
   actions:
     user.settings:
       simple_config_update:
