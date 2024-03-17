@@ -55,8 +55,6 @@ config:
           mimetype: image/vnd.microsoft.icon
           path: profiles/contrib/varbase/images/favicon.ico
           use_default: false
-        preset_accent_color: custom
-        accent_color: '#0D6EFD'
         show_description_toggle: true
     gin_login.settings:
       simple_config_update:
