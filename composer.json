@@ -97,7 +97,7 @@
     "drupal/password_policy": "4.0.0",
     "drupal/genpass": "~2",
     "drupal/seckit": "~2",
-    "drupal/security_review": "~2",
+    "drupal/security_review": "~3",
     "drupal/honeypot": "~2",
     "drupal/antibot": "~2",
     "drupal/shield": "~1",
