@@ -1,0 +1,16 @@
+name: varbase_admin_update_100004
+description: 'Issue #3426299: Add the Gin Admin theme to Varbase Core, and deprecate Vartheme Claro theme, switch to the Gin Admin theme with default Varbase recipe'
+type: install
+config:
+  actions:
+    system.theme:
+      simple_config_update:
+        admin: gin
+    gin.settings:
+      simple_config_update:
+        logo:
+          path: themes/contrib/vartheme_claro/images/varbase-medium-logo-emblem-color.png
+          use_default: false
+        preset_accent_color: custom
+        accent_color: '#0D6EFD'
+        show_description_toggle: true

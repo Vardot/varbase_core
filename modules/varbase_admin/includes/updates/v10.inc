@@ -56,3 +56,17 @@ function varbase_admin_update_100003() {
     RecipeRunner::processRecipe($recipe);
   }
 }
+
+/**
+ * Issue #3426299: Add the Gin Admin theme to Varbase Core.
+ *
+ * And deprecate Vartheme Claro theme, switch to the Gin Admin theme with default Varbase recipe
+ */
+function varbase_admin_update_100004() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100004');
+  RecipeRunner::processRecipe($recipe);
+
+  // Uninstall the deprecated Vartheme Claro theme.
+  \Drupal::service('theme_installer')->uninstall(['vartheme_claro']);
+}
