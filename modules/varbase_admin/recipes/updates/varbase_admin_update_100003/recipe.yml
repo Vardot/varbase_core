@@ -1,5 +1,5 @@
-name: Varbase Admin - Add Taxonomy Manager
-description: A recipe to manage default configs and permission for the Taxonomy Manager module.
+name: varbase_admin_update_100003
+description: 'Issue #3426347: Add Taxonomy Manager ~2 module to Varbase Admin As part of enhancing Editorial UX for taxonomy and term management.'
 type: update
 install:
   - taxonomy_manager

@@ -52,7 +52,7 @@ function varbase_admin_update_100002() {
 function varbase_admin_update_100003() {
   if (!\Drupal::moduleHandler()->moduleExists('taxonomy_manager')) {
     $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
-    $add_taxonomy_manager_recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/add-taxonomy-manager');
-    RecipeRunner::processRecipe($add_taxonomy_manager_recipe);
+    $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100003');
+    RecipeRunner::processRecipe($recipe);
   }
 }
