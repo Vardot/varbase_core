@@ -143,6 +143,8 @@
       "drupal/core": {
         "Issue #3426062: Add the local patch from Drupal Distributions Recipes patch for Drupal core in Varbase Core to have Recipes functionality": 
         "https://git.drupalcode.org/project/distributions_recipes/-/raw/patch/recipe-10.2.x.patch",
+        "Issue #3431330: Add Action Method to Add a button plugin and settings into the Active toolbar in editor":
+        "https://www.drupal.org/files/issues/2024-03-18/distributions_recipes--3431330-2.patch",
         "Issue #2869592: Disabled update module shouldn't produce a status report warning":
         "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
         "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
