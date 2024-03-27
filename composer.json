@@ -55,7 +55,7 @@
     "drupal/block_content_permissions": "~1",
     "drupal/views_infinite_scroll": "~2",
     "drupal/entity": "~1",
-    "drupal/entity_clone": "2.0.0-beta4",
+    "drupal/entity_clone": "2.0.0-beta5",
     "drupal/entity_usage": "~2",
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~2",
