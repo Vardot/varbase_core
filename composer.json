@@ -27,22 +27,20 @@
     }
   },
   "require": {
-    "composer/installers": "~2",
-    "oomphinc/composer-installers-extender": "~2",
-    "cweagans/composer-patches": "~1",
     "drupal/core": "~10.2.0",
+    "vardot/varbase-patches": "~10.0.0",
     "vardot/entity-definition-update-manager": "~1",
     "vardot/module-installer-factory": "~1",
     "drupal/config_update": "~2",
     "drupal/config_ignore": "~3",
     "drupal/config_split": "~2",
-    "drupal/config_inspector": "~2.1.0",
+    "drupal/config_inspector": "~2",
     "drupal/ctools": "~3 || ~4",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
     "drupal/bootstrap_layouts": "~5",
     "drupal/layout_builder_restrictions": "~2",
-    "drupal/ds": "~3.0",
+    "drupal/ds": "~3",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~2",
@@ -51,18 +49,18 @@
     "drupal/menu_block": "~1",
     "drupal/views_infinite_scroll": "~2",
     "drupal/entity": "~1",
-    "drupal/entity_clone": "2.0.0-beta5",
+    "drupal/entity_clone": "~2",
     "drupal/entity_usage": "~2",
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~2",
-    "drupal/inline_entity_form": "1.0-rc17",
+    "drupal/inline_entity_form": "~1",
     "drupal/ultimate_cron": "~2",
-    "drupal/persistent_login": "2.1.1",
+    "drupal/persistent_login": "~2",
     "drupal/userprotect": "~1",
     "drupal/admin_audit_trail": "~1",
     "drupal/login_destination": "~2",
-    "drupal/admin_toolbar": "3.4.2",
-    "drupal/gin": "3.0.0-rc9",
+    "drupal/admin_toolbar": "~3",
+    "drupal/gin": "~3",
     "drupal/gin_login": "~2",
     "drupal/gin_toolbar": "~1",
     "drupal/gin_moderation_sidebar": "~1",
@@ -74,27 +72,27 @@
     "drupal/tour_ui": "~2",
     "drupal/coffee": "~1",
     "drupal/responsive_preview": "~2",
-    "drupal/views_bulk_operations": "4.2.6",
+    "drupal/views_bulk_operations": "~4",
     "drupal/views_bulk_edit": "~2",
     "drupal/revision_log_default": "~1",
-    "drupal/webform": "~6.2.0",
-    "drupal/webform_views": "5.2.0",
+    "drupal/webform": "~6",
+    "drupal/webform_views": "~5",
     "drupal/default_content": "2.0.x-dev",
-    "drupal/content_lock": "2.3.0",
+    "drupal/content_lock": "~2",
     "drupal/node_edit_protection": "~1",
-    "drupal/rabbit_hole": "2.0.0-alpha5",
+    "drupal/rabbit_hole": "~2",
     "drupal/yoast_seo": "~1",
     "drupal/fast_404": "~3",
-    "drupal/diff": "1.1.0",
+    "drupal/diff": "~1",
     "drupal/masquerade": "~2",
     "drupal/menu_admin_per_menu": "~1",
     "drupal/drd_agent": "~4",
-    "drupal/devel": "~5.2.0",
+    "drupal/devel": "~5",
     "drupal/stage_file_proxy": "~2",
-    "drupal/update_helper": "3.0.4 || 4.0.0",
-    "drupal/checklistapi": "~2.1.0",
+    "drupal/update_helper": "~3 || ~4",
+    "drupal/checklistapi": "~2",
     "drupal/username_enumeration_prevention": "~1",
-    "drupal/password_policy": "4.0.0",
+    "drupal/password_policy": "~4",
     "drupal/genpass": "~2",
     "drupal/seckit": "~2",
     "drupal/security_review": "~3",
@@ -110,128 +108,15 @@
     "drupal/taxonomy_manager": "~2",
     "drupal/taxonomy_access_fix": "~4",
     "drupal/better_exposed_filters": "~6",
-    "drupal/date_filter": "~1.0.1",
+    "drupal/date_filter": "~1",
     "drupal/autocomplete_deluxe": "~2",
     "drupal/extlink": "~1",
-    "drupal/link_attributes": "~2.1.0",
+    "drupal/link_attributes": "~2",
     "drupal/entity_reference_revisions": "~1",
     "drupal/viewsreference": "~2",
     "drupal/vmi": "~3",
     "drupal/jquery_ui_accordion": "~1 || ~2",
     "drupal/reroute_email": "~2",
-    "drupal/editoria11y": "~2.1.0"
-  },
-  "suggest": {
-    "bower-asset/jqueryui-touch-punch": "0.2.3 Required to use by drupal/jquery_ui_touch_punch module."
-  },
-  "extra": {
-    "installer-types": [
-      "bower-asset",
-      "npm-asset"
-    ],
-    "drupal-libraries": {
-      "libraries": [
-        {"name": "jquery-ui-touch-punch", "package": "bower-asset/jqueryui-touch-punch"}
-      ]
-    },
-    "enable-patching": true,
-    "composer-exit-on-patch-failure": true,
-    "patchLevel": {
-      "drupal/core": "-p2"
-    },
-    "patches": {
-      "drupal/core": {
-        "Issue #3426062: Add the local patch from Drupal Distributions Recipes patch for Drupal core in Varbase Core to have Recipes functionality": 
-        "https://git.drupalcode.org/project/distributions_recipes/-/raw/patch/recipe-10.2.x.patch",
-        "Issue #3431330: Add Action Method to Add a button plugin and settings into the Active toolbar in editor":
-        "https://www.drupal.org/files/issues/2024-03-18/distributions_recipes--3431330-2.patch",
-        "Issue #2869592: Disabled update module shouldn't produce a status report warning":
-        "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
-        "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
-        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch",
-        "Issue #3044656: Add a helper method to strip subdirectories from URL paths":
-        "https://www.drupal.org/files/issues/2019-03-31/3044656-2.patch",
-        "Issue #3101231: Fix multilingual site's layout edit context issue with TypeError: Argument 1 passed to UrlHelper::buildQuery() must be of the type array, null given":
-        "https://www.drupal.org/files/issues/2019-12-19/3101231-19.patch",
-        "Issue #2741877: Nested modals don't work: opening a modal from a modal closes the original":
-        "https://www.drupal.org/files/issues/2021-04-29/2741877-77.patch",
-        "Issue #3165435: Fix tour <front> route as route name when a selected node had been set as the front page for the site":
-        "https://www.drupal.org/files/issues/2020-08-16/3165435-2.patch",
-        "Issue #3226791: Fix Validation error saving untranslatable Media reference field":
-        "https://www.drupal.org/files/issues/2021-08-04/media_required_validation-3226791-2.patch",
-        "Issue #3272720: Fix PHP8.1+ Deprecated function: hash(): Passing null to parameter #2 ($data) of type string is deprecated in generateFieldTableName":
-        "https://www.drupal.org/files/issues/2022-07-21/3272720-6.patch",
-        "Issue #3326684: Fix PHP8.1+ Deprecated function: mb_strtolower(): Passing null to parameter #1 ($string) of type string is deprecated":
-        "https://www.drupal.org/files/issues/2023-11-21/3199.patch",
-        "Issue #3302838: Fix PHP8.1+ Querying with NULL values results in warning mb_strtolower(): Passing null to parameter is deprecated":
-        "https://www.drupal.org/files/issues/2023-07-05/3302838-38.patch",
-        "Issue #3049332: Fix PHP message: Error: Call to a member function getEntityTypeId() on null (Layout Builder)":
-        "https://www.drupal.org/files/issues/2024-01-09/drupal-core--2024-01-09--3049332-85.patch",
-        "Issue #3046152: Video media needs playsinline & muted options":
-        "https://www.drupal.org/files/issues/2023-12-16/drupal-core--10-2-x--3046152-49.patch",
-        "Issue #3080606: Reorder Layout Builder sections":
-        "https://www.drupal.org/files/issues/2023-05-30/3080606-100.patch",
-        "Issue #3272629: Media Library widget display doesn't return to first page on applying filters":
-        "https://www.drupal.org/files/issues/2022-03-30/media_library_pager_fix.patch",
-        "Issue #3413079: Cannot read properties of null (reading 'nodeType') on node.page.body":
-        "https://www.drupal.org/files/issues/2024-01-08/3413079-9.patch"
-      },
-      "drupal/default_content": {
-        "Issue #3160146: Add Layout Builder Normalizer and Denormalize":
-        "https://www.drupal.org/files/issues/2021-04-07/3160146-37.patch"
-      },
-      "drupal/gin": {
-        "Issue #3325263: Fix user.data ServiceNotFoundException when using Gin as distribution installer theme":
-        "https://www.drupal.org/files/issues/2023-10-22/3325263-24.patch",
-        "Issue #3398040: Fix issue with changing between responsive views and Gin Toolbar over menus":
-        "https://www.drupal.org/files/issues/2023-10-31/3398040-8.patch"
-      },
-      "drupal/persistent_login": {
-        "Issue #2899530 by josebc: Provide a permission for users to see Persistent Logins tab in their profiles":
-        "https://www.drupal.org/files/issues/persistent_login-user_task_permission-2899530-6.patch"
-      },
-      "drupal/update_helper": {
-        "Issue #3024165: [PATCH] Enhancements, Better messages for the unable to apply updates, drush command and removed the Mark all updates as successful on install":
-        "https://www.drupal.org/files/issues/2022-06-05/3024165-55.patch"
-      },
-      "drupal/admin_toolbar": {
-        "Issue #3338408: Resolve access check errors for D10 compatibility":
-        "https://www.drupal.org/files/issues/2023-05-30/3338408-fix-access-check-error.patch"
-      },
-      "drupal/diff": {
-        "Issue #3348096: Fix Entity queries must explicitly set whether the query should be access checked or not in Diff":
-        "https://www.drupal.org/files/issues/2023-03-15/3348096-2.patch"
-      },
-      "drupal/password_policy": {
-        "Issue #3348548: Fix Entity queries must explicitly set whether the query should be access checked or not in Password Policy":
-        "https://www.drupal.org/files/issues/2023-03-16/3348548-3.patch"
-      },
-      "drupal/content_lock": {
-        "Issue #3343964: Fix PHP 8.2 Content locking (anti-concurrent editing) deprecation notices":
-        "https://www.drupal.org/files/issues/2023-05-22/3343964-5.patch"
-      },
-      "drupal/inline_entity_form": {
-        "Issue #3143422: Allow to hide the Edit button in Complex widget":
-        "https://www.drupal.org/files/issues/2023-03-13/optional_edit-3143422-16.patch",
-        "Issue #3136514: IEF complex widget: Re-ordering / weight sometimes not updated":
-        "https://www.drupal.org/files/issues/2021-04-13/inline_entity_form-order-by-weight-inline-entities-3136514-02.patch"
-      },
-      "drupal/webform_views": {
-        "Issue #3386492: Fix Fatal error on Drupal 9/10 : ArgumentCountError: Too few arguments to function EntityViewsData::__construct(), 6 passed":
-        "https://www.drupal.org/files/issues/2023-09-11/3386492-2.patch"
-      },
-      "drupal/entity_clone": {
-        "Issue #3388460: Fatal error on cloning a menu link (D10 site)":
-        "https://www.drupal.org/files/issues/2023-10-17/3388460-7.patch"
-      },
-      "drupal/views_bulk_operations": {
-        "Issue #3334229: Update existing node entity while changing the ID is not supported when using delete action":
-        "https://www.drupal.org/files/issues/2023-10-24/entity-delete-translation-3334229-7.patch"
-      },
-      "drupal/rabbit_hole": {
-        "Issue #3419073: Fix Return value must be of type bool fatal error":
-        "https://www.drupal.org/files/issues/2024-02-04/rabbit_hole--2024-02-04--3419073-3.patch"
-      }
-    }
+    "drupal/editoria11y": "~2"
   }
 }
