@@ -114,6 +114,7 @@
     "drupal/jquery_ui_accordion": "~1 || ~2",
     "drupal/reroute_email": "~2",
     "drupal/editoria11y": "~2",
-    "drupal/sitewide_alert": "~2"
+    "drupal/sitewide_alert": "~2",
+    "drupal/schemadotorg": "~1"
   }
 }
