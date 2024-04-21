@@ -16,7 +16,7 @@ default:
   menu_name:
     - value: main
   link:
-    - uri: "internal:/form/contact"
+    - uri: "internal:/contact-us"
       title: ""
       options: {}
   external:

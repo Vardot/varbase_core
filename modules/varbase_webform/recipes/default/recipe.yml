@@ -1,0 +1,65 @@
+name: Varbase AI - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+install:
+  - webform
+  - webform_bootstrap
+  - webform_templates
+  - webform_ui
+  - taxonomy
+  - webform_views
+  - entity_clone
+config:
+  import:
+    webform: '*'
+    webform_bootstrap: '*'
+    webform_templates: '*'
+    webform_ui: '*'
+    webform_views: '*'
+    varbase_webform:
+      - ultimate_cron.job.webform_cron
+      - webform.webform.business_contact
+  actions:
+    webform.settings:
+      simple_config_update:
+        requirements:
+          cdn: false
+          clientside_validation: true
+          bootstrap: true
+          spam: true
+    webform.webform.contact:
+      simple_config_update:
+        archive: true
+    user.role.site_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'
+        - 'clone webform entity'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'
+    user.role.content_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit any webform'
+        - 'view any webform submission'
+        - 'clone webform entity'
+    user.role.editor:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'

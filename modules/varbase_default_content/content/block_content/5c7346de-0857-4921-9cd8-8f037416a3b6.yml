@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 5c7346de-0857-4921-9cd8-8f037416a3b6
+  bundle: varbase_rich_text_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new Rich text'
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Contact Information'
+  reusable:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1713689310
+  body:
+    -
+      value: '<h4>Contact Information</h4><p><strong>US &amp; Canada</strong></p><p>Phone Number: <a href="tel:4083299888">(408) 329 9888</a><br>Address: <a href="#">3080 Olcott StSuite</a></p><p><a href="#">&nbsp;A115Santa Clara, CA 95054</a></p>'
+      format: full_html
+      summary: ''

@@ -3,12 +3,4 @@ description: Provide web forms features and settings.
 type: module
 package: Varbase
 core_version_requirement: ~10
-dependencies:
-  - webform:webform
-install:
-  - webform_bootstrap
-  - webform_templates
-  - webform_ui
-  - taxonomy
-  - webform_views
-  - entity_clone
+dependencies: { }

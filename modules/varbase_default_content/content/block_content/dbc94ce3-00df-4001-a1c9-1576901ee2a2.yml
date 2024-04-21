@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: dbc94ce3-00df-4001-a1c9-1576901ee2a2
+  bundle: varbase_cta_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new CTA'
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'About Varbase'
+  reusable:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1713689730
+  body:
+    -
+      value: '<p><span data-metadata=""></span><span data-buffer=""></span><span style="white-space:pre-wrap;">Varbase has successfully delivered over 200 digital experience projects for global brands and international enterprises that need the best Drupal web development and design capabilities for their custom and complex technical requirements.</span></p>'
+      format: full_html
+      summary: ''
+  field_buttons:
+    -
+      uri: 'https://docs.varbase.vardot.com/v/10.0.x/overview/about-varbase'
+      title: 'Learn More About Varbase'
+      options:
+        color: btn-primary
+        size: btn-lg
+        outline: 0
+        target: 1
+        block_level: 0
+        disabled: 0

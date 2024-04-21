@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 2d52e16b-1f0d-4128-948a-fea23111fbcd
+  bundle: varbase_cta_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new CTA'
+  status:
+    -
+      value: true
+  info:
+    -
+      value: Blog
+  reusable:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1713689821
+  body:
+    -
+      value: '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>'
+      format: full_html
+      summary: ''
+  field_buttons:
+    -
+      uri: 'internal:/blog'
+      title: 'View Updates'
+      options:
+        color: btn-primary
+        size: btn-lg
+        outline: 0
+        target: 0
+        block_level: 0
+        disabled: 0

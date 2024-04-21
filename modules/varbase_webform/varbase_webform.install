@@ -5,8 +5,8 @@
  * Contains install and update for Varbase webform module.
  */
 
-use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -17,21 +17,7 @@ include_once __DIR__ . '/includes/updates.inc';
  */
 function varbase_webform_install() {
 
-  // Processor for install: in varbase_webform.info.yml file.
-  ModuleInstallerFactory::installList('varbase_webform');
-
-  // Install optional configs.
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_webform', '/^field.storage.*\\.(yml)$/i');
-  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_webform', '/^.*(settings.yml)$/i');
-
-  // ---------------------------------------------------------------------------
-  // Entity updates to clear up any mismatched entity and/or field definitions
-  // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::classResolver()
-    ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-    ->applyUpdates();
-
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_webform');
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
 }

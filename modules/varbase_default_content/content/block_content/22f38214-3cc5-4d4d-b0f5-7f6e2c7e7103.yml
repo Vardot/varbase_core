@@ -1,0 +1,50 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 22f38214-3cc5-4d4d-b0f5-7f6e2c7e7103
+  bundle: varbase_cta_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new CTA'
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Kick-start Your Journey with us Today!'
+  reusable:
+    -
+      value: false
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1713688415
+  body:
+    -
+      value: '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>'
+      format: full_html
+      summary: ''
+  field_buttons:
+    -
+      uri: 'https://www.vardot.com/en-us/contact-us'
+      title: 'Contact Us'
+      options:
+        color: btn-primary
+        size: btn-lg
+        outline: 0
+        target: 1
+        block_level: 0
+        disabled: 0
