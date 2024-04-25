@@ -1,7 +1,0 @@
-name: Varbase default content which Varbase Heroslider Media module is disabled
-description: Varbase default content which Varbase Heroslider Media module is disabled.
-type: module
-hidden: TRUE
-package: Varbase
-core_version_requirement: ~10
-dependencies: {  }

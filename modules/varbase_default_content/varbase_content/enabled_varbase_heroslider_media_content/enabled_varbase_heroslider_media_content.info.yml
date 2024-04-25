@@ -1,7 +1,0 @@
-name: Varbase default content when Varbase Heroslider Media module is enabled
-description: Varbase default content when Varbase Heroslider Media module is enabled
-type: module
-hidden: TRUE
-package: Varbase
-core_version_requirement: ~10
-dependencies: {  }

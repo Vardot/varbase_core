@@ -1,0 +1,8 @@
+name: Varbase Heroslider Homepage
+description: Varbase default homepage when Varbase Heroslider module is enabled.
+type: module
+hidden: TRUE
+package: Varbase
+core_version_requirement: ~10
+dependencies:
+  - varbase_heroslider:varbase_heroslider

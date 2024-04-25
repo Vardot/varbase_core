@@ -1,0 +1,7 @@
+name: Varbase Default Homepage
+description: Varbase default homepage with no extra recipes.
+type: module
+hidden: TRUE
+package: Varbase
+core_version_requirement: ~10
+dependencies: {  }
