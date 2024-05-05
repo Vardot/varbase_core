@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: iphone_15
+label: 'iPhone 15'
+weight: -10
+orientation: portrait
+dimensions:
+  width: 1170
+  height: 2532
+  dppx: 4.41

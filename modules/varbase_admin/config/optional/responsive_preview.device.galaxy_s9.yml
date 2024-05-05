@@ -1,7 +1,7 @@
 id: galaxy_s9
 label: 'Galaxy S9'
 weight: -8
-status: 1
+status: 0
 orientation: portrait
 dimensions:
   width: 1440

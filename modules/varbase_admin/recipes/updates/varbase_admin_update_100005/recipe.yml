@@ -1,0 +1,32 @@
+name: varbase_admin_update_100005
+description: 'Issue #3443115: Update the list of responsive devices in Preview Page layout'
+type: update
+config:
+  import:
+    varbase_admin:
+      - responsive_preview.device.galaxy_tab_s9_ultra
+      - responsive_preview.device.iphone_15_pro_max
+      - responsive_preview.device.iphone_15
+      - responsive_preview.device.samsung_galaxy_s23_ultra
+      - responsive_preview.device.pixel_7
+  actions:
+    responsive_preview.device.galaxy_s9:
+      simple_config_update:
+        status: 0
+    responsive_preview.device.galaxy_tab_s4:
+      simple_config_update:
+        status: 0
+    responsive_preview.device.iphone_xs_max:
+      simple_config_update:
+        status: 0
+    responsive_preview.device.iphone_xs:
+      simple_config_update:
+        status: 0
+    responsive_preview.device.ipad_pro:
+      simple_config_update:
+        status: 0
+        orientation: landscape
+        dimensions:
+          width: 2732
+          height: 2048
+          dppx: 3.0

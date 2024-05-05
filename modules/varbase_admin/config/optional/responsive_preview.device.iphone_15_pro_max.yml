@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: iphone_15_pro_max
+label: "iPhone 15 Pro Max\t"
+weight: -9
+orientation: portrait
+dimensions:
+  width: 1290
+  height: 2796
+  dppx: 4.63

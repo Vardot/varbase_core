@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: samsung_galaxy_s23_ultra
+label: 'Samsung Galaxy S23 Ultra'
+weight: -6
+orientation: portrait
+dimensions:
+  width: 1440
+  height: 3088
+  dppx: 5.01

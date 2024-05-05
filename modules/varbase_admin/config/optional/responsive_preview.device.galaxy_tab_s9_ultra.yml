@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: galaxy_tab_s9_ultra
+label: 'Galaxy Tab S9 Ultra'
+weight: -8
+orientation: landscape
+dimensions:
+  width: 2960
+  height: 1848
+  dppx: 2.07

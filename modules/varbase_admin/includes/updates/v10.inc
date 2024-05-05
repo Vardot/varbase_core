@@ -70,3 +70,12 @@ function varbase_admin_update_100004() {
   // Uninstall the deprecated Vartheme Claro theme.
   \Drupal::service('theme_installer')->uninstall(['vartheme_claro']);
 }
+
+/**
+ * Issue #3443115: Update the list of responsive devices in Preview Page layout.
+ */
+function varbase_admin_update_100005() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100005');
+  RecipeRunner::processRecipe($recipe);
+}

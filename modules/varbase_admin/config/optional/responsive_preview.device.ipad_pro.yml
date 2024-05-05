@@ -1,10 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
 id: ipad_pro
 label: 'iPad Pro'
 weight: -7
-status: 1
-orientation: portrait
+orientation: landscape
 dimensions:
-  width: 2048
-  height: 2732
-  dppx: !!float 2
-langcode: en
+  width: 2732
+  height: 2048
+  dppx: 2.64

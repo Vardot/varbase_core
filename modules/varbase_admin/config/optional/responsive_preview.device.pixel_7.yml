@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: pixel_7
+label: 'Pixel 7'
+weight: -5
+orientation: portrait
+dimensions:
+  width: 1080
+  height: 2400
+  dppx: 4.22
