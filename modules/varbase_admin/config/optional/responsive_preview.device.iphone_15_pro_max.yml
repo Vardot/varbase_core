@@ -2,7 +2,7 @@ langcode: en
 status: 1
 dependencies: {  }
 id: iphone_15_pro_max
-label: "iPhone 15 Pro Max\t"
+label: "iPhone 15 Pro Max"
 weight: -9
 orientation: portrait
 dimensions:
