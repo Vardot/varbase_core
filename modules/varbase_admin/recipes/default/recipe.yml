@@ -31,6 +31,11 @@ install:
 config:
   import:
     varbase_admin:
+      - responsive_preview.device.iphone_15
+      - responsive_preview.device.iphone_15_pro_max
+      - responsive_preview.device.galaxy_tab_s9_ultra
+      - responsive_preview.device.samsung_galaxy_s23_ultra
+      - responsive_preview.device.pixel_7
       - responsive_preview.device.galaxy_s9
       - responsive_preview.device.galaxy_tab_s4
       - responsive_preview.device.ipad_pro
