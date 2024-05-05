@@ -1,0 +1,12 @@
+name: Varbase default content when the Varbase Heroslider module is enabled
+description: Varbase default content when Varbase Heroslider module is enabled
+type: module
+hidden: TRUE
+package: Varbase
+core_version_requirement: ~10
+dependencies: {  }
+
+# Information added by Drupal.org packaging script on 2024-04-07
+version: '10.0.19'
+project: 'varbase_core'
+datestamp: 1712502970
