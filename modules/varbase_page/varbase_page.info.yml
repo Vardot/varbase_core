@@ -8,7 +8,6 @@ dependencies:
 install:
   - text
   - editor
-  - ckeditor
   - menu_ui
   - page_manager
   - rabbit_hole
