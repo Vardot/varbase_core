@@ -20,9 +20,6 @@ default:
   reusable:
     -
       value: false
-  revision_translation_affected:
-    -
-      value: true
   content_translation_source:
     -
       value: und

@@ -14,7 +14,7 @@ default:
       target_id: 1
   revision_log:
     -
-      value: 'Create Contact Us Landing page with Layout Builder'
+      value: 'Updated the Layout field'
   status:
     -
       value: true
@@ -26,7 +26,7 @@ default:
       value: 'Contact Us'
   created:
     -
-      value: 1713689060
+      value: 1715243142
   promote:
     -
       value: false

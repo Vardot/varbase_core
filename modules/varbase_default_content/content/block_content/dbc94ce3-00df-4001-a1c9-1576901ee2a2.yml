@@ -37,7 +37,7 @@ default:
       value: 1713689730
   body:
     -
-      value: '<p><span data-metadata=""></span><span data-buffer=""></span><span style="white-space:pre-wrap;">Varbase has successfully delivered over 200 digital experience projects for global brands and international enterprises that need the best Drupal web development and design capabilities for their custom and complex technical requirements.</span></p>'
+      value: '<p>Varbase has successfully delivered over 200 digital experience projects for global brands and international enterprises that need the best Drupal web development and design capabilities for their custom and complex technical requirements.</p>'
       format: full_html
       summary: ''
   field_buttons:
