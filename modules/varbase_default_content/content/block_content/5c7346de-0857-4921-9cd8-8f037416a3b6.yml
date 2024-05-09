@@ -37,6 +37,6 @@ default:
       value: 1713689310
   body:
     -
-      value: '<h4>Contact Information</h4><p><strong>US &amp; Canada</strong></p><p>Phone Number: <a href="tel:4083299888">(408) 329 9888</a><br>Address: <a href="https://goo.gl/maps/buSjPMHTjQb4eW4s7">3080 Olcott St, Suite A115</a><br><a href="https://goo.gl/maps/buSjPMHTjQb4eW4s7">Santa Clara, CA 95054</a></p>'
+      value: '<h4>Contact Information</h4><p><strong>US &amp; Canada</strong></p><p>Phone Number: <a href="tel:4083299888">(408) 329 9888</a><br>Address: <a href="https://goo.gl/maps/buSjPMHTjQb4eW4s7">3080 Olcott St, Suite A115, Santa Clara, CA 95054</a></p>'
       format: full_html
       summary: ''
