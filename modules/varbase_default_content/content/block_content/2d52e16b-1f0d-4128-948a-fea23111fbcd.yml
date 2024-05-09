@@ -37,7 +37,7 @@ default:
       value: 1713689821
   body:
     -
-      value: '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>'
+      value: '<p>Create captivating content effortlessly. Multiple authors can seamlessly contribute while you maintain full control over layout, categories, and tags. It's simple, powerful, and ready to elevate your dreams online presence without complications.</p>'
       format: full_html
       summary: ''
   field_buttons:

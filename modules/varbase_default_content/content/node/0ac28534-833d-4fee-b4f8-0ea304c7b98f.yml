@@ -14,7 +14,7 @@ default:
       target_id: 1
   revision_log:
     -
-      value: 'Updated the Layout field'
+      value: 'Create Contact Us Landing page with Layout Builder'
   status:
     -
       value: true
@@ -286,7 +286,7 @@ default:
           container_wrapper:
             bootstrap_styles:
               background:
-                background_type: null
+                background_type: color
               background_color:
                 class: null
               background_media:
@@ -380,7 +380,7 @@ default:
           section_attributes: null
           regions_classes:
             blb_region_col_1: ''
-            blb_region_col_2: ''
+            blb_region_col_2: 'mt-5 mt-md-0'
             section_header: ''
           regions_attributes:
             blb_region_col_1: null
@@ -422,7 +422,7 @@ default:
               label_display: 0
               provider: layout_builder
               view_mode: full
-              block_revision_id: '18'
+              block_revision_id: '16'
               block_serialized: null
               context_mapping: {  }
             weight: 0
@@ -455,7 +455,7 @@ default:
                   padding_top:
                     class: _none
                   padding_right:
-                    class: _none
+                    class: pe-5
                   padding_bottom:
                     class: _none
                   margin:
@@ -728,7 +728,7 @@ default:
           section_attributes: null
           regions_classes:
             blb_region_col_1: ''
-            blb_region_col_2: ''
+            blb_region_col_2: 'mt-5 mt-md-0'
             section_header: ''
           regions_attributes:
             blb_region_col_1: null
@@ -770,7 +770,7 @@ default:
               label_display: visible
               provider: layout_builder
               view_mode: full
-              block_revision_id: '10'
+              block_revision_id: '17'
               block_serialized: null
               context_mapping: {  }
             weight: 0

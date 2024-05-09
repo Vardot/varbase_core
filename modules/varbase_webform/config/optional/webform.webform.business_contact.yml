@@ -26,12 +26,12 @@ elements: |-
         - fw-bold
     '#title__access': false
     '#first__title': 'First Name'
-    '#first__placeholder': 'Enter first name'
+    '#first__placeholder': 'Please provide your first name'
     '#first__title_display': before
     '#first__required': true
     '#middle__access': false
     '#last__title': 'Last Name'
-    '#last__placeholder': 'Enter last name'
+    '#last__placeholder': 'Please provide your last name'
     '#last__title_display': before
     '#last__required': true
     '#suffix__access': false
@@ -41,7 +41,7 @@ elements: |-
     '#type': textfield
     '#title': Business
     '#title_display': before
-    '#placeholder': 'Enter the organization name'
+    '#placeholder': 'Enter your organization name'
     '#label_attributes':
       class:
         - fw-bold
@@ -49,7 +49,7 @@ elements: |-
     '#type': textfield
     '#title': Industry
     '#title_display': before
-    '#placeholder': 'Enter the industry'
+    '#placeholder': 'Tell us your industry'
     '#label_attributes':
       class:
         - fw-bold
@@ -63,7 +63,7 @@ elements: |-
   email:
     '#type': email
     '#title': Email
-    '#placeholder': 'Enter your email'
+    '#placeholder': 'Your email address'
     '#required': true
     '#label_attributes':
       class:
@@ -71,7 +71,7 @@ elements: |-
   phone:
     '#type': tel
     '#title': 'Phone Number'
-    '#placeholder': 'Enter the telephone number'
+    '#placeholder': 'Your phone number'
     '#label_attributes':
       class:
         - fw-bold
@@ -85,7 +85,7 @@ elements: |-
   agreement_text:
     '#type': processed_text
     '#display_on': both
-    '#text': '<p>By submitting this form you agree to our <a href="https://www.vardot.com/en-us/legal/terms-and-conditions">Terms of Service</a> and <a href="https://www.vardot.com/en-us/legal/privacy-policy">Privacy Policy</a>.</p>'
+    '#text': '<p>By submitting this form you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>'
     '#format': full_html
   actions:
     '#type': webform_actions
