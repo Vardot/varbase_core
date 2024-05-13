@@ -1,0 +1,6 @@
+show_on_admin: 0
+alert_styles: "primary|Default\r\nsecondary|Secondary\r\nsuccess|Success\r\ndanger|Danger\r\nwarning|Warning\r\ninfo|Info\r\ndark|Dark\r\nlight|Light"
+display_order: ascending
+refresh_interval: 15
+automatic_refresh: 1
+cache_max_age: 15
