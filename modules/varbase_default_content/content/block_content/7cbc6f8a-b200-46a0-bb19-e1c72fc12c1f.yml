@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 7cbc6f8a-b200-46a0-bb19-e1c72fc12c1f
+  bundle: varbase_rich_text_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new Rich text'
+  status:
+    -
+      value: true
+  reusable:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1715586946
+  body:
+    -
+      value: '<img src="themes/contrib/vartheme_bs5/logo-white.svg" class="footer-logo-image"><p class="mt-5">Enjoy the free software, or get a quote for enterprise support and fully functional websites.</p>'
+      format: full_html
+      summary: ''

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: social-media-menu
+label: 'Social media menu'
+description: 'Shows a list of social media links, which are related the public social network accounts'
+locked: false

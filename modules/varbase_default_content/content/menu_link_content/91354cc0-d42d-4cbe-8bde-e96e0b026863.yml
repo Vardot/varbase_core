@@ -1,0 +1,175 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 91354cc0-d42d-4cbe-8bde-e96e0b026863
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log_message:
+    -
+      value: 'Created new Custom menu link'
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Linkedin
+  menu_name:
+    -
+      value: social-media-menu
+  link:
+    -
+      uri: 'https://www.linkedin.com/company/vardot'
+      title: ''
+      options:
+        attributes:
+          target: _blank
+          class:
+            - bi
+            - bi-linkedin
+            - fs-4
+            - ps-2
+            - pe-2
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: false
+  weight:
+    -
+      value: 3
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: '| varbase10c1storybook'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/node'
+    -
+      tag: link
+      attributes:
+        rel: shortlink
+        href: 'http://default/node/2'
+    -
+      tag: meta
+      attributes:
+        name: generator
+        content: Varbase
+    -
+      tag: meta
+      attributes:
+        name: referrer
+        content: origin
+    -
+      tag: meta
+      attributes:
+        name: rights
+        content: '©2024 varbase10c1storybook. All rights reserved.'
+    -
+      tag: meta
+      attributes:
+        property: 'og:site_name'
+        content: varbase10c1storybook
+    -
+      tag: meta
+      attributes:
+        property: 'og:type'
+        content: website
+    -
+      tag: meta
+      attributes:
+        property: 'og:url'
+        content: 'http://default/node'
+    -
+      tag: meta
+      attributes:
+        property: 'og:title'
+        content: '| varbase10c1storybook'
+    -
+      tag: meta
+      attributes:
+        property: 'og:image'
+        content: 'http://default/themes/contrib/vartheme_bs5/share-image.png'
+    -
+      tag: meta
+      attributes:
+        property: 'og:image:url'
+        content: 'http://default/themes/contrib/vartheme_bs5/share-image.png'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:card'
+        content: summary
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:title'
+        content: '| varbase10c1storybook'
+    -
+      tag: meta
+      attributes:
+        name: 'twitter:image'
+        content: 'http://default/themes/contrib/vartheme_bs5/share-image.png'
+    -
+      tag: meta
+      attributes:
+        name: '@type'
+        content: WebSite
+        group: schema_web_site
+        schema_metatag: true
+    -
+      tag: meta
+      attributes:
+        name: name
+        content: varbase10c1storybook
+        group: schema_web_site
+        schema_metatag: true
+    -
+      tag: meta
+      attributes:
+        name: url
+        content: 'http://default/'
+        group: schema_web_site
+        schema_metatag: true
+    -
+      tag: meta
+      attributes:
+        name: publisher
+        content:
+          '@type': Organization
+          name: varbase10c1storybook
+          url: 'http://default/'
+          logo:
+            '@type': ImageObject
+            url: 'http://default/themes/contrib/vartheme_bs5/logo.png'
+        group: schema_web_site
+        schema_metatag: true
+    -
+      tag: meta
+      attributes:
+        name: MobileOptimized
+        content: width
+    -
+      tag: meta
+      attributes:
+        name: HandheldFriendly
+        content: 'true'
+    -
+      tag: meta
+      attributes:
+        name: apple-mobile-web-app-capable
+        content: 'yes'

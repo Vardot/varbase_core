@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 2f3e092e-0470-4863-9ac8-4852cf1bf96a
+  bundle: varbase_rich_text_block
+  default_langcode: en
+default:
+  revision_user:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Created new Rich text'
+  status:
+    -
+      value: true
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  content_translation_source:
+    -
+      value: und
+  content_translation_outdated:
+    -
+      value: false
+  content_translation_uid:
+    -
+      target_id: 1
+  content_translation_created:
+    -
+      value: 1715589416
+  body:
+    -
+      value: '<p class="text-align-right small"><strong>Powered by <a href="https://www.vardot.com/?utm_source=varbase&amp;utm_campaign=varbase%20default%20links" target="_blank" rel="noopener">Vardot</a>.</strong></p>'
+      format: full_html
+      summary: ''
