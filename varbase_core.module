@@ -104,6 +104,20 @@ function varbase_core_modules_installed($modules, $is_syncing) {
     ModuleInstallerFactory::importConfigsFromList('varbase_core', $editoria11y_managed_configs, 'config/managed/editoria11y/recipes');
 
   }
+
+  if (in_array('sitewide_alert', $modules)) {
+    // When the Sitewide Alert module is enabled, which not enabled by default.
+    // with development and deployments to production sites.
+    // But the need to have the basic extra change for the settings over
+    // the Sitewide Alert default settings.
+    // -------------------------------------------------
+    // Managed configs for the Sitewide Alert module.
+    $managed_configs = [
+      'sitewide_alert.settings',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/sitewide_alert');
+
+  }
 }
 
 /**
