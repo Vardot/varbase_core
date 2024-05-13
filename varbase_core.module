@@ -118,6 +118,19 @@ function varbase_core_modules_installed($modules, $is_syncing) {
     ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/sitewide_alert');
 
   }
+
+  if (in_array('varbase_default_content', $modules)) {
+    // When the Varbase Default content is enabled.
+    // It will add number of block content
+    // Which only the theme block for vartheme_bs5 can be created after that step.
+    // -------------------------------------------------
+    // Managed configs for the vartheme_bs5 theme.
+    $managed_configs = [
+      'block.block.vartheme_bs5_copyright',
+      'block.block.vartheme_bs5_footer_logo',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/vartheme_bs5');
+  }
 }
 
 /**
