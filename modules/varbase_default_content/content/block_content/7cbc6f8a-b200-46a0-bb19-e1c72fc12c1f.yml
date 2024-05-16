@@ -31,6 +31,6 @@ default:
       value: 1715586946
   body:
     -
-      value: '<img src="themes/contrib/vartheme_bs5/logo-white.svg" class="footer-logo-image"><p class="mt-5">Enjoy the free software, or get a quote for enterprise support and fully functional websites.</p>'
+      value: '<p><img class="footer-logo-image" src="themes/contrib/vartheme_bs5/logo-white.svg"></p><p class="mt-5">Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&amp;utm_campaign=varbase%20default%20links">get a quote</a> for enterprise support and fully functional websites.</p>'
       format: full_html
       summary: ''

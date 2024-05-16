@@ -34,6 +34,6 @@ default:
       value: 1715589416
   body:
     -
-      value: '<p class="text-align-right small"><strong>Powered by <a href="https://www.vardot.com/?utm_source=varbase&amp;utm_campaign=varbase%20default%20links" target="_blank" rel="noopener">Vardot</a>.</strong></p>'
+      value: '<div class="d-flex justify-content-end small"><p class="fw-bold">Powered by <a href="https://www.vardot.com/?utm_source=varbase&amp;utm_campaign=varbase%20default%20links" target="_blank" rel="noopener">Vardot</a>.</p></div>'
       format: full_html
       summary: ''
