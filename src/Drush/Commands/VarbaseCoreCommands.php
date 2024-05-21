@@ -7,6 +7,7 @@ use Drush\Commands\DrushCommands;
 
 use Vardot\Installer\ModuleInstallerFactory;
 use Vardot\Entity\EntityDefinitionUpdateManager;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * A Drush command file for Varbase Core.
@@ -45,7 +46,8 @@ final class VarbaseCoreCommands extends DrushCommands {
   }
 
   /**
-   * Entity updates to clear up any mismatched entity and/or field definitions
+   * Entity updates to clear up any mismatched entity and/or field definitions.
+   *
    * Fix changes were detected in the entity type and field definitions.
    */
   #[CLI\Command(name: 'varbase:entity-update', aliases: ['edupdb'])]
@@ -67,6 +69,67 @@ final class VarbaseCoreCommands extends DrushCommands {
         '!code' => $e->getCode(),
         '!exception' => $e->getMessage(),
       ]);
+    }
+  }
+
+  /**
+   * Update composer.json replace any merge_request patch to local patch.
+   */
+  #[CLI\Command(name: 'varbase:composer-clean-up', aliases: ['var-ccu'])]
+  #[CLI\Usage(name: 'varbase:composer-clean-up', description: 'Detect any merge request patch and download it to local and update composer.json file.')]
+  public function mergeRequestPatchesCleanup() {
+    $root_directory = $this->getConfig()->get('runtime.project');
+    $json = file_get_contents($root_directory . '/composer.json');
+
+    $composer = json_decode($json, true);
+    $pattern = '/Issue #(\d+)/';
+    foreach ($composer['extra']['patches'] as $key => &$value) {
+      foreach ($value as $k => $v) {
+        if (str_contains($v, 'merge_requests')) {
+          try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $v);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+            $patch = curl_exec($ch);
+            curl_close($ch);
+          }
+          catch (\Exception $e) {
+            \Drupal::logger('Varbase')->info("Unable to retrieve patch $V");
+          }
+
+          preg_match($pattern, $k, $matches);
+
+          if (!empty($matches[1])) {
+            $issue_id = $matches[1];
+
+            $directory = $root_directory . "/patches/";
+            /** @var \Drupal\Core\File\FileSystemInterface $file_system */
+            $file_system = \Drupal::service('file_system');
+            $file_system->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+
+            try {
+              $patch_file = fopen($root_directory . "/patches/$issue_id.patch", "w");
+              fwrite($patch_file, $patch);
+              fclose($patch_file);
+              $value[$k] = "./patches/$issue_id.patch";
+            }
+            catch (\Exception $e) {
+              \Drupal::logger('Varbase')->info("Unable to save patch file $issue_id.patch");
+            }
+          }
+          else {
+            \Drupal::logger('Varbase')->info("Unable to retrieve the issue ID from \"$k\" from $key module patches list.");
+          }
+        }
+      }
+    }
+
+    try {
+      file_put_contents($root_directory . '/composer.json', json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('Varbase')->info("Unable to save composer.json file");
     }
   }
 
