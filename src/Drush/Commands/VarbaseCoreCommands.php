@@ -73,10 +73,10 @@ final class VarbaseCoreCommands extends DrushCommands {
   }
 
   /**
-   * Detect any merge request patch and download it to the local patches folder with a timestamp date and update the root composer.json file to use the timestamped local patch file.
+   * This command detects any merge request patches, downloads them to the local patches folder with a timestamp, and updates the root `composer.json` file to use the timestamped local patch file.
    */
   #[CLI\Command(name: 'varbase:composer:cleanup:patches', aliases: ['var-ccup'])]
-  #[CLI\Usage(name: 'varbase:composer:cleanup:patches', description: 'Detect any merge request patch and download it to the local patches folder with a timestamp date and update the root composer.json file to use the timestamped local patch file.')]
+  #[CLI\Usage(name: 'varbase:composer:cleanup:patches', description: 'This command detects any merge request patches, downloads them to the local patches folder with a timestamp, and updates the root `composer.json` file to use the timestamped local patch file.')]
   public function mergeRequestPatchesCleanup() {
     $root_directory = $this->getConfig()->get('runtime.project');
     $root_composer_json = file_get_contents($root_directory . '/composer.json');
@@ -186,10 +186,10 @@ final class VarbaseCoreCommands extends DrushCommands {
   }
 
   /**
-   * Detect any merge request patch and download it to the local patches folder with a timestamp date and update patches-file json file to use the timestamped local patch file.
+   * This command detects any merge request patches, downloads them to the local patches folder with a timestamp, and updates the `patches-file JSON` file to use the timestamped local patch file.
    */
   #[CLI\Command(name: 'varbase:composer:cleanup:patches-file', aliases: ['var-ccupf'])]
-  #[CLI\Usage(name: 'varbase:composer:cleanup:patches-file', description: 'Detect any merge request patch and download it to the local patches folder with a timestamp date and update patches-file json file to use the timestamped local patch file.')]
+  #[CLI\Usage(name: 'varbase:composer:cleanup:patches-file', description: 'This command detects any merge request patches, downloads them to the local patches folder with a timestamp, and updates the `patches-file JSON` file to use the timestamped local patch file.')]
   public function mergeRequestPatchesFileCleanup() {
     $root_directory = $this->getConfig()->get('runtime.project');
 
