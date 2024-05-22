@@ -189,7 +189,7 @@ final class VarbaseCoreCommands extends DrushCommands {
    * Detect any merge request patch and download it to the local patches folder with a timestamp date and update patches-file json file to use the timestamped local patch file.
    */
   #[CLI\Command(name: 'varbase:composer:cleanup:patches-file', aliases: ['var-ccupf'])]
-  #[CLI\Usage(name: 'varbase:composer:cleanup:patches-file', description: 'Detect any merge request patch and download it to local and update patches-file.')]
+  #[CLI\Usage(name: 'varbase:composer:cleanup:patches-file', description: 'Detect any merge request patch and download it to the local patches folder with a timestamp date and update patches-file json file to use the timestamped local patch file.')]
   public function mergeRequestPatchesFileCleanup() {
     $root_directory = $this->getConfig()->get('runtime.project');
 
