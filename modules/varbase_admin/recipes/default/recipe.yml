@@ -28,6 +28,7 @@ install:
   - gin_login
   - gin_moderation_sidebar
   - gin_everywhere
+  - gin_type_tray
   - keysave
 config:
   import:
