@@ -46,6 +46,8 @@ config:
       - responsive_preview.device.large
       - responsive_preview.device.medium
       - responsive_preview.device.small
+    keysave:
+      - keysave.settings
   actions:
     user.settings:
       simple_config_update:

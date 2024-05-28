@@ -4,6 +4,9 @@ type: update
 install:
   - keysave
 config:
+  import:
+    keysave:
+      - keysave.settings
   actions:
     keysave.settings:
       simple_config_update:
