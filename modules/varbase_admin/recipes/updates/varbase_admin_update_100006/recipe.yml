@@ -3,3 +3,16 @@ description: 'Issue #3448658: Add the Keysave module and enable it'
 type: update
 install:
   - keysave
+config:
+  actions:
+    keysave.settings:
+      simple_config_update:
+        include_forms:
+          - drupal_upgrade_status_summary_form
+          - system_modules
+          - system_modules_uninstall
+          - user_admin_permissions
+          - block_admin_display_form
+          - media_bulk_upload_form
+        exclude_forms:
+          - ''

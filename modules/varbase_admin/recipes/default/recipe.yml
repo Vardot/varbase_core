@@ -162,3 +162,14 @@ config:
         - 'clone taxonomy_term entity'
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
+    keysave.settings:
+      simple_config_update:
+        include_forms:
+          - drupal_upgrade_status_summary_form
+          - system_modules
+          - system_modules_uninstall
+          - user_admin_permissions
+          - block_admin_display_form
+          - media_bulk_upload_form
+        exclude_forms:
+          - ''
