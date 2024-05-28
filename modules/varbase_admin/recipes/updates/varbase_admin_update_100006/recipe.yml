@@ -3,8 +3,3 @@ description: 'Issue #3448658: Add the Keysave module and enable it'
 type: update
 install:
   - keysave
-config:
-  actions:
-    user.role.authenticated:
-      grantPermissions:
-        - 'use keysave'

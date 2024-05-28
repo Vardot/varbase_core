@@ -99,7 +99,6 @@ config:
         - 'userprotect.account.edit'
         - 'userprotect.mail.edit'
         - 'userprotect.pass.edit'
-        - 'use keysave'
     user.role.editor:
       grantPermissions:
         - 'customize shortcut links'
