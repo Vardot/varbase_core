@@ -35,7 +35,6 @@
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
     "drupal/bootstrap_layouts": "~5",
-    "drupal/layout_builder_restrictions": "~2",
     "drupal/ds": "~3",
     "drupal/views_bootstrap": "~5.5.0",
     "drupal/field_group": "~3",
