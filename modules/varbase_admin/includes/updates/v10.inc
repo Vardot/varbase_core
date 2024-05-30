@@ -79,12 +79,3 @@ function varbase_admin_update_100005() {
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100005');
   RecipeRunner::processRecipe($recipe);
 }
-
-/**
- * Issue #3448658: Add the Keysave module and enable it.
- */
-function varbase_admin_update_100006() {
-  $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
-  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100006');
-  RecipeRunner::processRecipe($recipe);
-}

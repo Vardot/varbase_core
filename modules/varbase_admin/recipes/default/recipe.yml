@@ -29,7 +29,6 @@ install:
   - gin_moderation_sidebar
   - gin_everywhere
   - gin_type_tray
-  - keysave
 config:
   import:
     varbase_admin:
@@ -46,8 +45,6 @@ config:
       - responsive_preview.device.large
       - responsive_preview.device.medium
       - responsive_preview.device.small
-    keysave:
-      - keysave.settings
   actions:
     user.settings:
       simple_config_update:
@@ -164,14 +161,3 @@ config:
         - 'clone taxonomy_term entity'
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
-    keysave.settings:
-      simple_config_update:
-        include_forms:
-          - drupal_upgrade_status_summary_form
-          - system_modules
-          - system_modules_uninstall
-          - user_admin_permissions
-          - block_admin_display_form
-          - media_bulk_upload_form
-        exclude_forms:
-          - ''
