@@ -6,29 +6,51 @@
  */
 
 /**
- * Issue #3399650: Add Config ignore for Import/Export for Dynamic Responsive Image (drimage).
+ * Issue #3399650: Add Config ignore for Import/Export for Dynamic Responsive Image (drimage) + Improved.
  *
  * Generated image styles.
  */
 function varbase_core_update_100001() {
-  if (\Drupal::moduleHandler()->moduleExists('drimage')
-    && \Drupal::moduleHandler()->moduleExists('config_ignore')) {
+  if (\Drupal::moduleHandler()->moduleExists('config_ignore')) {
+    // If Driamge was enabled.
+    if (\Drupal::moduleHandler()->moduleExists('drimage')) {
 
-    $config_factory = \Drupal::configFactory()->getEditable('config_ignore.settings');
+      $config_factory = \Drupal::configFactory()->getEditable('config_ignore.settings');
 
-    $mode = $config_factory->get('mode');
+      $mode = $config_factory->get('mode');
 
-    if (!isset($mode)) {
-      $config_factory->set('mode', 'simple');
+      if (!isset($mode)) {
+        $config_factory->set('mode', 'simple');
+      }
+
+      $ignored_config_entities = $config_factory->get('ignored_config_entities');
+
+      if (isset($ignored_config_entities)) {
+        $ignored_config_entities[] = 'image.style.drimage_*';
+        $config_factory->set('ignored_config_entities', $ignored_config_entities);
+      }
+
+      $config_factory->save(TRUE);
     }
+    // If Drimage improved was enabled.
+    elseif (\Drupal::moduleHandler()->moduleExists('drimage_improved')) {
 
-    $ignored_config_entities = $config_factory->get('ignored_config_entities');
+      $config_factory = \Drupal::configFactory()->getEditable('config_ignore.settings');
 
-    if (isset($ignored_config_entities)) {
-      $ignored_config_entities[] = 'image.style.drimage_*';
-      $config_factory->set('ignored_config_entities', $ignored_config_entities);
+      $mode = $config_factory->get('mode');
+
+      if (!isset($mode)) {
+        $config_factory->set('mode', 'simple');
+      }
+
+      $ignored_config_entities = $config_factory->get('ignored_config_entities');
+
+      if (isset($ignored_config_entities)) {
+        $ignored_config_entities[] = 'image.style.drimage_improved_*';
+        $config_factory->set('ignored_config_entities', $ignored_config_entities);
+      }
+
+      $config_factory->save(TRUE);
     }
-
-    $config_factory->save(TRUE);
   }
 }

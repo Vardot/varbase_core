@@ -1,6 +1,7 @@
 mode: simple
 ignored_config_entities:
   - 'image.style.drimage_*'
+  - 'image.style.drimage_improved_*'
   - 'varbase_core.general_settings.*'
   - 'webform.webform.*'
   - 'xmlsitemap.xmlsitemap.*'
