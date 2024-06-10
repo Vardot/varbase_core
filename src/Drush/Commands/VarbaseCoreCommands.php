@@ -38,9 +38,9 @@ final class VarbaseCoreCommands extends DrushCommands {
       $this->logger()->success(dt('Removed non-existent permissions.'));
     }
     catch (\Exception $e) {
-      \Drupal::logger('Varbase')->critical('Error while drush varbase:remove-non-existent-permissions. !code !exception', [
-        '!code' => $e->getCode(),
-        '!exception' => $e->getMessage(),
+      \Drupal::logger('Varbase')->critical('Error while drush varbase:remove-non-existent-permissions. %code %exception', [
+        '%code' => $e->getCode(),
+        '%exception' => $e->getMessage(),
       ]);
     }
   }
@@ -65,9 +65,9 @@ final class VarbaseCoreCommands extends DrushCommands {
       $this->logger()->success(dt('Applied Entity updates for mismatched entity and/or field definitions'));
     }
     catch (\Exception $e) {
-      \Drupal::logger('Varbase')->critical('Error while drush varbase:entity-update. !code !exception', [
-        '!code' => $e->getCode(),
-        '!exception' => $e->getMessage(),
+      \Drupal::logger('Varbase')->critical('Error while drush varbase:entity-update. %code %exception', [
+        '%code' => $e->getCode(),
+        '%exception' => $e->getMessage(),
       ]);
     }
   }
