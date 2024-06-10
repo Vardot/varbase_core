@@ -93,12 +93,6 @@ function varbase_core_update_90006() {
       'block_class.settings',
     ];
     ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/optional');
-
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-      ->applyUpdates();
   }
 }
 
