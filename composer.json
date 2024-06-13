@@ -99,7 +99,7 @@
     "drupal/captcha": "~2",
     "drupal/recaptcha": "~3",
     "drupal/length_indicator": "~1",
-    "drupal/maxlength": "~2",
+    "drupal/maxlength": "~2 || ~3",
     "drupal/menu_position": "~1",
     "drupal/taxonomy_manager": "~2",
     "drupal/taxonomy_access_fix": "~4",
