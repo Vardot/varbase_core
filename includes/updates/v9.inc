@@ -5,7 +5,6 @@
  * Contains varbase_core_update_9###(s) hook updates.
  */
 
-use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
 
 /**
