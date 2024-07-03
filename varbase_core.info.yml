@@ -72,3 +72,4 @@ install:
   - login_destination
   - email_registration
   - jquery_ui_accordion
+  - project_browser
