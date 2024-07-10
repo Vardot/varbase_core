@@ -55,25 +55,6 @@ function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInte
 }
 
 /**
- * Implements hook_form_alter().
- */
-function varbase_admin_form_alter(array &$form, FormStateInterface $form_state) {
-
-  // Move the moderation status to actions when the Gin admin theme.
-  $active_theme = \Drupal::theme()->getActiveTheme();
-  $base_themes = (array) $active_theme->getBaseThemeExtensions();
-  if ($active_theme->getName() === 'gin' || array_key_exists('gin', $base_themes)) {
-
-    // Move delete to be a gin action item.
-    if (isset($form['actions']['delete'])) {
-      $form['actions']['delete']['#gin_action_item'] = TRUE;
-    }
-  }
-
-  return $form;
-}
-
-/**
  * Implements hook_library_info_alter().
  */
 function varbase_admin_library_info_alter(&$libraries, $extension) {
