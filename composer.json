@@ -43,7 +43,7 @@
     "drupal/smart_trim": "~2",
     "drupal/advanced_text_formatter": "~3",
     "drupal/allowed_formats": "~3",
-    "drupal/block_class": "~2",
+    "drupal/block_class": "~2 || ~3",
     "drupal/menu_block": "~1",
     "drupal/block_content_permissions": "~1",
     "drupal/views_infinite_scroll": "~2",
