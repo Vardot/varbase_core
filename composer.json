@@ -71,7 +71,7 @@
     "drupal/views_bulk_edit": "~2",
     "drupal/revision_log_default": "~1",
     "drupal/webform": "~6.2.0",
-    "drupal/webform_views": "~5.2.0",
+    "drupal/webform_views": "~5",
     "drupal/default_content": "2.0.x-dev",
     "drupal/content_lock": "~2",
     "drupal/node_edit_protection": "~1",
