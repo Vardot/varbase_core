@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic page'
+tags:
+  og_image: '[node:share-image]'
+  og_image_url: '[node:share-image]'
