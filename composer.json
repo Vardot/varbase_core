@@ -91,7 +91,7 @@
     "drupal/genpass": "~2",
     "drupal/seckit": "~2",
     "drupal/security_review": "~3",
-    "drupal/honeypot": "~2",
+    "drupal/honeypot": "~2.1.0",
     "drupal/antibot": "~2",
     "drupal/shield": "~1",
     "drupal/flood_control": "~2",
