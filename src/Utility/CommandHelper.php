@@ -35,7 +35,7 @@ class CommandHelper implements LoggerAwareInterface {
       return;
     }
 
-    module_load_install($module);
+    \Drupal::moduleHandler()->loadInclude($module, 'install');
     if (function_exists($update_hook)) {
       call_user_func($update_hook, $force);
     }

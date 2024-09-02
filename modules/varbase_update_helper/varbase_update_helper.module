@@ -68,7 +68,7 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
           }
           if ($status) {
             $update_data = explode(":", $update);
-            module_load_install($update_data[0]);
+            \Drupal::moduleHandler()->loadInclude($update_data[0], 'install');
             if (function_exists($update_data[1])) {
               call_user_func($update_data[1], FALSE);
             }
