@@ -73,6 +73,35 @@ final class VarbaseCoreCommands extends DrushCommands {
   }
 
   /**
+   * Applying an (optional) update hook (function) from module install file.
+   *
+   * @param string $module
+   *   Drupal module name.
+   * @param string $update_hook
+   *   Name of the optional update hook to apply, it is a name of a function.
+   *   (Example #1: varbase_core_optional_update_9003).
+   *   (Example #2: varbase_recipes_optional_recipe_update).
+   * @param bool $force
+   *   Force the update.
+   */
+  #[CLI\Command(name: 'varbase:optional-update', aliases: ['varbase-up'])]
+  #[CLI\Usage(name: 'varbase:optional-update', description: 'Applying an (optional) update hook (function) from module install file.')]
+  public function varbaseApplyUpdate($module = '', $update_hook = '', $force = FALSE) {
+    if (!$update_hook || !$module) {
+      $this->output()->writeln(dt('Please provide a module name and an update hook. Example: drush varbase-up <module> <update_hook>'));
+      return;
+    }
+
+    \Drupal::moduleHandler()->loadInclude($module, 'install');
+    if (function_exists($update_hook)) {
+      call_user_func($update_hook, $force);
+    }
+    else {
+      $this->output()->writeln(dt("Couldn't find an update hook: !update_hook. Please verify the update hook name.", ["!update_hook" => $update_hook]));
+    }
+  }
+
+  /**
    * This command detects any merge request patches, downloads them to the local patches folder with a timestamp, and updates the root `composer.json` file to use the timestamped local patch file.
    */
   #[CLI\Command(name: 'varbase:composer:cleanup:patches', aliases: ['var-ccup'])]
