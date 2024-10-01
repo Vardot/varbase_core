@@ -95,7 +95,7 @@
     "drupal/honeypot": "~2.1.0",
     "drupal/antibot": "~2",
     "drupal/shield": "~1",
-    "drupal/flood_control": "~2",
+    "drupal/flood_control": "~3",
     "drupal/captcha": "~2",
     "drupal/recaptcha": "~3",
     "drupal/length_indicator": "~1",
