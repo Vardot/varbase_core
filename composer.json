@@ -62,7 +62,7 @@
     "drupal/email_registration": "~2",
     "drupal/config_perms": "~2",
     "drupal/roleassign": "~2",
-    "drupal/prevent_homepage_deletion": "~2",
+    "drupal/prevent_homepage_deletion": "~3",
     "drupal/admin_toolbar": "~3",
     "drupal/tour_ui": "~2",
     "drupal/coffee": "~1",
