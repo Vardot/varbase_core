@@ -40,7 +40,7 @@
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~2",
     "drupal/advanced_text_formatter": "~3",
-    "drupal/block_class": "~3",
+    "drupal/block_class": "~4",
     "drupal/menu_block": "~1",
     "drupal/views_infinite_scroll": "~2",
     "drupal/entity": "~1",
