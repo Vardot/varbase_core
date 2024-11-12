@@ -65,7 +65,7 @@
     "drupal/prevent_homepage_deletion": "~3",
     "drupal/admin_toolbar": "~3",
     "drupal/tour_ui": "~2",
-    "drupal/coffee": "~1",
+    "drupal/coffee": "~2",
     "drupal/responsive_preview": "~2",
     "drupal/views_bulk_operations": "~4",
     "drupal/views_bulk_edit": "~2 || ~3",
