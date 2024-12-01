@@ -111,6 +111,6 @@
     "drupal/vmi": "~2",
     "drupal/jquery_ui_accordion": "~1 || ~2",
     "drupal/reroute_email": "~2",
-    "drupal/editoria11y": "~2.1.0"
+    "drupal/editoria11y": "~2.2.0"
   }
 }
