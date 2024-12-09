@@ -79,7 +79,7 @@
     "drupal/rabbit_hole": "~2",
     "drupal/yoast_seo": "~1",
     "drupal/fast_404": "~3",
-    "drupal/diff": "~1",
+    "drupal/diff": "~2",
     "drupal/masquerade": "~2",
     "drupal/menu_admin_per_menu": "~1",
     "drupal/drd_agent": "~4",
