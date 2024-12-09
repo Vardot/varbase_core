@@ -151,6 +151,10 @@ aside#admin-toolbar {
 
     .form-item {
       margin-left: 0 !important;
+
+      &.form-type--date {
+        margin-bottom: 0;
+      }
     }
   }
 }

@@ -126,6 +126,11 @@ aside#admin-toolbar .admin-toolbar__logo {
   margin-left: 0 !important;
 }
 
+[dir="ltr"] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$="-from-wrapper"] .form-item.form-type--date,
+[dir="ltr"] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$="-to-wrapper"] .form-item.form-type--date {
+  margin-bottom: 0;
+}
+
 [dir=rtl] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-from-wrapper] .fieldset__wrapper,
 [dir=rtl] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-to-wrapper] .fieldset__wrapper {
   margin-right: 0 !important;
