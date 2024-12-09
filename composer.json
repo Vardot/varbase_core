@@ -48,7 +48,7 @@
     "drupal/entity_usage": "~2",
     "drupal/entityqueue": "~1",
     "drupal/entityqueue_form_widget": "~2",
-    "drupal/inline_entity_form": "~1",
+    "drupal/inline_entity_form": "~2",
     "drupal/ultimate_cron": "~2",
     "drupal/persistent_login": "~2",
     "drupal/userprotect": "~1",
