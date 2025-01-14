@@ -34,6 +34,7 @@
     "drupal/ctools": "~3 || ~4",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
+    "drupal/tour": "~2",
     "drupal/page_manager": "~4",
     "drupal/panels": "~4",
     "drupal/bootstrap_layouts": "~5",

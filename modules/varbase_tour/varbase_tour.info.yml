@@ -4,4 +4,4 @@ type: module
 package: Varbase
 core_version_requirement: ~10.4.0 || ~11.1.0
 dependencies:
-  - drupal:tour
+  - tour:tour
