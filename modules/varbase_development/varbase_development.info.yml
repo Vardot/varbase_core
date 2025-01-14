@@ -9,5 +9,4 @@ install:
   - views_ui
   - config_update_ui
   - devel
-  - tour_ui
   - reroute_email
