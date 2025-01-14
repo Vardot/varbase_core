@@ -77,7 +77,7 @@
     "drupal/content_lock": "~3",
     "drupal/node_edit_protection": "~1",
     "drupal/rabbit_hole": "~2",
-    "drupal/yoast_seo": "~1",
+    "drupal/yoast_seo": "~2",
     "drupal/fast_404": "~3",
     "drupal/diff": "~2",
     "drupal/masquerade": "~2",
