@@ -65,7 +65,6 @@
     "drupal/config_perms": "~2",
     "drupal/roleassign": "~2",
     "drupal/prevent_homepage_deletion": "~3",
-    "drupal/tour_ui": "~2",
     "drupal/coffee": "~2",
     "drupal/responsive_preview": "~2",
     "drupal/views_bulk_operations": "~4",
