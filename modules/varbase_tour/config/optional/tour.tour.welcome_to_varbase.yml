@@ -3,54 +3,54 @@ status: true
 dependencies:
   module:
     - varbase_tour
-id: welcome-to-varbase
+id: welcome_to_varbase
 label: "Welcome to Varbase"
 module: varbase_tour
 routes:
   - route_name: "<front>"
 tips:
-  tour-switch:
-    id: tour-switch
+  tour_switch:
+    id: tour_switch
     plugin: text
     label: "Tour Switch"
     weight: -100
     selector: .toolbar-icon.toolbar-icon-help.toolbar-item
     body: "<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>"
     position: right-start
-  editing-your-homepage-layout:
-    id: editing-your-homepage-layout
+  editing_your_homepage_layout:
+    id: editing_your_homepage_layout
     plugin: text
     label: "Editing Your Homepage Layout"
     weight: -99
     selector: ".moderation-sidebar-toolbar-tab.edit-mode-inactive.toolbar-tab"
     body: "<p>You can change your homepage layout and customize what to appear in it from the <b>tasks</b> moderation sidebar menu link.</p>"
     position: left-start
-  start-configuring-your-site-structure:
-    id: start-configuring-your-site-structure
+  start_configuring_your_site_structure:
+    id: start_configuring_your_site_structure
     plugin: text
     label: "Start Configuring Your Site Structure"
     weight: -98
     selector: ".toolbar-icon-system-admin-structure"
     body: "<p>Define your content types, fields, taxonomy, views, and other structural building blocks from here.</p>"
     position: bottom
-  define-your-site-settings:
-    id: define-your-site-settings
+  define_your_site_settings:
+    id: define_your_site_settings
     plugin: text
     label: "Define Your Site Settings"
     weight: -97
     selector: .toolbar-icon-system-admin-config
     body: "<p>Other configuration for your site such as registration, search settings, web services, multilingual settings and content authoring can be managed from here.</p>"
     position: bottom
-  sites-content:
-    id: sites-content
+  sites_content:
+    id: sites_content
     plugin: text
     label: "Site Content"
     weight: -96
     selector: ".toolbar-icon-system-admin-content"
     body: "<p>All your site's content, media, and files can be found here.</p>"
     position: bottom
-  your-dashboard:
-    id: your-dashboard
+  your_dashboard:
+    id: your_dashboard
     plugin: text
     label: "Your Dashboard"
     weight: -95
