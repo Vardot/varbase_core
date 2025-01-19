@@ -9,8 +9,7 @@
   },
   "scripts": {
     "theme:build:admin": "webpack --progress --config webpack.config.admin.js",
-    "theme:build:tour": "webpack --progress --config webpack.config.tour.js",
-    "theme:build": "yarn theme:build:admin; yarn theme:build:tour;",
+    "theme:build": "yarn theme:build:admin;",
     "phpcs": "phpcs --standard=./.phpcs.xml .",
     "phpcbf": "phpcbf --standard=./.phpcs.xml .",
     "lint:js": "node ./node_modules/eslint/bin/eslint.js .",
