@@ -12,12 +12,6 @@ function varbase_tour_page_attachments(array &$page) {
   // Given that the current user is a logged in user.
   if (\Drupal::currentUser()->isAuthenticated()) {
 
-    // When the url is NOT an admin route or in the admin theme.
-    if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
-      // Then attach the varbase tour default theme library.
-      $page['#attached']['library'][] = 'varbase_tour/default-theme';
-    }
-
     // When the current page is the front page.
     if (\Drupal::service('path.matcher')->isFrontPage()) {
       $query_welcome = \Drupal::request()->query->get('welcome');
