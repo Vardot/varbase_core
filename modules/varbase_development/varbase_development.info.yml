@@ -9,4 +9,5 @@ install:
   - views_ui
   - config_update_ui
   - devel
+  - sdc_devel
   - reroute_email
