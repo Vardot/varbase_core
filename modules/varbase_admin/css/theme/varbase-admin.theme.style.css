@@ -116,6 +116,42 @@ aside#admin-toolbar .admin-toolbar__logo {
   margin-top: var(--gin-spacing-xxs) !important;
 }
 
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] {
+  padding: 0 !important;
+  border: 0 !important;
+  margin-block: 1.1rem 0;
+  margin-inline: 0 var(--space-xs);
+}
+
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value="="]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value="!="]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=contains]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=word]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=allwords]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=starts]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=not_starts]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=ends]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=not_ends]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=not]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=shorterthan]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=longerthan]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=regular_expression]),
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] #edit-field-media-image-alt-op:has(option:checked[value=not_regular_expression]) {
+  border-start-end-radius: 0 !important;
+  border-end-end-radius: 0 !important;
+}
+
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] input[type=text] {
+  width: 11rem;
+  border-start-start-radius: 0 !important;
+  border-end-start-radius: 0 !important;
+}
+
+.views-exposed-form.views-exposed-form fieldset[data-drupal-selector=edit-field-media-image-alt-wrapper] .form-item {
+  margin-block: 0 !important;
+  margin-inline: 0 !important;
+}
+
 [dir=ltr] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-from-wrapper] .fieldset__wrapper,
 [dir=ltr] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-to-wrapper] .fieldset__wrapper {
   margin-left: 0 !important;
@@ -126,8 +162,8 @@ aside#admin-toolbar .admin-toolbar__logo {
   margin-left: 0 !important;
 }
 
-[dir="ltr"] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$="-from-wrapper"] .form-item.form-type--date,
-[dir="ltr"] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$="-to-wrapper"] .form-item.form-type--date {
+[dir=ltr] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-from-wrapper] .form-item.form-type--date,
+[dir=ltr] .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-to-wrapper] .form-item.form-type--date {
   margin-bottom: 0;
 }
 
