@@ -139,6 +139,45 @@ aside#admin-toolbar {
     }
 
   }
+
+  fieldset[data-drupal-selector="edit-field-media-image-alt-wrapper"] {
+    padding: 0 !important;
+    border: 0 !important;
+    margin-block: 1.1rem 0;
+    margin-inline: 0 var(--space-xs);
+
+    #edit-field-media-image-alt-op {
+      &:has(option:checked[value="="]),
+      &:has(option:checked[value="!="]),
+      &:has(option:checked[value="contains"]),
+      &:has(option:checked[value="word"]),
+      &:has(option:checked[value="allwords"]),
+      &:has(option:checked[value="starts"]),
+      &:has(option:checked[value="not_starts"]),
+      &:has(option:checked[value="ends"]),
+      &:has(option:checked[value="not_ends"]),
+      &:has(option:checked[value="not"]),
+      &:has(option:checked[value="shorterthan"]),
+      &:has(option:checked[value="longerthan"]),
+      &:has(option:checked[value="regular_expression"]),
+      &:has(option:checked[value="not_regular_expression"]) {
+        border-start-end-radius: 0 !important;
+        border-end-end-radius: 0 !important;
+      }
+    }
+
+    input[type="text"] {
+      width: 11rem;
+      border-start-start-radius: 0 !important;
+      border-end-start-radius: 0 !important;
+    }
+
+    .form-item {
+      margin-block: 0 !important;
+      margin-inline: 0 !important;
+    }
+  }
+
 }
 
 [dir="ltr"] .views-exposed-form.views-exposed-form {
