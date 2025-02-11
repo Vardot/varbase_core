@@ -79,3 +79,18 @@ function varbase_admin_update_100005() {
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100005');
   RecipeRunner::processRecipe($recipe);
 }
+
+/**
+ * Issue #3505583: Enable the new administration Navigation module.
+ *
+ * And remove Admin Toolbar & Admin Toolbar Extra Tools for improved admin UX.
+ */
+function varbase_admin_update_100006() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_admin')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_admin_update_100006');
+  RecipeRunner::processRecipe($recipe);
+
+  if (\Drupal::moduleHandler()->moduleExists('admin_toolbar_tools')) {
+    \Drupal::service('module_installer')->uninstall(['admin_toolbar_tools', 'admin_toolbar'], FALSE);
+  }
+}

@@ -70,3 +70,17 @@ function varbase_admin_library_info_alter(&$libraries, $extension) {
     }
   }
 }
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function varbase_admin_element_info_alter(array &$types) {
+  if (isset($types['toolbar'])) {
+    if (\Drupal::moduleHandler()->moduleExists('navigation')) {
+      $types['toolbar']['#attached']['library'][] = 'varbase_admin/admin-navigation';
+    }
+    elseif (\Drupal::moduleHandler()->moduleExists('admin_toolbar')) {
+      $types['toolbar']['#attached']['library'][] = 'varbase_admin/admin-toolbar';
+    }
+  }
+}
