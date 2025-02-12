@@ -87,11 +87,6 @@ body.path-admin .panel.dashboard-block p {
   width: 100% !important;
 }
 
-aside#admin-toolbar .admin-toolbar__logo {
-  border-radius: 0;
-  margin: 1rem;
-}
-
 .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-from-wrapper],
 .views-exposed-form.views-exposed-form fieldset[data-drupal-selector$=-to-wrapper] {
   padding: 0 !important;

@@ -12,6 +12,8 @@ module.exports = {
     // SCSS
     // ################################################
     // Theme for Varbase Admin
+    'theme/varbase-admin.admin-navigation.theme': ['./modules/varbase_admin/scss/theme/varbase-admin.admin-navigation.theme.scss'],
+    'theme/varbase-admin.admin-toolbar.theme': ['./modules/varbase_admin/scss/theme/varbase-admin.admin-toolbar.theme.scss'],
     'theme/varbase-admin.theme.style': ['./modules/varbase_admin/scss/theme/varbase-admin.theme.style.scss'],
     'theme/varbase-admin.theme.style-rtl': ['./modules/varbase_admin/scss/theme/varbase-admin.theme.style-rtl.scss'],
   },

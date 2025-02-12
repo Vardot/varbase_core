@@ -1,11 +1,8 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - varbase_tour
+dependencies: {  }
 id: welcome_to_varbase
 label: 'Welcome to Varbase'
-module: varbase_tour
 routes:
   -
     route_name: '<front>'
@@ -32,7 +29,7 @@ tips:
     label: 'Start Configuring Your Site Structure'
     weight: -98
     position: left
-    selector: .toolbar-icon-system-admin-structure
+    selector: '#navigation-link-systemadmin-structure'
     body: '<p>Define your content types, fields, taxonomy, views, and other structural building blocks from here.</p>'
   define_your_site_settings:
     id: define_your_site_settings
@@ -40,7 +37,7 @@ tips:
     label: 'Define Your Site Settings'
     weight: -97
     position: left
-    selector: .toolbar-icon-system-admin-config
+    selector: '#navigation-link-systemadmin-config'
     body: '<p>Other configuration for your site such as registration, search settings, web services, multilingual settings and content authoring can be managed from here.</p>'
   sites_content:
     id: sites_content
@@ -48,13 +45,13 @@ tips:
     label: 'Site Content'
     weight: -96
     position: left
-    selector: .toolbar-icon-system-admin-content
-    body: '<p>All your site''s content, media, and files can be found here.</p>'
+    selector: '#navigation-link-navigationcontent'
+    body: "<p>All your site's content, media, and files can be found here.</p>"
   your_dashboard:
     id: your_dashboard
     plugin: text
     label: 'Your Dashboard'
     weight: -95
     position: left
-    selector: '.toolbar-menu-administration a[href="/admin/dashboard"]'
-    body: '<p>Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site''s traffic once you go live.</p>'
+    selector: '#navigation-link-varbase-dashboardsdashboard'
+    body: "<p>Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site's traffic once you go live.</p>"

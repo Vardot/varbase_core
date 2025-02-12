@@ -1,0 +1,18 @@
+name: varbase_admin_update_100006
+description: 'Issue #3505583: Enable the new administration Navigation module and remove Admin Toolbar & Admin Toolbar Extra Tools for improved admin UX'
+type: update
+install:
+  - navigation
+config:
+  import:
+    navigation: '*'
+  actions:
+    navigation.settings:
+      simpleConfigUpdate:
+        logo:
+          provider: custom
+          path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
+          max:
+            filesize: 1048576
+            height: 40
+            width: 40

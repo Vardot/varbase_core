@@ -22,8 +22,7 @@ install:
   - taxonomy_access_fix
   - coffee
   - length_indicator
-  - admin_toolbar
-  - admin_toolbar_tools
+  - navigation
   - gin_toolbar
   - gin_login
   - gin_moderation_sidebar
@@ -31,6 +30,7 @@ install:
   - gin_type_tray
 config:
   import:
+    navigation: '*'
     varbase_admin:
       - responsive_preview.device.iphone_15
       - responsive_preview.device.iphone_15_pro_max
@@ -47,13 +47,13 @@ config:
       - responsive_preview.device.small
   actions:
     user.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         register: admin_only
     node.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         use_admin_theme: true
     gin.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         logo:
           path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
           use_default: false
@@ -63,33 +63,42 @@ config:
           use_default: false
         show_description_toggle: true
     gin_login.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         logo:
           use_default: false
           path: themes/contrib/vartheme_bs5/logo.svg
         brand_image:
           use_default: true
+    navigation.settings:
+      simpleConfigUpdate:
+        logo:
+          provider: custom
+          path: profiles/contrib/varbase/images/varbase-medium-logo-emblem-color.png
+          max:
+            filesize: 1048576
+            height: 40
+            width: 40
     roleassign.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         roleassign_roles:
           editor: editor
           content_admin: content_admin
           site_admin: site_admin
           administrator: "0"
     config_perms.custom_perms_entity.administer_account_settings:
-      simple_config_update:
+      simpleConfigUpdate:
         label: "Administer account settings"
         route: entity.user.admin_form
     config_perms.custom_perms_entity.administer_date_time:
-      simple_config_update:
+      simpleConfigUpdate:
         label: "Administer date-time"
         route: entity.date_format.collection
     config_perms.custom_perms_entity.administer_error_logs:
-      simple_config_update:
+      simpleConfigUpdate:
         label: "Administer error logs"
         route: dblog.overview
     config_perms.custom_perms_entity.administer_file_system:
-      simple_config_update:
+      simpleConfigUpdate:
         label: "Administer file system"
         route: system.file_system_settings
     user.role.authenticated:
