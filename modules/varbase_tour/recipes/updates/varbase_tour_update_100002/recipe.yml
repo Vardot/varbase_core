@@ -1,0 +1,57 @@
+name: varbase_tour_update_100002
+description: 'Issue #3505583: Change the default welcome to Varbase tour to work with the Navigation system.'
+type: update
+config:
+  strict: false
+  actions:
+    tour.tour.welcome_to_varbase:
+      simpleConfigUpdate:
+        tips:
+          tour_switch:
+            id: tour_switch
+            plugin: text
+            label: 'Tour Switch'
+            weight: -100
+            position: bottom
+            selector: '#toolbar-tab-tour'
+            body: '<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>'
+          editing_your_homepage_layout:
+            id: editing_your_homepage_layout
+            plugin: text
+            label: 'Editing Your Homepage Layout'
+            weight: -99
+            position: bottom
+            selector: .moderation-sidebar-toolbar-tab.toolbar-id--toolbar-icon-moderation-sidebar
+            body: '<p>You can change your homepage layout and customize what to appear in it from the <b>tasks</b> moderation sidebar menu link.</p>'
+          start_configuring_your_site_structure:
+            id: start_configuring_your_site_structure
+            plugin: text
+            label: 'Start Configuring Your Site Structure'
+            weight: -98
+            position: left
+            selector: '#navigation-link-systemadmin-structure'
+            body: '<p>Define your content types, fields, taxonomy, views, and other structural building blocks from here.</p>'
+          define_your_site_settings:
+            id: define_your_site_settings
+            plugin: text
+            label: 'Define Your Site Settings'
+            weight: -97
+            position: left
+            selector: '#navigation-link-systemadmin-config'
+            body: '<p>Other configuration for your site such as registration, search settings, web services, multilingual settings and content authoring can be managed from here.</p>'
+          sites_content:
+            id: sites_content
+            plugin: text
+            label: 'Site Content'
+            weight: -96
+            position: left
+            selector: '#navigation-link-navigationcontent'
+            body: "<p>All your site's content, media, and files can be found here.</p>"
+          your_dashboard:
+            id: your_dashboard
+            plugin: text
+            label: 'Your Dashboard'
+            weight: -95
+            position: left
+            selector: '#navigation-link-varbase-dashboardsdashboard'
+            body: "<p>Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site's traffic once you go live.</p>"

@@ -1,0 +1,15 @@
+name: Varbase Tour - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+install:
+  - tour
+config:
+  import:
+    tour: '*'
+    varbase_tour:
+      - tour.settings
+      - tour.tour.welcome_to_varbase
+  actions:
+    user.role.authenticated:
+      grantPermissions:
+        - 'access tour'
