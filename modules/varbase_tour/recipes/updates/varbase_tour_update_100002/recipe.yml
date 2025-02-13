@@ -4,6 +4,9 @@ type: update
 config:
   strict: false
   actions:
+    tour.settings:
+      simpleConfigUpdate:
+        hide_tour_when_empty: true
     tour.tour.welcome_to_varbase:
       simpleConfigUpdate:
         tips:
