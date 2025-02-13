@@ -45,6 +45,7 @@ config:
       - responsive_preview.device.large
       - responsive_preview.device.medium
       - responsive_preview.device.small
+      - navigation.block_layout
   actions:
     user.settings:
       simpleConfigUpdate:
@@ -116,6 +117,7 @@ config:
         - 'access responsive preview'
         - 'clone node entity'
         - 'access taxonomy manager list'
+        - 'access navigation'
     user.role.seo_admin:
       grantPermissions:
         - 'customize shortcut links'
@@ -123,6 +125,7 @@ config:
         - 'access admin audit trail'
         - 'access coffee'
         - 'access responsive preview'
+        - 'access navigation'
     user.role.content_admin:
       grantPermissions:
         - 'customize shortcut links'
@@ -140,6 +143,7 @@ config:
         - 'clone taxonomy_term entity'
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
+        - 'access navigation'
     user.role.site_admin:
       grantPermissions:
         - 'administer shortcuts'
@@ -170,3 +174,4 @@ config:
         - 'clone taxonomy_term entity'
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
+        - 'access navigation'
