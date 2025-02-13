@@ -30,7 +30,8 @@ install:
   - gin_type_tray
 config:
   import:
-    navigation: '*'
+    navigation:
+      - navigation.settings
     varbase_admin:
       - responsive_preview.device.iphone_15
       - responsive_preview.device.iphone_15_pro_max

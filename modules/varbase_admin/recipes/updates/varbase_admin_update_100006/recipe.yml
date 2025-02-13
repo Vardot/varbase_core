@@ -5,7 +5,8 @@ install:
   - navigation
 config:
   import:
-    navigation: '*'
+    navigation:
+      - navigation.settings
     varbase_admin:
       - navigation.block_layout
   actions:
