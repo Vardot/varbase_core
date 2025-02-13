@@ -5,7 +5,11 @@ install:
   - navigation
 config:
   import:
-    navigation: '*'
+    navigation:
+      - navigation.settings
+      - system.menu.content
+    varbase_admin:
+      - navigation.block_layout
   actions:
     navigation.settings:
       simpleConfigUpdate:
@@ -16,3 +20,15 @@ config:
             filesize: 1048576
             height: 40
             width: 40
+    user.role.editor:
+      grantPermissions:
+        - 'access navigation'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'access navigation'
+    user.role.content_admin:
+      grantPermissions:
+        - 'access navigation'
+    user.role.site_admin:
+      grantPermissions:
+        - 'access navigation'
