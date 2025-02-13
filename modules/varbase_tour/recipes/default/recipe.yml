@@ -4,12 +4,18 @@ type: install
 install:
   - tour
 config:
+  strict: false
   import:
     tour: '*'
     varbase_tour:
-      - tour.settings
       - tour.tour.welcome_to_varbase
   actions:
     user.role.authenticated:
       grantPermissions:
         - 'access tour'
+    tour.settings:
+      simpleConfigUpdate:
+        hide_tour_when_empty: true
+        display_custom_labels: false
+        tour_avail_text: ''
+        tour_no_avail_text: ''
