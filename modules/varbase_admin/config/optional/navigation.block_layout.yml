@@ -14,7 +14,7 @@ sections:
           label_display: '0'
           provider: navigation
           level: 1
-          depth: 3
+          depth: 1
         weight: 1
         additional: {  }
       3f2f743f-856f-404a-9c28-57ee83af4691:
@@ -26,7 +26,7 @@ sections:
           label_display: '0'
           provider: navigation
           level: 2
-          depth: 3
+          depth: 2
         weight: 2
         additional: {  }
       283da777-e051-4571-8089-47633a9ce706:
