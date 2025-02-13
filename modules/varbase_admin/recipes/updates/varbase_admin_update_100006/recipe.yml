@@ -7,6 +7,7 @@ config:
   import:
     navigation:
       - navigation.settings
+      - system.menu.content
     varbase_admin:
       - navigation.block_layout
   actions:

@@ -32,6 +32,7 @@ config:
   import:
     navigation:
       - navigation.settings
+      - system.menu.content
     varbase_admin:
       - responsive_preview.device.iphone_15
       - responsive_preview.device.iphone_15_pro_max
