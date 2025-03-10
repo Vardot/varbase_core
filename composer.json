@@ -117,6 +117,7 @@
     "drupal/sitewide_alert": "~3",
     "drupal/schemadotorg": "~1",
     "drupal/project_browser": "~2",
-    "drupal/automatic_updates": "~3"
+    "drupal/automatic_updates": "~3",
+    "drupal/autosave_form": "~1"
   }
 }

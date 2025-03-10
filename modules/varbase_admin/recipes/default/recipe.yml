@@ -16,6 +16,7 @@ install:
   - revision_log_default
   - syslog
   - update
+  - autosave_form
   - settings_tray
   - entity_clone
   - taxonomy_manager
@@ -30,6 +31,7 @@ install:
   - gin_type_tray
 config:
   import:
+    autosave_form: '*'
     navigation:
       - navigation.settings
       - system.menu.content
