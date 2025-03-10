@@ -31,7 +31,8 @@ install:
   - gin_type_tray
 config:
   import:
-    autosave_form: '*'
+    autosave_form:
+      - autosave_form.messages
     navigation:
       - navigation.settings
       - system.menu.content
@@ -50,6 +51,7 @@ config:
       - responsive_preview.device.medium
       - responsive_preview.device.small
       - navigation.block_layout
+      - autosave_form.settings
   actions:
     user.settings:
       simpleConfigUpdate:
