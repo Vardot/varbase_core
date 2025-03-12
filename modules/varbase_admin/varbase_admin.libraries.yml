@@ -11,11 +11,13 @@ admin-rtl:
       fonts/rtl/tajawal/css/tajawal.css: { }
       css/theme/varbase-admin.theme.style-rtl.css: { }
 
+# Custom styling for Navigation.
 admin-navigation:
   css:
     theme:
       css/theme/varbase-admin.admin-navigation.theme.css: {}
 
+# Custom styling for Admin Toolbar
 admin-toolbar:
   css:
     theme:
