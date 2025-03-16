@@ -7,7 +7,7 @@ active_on:
 notification:
   active: true
   message: 'Saving draft...'
-  delay: 2000
+  delay: 1000
 allowed_content_entity_types:
   media:
     bundles: {  }
