@@ -24,6 +24,7 @@ install:
   - coffee
   - length_indicator
   - navigation
+  - navigation_extra_tools
   - gin_toolbar
   - gin_login
   - gin_moderation_sidebar

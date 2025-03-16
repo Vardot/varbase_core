@@ -56,6 +56,7 @@
     "drupal/admin_audit_trail": "~1",
     "drupal/login_destination": "~2",
     "drupal/admin_toolbar": "~3",
+    "drupal/navigation_extra_tools": "~1",
     "drupal/gin": "~3 || ~4",
     "drupal/gin_login": "~2",
     "drupal/gin_toolbar": "~1 || ~2",
