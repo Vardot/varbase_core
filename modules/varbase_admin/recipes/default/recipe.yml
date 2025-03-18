@@ -151,6 +151,8 @@ config:
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
         - 'access navigation'
+        - 'access navigation extra tools cache flushing'
+        - 'access navigation extra tools cron'
     user.role.site_admin:
       grantPermissions:
         - 'administer shortcuts'
@@ -182,3 +184,5 @@ config:
         - 'clone taxonomy_vocabulary entity'
         - 'access taxonomy manager list'
         - 'access navigation'
+        - 'access navigation extra tools cache flushing'
+        - 'access navigation extra tools cron'
