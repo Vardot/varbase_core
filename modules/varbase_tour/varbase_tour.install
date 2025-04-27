@@ -5,8 +5,6 @@
  * Install, update and uninstall functions for the Varbase Tour module.
  */
 
-use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
 
