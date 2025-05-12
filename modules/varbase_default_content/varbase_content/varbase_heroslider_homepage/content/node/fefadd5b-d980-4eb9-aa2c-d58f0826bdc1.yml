@@ -371,7 +371,7 @@ default:
             uuid: 3233db7c-2e89-467d-9c0e-198fd83276d7
             region: blb_region_col_1
             configuration:
-              id: "views_block:varbase_heroslider-varbase_heroslider"
+              id: "views_block:varbase_heroslider-heroslider_block"
               label: ""
               provider: views
               label_display: 0
