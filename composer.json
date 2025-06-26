@@ -36,7 +36,7 @@
     "drupal/bootstrap_layouts": "~5",
     "drupal/ds": "~3",
     "drupal/views_bootstrap": "~5.5.0",
-    "drupal/field_group": "~3 || ~4",
+    "drupal/field_group": "~4",
     "drupal/smart_trim": "~2",
     "drupal/advanced_text_formatter": "~3",
     "drupal/block_class": "~3 || ~4",
