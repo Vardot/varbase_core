@@ -65,7 +65,7 @@ install:
   - node_edit_protection
   - maxlength
   - menu_position
-  - autocomplete_deluxe
+  - tagify
   - link_attributes
   - link_attributes_menu_link_content
   - rabbit_hole
