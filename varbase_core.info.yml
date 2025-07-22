@@ -43,6 +43,7 @@ install:
   - eca_base
   - eca_config
   - eca_content
+  - eca_form
   - eca_misc
   - eca_user
   - eca_render
