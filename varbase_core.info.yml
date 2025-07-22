@@ -38,6 +38,8 @@ install:
   - diff
   - extlink
   - dynamic_page_cache
+  - eca
+  - bpmn_io
   - big_pipe
   - menu_ui
   - menu_link_content
