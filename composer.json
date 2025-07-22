@@ -25,6 +25,8 @@
     "drupal/ctools": "~3 || ~4",
     "drupal/token": "~1",
     "drupal/token_filter": "~2",
+    "drupal/eca": "~2 || ~3",
+    "drupal/bpmn_io": "~2 || ~3",
     "drupal/tour": "~2",
     "drupal/bootstrap_layouts": "~5",
     "drupal/ds": "~3",
