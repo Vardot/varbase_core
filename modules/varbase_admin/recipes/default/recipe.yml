@@ -27,7 +27,6 @@ install:
   - navigation_extra_tools
   - gin_toolbar
   - gin_login
-  - gin_moderation_sidebar
   - gin_everywhere
   - gin_type_tray
 config:
