@@ -81,9 +81,6 @@ function varbase_admin_element_info_alter(array &$types) {
     if (\Drupal::moduleHandler()->moduleExists('navigation')) {
       $types['top_bar']['#attached']['library'][] = 'varbase_admin/admin-navigation';
     }
-    elseif (\Drupal::moduleHandler()->moduleExists('admin_toolbar')) {
-      $types['top_bar']['#attached']['library'][] = 'varbase_admin/admin-toolbar';
-    }
   }
 
   // Manage only with the toolbar.

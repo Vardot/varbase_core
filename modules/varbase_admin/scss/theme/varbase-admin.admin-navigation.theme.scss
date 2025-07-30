@@ -8,10 +8,12 @@ body {
     padding-right: 0 !important;
   }
 
+  // Fix styles for the responsive preview navigation bar button.
   .responsive-preview-navigation-bar button {
     font-size: 0 !important;
   }
 
+  // Justify content of Gin breadcrumb to center in the navigation top bar.
   .top-bar.gin--navigation-top-bar {
     .top-bar__tools {
       .gin-breadcrumb {
