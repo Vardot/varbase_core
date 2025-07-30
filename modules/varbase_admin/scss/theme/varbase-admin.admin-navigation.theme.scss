@@ -7,4 +7,19 @@ body {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  .responsive-preview-navigation-bar button {
+    font-size: 0 !important;
+  }
+
+  .top-bar.gin--navigation-top-bar {
+    .top-bar__tools {
+      .gin-breadcrumb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-inline-end: 1rem;
+      }
+    }
+  }
 }

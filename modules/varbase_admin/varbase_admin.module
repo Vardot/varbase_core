@@ -75,6 +75,18 @@ function varbase_admin_library_info_alter(&$libraries, $extension) {
  * Implements hook_element_info_alter().
  */
 function varbase_admin_element_info_alter(array &$types) {
+
+  // Manage with Drupal Core Navigation Top Bar.
+  if (isset($types['top_bar'])) {
+    if (\Drupal::moduleHandler()->moduleExists('navigation')) {
+      $types['top_bar']['#attached']['library'][] = 'varbase_admin/admin-navigation';
+    }
+    elseif (\Drupal::moduleHandler()->moduleExists('admin_toolbar')) {
+      $types['top_bar']['#attached']['library'][] = 'varbase_admin/admin-toolbar';
+    }
+  }
+
+  // Manage only with the toolbar.
   if (isset($types['toolbar'])) {
     if (\Drupal::moduleHandler()->moduleExists('navigation')) {
       $types['toolbar']['#attached']['library'][] = 'varbase_admin/admin-navigation';
