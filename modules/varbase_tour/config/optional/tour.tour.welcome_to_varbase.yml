@@ -13,20 +13,20 @@ tips:
     label: 'Tour Switch'
     weight: -100
     position: bottom
-    selector: '#toolbar-tab-tour'
+    selector: '.js-tour-start-button'
     body: '<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>'
   editing_your_homepage_layout:
     id: editing_your_homepage_layout
     plugin: text
     label: 'Editing Your Homepage Layout'
     weight: -99
-    position: bottom
-    selector: .moderation-sidebar-toolbar-tab.toolbar-id--toolbar-icon-moderation-sidebar
-    body: '<p>You can change your homepage layout and customize what to appear in it from the <b>tasks</b> moderation sidebar menu link.</p>'
+    position: top-end
+    selector: '.top-bar__actions .toolbar-button.toolbar-button--icon--dots'
+    body: '<p>You can change your homepage layout and customize what appears in it from the <b>More Actions</b> navigation top bar button</p>'
   start_configuring_your_site_structure:
     id: start_configuring_your_site_structure
     plugin: text
-    label: 'Start Configuring Your Site Structure'
+    label: 'Configure Your Site Structure'
     weight: -98
     position: left
     selector: '#navigation-link-systemadmin-structure'
