@@ -5,8 +5,12 @@
  * Contains varbase_admin.module.
  */
 
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Access\AccessResult;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -55,6 +59,20 @@ function varbase_admin_form_node_type_add_form_alter(array &$form, FormStateInte
 }
 
 /**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function varbase_admin_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if (preg_match('/^node_.*._form$/', $form_id)) {
+    if (isset($form['actions']['unlock'])) {
+      unset($form['actions']['unlock']);
+    }
+    if (isset($form['actions']['delete'])) {
+      unset($form['actions']['delete']);
+    }
+  }
+}
+
+/**
  * Implements hook_library_info_alter().
  */
 function varbase_admin_library_info_alter(&$libraries, $extension) {
@@ -92,4 +110,100 @@ function varbase_admin_element_info_alter(array &$types) {
       $types['toolbar']['#attached']['library'][] = 'varbase_admin/admin-toolbar';
     }
   }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function varbase_admin_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+  // Check if we're on a node edit page.
+  $route_match = \Drupal::routeMatch();
+  $current_route_name = $route_match->getRouteName();
+
+  // Only proceed if we're on a node edit form.
+  if (!$current_route_name || !preg_match('/^entity\.node\.edit_form$/', $current_route_name)) {
+    return;
+  }
+
+  $entity = $route_match->getParameter('node');
+  if (!$entity || !($entity instanceof ContentEntityInterface)) {
+    return;
+  }
+
+  // Style existing Delete link and move it to last position.
+  if (isset($data['tabs'][0])) {
+    foreach ($data['tabs'][0] as &$tab) {
+      if (isset($tab['#link']['url'])) {
+        $route_name = $tab['#link']['url']->getRouteName();
+        // Check if this is a delete route for the entity.
+        if (strpos($route_name, '.delete') !== FALSE || strpos($route_name, '.delete_form') !== FALSE) {
+          // Add danger styling to delete link.
+          if (!isset($tab['#link']['localized_options']['attributes']['class'])) {
+            $tab['#link']['localized_options']['attributes']['class'] = [];
+          }
+          $tab['#link']['localized_options']['attributes']['class'][] = 'button';
+
+          // Move delete to last position (weight 200).
+          $tab['#weight'] = 200;
+        }
+      }
+    }
+  }
+
+  // Add unlock link if content_lock module is enabled.
+  if (!\Drupal::moduleHandler()->moduleExists('content_lock')) {
+    return;
+  }
+
+  $content_lock_service = \Drupal::service('content_lock');
+  $current_user = \Drupal::currentUser();
+
+  // Check if the entity is lockable and locked.
+  if (!$content_lock_service->isLockable($entity)) {
+    return;
+  }
+
+  $lock = $content_lock_service->fetchLock($entity);
+  if (!$lock) {
+    return;
+  }
+
+  // Check if user has permission to break locks or owns the lock.
+  if (!$current_user->hasPermission('break content lock') && $lock->uid != $current_user->id()) {
+    return;
+  }
+
+  // Build unlock URL.
+  $entity_type = $entity->getEntityTypeId();
+  $route_parameters = [
+    'entity' => $entity->id(),
+    'langcode' => $content_lock_service->isTranslationLockEnabled($entity_type) ?
+    $entity->language()->getId() : LanguageInterface::LANGCODE_NOT_SPECIFIED,
+    'form_op' => '*',
+  ];
+
+  $unlock_url = Url::fromRoute('content_lock.break_lock.' . $entity_type, $route_parameters);
+
+  // Add unlock local task with warning style.
+  $data['tabs'][0]['varbase_admin.unlock'] = [
+    '#theme' => 'menu_local_task',
+    '#link' => [
+      'title' => t('Unlock'),
+      'url' => $unlock_url,
+      'localized_options' => [
+        'attributes' => [
+          'title' => t('Unlock this content'),
+          'class' => ['button'],
+        ],
+      ],
+    ],
+    '#access' => AccessResult::allowedIf($current_user->hasPermission('break content lock') || $lock->uid == $current_user->id())
+      ->addCacheContexts(['user.permissions'])
+      ->addCacheTags(['content_lock:' . $entity_type . ':' . $entity->id()]),
+    '#weight' => 150,
+  ];
+
+  // Add cache contexts for user permissions and entity access.
+  $cacheability->addCacheContexts(['user.permissions']);
+  $cacheability->addCacheTags(['content_lock:' . $entity_type . ':' . $entity->id()]);
 }
