@@ -207,3 +207,14 @@ function varbase_admin_menu_local_tasks_alter(&$data, $route_name, RefinableCach
   $cacheability->addCacheContexts(['user.permissions']);
   $cacheability->addCacheTags(['content_lock:' . $entity_type . ':' . $entity->id()]);
 }
+
+/**
+ * Implements hook_top_bar_item_alter().
+ */
+function varbase_admin_top_bar_item_alter(&$definitions) {
+  // Override the ResponsiveIcons plugin to add conditional logic.
+  if (isset($definitions['responsive_icons'])) {
+    // Replace the class with our custom implementation.
+    $definitions['responsive_icons']['class'] = 'Drupal\varbase_admin\Plugin\TopBarItem\ConditionalResponsiveIcons';
+  }
+}
