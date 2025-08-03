@@ -68,10 +68,15 @@ class ConditionalResponsiveIcons extends ResponsiveIcons {
    * {@inheritdoc}
    */
   public function build(): array {
-    // Hide responsive preview when editing nodes.
+    // Hide responsive preview when editing or creating nodes.
     $current_route_name = $this->routeMatch->getRouteName();
 
-    if ($current_route_name && preg_match('/^entity\.node\.edit_form$/', $current_route_name)) {
+    // Check for both node edit and node add forms.
+    if ($current_route_name && (
+        preg_match('/^entity\.node\.edit_form$/', $current_route_name) ||
+        preg_match('/^node\.add$/', $current_route_name) ||
+        preg_match('/^node\.add_page$/', $current_route_name)
+      )) {
       // Return empty build array with cache contexts for proper caching.
       return [
         '#cache' => [
