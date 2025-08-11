@@ -8,9 +8,10 @@ general_settings:
       enabled: true
       weight: -50
     visual_inline:
+      enabled: false
       weight: -49
-      enabled: false
     unified_fields:
-      weight: -48
       enabled: false
+      weight: -48
+  visual_default_view_mode: default
   visual_inline_theme: default
