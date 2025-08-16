@@ -9,7 +9,6 @@ use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
-use Drupal\update_helper_checklist\Entity\Update;
 use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\Core\File\FileSystemInterface;
 
@@ -17,113 +16,55 @@ use Drupal\Core\File\FileSystemInterface;
  * Enable [Varbase Update Helper] module.
  */
 function varbase_core_update_8600() {
-  if (!\Drupal::moduleHandler()->moduleExists('varbase_update_helper')) {
-    \Drupal::service('module_installer')->install(['checklistapi',
-      'update_helper',
-      'update_helper_checklist',
-      'varbase_update_helper',
-    ],
-    FALSE);
-  }
+
 }
 
 /**
  * Enhance the usability of admin views (Content, Media, and People).
  */
 function varbase_core_optional_update_8601($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8601', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Enable Blazy loading for most media sizes (Image, Video, Remote Video).
  */
 function varbase_core_optional_update_8602($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8602', $force);
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
-}
 
 /**
  * Enable Varbase Email.
  */
 function varbase_core_optional_update_8603($force = FALSE) {
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8603');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Enable colored length indicator for Varbase Basic page.
  */
 function varbase_core_optional_update_8604($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8604');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Enable colored length indicator for Varbase Landing page.
  */
 function varbase_core_optional_update_8605($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8605');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Enable colored length indicator for Varbase Hero Slider.
  */
 function varbase_core_optional_update_8606($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8606');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Enable colored length indicator for Varbase Blog.
  */
 function varbase_core_optional_update_8607($force = FALSE) {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8607');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -132,14 +73,7 @@ function varbase_core_optional_update_8607($force = FALSE) {
  * The mapping of Bootstrap 3 breakpoints into Bootstrap 4 breakpoints.
  */
 function varbase_core_update_8608() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8608');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -192,170 +126,20 @@ function varbase_core_update_8609() {
  */
 function varbase_core_update_8610() {
 
-  // Force import of responsive image styles.
-  $responsive_image_styles_config_names = [
-    'responsive_image.styles.d01',
-    'responsive_image.styles.d01_square',
-    'responsive_image.styles.d01_standard',
-    'responsive_image.styles.d01_traditional',
-    'responsive_image.styles.d02',
-    'responsive_image.styles.d02_square',
-    'responsive_image.styles.d02_standard',
-    'responsive_image.styles.d02_traditional',
-    'responsive_image.styles.d03',
-    'responsive_image.styles.d03_square',
-    'responsive_image.styles.d03_standard',
-    'responsive_image.styles.d03_traditional',
-    'responsive_image.styles.d04',
-    'responsive_image.styles.d04_square',
-    'responsive_image.styles.d04_standard',
-    'responsive_image.styles.d04_traditional',
-    'responsive_image.styles.d05',
-    'responsive_image.styles.d05_square',
-    'responsive_image.styles.d05_standard',
-    'responsive_image.styles.d05_traditional',
-    'responsive_image.styles.d06',
-    'responsive_image.styles.d06_square',
-    'responsive_image.styles.d06_standard',
-    'responsive_image.styles.d06_traditional',
-    'responsive_image.styles.d07',
-    'responsive_image.styles.d07_square',
-    'responsive_image.styles.d07_standard',
-    'responsive_image.styles.d07_traditional',
-    'responsive_image.styles.d08',
-    'responsive_image.styles.d08_square',
-    'responsive_image.styles.d08_standard',
-    'responsive_image.styles.d08_traditional',
-    'responsive_image.styles.d09',
-    'responsive_image.styles.d09_square',
-    'responsive_image.styles.d09_standard',
-    'responsive_image.styles.d09_traditional',
-    'responsive_image.styles.d10',
-    'responsive_image.styles.d10_square',
-    'responsive_image.styles.d10_standard',
-    'responsive_image.styles.d10_traditional',
-    'responsive_image.styles.d11',
-    'responsive_image.styles.d11_square',
-    'responsive_image.styles.d11_standard',
-    'responsive_image.styles.d11_traditional',
-    'responsive_image.styles.d12',
-    'responsive_image.styles.d12_square',
-    'responsive_image.styles.d12_standard',
-    'responsive_image.styles.d12_traditional',
-    'responsive_image.styles.de2e',
-    'responsive_image.styles.de2e_4_1',
-    'responsive_image.styles.de2e_square',
-    'responsive_image.styles.de2e_standard',
-    'responsive_image.styles.de2e_traditional',
-    'responsive_image.styles.default',
-  ];
-
-  ModuleInstallerFactory::importConfigsFromList('varbase_media', $responsive_image_styles_config_names, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
-
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8610');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Add [Gallery] media type.
  */
 function varbase_core_optional_update_8701() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8701');
-
-  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
-
-  // Load Media types icons for the media libraray table view page.
-  $source = $module_path . '/images/icons';
-  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-  FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-
-  $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
-  foreach ($files as $file) {
-    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      FileSystemInterface::copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
-    }
-  }
-
-  // Configure Entity Embed buttons.
-  $embed_button_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^embed.button.*\\.(yml)$/i');
-  if (isset($embed_button_config_files)
-    && is_array($embed_button_config_files)) {
-    foreach ($embed_button_config_files as $embed_button_config_file) {
-      $embed_button_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $embed_button_config_file->uri);
-      $embed_button_config_file_data = (array) Yaml::parse($embed_button_config_file_content);
-      $embed_button_config_factory = \Drupal::configFactory()->getEditable($embed_button_config_file->name);
-      $embed_button_config_factory->setData($embed_button_config_file_data)->save(TRUE);
-    }
-  }
-
-  // Add Icons for Entity Embed CKEditor Media Library and Gallery.
-  $embed_buttons = [
-    // CKEditor Embed Media Library icon for the gallery embed entity button.
-    'media' => [
-      'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-media.png',
-      'destination' => 'public://embed-media.png',
-    ],
-    // CKEditor Embed Gallery icon for the gallery embed entity button.
-    'gallery' => [
-      'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png',
-      'destination' => 'public://embed-gallery.png',
-    ],
-  ];
-
-  foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
-    $target_destination = NULL;
-    if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
-      try {
-        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
-      }
-      catch (FileException $e) {
-        $target_destination = FALSE;
-      }
-    }
-    else {
-      $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
-    }
-
-    if ($target_destination) {
-      $target_file = File::create(['uri' => $target_destination]);
-      $target_file->save();
-
-      EmbedButton::load($embed_button_id)->set('icon_uuid', $target_file->uuid())->save();
-    }
-    else {
-      return t("Unable to copy @source to the public files directory.", [
-        '@source' => $embed_button_info['source'],
-      ]);
-    }
-  }
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Revamp Varbase Entity Browsers with multiple media selection behaviors.
  */
 function varbase_core_optional_update_8702() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8702');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -363,28 +147,13 @@ function varbase_core_optional_update_8702() {
  */
 function varbase_core_update_8703() {
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8703');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
  * Issue #3085537: Add [Token Filter] module 8.1.1 ( ~1.0 )
  */
 function varbase_core_update_8704() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_update_8704');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -392,14 +161,6 @@ function varbase_core_update_8704() {
  */
 function varbase_core_optional_update_8705($force = FALSE) {
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8705');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -407,14 +168,6 @@ function varbase_core_optional_update_8705($force = FALSE) {
  */
 function varbase_core_optional_update_8706($force = FALSE) {
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_core_optional_update_8706');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**

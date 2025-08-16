@@ -15,14 +15,6 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_security_update_9001() {
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9001');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -31,14 +23,7 @@ function varbase_security_update_9001() {
  * Enabling protection on a wider forms and enabling time limit of 2 seconds.
  */
 function varbase_security_update_9002() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9002');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -47,14 +32,7 @@ function varbase_security_update_9002() {
  * Reinforce spam protection via the "Antibot" spam detection mechanism.
  */
 function varbase_security_update_9003() {
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
 
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_9003');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**
@@ -96,19 +74,7 @@ function varbase_security_update_9004() {
  * Change Varbase Security weight and make it after all modules installed by it.
  */
 function varbase_security_update_90004() {
-  // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber worker
-  // after all used modules.
-  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_security');
 
-  /** @var \Drupal\update_helper\Updater $updateHelper */
-  $updateHelper = \Drupal::service('update_helper.updater');
-
-  // Execute configuration update definitions with logging of success.
-  $updateHelper->executeUpdate('varbase_core', 'varbase_security_update_90004');
-
-  // Output logged messages to related channel of update execution.
-  return $updateHelper->logger()->output();
 }
 
 /**

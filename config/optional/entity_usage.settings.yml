@@ -30,7 +30,6 @@ track_enabled_source_entity_types:
   - oauth2_token
   - social_auth
   - taxonomy_term
-  - update_helper_checklist_update
   - webform_submission
   - paragraph
 track_enabled_target_entity_types:
@@ -52,7 +51,6 @@ track_enabled_target_entity_types:
   - oauth2_token
   - social_auth
   - taxonomy_term
-  - update_helper_checklist_update
   - webform_submission
   - paragraph
 track_enabled_plugins:
