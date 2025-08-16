@@ -5,8 +5,6 @@
  * Contains varbase_security_update_9###(s) hook updates.
  */
 
-use Vardot\Installer\ModuleInstallerFactory;
-
 /**
  * Add Flood Control module for login attempt limiting.
  *

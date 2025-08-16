@@ -12,6 +12,11 @@ node_modules
 .settings
 .buildpath
 
+# Ignore Yarn
+.yarn/*
+.pnp.cjs
+.pnp.loader.mjs
+
 
 # Ignore OS settings files.
 .DS_Store*
