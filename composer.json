@@ -78,7 +78,6 @@
     "drupal/devel": "~5",
     "drupal/sdc_devel": "~1",
     "drupal/stage_file_proxy": "~3.1.0",
-    "drupal/update_helper": "~4",
     "drupal/checklistapi": "~2",
     "drupal/username_enumeration_prevention": "~1",
     "drupal/password_policy": "~4",
@@ -111,7 +110,7 @@
     "drupal/sitewide_alert": "~3",
     "drupal/schemadotorg": "~1",
     "drupal/project_browser": "~2",
-    "drupal/automatic_updates": "~3 || ~4",
+    "drupal/automatic_updates": "~4",
     "drupal/autosave_form": "~1",
     "drupal/varbase_privacy": "~1.0.0"
   }

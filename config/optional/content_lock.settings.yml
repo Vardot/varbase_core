@@ -14,7 +14,6 @@ types:
   oauth2_token: {}
   social_auth: {}
   taxonomy_term: {}
-  update_helper_checklist_update: {}
   user: {}
   webform_submission: {}
   menu_link_content: {}
@@ -62,7 +61,6 @@ form_op_lock:
   taxonomy_term:
     mode: 0
     values: {}
-  update_helper_checklist_update:
     mode: null
     values: {}
   user:
