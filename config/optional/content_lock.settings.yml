@@ -61,8 +61,6 @@ form_op_lock:
   taxonomy_term:
     mode: 0
     values: {}
-    mode: null
-    values: {}
   user:
     mode: 0
     values: {}
