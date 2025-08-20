@@ -7,6 +7,10 @@ node_modules
 *.*~
 .vim
 
+# Yarn cache and build artifacts
+.yarn/*
+.pnp.*
+
 # Eclipse settings files.
 .project
 .pydevproject
