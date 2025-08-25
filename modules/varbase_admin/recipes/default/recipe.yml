@@ -132,7 +132,6 @@ config:
         - 'restore file entities'
         - 'restore media entities'
         - 'restore node entities'
-        - 'restore paragraph entities'
         - 'restore taxonomy_term entities'
     user.role.seo_admin:
       grantPermissions:
@@ -147,7 +146,6 @@ config:
         - 'restore file entities'
         - 'restore media entities'
         - 'restore node entities'
-        - 'restore paragraph entities'
         - 'restore taxonomy_term entities'
     user.role.content_admin:
       grantPermissions:
@@ -174,13 +172,11 @@ config:
         - 'restore file entities'
         - 'restore media entities'
         - 'restore node entities'
-        - 'restore paragraph entities'
         - 'restore taxonomy_term entities'
         - 'purge block_content entities'
         - 'purge file entities'
         - 'purge media entities'
         - 'purge node entities'
-        - 'purge paragraph entities'
         - 'purge taxonomy_term entities'
     user.role.site_admin:
       grantPermissions:
@@ -221,10 +217,8 @@ config:
         - 'restore file entities'
         - 'restore media entities'
         - 'restore node entities'
-        - 'restore paragraph entities'
         - 'restore taxonomy_term entities'
         - 'purge block_content entities'
         - 'purge file entities'
         - 'purge media entities'
         - 'purge node entities'
-        - 'purge paragraph entities'
