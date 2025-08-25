@@ -30,6 +30,7 @@ install:
   - gin_login
   - gin_everywhere
   - gin_type_tray
+  - trash
 config:
   import:
     autosave_form:
@@ -53,6 +54,7 @@ config:
       - responsive_preview.device.small
       - navigation.block_layout
       - autosave_form.settings
+      - trash.settings
   actions:
     user.settings:
       simpleConfigUpdate:
@@ -125,6 +127,13 @@ config:
         - 'clone node entity'
         - 'access taxonomy manager list'
         - 'access navigation'
+        - 'access trash'
+        - 'restore block_content entities'
+        - 'restore file entities'
+        - 'restore media entities'
+        - 'restore node entities'
+        - 'restore paragraph entities'
+        - 'restore taxonomy_term entities'
     user.role.seo_admin:
       grantPermissions:
         - 'customize shortcut links'
@@ -133,6 +142,13 @@ config:
         - 'access coffee'
         - 'access responsive preview'
         - 'access navigation'
+        - 'access trash'
+        - 'restore block_content entities'
+        - 'restore file entities'
+        - 'restore media entities'
+        - 'restore node entities'
+        - 'restore paragraph entities'
+        - 'restore taxonomy_term entities'
     user.role.content_admin:
       grantPermissions:
         - 'customize shortcut links'
@@ -153,6 +169,19 @@ config:
         - 'access navigation'
         - 'access navigation extra tools cache flushing'
         - 'access navigation extra tools cron'
+        - 'access trash'
+        - 'restore block_content entities'
+        - 'restore file entities'
+        - 'restore media entities'
+        - 'restore node entities'
+        - 'restore paragraph entities'
+        - 'restore taxonomy_term entities'
+        - 'purge block_content entities'
+        - 'purge file entities'
+        - 'purge media entities'
+        - 'purge node entities'
+        - 'purge paragraph entities'
+        - 'purge taxonomy_term entities'
     user.role.site_admin:
       grantPermissions:
         - 'administer shortcuts'
@@ -186,3 +215,16 @@ config:
         - 'access navigation'
         - 'access navigation extra tools cache flushing'
         - 'access navigation extra tools cron'
+        - 'access trash'
+        - 'purge taxonomy_term entities'
+        - 'restore block_content entities'
+        - 'restore file entities'
+        - 'restore media entities'
+        - 'restore node entities'
+        - 'restore paragraph entities'
+        - 'restore taxonomy_term entities'
+        - 'purge block_content entities'
+        - 'purge file entities'
+        - 'purge media entities'
+        - 'purge node entities'
+        - 'purge paragraph entities'
