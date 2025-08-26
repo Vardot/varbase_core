@@ -9,3 +9,5 @@ install:
   - locale
   - config_translation
   - content_translation
+  - eca
+  - eca_language

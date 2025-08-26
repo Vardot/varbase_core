@@ -40,6 +40,7 @@ install:
   - dynamic_page_cache
   - eca
   - bpmn_io
+  - eca_ui
   - eca_base
   - eca_config
   - eca_content
@@ -47,6 +48,13 @@ install:
   - eca_misc
   - eca_user
   - eca_render
+  - eca_access
+  - eca_cache
+  - eca_file
+  - eca_menu
+  - eca_queue
+  - eca_views
+  - eca_log
   - big_pipe
   - menu_ui
   - menu_link_content

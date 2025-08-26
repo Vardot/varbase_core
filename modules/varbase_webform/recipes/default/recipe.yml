@@ -9,6 +9,7 @@ install:
   - taxonomy
   - webform_views
   - entity_clone
+  - eca_webform
 config:
   import:
     webform: '*'
