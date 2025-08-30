@@ -32,6 +32,13 @@ function varbase_core_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
+  // Clear plugin caches to ensure field_block plugins are available
+  // for configurations that reference them.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+  if (\Drupal::hasService('plugin.manager.block')) {
+    \Drupal::service('plugin.manager.block')->clearCachedDefinitions();
+  }
+
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_core');
 
