@@ -1,5 +1,3 @@
-_core:
-  default_config_hash: oE_T7Du8mMCGKYgI_9c_8IuU9G8sx19FvC8UshASX6k
 enabled_entity_types:
   node: {  }
   block_content: {  }
@@ -8,6 +6,6 @@ enabled_entity_types:
   paragraph: {  }
   taxonomy_term: {  }
 auto_purge:
-  enabled: false
-  after: null
+  enabled: true
+  after: '2 months'
 compact_overview: false
