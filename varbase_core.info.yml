@@ -56,6 +56,7 @@ install:
   - eca_views
   - eca_log
   - eca_endpoint
+  - eca_tamper
   - big_pipe
   - menu_ui
   - menu_link_content

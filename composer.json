@@ -115,6 +115,7 @@
     "drupal/project_browser": "~2",
     "drupal/automatic_updates": "~4",
     "drupal/autosave_form": "~1",
+    "drupal/eca_tamper": "~2",
     "drupal/varbase_privacy": "~1.0.0"
   }
 }
