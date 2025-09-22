@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - easy_email.easy_email_type.login_notification
+  module:
+    - easy_email
+    - eca_content
+    - eca_user
+    - modeler_api
+third_party_settings:
+  modeler_api:
+    modeler_id: bpmn_io
+    data: 'hash:98825a8659406808b80a26296029fc34'
+    label: 'User login'
+    tags:
+      - user
+      - login
+      - notification
+    version: 1.0.0
+id: user_login
+weight: -10
+events:
+  user__login_1:
+    plugin: 'user:login'
+    label: 'Login of a user'
+    configuration: {  }
+    successors:
+      -
+        id: eca_token_load_user_current_02z4bqd
+        condition: ''
+conditions: {  }
+gateways: {  }
+actions:
+  eca_token_load_user_current_02z4bqd:
+    label: 'Get current user'
+    plugin: eca_token_load_user_current
+    configuration:
+      token_name: user
+    successors:
+      -
+        id: eca_new_entity_0arypq1
+        condition: ''
+  eca_new_entity_0arypq1:
+    label: 'Create Login Notification email'
+    plugin: eca_new_entity
+    configuration:
+      token_name: login_notification
+      type: 'easy_email login_notification'
+      langcode: _interface
+      label: 'A new device has logged in to your [site:name] account'
+      published: false
+      owner: '1'
+    successors:
+      -
+        id: easy_email_send_1h2m16e
+        condition: ''
+  easy_email_send_1h2m16e:
+    label: 'Send Easy Email template for about login event'
+    plugin: easy_email_send
+    configuration:
+      object: login_notification
+    successors: {  }

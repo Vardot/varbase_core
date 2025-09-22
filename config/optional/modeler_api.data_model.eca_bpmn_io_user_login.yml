@@ -1,0 +1,110 @@
+langcode: en
+status: true
+dependencies: {  }
+id: eca_bpmn_io_user_login
+data: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="user_login" name="User login" isExecutable="true" camunda:versionTag="1.0.0">
+      <bpmn2:documentation />
+      <bpmn2:extensionElements>
+        <camunda:properties>
+          <camunda:property name="Tags" value="user,login,notification" />
+          <camunda:property name="Changelog" value="" />
+        </camunda:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:startEvent id="user__login_1" name="Login of a user" camunda:modelerTemplate="org.drupal.event.user:login">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="user:login" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_1rgw1bb</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="eca_token_load_user_current_02z4bqd" name="Get current user" camunda:modelerTemplate="org.drupal.action.eca_token_load_user_current">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>user</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_load_user_current" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1rgw1bb</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1ozcl73</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1rgw1bb" sourceRef="user__login_1" targetRef="eca_token_load_user_current_02z4bqd" />
+      <bpmn2:task id="eca_new_entity_0arypq1" name="Create Login Notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>login_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>easy_email login_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="langcode">
+            <camunda:string>_interface</camunda:string>
+          </camunda:field>
+          <camunda:field name="label">
+            <camunda:string>A new device has logged in to your [site:name] account</camunda:string>
+          </camunda:field>
+          <camunda:field name="published">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="owner">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_new_entity" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1ozcl73</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1ygevcb</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1ozcl73" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="eca_new_entity_0arypq1" />
+      <bpmn2:sequenceFlow id="Flow_1ygevcb" sourceRef="eca_new_entity_0arypq1" targetRef="easy_email_send_1h2m16e" />
+      <bpmn2:task id="easy_email_send_1h2m16e" name="Send Easy Email template for about login event" camunda:modelerTemplate="org.drupal.action.easy_email_send">
+        <bpmn2:extensionElements>
+          <camunda:field name="object">
+            <camunda:string>login_notification</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="easy_email_send" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1ygevcb</bpmn2:incoming>
+      </bpmn2:task>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_user_login">
+      <bpmndi:BPMNPlane id="BPMNPlane_user_login" bpmnElement="user_login">
+        <bpmndi:BPMNShape id="user__login_0tq6whe_1_di" bpmnElement="user__login_1">
+          <dc:Bounds x="57" y="52" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="39" y="88" width="73" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_token_load_user_current_02z4bqd_di" bpmnElement="eca_token_load_user_current_02z4bqd">
+          <dc:Bounds x="175" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_new_entity_0arypq1_di" bpmnElement="eca_new_entity_0arypq1">
+          <dc:Bounds x="325" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="easy_email_send_1h2m16e_di" bpmnElement="easy_email_send_1h2m16e">
+          <dc:Bounds x="475" y="30" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_1rgw1bb_di" bpmnElement="Flow_1rgw1bb">
+          <di:waypoint x="93" y="70" />
+          <di:waypoint x="175" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1ozcl73_di" bpmnElement="Flow_1ozcl73">
+          <di:waypoint x="275" y="70" />
+          <di:waypoint x="325" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1ygevcb_di" bpmnElement="Flow_1ygevcb">
+          <di:waypoint x="425" y="70" />
+          <di:waypoint x="475" y="70" />
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>
