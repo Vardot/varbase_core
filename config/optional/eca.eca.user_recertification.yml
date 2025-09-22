@@ -1,0 +1,292 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - easy_email.easy_email_type.inactive_users_notification
+    - easy_email.easy_email_type.role_changed_notification
+    - views.view.eca_admin_users
+    - views.view.eca_inactive_users
+  module:
+    - easy_email
+    - eca_base
+    - eca_content
+    - eca_render
+    - eca_tamper
+    - eca_user
+    - eca_views
+    - modeler_api
+    - user
+third_party_settings:
+  modeler_api:
+    modeler_id: bpmn_io
+    data: 'hash:ac6b3b8e918c73ed14a18673caa4afe8'
+    changelog: Initialization
+    label: 'User Recertification'
+    documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
+    tags:
+      - user
+      - login
+      - security
+      - notification
+      - session
+    version: 1.0.0
+id: user_recertification
+weight: -9
+events:
+  content_entity__update_1_1:
+    plugin: 'content_entity:update'
+    label: 'Update user'
+    configuration:
+      type: 'user user'
+    successors:
+      -
+        id: eca_token_set_value_01noukj
+        condition: eca_entity_field_value_changed_1ismzxl
+  eca_base__eca_cron_1_1:
+    plugin: 'eca_base:eca_cron'
+    label: 'Cron time to check for inactive users'
+    configuration:
+      frequency: '* * * * *'
+    successors:
+      -
+        id: eca_switch_account_11qpxet
+        condition: ''
+conditions:
+  eca_count_0qprpab:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: admin_users
+      right: '0'
+      operator: greaterthan
+      type: _eca_token
+      case: false
+  eca_count_0fsfzfx:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: admin_users
+      right: '0'
+      operator: greaterthan
+      type: _eca_token
+      case: false
+  eca_entity_field_value_changed_1ismzxl:
+    plugin: eca_entity_field_value_changed
+    label: 'User roles changed'
+    configuration:
+      negate: false
+      field_name: roles
+      entity: user
+  eca_count_074bxt7:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: inactive_users
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
+gateways:
+  Gateway_1v6rp7s:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_1n0pvsd
+        condition: eca_count_0qprpab
+  Gateway_17nokcn:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_13k1tx3
+        condition: eca_count_0fsfzfx
+  Gateway_02wxy90:
+    type: 0
+    successors:
+      -
+        id: eca_render_views__views_1
+        condition: eca_count_074bxt7
+actions:
+  eca_views_query_1fpilr2:
+    label: 'Admin users list'
+    plugin: eca_views_query
+    configuration:
+      token_name: admin_users
+      view_id: eca_admin_users
+      display_id: admin_users
+      arguments: ''
+    successors:
+      -
+        id: Gateway_1v6rp7s
+        condition: ''
+  eca_list_remove_1n0pvsd:
+    label: 'Pop first admin user item from the list'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: admin_user
+      method: first
+      index: ''
+      list_token: admin_users
+    successors:
+      -
+        id: eca_new_entity_1lwoqgx
+        condition: ''
+  eca_switch_account_1k8fwnm:
+    label: 'Switch to Webmaster'
+    plugin: eca_switch_account
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: eca_views_query_1fpilr2
+        condition: ''
+  eca_token_set_value_01noukj:
+    label: 'Save Updated user'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: updated_user
+      token_value: '[entity]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_tamper__find_replace_regex_2_1
+        condition: ''
+  eca_switch_account_11qpxet:
+    label: 'Switch to Webmaster'
+    plugin: eca_switch_account
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: eca_views_query_09kitrc
+        condition: ''
+  eca_views_query_09kitrc:
+    label: 'Inactive users count'
+    plugin: eca_views_query
+    configuration:
+      token_name: inactive_users
+      view_id: eca_inactive_users
+      display_id: count
+      arguments: ''
+    successors:
+      -
+        id: Gateway_02wxy90
+        condition: ''
+  eca_list_remove_13k1tx3:
+    label: 'Pop first admin user from the list'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: admin_user
+      method: first
+      index: ''
+      list_token: admin_users
+    successors:
+      -
+        id: eca_new_entity_0p37h2i
+        condition: ''
+  eca_views_query_1i7pt4m:
+    label: 'Admin users'
+    plugin: eca_views_query
+    configuration:
+      token_name: admin_users
+      view_id: eca_admin_users
+      display_id: admin_users
+      arguments: ''
+    successors:
+      -
+        id: Gateway_17nokcn
+        condition: ''
+  eca_new_entity_1lwoqgx:
+    label: 'Create role changed notification email'
+    plugin: eca_new_entity
+    configuration:
+      token_name: role_changed_notification
+      type: 'easy_email role_changed_notification'
+      langcode: ''
+      label: 'User Role Modified - [updated_user:display-name] on [site:name]'
+      published: false
+      owner: '1'
+    successors:
+      -
+        id: easy_email_send_1ida814
+        condition: ''
+  easy_email_send_1ida814:
+    label: 'Send Easy Email template for role changed'
+    plugin: easy_email_send
+    configuration:
+      object: role_changed_notification
+    successors:
+      -
+        id: Gateway_1v6rp7s
+        condition: ''
+  eca_tamper__find_replace_regex_2_1:
+    label: 'Filter user original roles'
+    plugin: 'eca_tamper:find_replace_regex'
+    original_id: find_replace_regex
+    configuration:
+      find: '/authenticated,/'
+      replace: ''
+      limit: null
+      eca_data: '[user:original:roles]'
+      eca_token_name: user_original_roles
+    successors:
+      -
+        id: eca_tamper__find_replace_regex_1
+        condition: ''
+  eca_tamper__find_replace_regex_1:
+    label: 'Filter user new roles'
+    plugin: 'eca_tamper:find_replace_regex'
+    original_id: find_replace_regex
+    configuration:
+      find: '/authenticated,/'
+      replace: ''
+      limit: null
+      eca_data: '[user:roles]'
+      eca_token_name: user_new_roles
+    successors:
+      -
+        id: eca_switch_account_1k8fwnm
+        condition: ''
+  eca_render_views__views_1:
+    label: 'Render the first 20 Inactive users as HTML table for the email'
+    plugin: 'eca_render_views:views'
+    configuration:
+      name: ''
+      token_name: inactive_users_html_table
+      weight: null
+      mode: 'set:clear'
+      view_id: eca_inactive_users
+      display_id: html_table
+      arguments: ''
+    successors:
+      -
+        id: eca_views_query_1i7pt4m
+        condition: ''
+  eca_new_entity_0p37h2i:
+    label: 'Create Inactive User Accounts notification email'
+    plugin: eca_new_entity
+    configuration:
+      token_name: inactive_users_notification
+      type: 'easy_email inactive_users_notification'
+      langcode: ''
+      label: 'Notice: Inactive User Accounts on [site:name]'
+      published: false
+      owner: '1'
+    successors:
+      -
+        id: easy_email_send_1mm3zgc
+        condition: ''
+  easy_email_send_1mm3zgc:
+    label: 'Send Easy Email template about inactive users'
+    plugin: easy_email_send
+    configuration:
+      object: inactive_users_notification
+    successors:
+      -
+        id: Gateway_17nokcn
+        condition: ''

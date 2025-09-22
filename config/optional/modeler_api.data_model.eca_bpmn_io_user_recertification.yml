@@ -1,0 +1,634 @@
+langcode: en
+status: true
+dependencies: {  }
+id: eca_bpmn_io_user_recertification
+data: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="user_recertification" name="User Recertification" isExecutable="true" camunda:versionTag="1.0.0">
+      <bpmn2:documentation>Send email notifications when users log into their account for recertification tracking and security monitoring.</bpmn2:documentation>
+      <bpmn2:extensionElements>
+        <camunda:properties>
+          <camunda:property name="Tags" value="user,login,security,notification,session" />
+          <camunda:property name="Changelog" value="Initialization" />
+        </camunda:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:startEvent id="content_entity__update_1_1" name="Update user" camunda:modelerTemplate="org.drupal.event.content_entity:update">
+        <bpmn2:extensionElements>
+          <camunda:field name="type">
+            <camunda:string>user user</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="content_entity:update" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>eca_entity_field_value_changed_1ismzxl</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="eca_views_query_1fpilr2" name="Admin users list" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>eca_admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1mhhbfs</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0lb9kcd</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:exclusiveGateway id="Gateway_1v6rp7s">
+        <bpmn2:incoming>Flow_0lb9kcd</bpmn2:incoming>
+        <bpmn2:incoming>Flow_0fi0gka</bpmn2:incoming>
+        <bpmn2:outgoing>eca_count_0qprpab</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="Flow_0lb9kcd" sourceRef="eca_views_query_1fpilr2" targetRef="Gateway_1v6rp7s" />
+      <bpmn2:task id="eca_list_remove_1n0pvsd" name="Pop first admin user item from the list" camunda:modelerTemplate="org.drupal.action.eca_list_remove">
+        <bpmn2:extensionElements>
+          <camunda:field name="value">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>admin_user</camunda:string>
+          </camunda:field>
+          <camunda:field name="method">
+            <camunda:string>first</camunda:string>
+          </camunda:field>
+          <camunda:field name="index">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="list_token">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_list_remove" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_count_0qprpab</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1firjxa</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_count_0qprpab" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_1v6rp7s" targetRef="eca_list_remove_1n0pvsd">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>greaterthan</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>_eca_token</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_count" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="Flow_1firjxa" sourceRef="eca_list_remove_1n0pvsd" targetRef="eca_new_entity_1lwoqgx" />
+      <bpmn2:task id="eca_switch_account_1k8fwnm" name="Switch to Webmaster" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
+        <bpmn2:extensionElements>
+          <camunda:field name="user_id">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_switch_account" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_098447s</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1mhhbfs</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="eca_token_set_value_01noukj" name="Save Updated user" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>updated_user</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_value">
+            <camunda:string>[entity]</camunda:string>
+          </camunda:field>
+          <camunda:field name="use_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="validate_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_set_value" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_entity_field_value_changed_1ismzxl</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0au85b9</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:startEvent id="eca_base__eca_cron_1_1" name="Cron time to check for inactive users" camunda:modelerTemplate="org.drupal.event.eca_base:eca_cron">
+        <bpmn2:extensionElements>
+          <camunda:field name="frequency">
+            <camunda:string>* * * * *</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_base:eca_cron" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_12mvjis</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="eca_switch_account_11qpxet" name="Switch to Webmaster" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
+        <bpmn2:extensionElements>
+          <camunda:field name="user_id">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_switch_account" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_12mvjis</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0sj7xpf</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_12mvjis" sourceRef="eca_base__eca_cron_1_1" targetRef="eca_switch_account_11qpxet" />
+      <bpmn2:task id="eca_views_query_09kitrc" name="Inactive users count" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>eca_inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>count</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0sj7xpf</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0x8bq08</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0sj7xpf" sourceRef="eca_switch_account_11qpxet" targetRef="eca_views_query_09kitrc" />
+      <bpmn2:exclusiveGateway id="Gateway_17nokcn">
+        <bpmn2:incoming>Flow_1hhyv3a</bpmn2:incoming>
+        <bpmn2:incoming>Flow_03d3i4v</bpmn2:incoming>
+        <bpmn2:outgoing>eca_count_0fsfzfx</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:task id="eca_list_remove_13k1tx3" name="Pop first admin user from the list" camunda:modelerTemplate="org.drupal.action.eca_list_remove">
+        <bpmn2:extensionElements>
+          <camunda:field name="value">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>admin_user</camunda:string>
+          </camunda:field>
+          <camunda:field name="method">
+            <camunda:string>first</camunda:string>
+          </camunda:field>
+          <camunda:field name="index">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="list_token">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_list_remove" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_count_0fsfzfx</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0x0ppki</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_count_0fsfzfx" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_17nokcn" targetRef="eca_list_remove_13k1tx3">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>greaterthan</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>_eca_token</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_count" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="eca_views_query_1i7pt4m" name="Admin users" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>eca_admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>admin_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_06c49rd</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_03d3i4v</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_entity_field_value_changed_1ismzxl" name="User roles changed" camunda:modelerTemplate="org.drupal.condition.eca_entity_field_value_changed" sourceRef="content_entity__update_1_1" targetRef="eca_token_set_value_01noukj">
+        <bpmn2:extensionElements>
+          <camunda:field name="field_name">
+            <camunda:string>roles</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity">
+            <camunda:string>user</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_entity_field_value_changed" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="eca_new_entity_1lwoqgx" name="Create role changed notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>role_changed_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>easy_email role_changed_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="langcode">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="label">
+            <camunda:string>User Role Modified - [updated_user:display-name] on [site:name]</camunda:string>
+          </camunda:field>
+          <camunda:field name="published">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="owner">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_new_entity" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1firjxa</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_077yvkn</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="easy_email_send_1ida814" name="Send Easy Email template for role changed" camunda:modelerTemplate="org.drupal.action.easy_email_send">
+        <bpmn2:extensionElements>
+          <camunda:field name="object">
+            <camunda:string>role_changed_notification</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="easy_email_send" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_077yvkn</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0fi0gka</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_077yvkn" sourceRef="eca_new_entity_1lwoqgx" targetRef="easy_email_send_1ida814" />
+      <bpmn2:sequenceFlow id="Flow_0fi0gka" sourceRef="easy_email_send_1ida814" targetRef="Gateway_1v6rp7s" />
+      <bpmn2:sequenceFlow id="Flow_0au85b9" sourceRef="eca_token_set_value_01noukj" targetRef="eca_tamper__find_replace_regex_2_1" />
+      <bpmn2:task id="eca_tamper__find_replace_regex_2_1" name="Filter user original roles" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
+        <bpmn2:extensionElements>
+          <camunda:field name="eca_data">
+            <camunda:string>[user:original:roles]</camunda:string>
+          </camunda:field>
+          <camunda:field name="eca_token_name">
+            <camunda:string>user_original_roles</camunda:string>
+          </camunda:field>
+          <camunda:field name="find">
+            <camunda:string>/authenticated,/</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="limit">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_tamper:find_replace_regex" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0au85b9</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_16xf71e</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="eca_tamper__find_replace_regex_1" name="Filter user new roles" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
+        <bpmn2:extensionElements>
+          <camunda:field name="eca_data">
+            <camunda:string>[user:roles]</camunda:string>
+          </camunda:field>
+          <camunda:field name="eca_token_name">
+            <camunda:string>user_new_roles</camunda:string>
+          </camunda:field>
+          <camunda:field name="find">
+            <camunda:string>/authenticated,/</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="limit">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_tamper:find_replace_regex" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_16xf71e</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_098447s</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_16xf71e" sourceRef="eca_tamper__find_replace_regex_2_1" targetRef="eca_tamper__find_replace_regex_1" />
+      <bpmn2:sequenceFlow id="Flow_098447s" sourceRef="eca_tamper__find_replace_regex_1" targetRef="eca_switch_account_1k8fwnm" />
+      <bpmn2:sequenceFlow id="Flow_1mhhbfs" sourceRef="eca_switch_account_1k8fwnm" targetRef="eca_views_query_1fpilr2" />
+      <bpmn2:task id="eca_render_views__views_1" name="Render the first 20 Inactive users as HTML table for the email" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+        <bpmn2:extensionElements>
+          <camunda:field name="view_id">
+            <camunda:string>eca_inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>html_table</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="name">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>inactive_users_html_table</camunda:string>
+          </camunda:field>
+          <camunda:field name="weight">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="mode">
+            <camunda:string>set:clear</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_render_views:views" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_count_074bxt7</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_06c49rd</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="eca_new_entity_0p37h2i" name="Create Inactive User Accounts notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>inactive_users_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>easy_email inactive_users_notification</camunda:string>
+          </camunda:field>
+          <camunda:field name="langcode">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="label">
+            <camunda:string>Notice: Inactive User Accounts on [site:name]</camunda:string>
+          </camunda:field>
+          <camunda:field name="published">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="owner">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_new_entity" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0x0ppki</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_087xykf</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="easy_email_send_1mm3zgc" name="Send Easy Email template about inactive users" camunda:modelerTemplate="org.drupal.action.easy_email_send">
+        <bpmn2:extensionElements>
+          <camunda:field name="object">
+            <camunda:string>inactive_users_notification</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="easy_email_send" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_087xykf</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1hhyv3a</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0x0ppki" sourceRef="eca_list_remove_13k1tx3" targetRef="eca_new_entity_0p37h2i" />
+      <bpmn2:sequenceFlow id="Flow_087xykf" sourceRef="eca_new_entity_0p37h2i" targetRef="easy_email_send_1mm3zgc" />
+      <bpmn2:sequenceFlow id="Flow_1hhyv3a" sourceRef="easy_email_send_1mm3zgc" targetRef="Gateway_17nokcn" />
+      <bpmn2:sequenceFlow id="Flow_06c49rd" sourceRef="eca_render_views__views_1" targetRef="eca_views_query_1i7pt4m" />
+      <bpmn2:sequenceFlow id="Flow_03d3i4v" sourceRef="eca_views_query_1i7pt4m" targetRef="Gateway_17nokcn" />
+      <bpmn2:exclusiveGateway id="Gateway_02wxy90">
+        <bpmn2:incoming>Flow_0x8bq08</bpmn2:incoming>
+        <bpmn2:outgoing>eca_count_074bxt7</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="Flow_0x8bq08" sourceRef="eca_views_query_09kitrc" targetRef="Gateway_02wxy90" />
+      <bpmn2:sequenceFlow id="eca_count_074bxt7" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_02wxy90" targetRef="eca_render_views__views_1">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>greaterthan</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>numeric</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_count" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_user_recertification">
+      <bpmndi:BPMNPlane id="BPMNPlane_user_recertification" bpmnElement="user_recertification">
+        <bpmndi:BPMNShape id="content_entity__update_1_1_di" bpmnElement="content_entity__update_1_1">
+          <dc:Bounds x="57" y="52" width="36" height="36" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_views_query_1fpilr2_di" bpmnElement="eca_views_query_1fpilr2">
+          <dc:Bounds x="775" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Gateway_1v6rp7s_di" bpmnElement="Gateway_1v6rp7s" isMarkerVisible="true">
+          <dc:Bounds x="950" y="45" width="50" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_list_remove_1n0pvsd_di" bpmnElement="eca_list_remove_1n0pvsd">
+          <dc:Bounds x="1075" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_switch_account_1k8fwnm_di" bpmnElement="eca_switch_account_1k8fwnm">
+          <dc:Bounds x="625" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_token_set_value_01noukj_di" bpmnElement="eca_token_set_value_01noukj">
+          <dc:Bounds x="175" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_base__eca_cron_1_di" bpmnElement="eca_base__eca_cron_1_1">
+          <dc:Bounds x="57" y="192" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="32" y="228" width="86" height="40" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_switch_account_11qpxet_di" bpmnElement="eca_switch_account_11qpxet">
+          <dc:Bounds x="175" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_views_query_09kitrc_di" bpmnElement="eca_views_query_09kitrc">
+          <dc:Bounds x="325" y="170" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Gateway_17nokcn_di" bpmnElement="Gateway_17nokcn" isMarkerVisible="true">
+          <dc:Bounds x="950" y="185" width="50" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_list_remove_13k1tx3_di" bpmnElement="eca_list_remove_13k1tx3">
+          <dc:Bounds x="1075" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_views_query_1i7pt4m_di" bpmnElement="eca_views_query_1i7pt4m">
+          <dc:Bounds x="775" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_new_entity_1lwoqgx_di" bpmnElement="eca_new_entity_1lwoqgx">
+          <dc:Bounds x="1225" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="easy_email_send_1ida814_di" bpmnElement="easy_email_send_1ida814">
+          <dc:Bounds x="1375" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_2_1_di" bpmnElement="eca_tamper__find_replace_regex_2_1">
+          <dc:Bounds x="325" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_1_di" bpmnElement="eca_tamper__find_replace_regex_1">
+          <dc:Bounds x="475" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_render_views__views_1_1_di" bpmnElement="eca_render_views__views_1">
+          <dc:Bounds x="625" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_new_entity_0p37h2i_di" bpmnElement="eca_new_entity_0p37h2i">
+          <dc:Bounds x="1225" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="easy_email_send_1mm3zgc_di" bpmnElement="easy_email_send_1mm3zgc">
+          <dc:Bounds x="1375" y="170" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Gateway_02wxy90_di" bpmnElement="Gateway_02wxy90" isMarkerVisible="true">
+          <dc:Bounds x="500" y="185" width="50" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_0lb9kcd_di" bpmnElement="Flow_0lb9kcd">
+          <di:waypoint x="875" y="70" />
+          <di:waypoint x="950" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_count_0qprpab_di" bpmnElement="eca_count_0qprpab">
+          <di:waypoint x="1000" y="70" />
+          <di:waypoint x="1075" y="70" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="1030" y="45" width="16" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1firjxa_di" bpmnElement="Flow_1firjxa">
+          <di:waypoint x="1175" y="70" />
+          <di:waypoint x="1225" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_12mvjis_di" bpmnElement="Flow_12mvjis">
+          <di:waypoint x="93" y="210" />
+          <di:waypoint x="175" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0sj7xpf_di" bpmnElement="Flow_0sj7xpf">
+          <di:waypoint x="275" y="210" />
+          <di:waypoint x="325" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_count_0fsfzfx_di" bpmnElement="eca_count_0fsfzfx">
+          <di:waypoint x="1000" y="210" />
+          <di:waypoint x="1075" y="210" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="1030" y="185" width="16" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_entity_field_value_changed_1ismzxl_di" bpmnElement="eca_entity_field_value_changed_1ismzxl">
+          <di:waypoint x="93" y="70" />
+          <di:waypoint x="175" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_077yvkn_di" bpmnElement="Flow_077yvkn">
+          <di:waypoint x="1325" y="70" />
+          <di:waypoint x="1375" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0fi0gka_di" bpmnElement="Flow_0fi0gka">
+          <di:waypoint x="1425" y="110" />
+          <di:waypoint x="1425" y="140" />
+          <di:waypoint x="975" y="140" />
+          <di:waypoint x="975" y="95" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0au85b9_di" bpmnElement="Flow_0au85b9">
+          <di:waypoint x="275" y="70" />
+          <di:waypoint x="325" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_16xf71e_di" bpmnElement="Flow_16xf71e">
+          <di:waypoint x="425" y="70" />
+          <di:waypoint x="475" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_098447s_di" bpmnElement="Flow_098447s">
+          <di:waypoint x="575" y="70" />
+          <di:waypoint x="625" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1mhhbfs_di" bpmnElement="Flow_1mhhbfs">
+          <di:waypoint x="725" y="70" />
+          <di:waypoint x="775" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0x0ppki_di" bpmnElement="Flow_0x0ppki">
+          <di:waypoint x="1175" y="210" />
+          <di:waypoint x="1225" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_087xykf_di" bpmnElement="Flow_087xykf">
+          <di:waypoint x="1325" y="210" />
+          <di:waypoint x="1375" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1hhyv3a_di" bpmnElement="Flow_1hhyv3a">
+          <di:waypoint x="1425" y="250" />
+          <di:waypoint x="1425" y="280" />
+          <di:waypoint x="975" y="280" />
+          <di:waypoint x="975" y="235" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_06c49rd_di" bpmnElement="Flow_06c49rd">
+          <di:waypoint x="725" y="210" />
+          <di:waypoint x="775" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_03d3i4v_di" bpmnElement="Flow_03d3i4v">
+          <di:waypoint x="875" y="210" />
+          <di:waypoint x="950" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0x8bq08_di" bpmnElement="Flow_0x8bq08">
+          <di:waypoint x="425" y="210" />
+          <di:waypoint x="500" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_074bxt7_di" bpmnElement="eca_count_074bxt7">
+          <di:waypoint x="550" y="210" />
+          <di:waypoint x="625" y="210" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="580" y="192" width="16" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>
