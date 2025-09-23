@@ -119,6 +119,21 @@ function varbase_core_modules_installed($modules, $is_syncing) {
 
   }
 
+  if (in_array('varbase_email', $modules)) {
+    // When the Varbase Email module is enabled, which not enabled by default.
+    // which could be enabled after Varbase Core in number of case.
+    // -------------------------------------------------
+    // Managed configs after enabling the Varbase Email module.
+    $managed_configs = [
+      'modeler_api.data_model.eca_bpmn_io_user_login',
+      'eca.eca.user_login',
+      'modeler_api.data_model.eca_bpmn_io_user_recertification',
+      'eca.eca.user_recertification',
+    ];
+    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/varbase_email');
+
+  }
+
 }
 
 /**
