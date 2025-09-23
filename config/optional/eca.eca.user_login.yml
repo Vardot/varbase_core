@@ -5,13 +5,14 @@ dependencies:
     - easy_email.easy_email_type.login_notification
   module:
     - easy_email
+    - eca_base
     - eca_content
     - eca_user
     - modeler_api
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:98825a8659406808b80a26296029fc34'
+    data: 'hash:d1969045277758b9eab4ffc5cd448b6d'
     label: 'User login'
     tags:
       - user
@@ -21,7 +22,7 @@ third_party_settings:
 id: user_login
 weight: -10
 events:
-  user__login_1:
+  user__login_1_1:
     plugin: 'user:login'
     label: 'Login of a user'
     configuration: {  }
@@ -36,10 +37,10 @@ actions:
     label: 'Get current user'
     plugin: eca_token_load_user_current
     configuration:
-      token_name: user
+      token_name: logged_user
     successors:
       -
-        id: eca_new_entity_0arypq1
+        id: eca_token_set_value_16qn0k8
         condition: ''
   eca_new_entity_0arypq1:
     label: 'Create Login Notification email'
@@ -56,8 +57,29 @@ actions:
         id: easy_email_send_1h2m16e
         condition: ''
   easy_email_send_1h2m16e:
-    label: 'Send Easy Email template for about login event'
+    label: 'Send Easy Email template about login event'
     plugin: easy_email_send
     configuration:
       object: login_notification
     successors: {  }
+  eca_switch_account_1jpmx4h:
+    label: 'Switch to Webmaster'
+    plugin: eca_switch_account
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: eca_new_entity_0arypq1
+        condition: ''
+  eca_token_set_value_16qn0k8:
+    label: 'Save IP Address'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: logged_user_id_address
+      token_value: '[current-user:ip-address]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_switch_account_1jpmx4h
+        condition: ''
