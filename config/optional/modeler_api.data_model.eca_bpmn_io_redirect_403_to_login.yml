@@ -1,0 +1,113 @@
+langcode: en
+status: true
+dependencies: {  }
+id: eca_bpmn_io_redirect_403_to_login
+data: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="redirect_403_to_login" name="Redirect 403 to Login" isExecutable="false" camunda:versionTag="1.0.0">
+      <bpmn2:documentation/>
+      <bpmn2:extensionElements>
+        <camunda:properties>
+          <camunda:property name="Tags" value="use case, redirect, redirect 403"/>
+          <camunda:property name="Changelog" value=""/>
+        </camunda:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:startEvent id="kernel__response_1" name="Response created" camunda:modelerTemplate="org.drupal.event.kernel:response">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="kernel:response"/>
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>eca_scalar_1q09u8b</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="eca_void_and_condition_0v21nbd" name="And" camunda:modelerTemplate="org.drupal.action.eca_void_and_condition">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_void_and_condition"/>
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_scalar_1q09u8b</bpmn2:incoming>
+        <bpmn2:outgoing>eca_current_user_role_14bo1m1</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_scalar_1q09u8b" name="403" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="kernel__response_1" targetRef="eca_void_and_condition_0v21nbd">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>[event:code]</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>403</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>equal</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>value</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar"/>
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="action_goto_action_0nji5tn" name="Redirect to URL" camunda:modelerTemplate="org.drupal.action.action_goto_action">
+        <bpmn2:extensionElements>
+          <camunda:field name="url">
+            <camunda:string>/user/login?destination=[event:path]</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="action_goto_action"/>
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_current_user_role_14bo1m1</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_current_user_role_14bo1m1" name="Anonymous" camunda:modelerTemplate="org.drupal.condition.eca_current_user_role" sourceRef="eca_void_and_condition_0v21nbd" targetRef="action_goto_action_0nji5tn">
+        <bpmn2:extensionElements>
+          <camunda:field name="role">
+            <camunda:string>anonymous</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_current_user_role"/>
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_redirect_403_to_login">
+      <bpmndi:BPMNPlane id="BPMNPlane_redirect_403_to_login" bpmnElement="redirect_403_to_login">
+        <bpmndi:BPMNShape id="kernel__response_1_di" bpmnElement="kernel__response_1">
+          <dc:Bounds x="57" y="52" width="36" height="36"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_void_and_condition_0v21nbd_di" bpmnElement="eca_void_and_condition_0v21nbd">
+          <dc:Bounds x="175" y="30" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="action_goto_action_0nji5tn_di" bpmnElement="action_goto_action_0nji5tn">
+          <dc:Bounds x="350" y="30" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="eca_scalar_1q09u8b_di" bpmnElement="eca_scalar_1q09u8b">
+          <di:waypoint x="93" y="70"/>
+          <di:waypoint x="175" y="70"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="125" y="45" width="19" height="14"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_current_user_role_14bo1m1_di" bpmnElement="eca_current_user_role_14bo1m1">
+          <di:waypoint x="275" y="70"/>
+          <di:waypoint x="350" y="70"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="284" y="45" width="59" height="14"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

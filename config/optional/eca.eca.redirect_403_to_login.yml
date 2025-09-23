@@ -1,0 +1,65 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - user.role.anonymous
+  module:
+    - eca_base
+    - eca_misc
+    - eca_user
+    - modeler_api
+third_party_settings:
+  modeler_api:
+    modeler_id: bpmn_io
+    data: 'hash:d512cdfb075a3be7922d69f568d9795e'
+    label: 'Redirect 403 to Login'
+    tags:
+      - 'use case'
+      - redirect
+      - 'redirect 403'
+    version: 1.0.0
+id: redirect_403_to_login
+weight: 0
+events:
+  kernel__response_1:
+    plugin: 'kernel:response'
+    label: 'Response created'
+    configuration: {  }
+    successors:
+      -
+        id: eca_void_and_condition_0v21nbd
+        condition: eca_scalar_1q09u8b
+conditions:
+  eca_scalar_1q09u8b:
+    plugin: eca_scalar
+    label: '403'
+    configuration:
+      negate: false
+      left: '[event:code]'
+      right: '403'
+      operator: equal
+      type: value
+      case: false
+  eca_current_user_role_14bo1m1:
+    plugin: eca_current_user_role
+    label: Anonymous
+    configuration:
+      negate: false
+      role: anonymous
+gateways: {  }
+actions:
+  eca_void_and_condition_0v21nbd:
+    label: And
+    plugin: eca_void_and_condition
+    configuration: {  }
+    successors:
+      -
+        id: action_goto_action_0nji5tn
+        condition: eca_current_user_role_14bo1m1
+  action_goto_action_0nji5tn:
+    label: 'Redirect to URL'
+    plugin: action_goto_action
+    configuration:
+      url: '/user/login?destination=[event:path]'
+      replace_tokens: true
+    successors: {  }
