@@ -11,7 +11,7 @@ use Drupal\responsive_preview\ResponsivePreview;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Extends ResponsiveIcons to conditionally hide on node edit pages.
+ * Extends ResponsiveIcons to conditionally hide on entity edit pages.
  */
 class ConditionalResponsiveIcons extends ResponsiveIcons {
 
@@ -68,14 +68,28 @@ class ConditionalResponsiveIcons extends ResponsiveIcons {
    * {@inheritdoc}
    */
   public function build(): array {
-    // Hide responsive preview when editing or creating nodes.
+    // Hide responsive preview when editing or creating entities.
     $current_route_name = $this->routeMatch->getRouteName();
 
-    // Check for both node edit and node add forms.
+    // Check for entity edit and add forms across all entity types.
     if ($current_route_name && (
-        preg_match('/^entity\.node\.edit_form$/', $current_route_name) ||
+        // Generic entity edit forms (entity.{entity_type}.edit_form)
+        preg_match('/^entity\.[^.]+\.edit_form$/', $current_route_name) ||
+        // Generic entity add forms (entity.{entity_type}.add_form)
+        preg_match('/^entity\.[^.]+\.add_form$/', $current_route_name) ||
+        // Node-specific routes for backwards compatibility
         preg_match('/^node\.add$/', $current_route_name) ||
-        preg_match('/^node\.add_page$/', $current_route_name)
+        preg_match('/^node\.add_page$/', $current_route_name) ||
+        // User-specific routes
+        preg_match('/^user\.register$/', $current_route_name) ||
+        // Taxonomy term routes
+        preg_match('/^entity\.taxonomy_term\.add_form$/', $current_route_name) ||
+        // Media entity routes
+        preg_match('/^entity\.media\.add_form$/', $current_route_name) ||
+        // Commerce product routes (if commerce is used)
+        preg_match('/^entity\.commerce_product\.add_form$/', $current_route_name) ||
+        // Generic pattern for any entity type add/edit routes
+        preg_match('/\.(add|edit)(_form)?$/', $current_route_name)
       )) {
       // Return empty build array with cache contexts for proper caching.
       return [
