@@ -9,8 +9,16 @@ body {
   }
 
   // Fix styles for the responsive preview navigation bar button.
-  .responsive-preview-navigation-bar button {
-    font-size: 0 !important;
+  .responsive-preview-navigation-bar {
+    min-width: fit-content;
+
+    button {
+      font-size: 0 !important;
+    }
+  }
+
+  .toolbar-button.toolbar-button--icon--coffee {
+    min-width: fit-content;
   }
 
   // Justify content of Gin breadcrumb to center in the navigation top bar.
