@@ -2,9 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - easy_email.easy_email_type.blocked_users_notification
     - easy_email.easy_email_type.inactive_users_notification
     - easy_email.easy_email_type.role_changed_notification
     - views.view.eca_admin_users
+    - views.view.eca_blocked_users
     - views.view.eca_inactive_users
   module:
     - easy_email
@@ -19,7 +21,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:ac6b3b8e918c73ed14a18673caa4afe8'
+    data: 'hash:aec103c3284379093e0f4af599d3c8a0'
     changelog: Initialization
     label: 'User Recertification'
     documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
@@ -42,14 +44,23 @@ events:
       -
         id: eca_token_set_value_01noukj
         condition: eca_entity_field_value_changed_1ismzxl
-  eca_base__eca_cron_1_1:
+  eca_base__eca_cron_1:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for inactive users'
     configuration:
-      frequency: '* * * * *'
+      frequency: '0 3 * * *'
     successors:
       -
         id: eca_switch_account_11qpxet
+        condition: ''
+  eca_base__eca_cron_1_2:
+    plugin: 'eca_base:eca_cron'
+    label: 'Cron time to check for blocked users'
+    configuration:
+      frequency: '0 3 * * *'
+    successors:
+      -
+        id: eca_switch_account_1fbsrds
         condition: ''
 conditions:
   eca_count_0qprpab:
@@ -89,6 +100,36 @@ conditions:
       operator: greaterthan
       type: numeric
       case: false
+  Flow_1mixo9p:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: admin_users
+      right: '0'
+      operator: greaterthan
+      type: _eca_token
+      case: false
+  eca_count_06kht7i:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: blocked_users_count
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
+  eca_count_0kqicp7:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: blocked_users_list
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
 gateways:
   Gateway_1v6rp7s:
     type: 0
@@ -106,11 +147,29 @@ gateways:
     type: 0
     successors:
       -
-        id: eca_render_views__views_1
+        id: eca_render_views__views_1_3
         condition: eca_count_074bxt7
+  Gateway_0r4u8h7:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_1kpya7z
+        condition: Flow_1mixo9p
+  Gateway_0yvzxyl:
+    type: 0
+    successors:
+      -
+        id: eca_render_views__views_2_1
+        condition: eca_count_06kht7i
+  Gateway_13wo5s3:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_0lramrv
+        condition: eca_count_0kqicp7
 actions:
   eca_views_query_1fpilr2:
-    label: 'Admin users list'
+    label: 'Admin users'
     plugin: eca_views_query
     configuration:
       token_name: admin_users
@@ -165,7 +224,7 @@ actions:
         id: eca_views_query_09kitrc
         condition: ''
   eca_views_query_09kitrc:
-    label: 'Inactive users count'
+    label: 'Count of Inactive users after 90 days'
     plugin: eca_views_query
     configuration:
       token_name: inactive_users
@@ -252,8 +311,8 @@ actions:
       -
         id: eca_switch_account_1k8fwnm
         condition: ''
-  eca_render_views__views_1:
-    label: 'Render the first 20 Inactive users as HTML table for the email'
+  eca_render_views__views_1_3:
+    label: 'Render the first part of Inactive users as HTML table'
     plugin: 'eca_render_views:views'
     configuration:
       name: ''
@@ -289,4 +348,146 @@ actions:
     successors:
       -
         id: Gateway_17nokcn
+        condition: ''
+  eca_views_query_1a84hw7:
+    label: 'Count of users which did not login for 100 days'
+    plugin: eca_views_query
+    configuration:
+      token_name: blocked_users_count
+      view_id: eca_blocked_users
+      display_id: count
+      arguments: ''
+    successors:
+      -
+        id: Gateway_0yvzxyl
+        condition: ''
+  eca_list_remove_1kpya7z:
+    label: 'Pop first admin user from the list'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: admin_user
+      method: first
+      index: ''
+      list_token: admin_users
+    successors:
+      -
+        id: eca_new_entity_1avbsci
+        condition: ''
+  eca_views_query_1je3clw:
+    label: 'Admin users'
+    plugin: eca_views_query
+    configuration:
+      token_name: admin_users
+      view_id: eca_admin_users
+      display_id: admin_users
+      arguments: ''
+    successors:
+      -
+        id: Gateway_0r4u8h7
+        condition: ''
+  eca_new_entity_1avbsci:
+    label: 'Create Blocked Accounts notification email'
+    plugin: eca_new_entity
+    configuration:
+      token_name: blocked_users_notification
+      type: 'easy_email blocked_users_notification'
+      langcode: ''
+      label: 'Notice: Blocked User Accounts on [site:name]'
+      published: false
+      owner: '1'
+    successors:
+      -
+        id: easy_email_send_0981ohr
+        condition: ''
+  easy_email_send_0981ohr:
+    label: 'Send Easy Email template about blocked accounts'
+    plugin: easy_email_send
+    configuration:
+      object: blocked_users_notification
+    successors:
+      -
+        id: Gateway_0r4u8h7
+        condition: ''
+  eca_render_views__views_2_1:
+    label: 'Render the first part of blocked users as HTML table'
+    plugin: 'eca_render_views:views'
+    configuration:
+      name: ''
+      token_name: blocked_users_html_table
+      weight: null
+      mode: 'set:clear'
+      view_id: eca_blocked_users
+      display_id: html_table
+      arguments: ''
+    successors:
+      -
+        id: eca_render_views__views_1
+        condition: ''
+  eca_render_views__views_1:
+    label: 'List of users which did not login for 100 days'
+    plugin: 'eca_render_views:views'
+    configuration:
+      name: ''
+      token_name: blocked_users_list
+      weight: null
+      mode: 'set:clear'
+      view_id: eca_blocked_users
+      display_id: list
+      arguments: ''
+    successors:
+      -
+        id: eca_views_query_1je3clw
+        condition: ''
+      -
+        id: Gateway_13wo5s3
+        condition: ''
+  eca_switch_account_1fbsrds:
+    label: 'Switch to Webmaster'
+    plugin: eca_switch_account
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: eca_views_query_1a84hw7
+        condition: ''
+  user_block_user_action_1d9s1ry:
+    label: 'Block user'
+    plugin: user_block_user_action
+    configuration:
+      object: blocked_user_entity
+    successors:
+      -
+        id: Gateway_13wo5s3
+        condition: ''
+  eca_list_remove_0lramrv:
+    label: 'Pop first user from the list'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: blocked_user
+      method: first
+      index: ''
+      list_token: blocked_users_list
+    successors:
+      -
+        id: eca_token_load_entity_0spuobp
+        condition: ''
+  eca_token_load_entity_0spuobp:
+    label: 'Entity: load'
+    plugin: eca_token_load_entity
+    configuration:
+      token_name: blocked_user_entity
+      from: id
+      entity_type: user
+      entity_id: '[blocked_user:uid]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: blocked_user
+    successors:
+      -
+        id: user_block_user_action_1d9s1ry
         condition: ''

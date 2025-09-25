@@ -9,8 +9,8 @@ dependencies:
     - user.role.site_admin
   module:
     - user
-id: eca_inactive_users
-label: 'ECA Inactive Users'
+id: eca_blocked_users
+label: 'ECA Blocked Users'
 module: views
 description: ''
 tag: ECA
@@ -23,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Inactive users'
+      title: 'Blocked users'
       fields:
         uid:
           id: uid
@@ -144,21 +144,20 @@ display:
           group: 1
           expose:
             operator: ''
-        login:
-          id: login
+        uid_raw:
+          id: uid_raw
           table: users_field_data
-          field: login
+          field: uid_raw
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: user
-          entity_field: login
-          plugin_id: date
-          operator: '='
+          plugin_id: numeric
+          operator: '!='
           value:
             min: ''
             max: ''
-            value: '-90 day'
+            value: '1'
           group: 1
           exposed: false
           expose:
@@ -190,7 +189,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          type: date
         roles_target_id:
           id: roles_target_id
           table: user__roles
@@ -237,21 +235,22 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-        uid_raw:
-          id: uid_raw
+          reduce_duplicates: true
+        login:
+          id: login
           table: users_field_data
-          field: uid_raw
+          field: login
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: user
-          plugin_id: numeric
-          operator: '!='
+          entity_field: login
+          plugin_id: date
+          operator: '<='
           value:
-            min: ''
-            max: ''
-            value: '1'
+            min: '+1 day'
+            max: '+2 day'
+            value: '1 day'
           group: 1
           exposed: false
           expose:
@@ -283,6 +282,11 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          type: date
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: table
         options:
@@ -347,11 +351,11 @@ display:
       tags: {  }
   count:
     id: count
-    display_title: 'Inactive users count'
+    display_title: 'Blocked users count'
     display_plugin: attachment
     position: 3
     display_options:
-      title: 'Inactive users count'
+      title: 'Blocked users count'
       fields:
         uid:
           id: uid
@@ -491,11 +495,11 @@ display:
       tags: {  }
   html_table:
     id: html_table
-    display_title: 'Inactive users table'
+    display_title: 'Blocked users table'
     display_plugin: attachment
     position: 2
     display_options:
-      title: 'Inactive users table'
+      title: 'Blocked users table'
       fields:
         name:
           id: name
@@ -765,16 +769,15 @@ display:
       tags: {  }
   list:
     id: list
-    display_title: 'Inactive users list'
+    display_title: 'Blocked users list'
     display_plugin: attachment
     position: 1
     display_options:
-      title: 'Inactive users list'
+      title: 'Blocked users list'
       pager:
-        type: some
+        type: none
         options:
           offset: 0
-          items_per_page: 20
       sorts: {  }
       query:
         type: views_query
