@@ -58,10 +58,9 @@ data: |
             <camunda:property name="pluginid" value="eca_new_entity" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1ozcl73</bpmn2:incoming>
+        <bpmn2:incoming>Flow_18ybeqs</bpmn2:incoming>
         <bpmn2:outgoing>Flow_1ygevcb</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_1ozcl73" sourceRef="eca_switch_account_1jpmx4h" targetRef="eca_new_entity_0arypq1" />
       <bpmn2:sequenceFlow id="Flow_1ygevcb" sourceRef="eca_new_entity_0arypq1" targetRef="easy_email_send_1h2m16e" />
       <bpmn2:task id="easy_email_send_1h2m16e" name="Send Easy Email template about login event" camunda:modelerTemplate="org.drupal.action.easy_email_send">
         <bpmn2:extensionElements>
@@ -74,23 +73,11 @@ data: |
         </bpmn2:extensionElements>
         <bpmn2:incoming>Flow_1ygevcb</bpmn2:incoming>
       </bpmn2:task>
-      <bpmn2:task id="eca_switch_account_1jpmx4h" name="Switch to Webmaster" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
-        <bpmn2:extensionElements>
-          <camunda:field name="user_id">
-            <camunda:string>1</camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_switch_account" />
-          </camunda:properties>
-        </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1kab0z3</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_1ozcl73</bpmn2:outgoing>
-      </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_1kab0z3" sourceRef="eca_token_set_value_16qn0k8" targetRef="eca_switch_account_1jpmx4h" />
+      <bpmn2:sequenceFlow id="Flow_1kab0z3" sourceRef="eca_token_set_value_16qn0k8" targetRef="eca_switch_account_1hswp3z" />
       <bpmn2:task id="eca_token_set_value_16qn0k8" name="Save IP Address" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
         <bpmn2:extensionElements>
           <camunda:field name="token_name">
-            <camunda:string>logged_user_id_address</camunda:string>
+            <camunda:string>logged_user_ip_address</camunda:string>
           </camunda:field>
           <camunda:field name="token_value">
             <camunda:string>[current-user:ip-address]</camunda:string>
@@ -109,6 +96,19 @@ data: |
         <bpmn2:outgoing>Flow_1kab0z3</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:sequenceFlow id="Flow_0gzssep" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="eca_token_set_value_16qn0k8" />
+      <bpmn2:task id="eca_switch_account_1hswp3z" name="Switch to webmaster" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
+        <bpmn2:extensionElements>
+          <camunda:field name="user_id">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_switch_account" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1kab0z3</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_18ybeqs</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_18ybeqs" sourceRef="eca_switch_account_1hswp3z" targetRef="eca_new_entity_0arypq1" />
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_user_login">
       <bpmndi:BPMNPlane id="BPMNPlane_user_login" bpmnElement="user_login">
@@ -123,22 +123,16 @@ data: |
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="easy_email_send_1h2m16e_di" bpmnElement="easy_email_send_1h2m16e">
           <dc:Bounds x="775" y="30" width="100" height="80" />
-          <bpmndi:BPMNLabel />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_switch_account_1jpmx4h_di" bpmnElement="eca_switch_account_1jpmx4h">
-          <dc:Bounds x="475" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_token_set_value_16qn0k8_di" bpmnElement="eca_token_set_value_16qn0k8">
           <dc:Bounds x="325" y="30" width="100" height="80" />
-          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_switch_account_1hswp3z_di" bpmnElement="eca_switch_account_1hswp3z">
+          <dc:Bounds x="475" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="Flow_1rgw1bb_di" bpmnElement="Flow_1rgw1bb">
           <di:waypoint x="93" y="70" />
           <di:waypoint x="175" y="70" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_1ozcl73_di" bpmnElement="Flow_1ozcl73">
-          <di:waypoint x="575" y="70" />
-          <di:waypoint x="625" y="70" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1ygevcb_di" bpmnElement="Flow_1ygevcb">
           <di:waypoint x="725" y="70" />
@@ -151,6 +145,10 @@ data: |
         <bpmndi:BPMNEdge id="Flow_0gzssep_di" bpmnElement="Flow_0gzssep">
           <di:waypoint x="275" y="70" />
           <di:waypoint x="325" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_18ybeqs_di" bpmnElement="Flow_18ybeqs">
+          <di:waypoint x="575" y="70" />
+          <di:waypoint x="625" y="70" />
         </bpmndi:BPMNEdge>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>

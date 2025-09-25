@@ -12,7 +12,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:d1969045277758b9eab4ffc5cd448b6d'
+    data: 'hash:bc55a09d929c57dc113f23590394d90c'
     label: 'User login'
     tags:
       - user
@@ -62,24 +62,24 @@ actions:
     configuration:
       object: login_notification
     successors: {  }
-  eca_switch_account_1jpmx4h:
-    label: 'Switch to Webmaster'
+  eca_token_set_value_16qn0k8:
+    label: 'Save IP Address'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: logged_user_ip_address
+      token_value: '[current-user:ip-address]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_switch_account_1hswp3z
+        condition: ''
+  eca_switch_account_1hswp3z:
+    label: 'Switch to webmaster'
     plugin: eca_switch_account
     configuration:
       user_id: '1'
     successors:
       -
         id: eca_new_entity_0arypq1
-        condition: ''
-  eca_token_set_value_16qn0k8:
-    label: 'Save IP Address'
-    plugin: eca_token_set_value
-    configuration:
-      token_name: logged_user_id_address
-      token_value: '[current-user:ip-address]'
-      use_yaml: false
-      validate_yaml: false
-    successors:
-      -
-        id: eca_switch_account_1jpmx4h
         condition: ''
