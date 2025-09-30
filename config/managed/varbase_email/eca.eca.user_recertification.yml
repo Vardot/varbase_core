@@ -21,7 +21,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:aec103c3284379093e0f4af599d3c8a0'
+    data: 'hash:25683822eebbcf142c860ff3def5b237'
     changelog: Initialization
     label: 'User Recertification'
     documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
@@ -53,7 +53,7 @@ events:
       -
         id: eca_switch_account_11qpxet
         condition: ''
-  eca_base__eca_cron_1_2:
+  eca_base__eca_cron_2_1:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for blocked users'
     configuration:
@@ -90,16 +90,6 @@ conditions:
       negate: false
       field_name: roles
       entity: user
-  eca_count_074bxt7:
-    plugin: eca_count
-    label: '> 0'
-    configuration:
-      negate: false
-      left: inactive_users
-      right: '0'
-      operator: greaterthan
-      type: numeric
-      case: false
   Flow_1mixo9p:
     plugin: eca_count
     label: '> 0'
@@ -110,7 +100,17 @@ conditions:
       operator: greaterthan
       type: _eca_token
       case: false
-  eca_count_06kht7i:
+  eca_count_0kqicp7:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: blocked_users_list
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
+  eca_count_16wdt1i:
     plugin: eca_count
     label: '> 0'
     configuration:
@@ -120,12 +120,12 @@ conditions:
       operator: greaterthan
       type: numeric
       case: false
-  eca_count_0kqicp7:
+  eca_count_1liq2gl:
     plugin: eca_count
     label: '> 0'
     configuration:
       negate: false
-      left: blocked_users_list
+      left: inactive_users_count
       right: '0'
       operator: greaterthan
       type: numeric
@@ -147,8 +147,8 @@ gateways:
     type: 0
     successors:
       -
-        id: eca_render_views__views_1_3
-        condition: eca_count_074bxt7
+        id: eca_render_views__views_1_4
+        condition: eca_count_1liq2gl
   Gateway_0r4u8h7:
     type: 0
     successors:
@@ -159,8 +159,8 @@ gateways:
     type: 0
     successors:
       -
-        id: eca_render_views__views_2_1
-        condition: eca_count_06kht7i
+        id: eca_render_views__views_1
+        condition: eca_count_16wdt1i
   Gateway_13wo5s3:
     type: 0
     successors:
@@ -221,19 +221,7 @@ actions:
       user_id: '1'
     successors:
       -
-        id: eca_views_query_09kitrc
-        condition: ''
-  eca_views_query_09kitrc:
-    label: 'Count of Inactive users after 90 days'
-    plugin: eca_views_query
-    configuration:
-      token_name: inactive_users
-      view_id: eca_inactive_users
-      display_id: count
-      arguments: ''
-    successors:
-      -
-        id: Gateway_02wxy90
+        id: eca_views_query_033e4yb
         condition: ''
   eca_list_remove_13k1tx3:
     label: 'Pop first admin user from the list'
@@ -311,7 +299,7 @@ actions:
       -
         id: eca_switch_account_1k8fwnm
         condition: ''
-  eca_render_views__views_1_3:
+  eca_render_views__views_1_4:
     label: 'Render the first part of Inactive users as HTML table'
     plugin: 'eca_render_views:views'
     configuration:
@@ -324,7 +312,7 @@ actions:
       arguments: ''
     successors:
       -
-        id: eca_views_query_1i7pt4m
+        id: eca_render_views__views_1_3
         condition: ''
   eca_new_entity_0p37h2i:
     label: 'Create Inactive User Accounts notification email'
@@ -348,18 +336,6 @@ actions:
     successors:
       -
         id: Gateway_17nokcn
-        condition: ''
-  eca_views_query_1a84hw7:
-    label: 'Count of users which did not login for 100 days'
-    plugin: eca_views_query
-    configuration:
-      token_name: blocked_users_count
-      view_id: eca_blocked_users
-      display_id: count
-      arguments: ''
-    successors:
-      -
-        id: Gateway_0yvzxyl
         condition: ''
   eca_list_remove_1kpya7z:
     label: 'Pop first admin user from the list'
@@ -409,7 +385,7 @@ actions:
       -
         id: Gateway_0r4u8h7
         condition: ''
-  eca_render_views__views_2_1:
+  eca_render_views__views_1:
     label: 'Render the first part of blocked users as HTML table'
     plugin: 'eca_render_views:views'
     configuration:
@@ -422,9 +398,9 @@ actions:
       arguments: ''
     successors:
       -
-        id: eca_render_views__views_1
+        id: eca_render_views__views_2_1
         condition: ''
-  eca_render_views__views_1:
+  eca_render_views__views_1_1:
     label: 'List of users which did not login for 100 days'
     plugin: 'eca_render_views:views'
     configuration:
@@ -449,7 +425,7 @@ actions:
       user_id: '1'
     successors:
       -
-        id: eca_views_query_1a84hw7
+        id: eca_views_query_0gcdnmj
         condition: ''
   user_block_user_action_1d9s1ry:
     label: 'Block user'
@@ -490,4 +466,58 @@ actions:
     successors:
       -
         id: user_block_user_action_1d9s1ry
+        condition: ''
+  eca_render_views__views_2_1:
+    label: 'Render the message for Total number of blocked users'
+    plugin: 'eca_render_views:views'
+    configuration:
+      name: ''
+      token_name: blocked_users_total_message
+      weight: null
+      mode: 'set:clear'
+      view_id: eca_blocked_users
+      display_id: total_message
+      arguments: ''
+    successors:
+      -
+        id: eca_render_views__views_1_1
+        condition: ''
+  eca_views_query_0gcdnmj:
+    label: 'Count of users which did not login for 100 days'
+    plugin: eca_views_query
+    configuration:
+      token_name: blocked_users_count
+      view_id: eca_blocked_users
+      display_id: count
+      arguments: ''
+    successors:
+      -
+        id: Gateway_0yvzxyl
+        condition: ''
+  eca_views_query_033e4yb:
+    label: 'Count of users which did not login for 90 days'
+    plugin: eca_views_query
+    configuration:
+      token_name: inactive_users_count
+      view_id: eca_inactive_users
+      display_id: count
+      arguments: ''
+    successors:
+      -
+        id: Gateway_02wxy90
+        condition: ''
+  eca_render_views__views_1_3:
+    label: 'Render the message for Total number of blocked users'
+    plugin: 'eca_render_views:views'
+    configuration:
+      name: ''
+      token_name: inactive_users_total_message
+      weight: null
+      mode: 'set:clear'
+      view_id: eca_inactive_users
+      display_id: total_message
+      arguments: ''
+    successors:
+      -
+        id: eca_views_query_1i7pt4m
         condition: ''

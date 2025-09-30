@@ -158,28 +158,7 @@ data: |
         <bpmn2:outgoing>Flow_0sj7xpf</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:sequenceFlow id="Flow_12mvjis" sourceRef="eca_base__eca_cron_1" targetRef="eca_switch_account_11qpxet" />
-      <bpmn2:task id="eca_views_query_09kitrc" name="Count of Inactive users after 90 days" camunda:modelerTemplate="org.drupal.action.eca_views_query">
-        <bpmn2:extensionElements>
-          <camunda:field name="token_name">
-            <camunda:string>inactive_users</camunda:string>
-          </camunda:field>
-          <camunda:field name="view_id">
-            <camunda:string>eca_inactive_users</camunda:string>
-          </camunda:field>
-          <camunda:field name="display_id">
-            <camunda:string>count</camunda:string>
-          </camunda:field>
-          <camunda:field name="arguments">
-            <camunda:string></camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_views_query" />
-          </camunda:properties>
-        </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_0sj7xpf</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0x8bq08</bpmn2:outgoing>
-      </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_0sj7xpf" sourceRef="eca_switch_account_11qpxet" targetRef="eca_views_query_09kitrc" />
+      <bpmn2:sequenceFlow id="Flow_0sj7xpf" sourceRef="eca_switch_account_11qpxet" targetRef="eca_views_query_033e4yb" />
       <bpmn2:exclusiveGateway id="Gateway_17nokcn">
         <bpmn2:incoming>Flow_1hhyv3a</bpmn2:incoming>
         <bpmn2:incoming>Flow_03d3i4v</bpmn2:incoming>
@@ -364,7 +343,7 @@ data: |
       <bpmn2:sequenceFlow id="Flow_16xf71e" sourceRef="eca_tamper__find_replace_regex_2_1" targetRef="eca_tamper__find_replace_regex_1" />
       <bpmn2:sequenceFlow id="Flow_098447s" sourceRef="eca_tamper__find_replace_regex_1" targetRef="eca_switch_account_1k8fwnm" />
       <bpmn2:sequenceFlow id="Flow_1mhhbfs" sourceRef="eca_switch_account_1k8fwnm" targetRef="eca_views_query_1fpilr2" />
-      <bpmn2:task id="eca_render_views__views_1_3" name="Render the first part of Inactive users as HTML table" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+      <bpmn2:task id="eca_render_views__views_1_4" name="Render the first part of Inactive users as HTML table" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
         <bpmn2:extensionElements>
           <camunda:field name="view_id">
             <camunda:string>eca_inactive_users</camunda:string>
@@ -391,8 +370,8 @@ data: |
             <camunda:property name="pluginid" value="eca_render_views:views" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>eca_count_074bxt7</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_06c49rd</bpmn2:outgoing>
+        <bpmn2:incoming>eca_count_1liq2gl</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_06gwbil</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:task id="eca_new_entity_0p37h2i" name="Create Inactive User Accounts notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
         <bpmn2:extensionElements>
@@ -440,55 +419,9 @@ data: |
       <bpmn2:sequenceFlow id="Flow_03d3i4v" sourceRef="eca_views_query_1i7pt4m" targetRef="Gateway_17nokcn" />
       <bpmn2:exclusiveGateway id="Gateway_02wxy90">
         <bpmn2:incoming>Flow_0x8bq08</bpmn2:incoming>
-        <bpmn2:outgoing>eca_count_074bxt7</bpmn2:outgoing>
+        <bpmn2:outgoing>eca_count_1liq2gl</bpmn2:outgoing>
       </bpmn2:exclusiveGateway>
-      <bpmn2:sequenceFlow id="Flow_0x8bq08" sourceRef="eca_views_query_09kitrc" targetRef="Gateway_02wxy90" />
-      <bpmn2:sequenceFlow id="eca_count_074bxt7" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_02wxy90" targetRef="eca_render_views__views_1_3">
-        <bpmn2:extensionElements>
-          <camunda:field name="left">
-            <camunda:string>inactive_users</camunda:string>
-          </camunda:field>
-          <camunda:field name="right">
-            <camunda:string>0</camunda:string>
-          </camunda:field>
-          <camunda:field name="operator">
-            <camunda:string>greaterthan</camunda:string>
-          </camunda:field>
-          <camunda:field name="type">
-            <camunda:string>numeric</camunda:string>
-          </camunda:field>
-          <camunda:field name="case">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
-          <camunda:field name="negate">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_count" />
-          </camunda:properties>
-        </bpmn2:extensionElements>
-      </bpmn2:sequenceFlow>
-      <bpmn2:task id="eca_views_query_1a84hw7" name="Count of users which did not login for 100 days" camunda:modelerTemplate="org.drupal.action.eca_views_query">
-        <bpmn2:extensionElements>
-          <camunda:field name="token_name">
-            <camunda:string>blocked_users_count</camunda:string>
-          </camunda:field>
-          <camunda:field name="view_id">
-            <camunda:string>eca_blocked_users</camunda:string>
-          </camunda:field>
-          <camunda:field name="display_id">
-            <camunda:string>count</camunda:string>
-          </camunda:field>
-          <camunda:field name="arguments">
-            <camunda:string></camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_views_query" />
-          </camunda:properties>
-        </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1smwtxr</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0psrrvs</bpmn2:outgoing>
-      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0x8bq08" sourceRef="eca_views_query_033e4yb" targetRef="Gateway_02wxy90" />
       <bpmn2:exclusiveGateway id="Gateway_0r4u8h7">
         <bpmn2:incoming>Flow_17zsugo</bpmn2:incoming>
         <bpmn2:incoming>Flow_1guugca</bpmn2:incoming>
@@ -579,10 +512,10 @@ data: |
         <bpmn2:outgoing>Flow_17zsugo</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:exclusiveGateway id="Gateway_0yvzxyl">
-        <bpmn2:incoming>Flow_0psrrvs</bpmn2:incoming>
-        <bpmn2:outgoing>eca_count_06kht7i</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_1bxx3h0</bpmn2:incoming>
+        <bpmn2:outgoing>eca_count_16wdt1i</bpmn2:outgoing>
       </bpmn2:exclusiveGateway>
-      <bpmn2:task id="eca_render_views__views_2_1" name="Render the first part of blocked users as HTML table" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+      <bpmn2:task id="eca_render_views__views_1" name="Render the first part of blocked users as HTML table" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
         <bpmn2:extensionElements>
           <camunda:field name="view_id">
             <camunda:string>eca_blocked_users</camunda:string>
@@ -609,10 +542,9 @@ data: |
             <camunda:property name="pluginid" value="eca_render_views:views" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>eca_count_06kht7i</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0mezu8z</bpmn2:outgoing>
+        <bpmn2:incoming>eca_count_16wdt1i</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1gzbwlu</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_0psrrvs" sourceRef="eca_views_query_1a84hw7" targetRef="Gateway_0yvzxyl" />
       <bpmn2:sequenceFlow id="Flow_17zsugo" sourceRef="easy_email_send_0981ohr" targetRef="Gateway_0r4u8h7" />
       <bpmn2:sequenceFlow id="Flow_1guugca" sourceRef="eca_views_query_1je3clw" targetRef="Gateway_0r4u8h7" />
       <bpmn2:sequenceFlow id="Flow_1mixo9p" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_0r4u8h7" targetRef="eca_list_remove_1kpya7z">
@@ -642,8 +574,8 @@ data: |
       </bpmn2:sequenceFlow>
       <bpmn2:sequenceFlow id="Flow_19cdejh" sourceRef="eca_list_remove_1kpya7z" targetRef="eca_new_entity_1avbsci" />
       <bpmn2:sequenceFlow id="Flow_0m3e9oy" sourceRef="eca_new_entity_1avbsci" targetRef="easy_email_send_0981ohr" />
-      <bpmn2:sequenceFlow id="Flow_1smwtxr" sourceRef="eca_switch_account_1fbsrds" targetRef="eca_views_query_1a84hw7" />
-      <bpmn2:task id="eca_render_views__views_1" name="List of users which did not login for 100 days" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+      <bpmn2:sequenceFlow id="Flow_1smwtxr" sourceRef="eca_switch_account_1fbsrds" targetRef="eca_views_query_0gcdnmj" />
+      <bpmn2:task id="eca_render_views__views_1_1" name="List of users which did not login for 100 days" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
         <bpmn2:extensionElements>
           <camunda:field name="view_id">
             <camunda:string>eca_blocked_users</camunda:string>
@@ -670,36 +602,11 @@ data: |
             <camunda:property name="pluginid" value="eca_render_views:views" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_0mezu8z</bpmn2:incoming>
+        <bpmn2:incoming>Flow_14xpdbf</bpmn2:incoming>
         <bpmn2:outgoing>Flow_0n42bsd</bpmn2:outgoing>
         <bpmn2:outgoing>Flow_0xazisp</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="eca_count_06kht7i" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_0yvzxyl" targetRef="eca_render_views__views_2_1">
-        <bpmn2:extensionElements>
-          <camunda:field name="left">
-            <camunda:string>blocked_users_count</camunda:string>
-          </camunda:field>
-          <camunda:field name="right">
-            <camunda:string>0</camunda:string>
-          </camunda:field>
-          <camunda:field name="operator">
-            <camunda:string>greaterthan</camunda:string>
-          </camunda:field>
-          <camunda:field name="type">
-            <camunda:string>numeric</camunda:string>
-          </camunda:field>
-          <camunda:field name="case">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
-          <camunda:field name="negate">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_count" />
-          </camunda:properties>
-        </bpmn2:extensionElements>
-      </bpmn2:sequenceFlow>
-      <bpmn2:startEvent id="eca_base__eca_cron_1_2" name="Cron time to check for blocked users" camunda:modelerTemplate="org.drupal.event.eca_base:eca_cron">
+      <bpmn2:startEvent id="eca_base__eca_cron_2_1" name="Cron time to check for blocked users" camunda:modelerTemplate="org.drupal.event.eca_base:eca_cron">
         <bpmn2:extensionElements>
           <camunda:field name="frequency">
             <camunda:string>0 3 * * *</camunda:string>
@@ -722,7 +629,7 @@ data: |
         <bpmn2:incoming>Flow_078fwl5</bpmn2:incoming>
         <bpmn2:outgoing>Flow_1smwtxr</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_078fwl5" sourceRef="eca_base__eca_cron_1_2" targetRef="eca_switch_account_1fbsrds" />
+      <bpmn2:sequenceFlow id="Flow_078fwl5" sourceRef="eca_base__eca_cron_2_1" targetRef="eca_switch_account_1fbsrds" />
       <bpmn2:task id="user_block_user_action_1d9s1ry" name="Block user" camunda:modelerTemplate="org.drupal.action.user_block_user_action">
         <bpmn2:extensionElements>
           <camunda:field name="object">
@@ -735,14 +642,13 @@ data: |
         <bpmn2:incoming>Flow_06wx0qo</bpmn2:incoming>
         <bpmn2:outgoing>Flow_1rzdxoj</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_0n42bsd" sourceRef="eca_render_views__views_1" targetRef="eca_views_query_1je3clw" />
-      <bpmn2:sequenceFlow id="Flow_0mezu8z" sourceRef="eca_render_views__views_2_1" targetRef="eca_render_views__views_1" />
+      <bpmn2:sequenceFlow id="Flow_0n42bsd" sourceRef="eca_render_views__views_1_1" targetRef="eca_views_query_1je3clw" />
       <bpmn2:exclusiveGateway id="Gateway_13wo5s3">
         <bpmn2:incoming>Flow_0xazisp</bpmn2:incoming>
         <bpmn2:incoming>Flow_1rzdxoj</bpmn2:incoming>
         <bpmn2:outgoing>eca_count_0kqicp7</bpmn2:outgoing>
       </bpmn2:exclusiveGateway>
-      <bpmn2:sequenceFlow id="Flow_0xazisp" sourceRef="eca_render_views__views_1" targetRef="Gateway_13wo5s3" />
+      <bpmn2:sequenceFlow id="Flow_0xazisp" sourceRef="eca_render_views__views_1_1" targetRef="Gateway_13wo5s3" />
       <bpmn2:task id="eca_list_remove_0lramrv" name="Pop first user from the list" camunda:modelerTemplate="org.drupal.action.eca_list_remove">
         <bpmn2:extensionElements>
           <camunda:field name="value">
@@ -834,6 +740,162 @@ data: |
       <bpmn2:sequenceFlow id="Flow_07mly9a" sourceRef="eca_list_remove_0lramrv" targetRef="eca_token_load_entity_0spuobp" />
       <bpmn2:sequenceFlow id="Flow_06wx0qo" sourceRef="eca_token_load_entity_0spuobp" targetRef="user_block_user_action_1d9s1ry" />
       <bpmn2:sequenceFlow id="Flow_1rzdxoj" sourceRef="user_block_user_action_1d9s1ry" targetRef="Gateway_13wo5s3" />
+      <bpmn2:task id="eca_render_views__views_2_1" name="Render the message for Total number of blocked users" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+        <bpmn2:extensionElements>
+          <camunda:field name="view_id">
+            <camunda:string>eca_blocked_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>total_message</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="name">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>blocked_users_total_message</camunda:string>
+          </camunda:field>
+          <camunda:field name="weight">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="mode">
+            <camunda:string>set:clear</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_render_views:views" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1gzbwlu</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_14xpdbf</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1gzbwlu" sourceRef="eca_render_views__views_1" targetRef="eca_render_views__views_2_1" />
+      <bpmn2:sequenceFlow id="Flow_14xpdbf" sourceRef="eca_render_views__views_2_1" targetRef="eca_render_views__views_1_1" />
+      <bpmn2:sequenceFlow id="eca_count_16wdt1i" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_0yvzxyl" targetRef="eca_render_views__views_1">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>blocked_users_count</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>greaterthan</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>numeric</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_count" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="eca_views_query_0gcdnmj" name="Count of users which did not login for 100 days" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>blocked_users_count</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>eca_blocked_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>count</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1smwtxr</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1bxx3h0</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1bxx3h0" sourceRef="eca_views_query_0gcdnmj" targetRef="Gateway_0yvzxyl" />
+      <bpmn2:task id="eca_views_query_033e4yb" name="Count of users which did not login for 90 days" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>inactive_users_count</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>eca_inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>count</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0sj7xpf</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0x8bq08</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_count_1liq2gl" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_02wxy90" targetRef="eca_render_views__views_1_4">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>inactive_users_count</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>greaterthan</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>numeric</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_count" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="eca_render_views__views_1_3" name="Render the message for Total number of blocked users" camunda:modelerTemplate="org.drupal.action.eca_render_views:views">
+        <bpmn2:extensionElements>
+          <camunda:field name="view_id">
+            <camunda:string>eca_inactive_users</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>total_message</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="name">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>inactive_users_total_message</camunda:string>
+          </camunda:field>
+          <camunda:field name="weight">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="mode">
+            <camunda:string>set:clear</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_render_views:views" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_06gwbil</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_06c49rd</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_06gwbil" sourceRef="eca_render_views__views_1_4" targetRef="eca_render_views__views_1_3" />
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_user_recertification">
       <bpmndi:BPMNPlane id="BPMNPlane_user_recertification" bpmnElement="user_recertification">
@@ -855,7 +917,7 @@ data: |
         <bpmndi:BPMNShape id="eca_token_set_value_01noukj_di" bpmnElement="eca_token_set_value_01noukj">
           <dc:Bounds x="175" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_base__eca_cron_2_1_di" bpmnElement="eca_base__eca_cron_1">
+        <bpmndi:BPMNShape id="eca_base__eca_cron_1_1_di" bpmnElement="eca_base__eca_cron_1">
           <dc:Bounds x="57" y="192" width="36" height="36" />
           <bpmndi:BPMNLabel>
             <dc:Bounds x="32" y="228" width="86" height="40" />
@@ -864,17 +926,14 @@ data: |
         <bpmndi:BPMNShape id="eca_switch_account_11qpxet_di" bpmnElement="eca_switch_account_11qpxet">
           <dc:Bounds x="175" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_views_query_09kitrc_di" bpmnElement="eca_views_query_09kitrc">
-          <dc:Bounds x="325" y="170" width="100" height="80" />
-        </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_17nokcn_di" bpmnElement="Gateway_17nokcn" isMarkerVisible="true">
-          <dc:Bounds x="950" y="185" width="50" height="50" />
+          <dc:Bounds x="1100" y="185" width="50" height="50" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_list_remove_13k1tx3_di" bpmnElement="eca_list_remove_13k1tx3">
-          <dc:Bounds x="1075" y="170" width="100" height="80" />
+          <dc:Bounds x="1225" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_views_query_1i7pt4m_di" bpmnElement="eca_views_query_1i7pt4m">
-          <dc:Bounds x="775" y="170" width="100" height="80" />
+          <dc:Bounds x="925" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_new_entity_1lwoqgx_di" bpmnElement="eca_new_entity_1lwoqgx">
           <dc:Bounds x="1225" y="30" width="100" height="80" />
@@ -888,46 +947,43 @@ data: |
         <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_1_di" bpmnElement="eca_tamper__find_replace_regex_1">
           <dc:Bounds x="475" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_render_views__views_1_3_di" bpmnElement="eca_render_views__views_1_3">
+        <bpmndi:BPMNShape id="eca_render_views__views_3_1_di" bpmnElement="eca_render_views__views_1_4">
           <dc:Bounds x="625" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_new_entity_0p37h2i_di" bpmnElement="eca_new_entity_0p37h2i">
-          <dc:Bounds x="1225" y="170" width="100" height="80" />
+          <dc:Bounds x="1375" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="easy_email_send_1mm3zgc_di" bpmnElement="easy_email_send_1mm3zgc">
-          <dc:Bounds x="1375" y="170" width="100" height="80" />
+          <dc:Bounds x="1525" y="170" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_02wxy90_di" bpmnElement="Gateway_02wxy90" isMarkerVisible="true">
           <dc:Bounds x="500" y="185" width="50" height="50" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_views_query_1a84hw7_di" bpmnElement="eca_views_query_1a84hw7">
-          <dc:Bounds x="325" y="310" width="100" height="80" />
-        </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_0r4u8h7_di" bpmnElement="Gateway_0r4u8h7" isMarkerVisible="true">
-          <dc:Bounds x="1100" y="325" width="50" height="50" />
+          <dc:Bounds x="1250" y="325" width="50" height="50" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_list_remove_1kpya7z_di" bpmnElement="eca_list_remove_1kpya7z">
-          <dc:Bounds x="1225" y="310" width="100" height="80" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_views_query_1je3clw_di" bpmnElement="eca_views_query_1je3clw">
-          <dc:Bounds x="925" y="310" width="100" height="80" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_new_entity_1avbsci_di" bpmnElement="eca_new_entity_1avbsci">
           <dc:Bounds x="1375" y="310" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="easy_email_send_0981ohr_di" bpmnElement="easy_email_send_0981ohr">
+        <bpmndi:BPMNShape id="eca_views_query_1je3clw_di" bpmnElement="eca_views_query_1je3clw">
+          <dc:Bounds x="1075" y="310" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_new_entity_1avbsci_di" bpmnElement="eca_new_entity_1avbsci">
           <dc:Bounds x="1525" y="310" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="easy_email_send_0981ohr_di" bpmnElement="easy_email_send_0981ohr">
+          <dc:Bounds x="1675" y="310" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_0yvzxyl_di" bpmnElement="Gateway_0yvzxyl" isMarkerVisible="true">
           <dc:Bounds x="500" y="325" width="50" height="50" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_render_views__views_2_1_di" bpmnElement="eca_render_views__views_2_1">
+        <bpmndi:BPMNShape id="eca_render_views__views_1_di" bpmnElement="eca_render_views__views_1">
           <dc:Bounds x="625" y="310" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_render_views__views_1_di" bpmnElement="eca_render_views__views_1">
-          <dc:Bounds x="775" y="310" width="100" height="80" />
+        <bpmndi:BPMNShape id="eca_render_views__views_1_1_di" bpmnElement="eca_render_views__views_1_1">
+          <dc:Bounds x="925" y="310" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_base__eca_cron_1_1_di" bpmnElement="eca_base__eca_cron_1_2">
+        <bpmndi:BPMNShape id="eca_base__eca_cron_2_di" bpmnElement="eca_base__eca_cron_2_1">
           <dc:Bounds x="57" y="332" width="36" height="36" />
           <bpmndi:BPMNLabel>
             <dc:Bounds x="32" y="368" width="86" height="40" />
@@ -937,16 +993,31 @@ data: |
           <dc:Bounds x="175" y="310" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="user_block_user_action_1d9s1ry_di" bpmnElement="user_block_user_action_1d9s1ry">
-          <dc:Bounds x="1375" y="450" width="100" height="80" />
+          <dc:Bounds x="1525" y="450" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_13wo5s3_di" bpmnElement="Gateway_13wo5s3" isMarkerVisible="true">
-          <dc:Bounds x="950" y="465" width="50" height="50" />
+          <dc:Bounds x="1100" y="465" width="50" height="50" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_list_remove_0lramrv_di" bpmnElement="eca_list_remove_0lramrv">
-          <dc:Bounds x="1075" y="450" width="100" height="80" />
+          <dc:Bounds x="1225" y="450" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_token_load_entity_0spuobp_di" bpmnElement="eca_token_load_entity_0spuobp">
-          <dc:Bounds x="1225" y="450" width="100" height="80" />
+          <dc:Bounds x="1375" y="450" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_render_views__views_4_di" bpmnElement="eca_render_views__views_2_1">
+          <dc:Bounds x="775" y="310" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_views_query_0gcdnmj_di" bpmnElement="eca_views_query_0gcdnmj">
+          <dc:Bounds x="325" y="310" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_views_query_033e4yb_di" bpmnElement="eca_views_query_033e4yb">
+          <dc:Bounds x="325" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_render_views__views_03h7snb_di" bpmnElement="eca_render_views__views_1_3">
+          <dc:Bounds x="775" y="170" width="100" height="80" />
+          <bpmndi:BPMNLabel />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="Flow_0lb9kcd_di" bpmnElement="Flow_0lb9kcd">
           <di:waypoint x="875" y="70" />
@@ -969,8 +1040,8 @@ data: |
           <di:waypoint x="325" y="210" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="eca_count_0fsfzfx_di" bpmnElement="eca_count_0fsfzfx">
-          <di:waypoint x="1000" y="210" />
-          <di:waypoint x="1075" y="210" />
+          <di:waypoint x="1150" y="210" />
+          <di:waypoint x="1225" y="210" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="eca_entity_field_value_changed_1ismzxl_di" bpmnElement="eca_entity_field_value_changed_1ismzxl">
           <di:waypoint x="93" y="70" />
@@ -1003,103 +1074,111 @@ data: |
           <di:waypoint x="775" y="70" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_0x0ppki_di" bpmnElement="Flow_0x0ppki">
-          <di:waypoint x="1175" y="210" />
-          <di:waypoint x="1225" y="210" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_087xykf_di" bpmnElement="Flow_087xykf">
           <di:waypoint x="1325" y="210" />
           <di:waypoint x="1375" y="210" />
         </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_087xykf_di" bpmnElement="Flow_087xykf">
+          <di:waypoint x="1475" y="210" />
+          <di:waypoint x="1525" y="210" />
+        </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1hhyv3a_di" bpmnElement="Flow_1hhyv3a">
-          <di:waypoint x="1425" y="250" />
-          <di:waypoint x="1425" y="280" />
-          <di:waypoint x="975" y="280" />
-          <di:waypoint x="975" y="235" />
+          <di:waypoint x="1575" y="250" />
+          <di:waypoint x="1575" y="280" />
+          <di:waypoint x="1125" y="280" />
+          <di:waypoint x="1125" y="235" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_06c49rd_di" bpmnElement="Flow_06c49rd">
-          <di:waypoint x="725" y="210" />
-          <di:waypoint x="775" y="210" />
+          <di:waypoint x="875" y="210" />
+          <di:waypoint x="925" y="210" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_03d3i4v_di" bpmnElement="Flow_03d3i4v">
-          <di:waypoint x="875" y="210" />
-          <di:waypoint x="950" y="210" />
+          <di:waypoint x="1025" y="210" />
+          <di:waypoint x="1100" y="210" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_0x8bq08_di" bpmnElement="Flow_0x8bq08">
           <di:waypoint x="425" y="210" />
           <di:waypoint x="500" y="210" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="eca_count_074bxt7_di" bpmnElement="eca_count_074bxt7">
-          <di:waypoint x="550" y="210" />
-          <di:waypoint x="625" y="210" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0psrrvs_di" bpmnElement="Flow_0psrrvs">
-          <di:waypoint x="425" y="350" />
-          <di:waypoint x="500" y="350" />
-        </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_17zsugo_di" bpmnElement="Flow_17zsugo">
-          <di:waypoint x="1575" y="390" />
-          <di:waypoint x="1575" y="420" />
-          <di:waypoint x="1125" y="420" />
-          <di:waypoint x="1125" y="375" />
+          <di:waypoint x="1725" y="390" />
+          <di:waypoint x="1725" y="420" />
+          <di:waypoint x="1275" y="420" />
+          <di:waypoint x="1275" y="375" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1guugca_di" bpmnElement="Flow_1guugca">
-          <di:waypoint x="1025" y="350" />
-          <di:waypoint x="1100" y="350" />
+          <di:waypoint x="1175" y="350" />
+          <di:waypoint x="1250" y="350" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1mixo9p_di" bpmnElement="Flow_1mixo9p">
-          <di:waypoint x="1150" y="350" />
-          <di:waypoint x="1225" y="350" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_19cdejh_di" bpmnElement="Flow_19cdejh">
-          <di:waypoint x="1325" y="350" />
+          <di:waypoint x="1300" y="350" />
           <di:waypoint x="1375" y="350" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0m3e9oy_di" bpmnElement="Flow_0m3e9oy">
+        <bpmndi:BPMNEdge id="Flow_19cdejh_di" bpmnElement="Flow_19cdejh">
           <di:waypoint x="1475" y="350" />
           <di:waypoint x="1525" y="350" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0m3e9oy_di" bpmnElement="Flow_0m3e9oy">
+          <di:waypoint x="1625" y="350" />
+          <di:waypoint x="1675" y="350" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1smwtxr_di" bpmnElement="Flow_1smwtxr">
           <di:waypoint x="275" y="350" />
           <di:waypoint x="325" y="350" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="eca_count_06kht7i_di" bpmnElement="eca_count_06kht7i">
-          <di:waypoint x="550" y="350" />
-          <di:waypoint x="625" y="350" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_078fwl5_di" bpmnElement="Flow_078fwl5">
           <di:waypoint x="93" y="350" />
           <di:waypoint x="175" y="350" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_0n42bsd_di" bpmnElement="Flow_0n42bsd">
-          <di:waypoint x="875" y="350" />
-          <di:waypoint x="925" y="350" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0mezu8z_di" bpmnElement="Flow_0mezu8z">
-          <di:waypoint x="725" y="350" />
-          <di:waypoint x="775" y="350" />
+          <di:waypoint x="1025" y="350" />
+          <di:waypoint x="1075" y="350" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_0xazisp_di" bpmnElement="Flow_0xazisp">
-          <di:waypoint x="825" y="390" />
-          <di:waypoint x="825" y="490" />
-          <di:waypoint x="950" y="490" />
+          <di:waypoint x="975" y="390" />
+          <di:waypoint x="975" y="490" />
+          <di:waypoint x="1100" y="490" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="eca_count_0kqicp7_di" bpmnElement="eca_count_0kqicp7">
-          <di:waypoint x="1000" y="490" />
-          <di:waypoint x="1075" y="490" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_07mly9a_di" bpmnElement="Flow_07mly9a">
-          <di:waypoint x="1175" y="490" />
+          <di:waypoint x="1150" y="490" />
           <di:waypoint x="1225" y="490" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_06wx0qo_di" bpmnElement="Flow_06wx0qo">
+        <bpmndi:BPMNEdge id="Flow_07mly9a_di" bpmnElement="Flow_07mly9a">
           <di:waypoint x="1325" y="490" />
           <di:waypoint x="1375" y="490" />
         </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_06wx0qo_di" bpmnElement="Flow_06wx0qo">
+          <di:waypoint x="1475" y="490" />
+          <di:waypoint x="1525" y="490" />
+        </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1rzdxoj_di" bpmnElement="Flow_1rzdxoj">
-          <di:waypoint x="1425" y="530" />
-          <di:waypoint x="1425" y="560" />
-          <di:waypoint x="975" y="560" />
-          <di:waypoint x="975" y="515" />
+          <di:waypoint x="1575" y="530" />
+          <di:waypoint x="1575" y="560" />
+          <di:waypoint x="1125" y="560" />
+          <di:waypoint x="1125" y="515" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1gzbwlu_di" bpmnElement="Flow_1gzbwlu">
+          <di:waypoint x="725" y="350" />
+          <di:waypoint x="775" y="350" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_14xpdbf_di" bpmnElement="Flow_14xpdbf">
+          <di:waypoint x="875" y="350" />
+          <di:waypoint x="925" y="350" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_count_16wdt1i_di" bpmnElement="eca_count_16wdt1i">
+          <di:waypoint x="550" y="350" />
+          <di:waypoint x="625" y="350" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1bxx3h0_di" bpmnElement="Flow_1bxx3h0">
+          <di:waypoint x="425" y="350" />
+          <di:waypoint x="500" y="350" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_count_1liq2gl_di" bpmnElement="eca_count_1liq2gl">
+          <di:waypoint x="550" y="210" />
+          <di:waypoint x="625" y="210" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_06gwbil_di" bpmnElement="Flow_06gwbil">
+          <di:waypoint x="725" y="210" />
+          <di:waypoint x="775" y="210" />
         </bpmndi:BPMNEdge>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>

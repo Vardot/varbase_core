@@ -8,11 +8,12 @@ dependencies:
     - user.role.seo_admin
     - user.role.site_admin
   module:
+    - smart_trim
     - user
 id: eca_blocked_users
 label: 'ECA Blocked Users'
 module: views
-description: ''
+description: 'Provide lists, tables, and counts of blocked user accounts with admin-level or editorial roles, used in ECA workflows.'
 tag: ECA
 base_table: users_field_data
 base_field: uid
@@ -35,7 +36,7 @@ display:
           entity_type: user
           entity_field: uid
           plugin_id: field
-          label: 'User ID'
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -77,10 +78,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
+          type: number_unformatted
+          settings: {  }
           group_column: entity_id
           group_columns:
             entity_id: entity_id
@@ -288,37 +287,11 @@ display:
         groups:
           1: AND
       style:
-        type: table
+        type: default
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: true
-          columns:
-            name: name
-            roles_target_id: roles_target_id
-          default: '-1'
-          info:
-            name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            roles_target_id:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
-          class: ''
+          default_row_class: false
       row:
         type: fields
         options:
@@ -351,11 +324,11 @@ display:
       tags: {  }
   count:
     id: count
-    display_title: 'Blocked users count'
+    display_title: Count
     display_plugin: attachment
     position: 3
     display_options:
-      title: 'Blocked users count'
+      title: ''
       fields:
         uid:
           id: uid
@@ -403,7 +376,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -421,8 +394,15 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ''
           field_api_classes: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
       pager:
         type: some
         options:
@@ -431,29 +411,11 @@ display:
       empty: {  }
       sorts: {  }
       style:
-        type: table
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: false
-          columns:
-            uid: uid
-          default: '-1'
-          info:
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: false
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
-          class: ''
       row:
         type: fields
         options:
@@ -479,27 +441,29 @@ display:
         fields: false
         sorts: false
         header: false
-      group_by: false
+        footer: false
+      group_by: true
       display_description: ''
       header: {  }
+      footer: {  }
       display_extenders:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
+      inherit_arguments: false
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - user.roles
       tags: {  }
   html_table:
     id: html_table
-    display_title: 'Blocked users table'
+    display_title: Table
     display_plugin: attachment
     position: 2
     display_options:
-      title: 'Blocked users table'
+      title: ''
       fields:
         name:
           id: name
@@ -547,15 +511,30 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: user_name
+          type: smart_trim
           settings:
-            link_to_entity: true
+            trim_length: 3
+            trim_type: words
+            trim_suffix: ''
+            wrap_output: false
+            wrap_class: trimmed
+            more:
+              display_link: false
+              target_blank: false
+              link_trim_only: false
+              class: more-link
+              text: More
+              aria_label: 'Read more about [node:title]'
+            trim_options:
+              text: true
+              trim_zero: true
+              replace_tokens: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -576,7 +555,7 @@ display:
           entity_type: user
           entity_field: login
           plugin_id: field
-          label: 'Last login'
+          label: 'Last access'
           exclude: false
           alter:
             alter_text: false
@@ -618,21 +597,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: timestamp
+          type: timestamp_ago
           settings:
-            date_format: medium
-            custom_date_format: ''
-            timezone: ''
-            tooltip:
-              date_format: long
-              custom_date_format: ''
-            time_diff:
-              enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
-              granularity: 2
-              refresh: 60
-              description: ''
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 1
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -700,7 +669,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 20
+          items_per_page: 10
       style:
         type: table
         options:
@@ -760,6 +729,7 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
+      inherit_arguments: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -769,11 +739,77 @@ display:
       tags: {  }
   list:
     id: list
-    display_title: 'Blocked users list'
+    display_title: List
     display_plugin: attachment
     position: 1
     display_options:
-      title: 'Blocked users list'
+      title: ''
+      fields:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_unformatted
+          settings: {  }
+          group_column: entity_id
+          group_columns:
+            entity_id: entity_id
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: none
         options:
@@ -790,16 +826,123 @@ display:
       defaults:
         query: false
         title: false
+        fields: false
         sorts: false
       display_description: ''
       display_extenders:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
+      inherit_arguments: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.roles
+      tags: {  }
+  total_message:
+    id: total_message
+    display_title: 'Total message'
+    display_plugin: attachment
+    position: 2
+    display_options:
+      title: ''
+      fields:
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+      pager:
+        type: none
+        options:
+          offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      defaults:
+        title: false
+        group_by: false
+        style: false
+        row: false
+        fields: false
+        footer: false
+      group_by: true
+      display_description: ''
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Total number of blocked users: @total. <a href="/admin/people">See the full list</a>'
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      inherit_arguments: false
+    cache_metadata:
+      max-age: -1
+      contexts:
         - 'languages:language_interface'
         - user.roles
       tags: {  }
