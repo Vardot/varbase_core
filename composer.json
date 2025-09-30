@@ -27,6 +27,8 @@
     "drupal/token_filter": "~2",
     "drupal/eca": "~3",
     "drupal/bpmn_io": "~3",
+    "drupal/eca_tamper": "~2",
+    "drupal/eca_helper": "~3",
     "drupal/tour": "~2",
     "drupal/bootstrap_layouts": "~5",
     "drupal/ds": "~3",
@@ -115,7 +117,6 @@
     "drupal/project_browser": "~2",
     "drupal/automatic_updates": "~4",
     "drupal/autosave_form": "~1",
-    "drupal/eca_tamper": "~2",
     "drupal/varbase_privacy": "~1.0.0"
   }
 }
