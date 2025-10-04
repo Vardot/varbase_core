@@ -12,7 +12,7 @@
  */
 function varbase_core_update_100001() {
   if (\Drupal::moduleHandler()->moduleExists('config_ignore')) {
-    // If Driamge was enabled.
+    // If Drimage was enabled.
     if (\Drupal::moduleHandler()->moduleExists('drimage')) {
 
       $config_factory = \Drupal::configFactory()->getEditable('config_ignore.settings');

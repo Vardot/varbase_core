@@ -5,13 +5,6 @@
  * Contains varbase_core_update_8###(s) hook updates.
  */
 
-use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config\InstallStorage;
-use Drupal\file\Entity\File;
-use Drupal\embed\Entity\EmbedButton;
-use Vardot\Installer\ModuleInstallerFactory;
-use Drupal\Core\File\FileSystemInterface;
-
 /**
  * Enable [Varbase Update Helper] module.
  */

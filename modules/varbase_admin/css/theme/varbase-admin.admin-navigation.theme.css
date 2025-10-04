@@ -1,27 +1,22 @@
 body .admin-toolbar__logo {
   border-radius: 0 !important;
 }
-
 body .toolbar-block__list {
-  padding-left: 0 !important;
   padding-right: 0 !important;
+  padding-left: 0 !important;
 }
-
 body .responsive-preview-navigation-bar {
   min-width: fit-content;
 }
-
 body .responsive-preview-navigation-bar button {
   font-size: 0 !important;
 }
-
 body .toolbar-button.toolbar-button--icon--coffee {
   min-width: fit-content;
 }
-
 body .top-bar.gin--navigation-top-bar .top-bar__tools .gin-breadcrumb {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-inline-end: 1rem;
 }
