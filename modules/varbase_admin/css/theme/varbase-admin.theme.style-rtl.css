@@ -1,8 +1,8 @@
-[dir=rtl]:root {
-  --gin-font: "Tajawal", sans-serif;
-  --gin-font-size-xxs: .75rem;
+[dir='rtl']:root {
+  --gin-font: 'Tajawal', sans-serif;
+  --gin-font-size-xxs: 0.75rem;
   --gin-font-size-xs: small;
-  --gin-font-size-s: .875rem;
+  --gin-font-size-s: 0.875rem;
   --gin-font-size: 1rem;
   --gin-font-size-m: var(--gin-font-size);
   --gin-font-size-l: 1.125rem;
@@ -16,15 +16,12 @@
   --gin-font-weight-bold: 600;
   --gin-font-weight-heavy: 700;
 }
-
-[dir=rtl] .page-title {
+[dir='rtl'] .page-title {
   letter-spacing: normal;
 }
-
-[dir=rtl] .gin--edit-form .field--name-title .form-element {
+[dir='rtl'] .gin--edit-form .field--name-title .form-element {
   letter-spacing: normal;
 }
-
 #yoast-wrapper {
   direction: ltr;
 }

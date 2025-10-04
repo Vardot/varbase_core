@@ -1,18 +1,19 @@
+/* eslint-disable func-names */
 (function ($, Drupal) {
-
   Drupal.evaluatePasswordStrength = function (password, passwordSettings) {
     password = password.trim();
-    var indicatorText;
-    var indicatorClass;
-    var weaknesses = 0;
-    var strength = 100;
-    var msg = [];
-    var hasLowercase = /[a-z]/.test(password);
-    var hasUppercase = /[A-Z]/.test(password);
-    var hasNumbers = /[0-9]/.test(password);
-    var hasPunctuation = /[^a-zA-Z0-9]/.test(password);
-    var $usernameBox = $('input.username');
-    var username = $usernameBox.length > 0 ? $usernameBox.val() : passwordSettings.username;
+    let indicatorText;
+    let indicatorClass;
+    let weaknesses = 0;
+    let strength = 100;
+    let msg = [];
+    const hasLowercase = /[a-z]/.test(password);
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasNumbers = /[0-9]/.test(password);
+    const hasPunctuation = /[^a-zA-Z0-9]/.test(password);
+    const $usernameBox = $('input.username');
+    const username =
+      $usernameBox.length > 0 ? $usernameBox.val() : passwordSettings.username;
 
     if (password.length < passwordSettings.minimal_length) {
       msg.push(passwordSettings.tooShort);
@@ -52,6 +53,9 @@
       case 4:
         strength -= 40;
         break;
+
+      default:
+        break;
     }
 
     if (password !== '' && password.toLowerCase() === username.toLowerCase()) {
@@ -59,7 +63,7 @@
       strength = 5;
     }
 
-    var cssClasses = Drupal.user.password.css;
+    const cssClasses = Drupal.user.password.css;
 
     if (strength < 60) {
       indicatorText = passwordSettings.weak;
@@ -75,18 +79,21 @@
       indicatorClass = cssClasses.passwordStrong;
     }
 
-    var messageTips = msg;
-    msg = "".concat(passwordSettings.hasWeaknesses, "<ul><li>").concat(msg.join('</li><li>'), "</li></ul>");
+    const messageTips = msg;
+    msg = ''
+      .concat(passwordSettings.hasWeaknesses, '<ul><li>')
+      .concat(msg.join('</li><li>'), '</li></ul>');
     return Drupal.deprecatedProperty({
       target: {
-        strength: strength,
+        strength,
         message: msg,
-        indicatorText: indicatorText,
-        indicatorClass: indicatorClass,
-        messageTips: messageTips
+        indicatorText,
+        indicatorClass,
+        messageTips,
       },
       deprecatedProperty: 'message',
-      message: 'The message property is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. The markup should be constructed using messageTips property and Drupal.theme.passwordSuggestions. See https://www.drupal.org/node/3130352'
+      message:
+        'The message property is deprecated in drupal:9.1.0 and is removed from drupal:10.0.0. The markup should be constructed using messageTips property and Drupal.theme.passwordSuggestions. See https://www.drupal.org/node/3130352',
     });
   };
 })(jQuery, Drupal);

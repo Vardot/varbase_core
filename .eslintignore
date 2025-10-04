@@ -5,3 +5,4 @@ drupalci.yml
 webpack.config.build.js
 webpack.config.dev.js
 webpack.config.js
+webpack.config.admin.js
