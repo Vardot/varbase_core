@@ -5,7 +5,7 @@
   varbase_core_optional_update_8601:
     '#title': 'Enhance the usability of admin views (Content, Media, and People)'
     '#description': |
-      <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing unrelevant filters.</p>
+      <p>This update changes the admin views to utilize Views Bulk Operations, and also changes the filters of these views by adding relevant date filters and removing irrelevant filters.</p>
       See issue <a href="https://www.drupal.org/node/3023119" target="_blank">#3023119</a> and issue <a href="https://www.drupal.org/node/3023181" target="_blank">#3023181</a> for details.<br />
       <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8601</code> to apply this update.</span></p><br />
     '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
@@ -144,7 +144,7 @@
   varbase_core_optional_update_8702:
     '#title': 'Improved Entity Browsers'
     '#description': |
-      <p>This update introduces upgraded Entity Browsers with ability to select multiple media items especially when browsing accross multiple pages.</p>
+      <p>This update introduces upgraded Entity Browsers with ability to select multiple media items especially when browsing across multiple pages.</p>
       See issue <a href="https://drupal.org/node/3075628/" target="_blank">#3075628</a> for details.<br />
       <p><span class="icon-help">This update is optional. Please run <code>drush varbase-up varbase_core varbase_core_optional_update_8702</code> to apply this update.</span></p><br />
     '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
@@ -292,7 +292,7 @@
   varbase_security_update_90004:
     '#title': "Provide configurable password suggestions to match the site's Password Policy"
     '#description': |
-      <p>This update brings a new <a href="../../../admin/config/system/varbase/varbase-security/password-suggestions-settings">Password Suggestions settings</a> page under the <a href="../../../admin/config/system/varbase/varbase-security">Varbase Security settings</a> administration page allowing the site administrator to control the password suggestions appearing to the site's end-users when creating or changing a password. This update fixes the descrepency in password suggestions appearing to users (due to Drupal core's noneditable password suggestions) when having a custom Password Policy via the <a href="../../../admin/config/security/password-policy">Password Policy module</a>.</p>
+      <p>This update brings a new <a href="../../../admin/config/system/varbase/varbase-security/password-suggestions-settings">Password Suggestions settings</a> page under the <a href="../../../admin/config/system/varbase/varbase-security">Varbase Security settings</a> administration page allowing the site administrator to control the password suggestions appearing to the site's end-users when creating or changing a password. This update fixes the discrepancy in password suggestions appearing to users (due to Drupal core's noneditable password suggestions) when having a custom Password Policy via the <a href="../../../admin/config/security/password-policy">Password Policy module</a>.</p>
       <p>See issue <a href="https://www.drupal.org/project/varbase_core/issues/3256029" target="_blank">#3256029</a> for details.</p><br />
     '#description_successful': '<p class="messages messages--status">This update is successfully implemented.</p><br />'
     '#description_failed': |

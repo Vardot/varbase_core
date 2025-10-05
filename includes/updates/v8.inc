@@ -275,7 +275,7 @@ function varbase_core_optional_update_8701() {
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
   $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
 
-  // Load Media types icons for the media libraray table view page.
+  // Load Media types icons for the media library table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
   FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);

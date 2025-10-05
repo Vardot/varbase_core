@@ -96,7 +96,7 @@ class PasswordSuggestionsSettingsForm extends ConfigFormBase {
 
     $form['confirm_password_settings']['addUpperCase'] = [
       '#type' => 'textfield',
-      '#title' => 'Add upperr case',
+      '#title' => 'Add upper case',
       '#default_value' => $config['addUpperCase'] ?? $this->t('Add uppercase letters'),
     ];
 
