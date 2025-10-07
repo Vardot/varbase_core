@@ -21,7 +21,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:25683822eebbcf142c860ff3def5b237'
+    data: 'hash:03432e4f684bbc5ea6297e94abc1d7d4'
     changelog: Initialization
     label: 'User Recertification'
     documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
@@ -32,6 +32,38 @@ third_party_settings:
       - notification
       - session
     version: 1.0.0
+    annotations:
+      TextAnnotation_1sdif9m:
+        text: 'We require the service account to create email entities to be sent.'
+        assigned_to:
+          Association_0cbcmcs: eca_switch_service_account_1ixry7l
+          Association_13ftq0m: eca_switch_service_account_1ixry7l
+          Association_1ktayy1: eca_switch_service_account_1ixry7l
+          Association_1oluyj2: eca_switch_service_account_1ixry7l
+      TextAnnotation_1jfp7hx:
+        text: 'We require the service account to create email entities to be sent.'
+        assigned_to:
+          Association_0q2egqt: eca_switch_service_account_0m4ckgw
+          Association_1s4xa7d: eca_switch_service_account_0m4ckgw
+          Association_0wg6kqq: eca_switch_service_account_0m4ckgw
+          Association_03kopyh: eca_switch_service_account_0m4ckgw
+      TextAnnotation_1dpbrs9:
+        text: 'We require the service account to create email entities to be sent.'
+        assigned_to:
+          Association_19yyvo2: eca_switch_service_account_119z0mm
+          Association_19ree2k: eca_switch_service_account_119z0mm
+          Association_1p7nvzh: eca_switch_service_account_119z0mm
+          Association_0e7a476: eca_switch_service_account_119z0mm
+    colors:
+      TextAnnotation_1sdif9m:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1jfp7hx:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1dpbrs9:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
 id: user_recertification
 weight: -9
 events:
@@ -44,23 +76,23 @@ events:
       -
         id: eca_token_set_value_01noukj
         condition: eca_entity_field_value_changed_1ismzxl
-  eca_base__eca_cron_1:
+  eca_base__eca_cron_1_2:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for inactive users'
     configuration:
       frequency: '0 3 * * *'
     successors:
       -
-        id: eca_switch_account_11qpxet
+        id: eca_switch_service_account_0m4ckgw
         condition: ''
-  eca_base__eca_cron_2_1:
+  eca_base__eca_cron_1_1:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for blocked users'
     configuration:
       frequency: '0 3 * * *'
     successors:
       -
-        id: eca_switch_account_1fbsrds
+        id: eca_switch_service_account_119z0mm
         condition: ''
 conditions:
   eca_count_0qprpab:
@@ -193,15 +225,6 @@ actions:
       -
         id: eca_new_entity_1lwoqgx
         condition: ''
-  eca_switch_account_1k8fwnm:
-    label: 'Switch to Webmaster'
-    plugin: eca_switch_account
-    configuration:
-      user_id: '1'
-    successors:
-      -
-        id: eca_views_query_1fpilr2
-        condition: ''
   eca_token_set_value_01noukj:
     label: 'Save Updated user'
     plugin: eca_token_set_value
@@ -213,15 +236,6 @@ actions:
     successors:
       -
         id: eca_tamper__find_replace_regex_2_1
-        condition: ''
-  eca_switch_account_11qpxet:
-    label: 'Switch to Webmaster'
-    plugin: eca_switch_account
-    configuration:
-      user_id: '1'
-    successors:
-      -
-        id: eca_views_query_033e4yb
         condition: ''
   eca_list_remove_13k1tx3:
     label: 'Pop first admin user from the list'
@@ -297,7 +311,7 @@ actions:
       eca_token_name: user_new_roles
     successors:
       -
-        id: eca_switch_account_1k8fwnm
+        id: eca_switch_service_account_1ixry7l
         condition: ''
   eca_render_views__views_1_4:
     label: 'Render the first part of Inactive users as HTML table'
@@ -418,15 +432,6 @@ actions:
       -
         id: Gateway_13wo5s3
         condition: ''
-  eca_switch_account_1fbsrds:
-    label: 'Switch to Webmaster'
-    plugin: eca_switch_account
-    configuration:
-      user_id: '1'
-    successors:
-      -
-        id: eca_views_query_0gcdnmj
-        condition: ''
   user_block_user_action_1d9s1ry:
     label: 'Block user'
     plugin: user_block_user_action
@@ -520,4 +525,28 @@ actions:
     successors:
       -
         id: eca_views_query_1i7pt4m
+        condition: ''
+  eca_switch_service_account_119z0mm:
+    label: 'Switch to service user'
+    plugin: eca_switch_service_account
+    configuration: {  }
+    successors:
+      -
+        id: eca_views_query_0gcdnmj
+        condition: ''
+  eca_switch_service_account_1ixry7l:
+    label: 'Switch to service user'
+    plugin: eca_switch_service_account
+    configuration: {  }
+    successors:
+      -
+        id: eca_views_query_1fpilr2
+        condition: ''
+  eca_switch_service_account_0m4ckgw:
+    label: 'Switch to service user'
+    plugin: eca_switch_service_account
+    configuration: {  }
+    successors:
+      -
+        id: eca_views_query_033e4yb
         condition: ''

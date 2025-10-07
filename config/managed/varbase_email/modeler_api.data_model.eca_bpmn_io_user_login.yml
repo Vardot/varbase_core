@@ -4,8 +4,8 @@ dependencies: {  }
 id: eca_bpmn_io_user_login
 data: |
   <?xml version="1.0" encoding="UTF-8"?>
-  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
-    <bpmn2:process id="user_login" name="User login" isExecutable="true" camunda:versionTag="1.0.0">
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="user_login" name="User login notification" isExecutable="true" camunda:versionTag="1.0.0">
       <bpmn2:documentation />
       <bpmn2:extensionElements>
         <camunda:properties>
@@ -31,7 +31,7 @@ data: |
           </camunda:properties>
         </bpmn2:extensionElements>
         <bpmn2:incoming>Flow_1rgw1bb</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0gzssep</bpmn2:outgoing>
+        <bpmn2:outgoing>Flow_0bnni4c</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:sequenceFlow id="Flow_1rgw1bb" sourceRef="user__login_1_1" targetRef="eca_token_load_user_current_02z4bqd" />
       <bpmn2:task id="eca_new_entity_0arypq1" name="Create Login Notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
@@ -46,19 +46,19 @@ data: |
             <camunda:string>_interface</camunda:string>
           </camunda:field>
           <camunda:field name="label">
-            <camunda:string>A new device has logged in to your [site:name] account</camunda:string>
+            <camunda:string>Login Notification email template</camunda:string>
           </camunda:field>
           <camunda:field name="published">
             <camunda:string>no</camunda:string>
           </camunda:field>
           <camunda:field name="owner">
-            <camunda:string>1</camunda:string>
+            <camunda:string></camunda:string>
           </camunda:field>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_new_entity" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_18ybeqs</bpmn2:incoming>
+        <bpmn2:incoming>Flow_16lgo1x</bpmn2:incoming>
         <bpmn2:outgoing>Flow_1ygevcb</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:sequenceFlow id="Flow_1ygevcb" sourceRef="eca_new_entity_0arypq1" targetRef="easy_email_send_1h2m16e" />
@@ -73,8 +73,7 @@ data: |
         </bpmn2:extensionElements>
         <bpmn2:incoming>Flow_1ygevcb</bpmn2:incoming>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_1kab0z3" sourceRef="eca_token_set_value_16qn0k8" targetRef="eca_switch_account_1hswp3z" />
-      <bpmn2:task id="eca_token_set_value_16qn0k8" name="Save IP Address" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+      <bpmn2:task id="eca_token_set_value_16qn0k8" name="Get current user IP address" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
         <bpmn2:extensionElements>
           <camunda:field name="token_name">
             <camunda:string>logged_user_ip_address</camunda:string>
@@ -92,64 +91,411 @@ data: |
             <camunda:property name="pluginid" value="eca_token_set_value" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_0gzssep</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_1kab0z3</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0wh52of</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0ncc0oy</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_0gzssep" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="eca_token_set_value_16qn0k8" />
-      <bpmn2:task id="eca_switch_account_1hswp3z" name="Switch to webmaster" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
+      <bpmn2:sequenceFlow id="Flow_0bnni4c" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="eca_endpoint_get_request_header_019mwxp" />
+      <bpmn2:task id="eca_endpoint_get_request_header_019mwxp" name="Get &#34;User-Agent&#34; header" camunda:modelerTemplate="org.drupal.action.eca_endpoint_get_request_header">
         <bpmn2:extensionElements>
-          <camunda:field name="user_id">
-            <camunda:string>1</camunda:string>
+          <camunda:field name="name">
+            <camunda:string>user-agent</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>logged_user_agent</camunda:string>
           </camunda:field>
           <camunda:properties>
-            <camunda:property name="pluginid" value="eca_switch_account" />
+            <camunda:property name="pluginid" value="eca_endpoint_get_request_header" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1kab0z3</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_18ybeqs</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0bnni4c</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0wh52of</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:sequenceFlow id="Flow_18ybeqs" sourceRef="eca_switch_account_1hswp3z" targetRef="eca_new_entity_0arypq1" />
+      <bpmn2:sequenceFlow id="Flow_0wh52of" sourceRef="eca_endpoint_get_request_header_019mwxp" targetRef="eca_token_set_value_16qn0k8" />
+      <bpmn2:task id="eca_helper_http_request_0u7u22m" name="Get geolocation from IP" camunda:modelerTemplate="org.drupal.action.eca_helper_http_request">
+        <bpmn2:extensionElements>
+          <camunda:field name="method">
+            <camunda:string>get</camunda:string>
+          </camunda:field>
+          <camunda:field name="url">
+            <camunda:string>https://api.ipwho.org/ip/[logged_user_ip_address]</camunda:string>
+          </camunda:field>
+          <camunda:field name="data">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="data_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="data_serialization">
+            <camunda:string>json</camunda:string>
+          </camunda:field>
+          <camunda:field name="query_parameters">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="headers">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="cookies">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="request_options">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>logged_user_ip_http_request</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_helper_http_request" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0ncc0oy</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0ffdd9b</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0ncc0oy" sourceRef="eca_token_set_value_16qn0k8" targetRef="eca_helper_http_request_0u7u22m" />
+      <bpmn2:exclusiveGateway id="Gateway_05l9ll7">
+        <bpmn2:incoming>Flow_0ffdd9b</bpmn2:incoming>
+        <bpmn2:outgoing>eca_scalar_05vwl4k</bpmn2:outgoing>
+        <bpmn2:outgoing>eca_scalar_135hmlg</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="Flow_0ffdd9b" sourceRef="eca_helper_http_request_0u7u22m" targetRef="Gateway_05l9ll7" />
+      <bpmn2:task id="eca_token_set_value_1lxlhd1" name="Failed to get gelocation" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>logged_user_location</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_value">
+            <camunda:string>No info</camunda:string>
+          </camunda:field>
+          <camunda:field name="use_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="validate_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_set_value" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_scalar_1eogeqt</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1npwzsq</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_scalar_05vwl4k" name="Wrong status" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="Gateway_05l9ll7" targetRef="eca_void_and_condition_0c22s5c">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>[logged_user_ip_http_request:status]</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>200</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>equal</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>_eca_token</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:task id="eca_token_set_value_1wjrilc" name="Format geolocation" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+        <bpmn2:extensionElements>
+          <camunda:field name="token_name">
+            <camunda:string>logged_user_location</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_value">
+            <camunda:string>[logged_user_ip_http_request:json:data:city], [logged_user_ip_http_request:json:data:region], [logged_user_ip_http_request:json:data:country]</camunda:string>
+          </camunda:field>
+          <camunda:field name="use_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="validate_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_set_value" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_scalar_135hmlg</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_15tv6jv</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_15tv6jv" sourceRef="eca_token_set_value_1wjrilc" targetRef="eca_switch_service_account_01jhzo9" />
+      <bpmn2:task id="eca_void_and_condition_0c22s5c" name="AND" camunda:modelerTemplate="org.drupal.action.eca_void_and_condition">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_void_and_condition" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_scalar_05vwl4k</bpmn2:incoming>
+        <bpmn2:outgoing>eca_scalar_1eogeqt</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="eca_scalar_1eogeqt" name="Has client error" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="eca_void_and_condition_0c22s5c" targetRef="eca_token_set_value_1lxlhd1">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>[logged_user_ip_http_request:client_error]</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>0</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>equal</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>value</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="eca_scalar_135hmlg" name="Success" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="Gateway_05l9ll7" targetRef="eca_token_set_value_1wjrilc">
+        <bpmn2:extensionElements>
+          <camunda:field name="left">
+            <camunda:string>[logged_user_ip_http_request:json:success]</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>equal</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>_eca_token</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="Flow_1npwzsq" sourceRef="eca_token_set_value_1lxlhd1" targetRef="eca_switch_service_account_01jhzo9" />
+      <bpmn2:task id="eca_switch_service_account_01jhzo9" name="Switch to service user" camunda:modelerTemplate="org.drupal.action.eca_switch_service_account">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_switch_service_account" />
+          </camunda:properties>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_15tv6jv</bpmn2:incoming>
+        <bpmn2:incoming>Flow_1npwzsq</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_16lgo1x</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_16lgo1x" sourceRef="eca_switch_service_account_01jhzo9" targetRef="eca_new_entity_0arypq1" />
+      <bpmn2:textAnnotation id="TextAnnotation_1lk6dax">
+        <bpmn2:text>Load the logged-in user object into a token to be used for later steps in this model.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1dlb77j" associationDirection="None" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="TextAnnotation_1lk6dax" />
+      <bpmn2:textAnnotation id="TextAnnotation_0ybmp3c">
+        <bpmn2:text>ECA Endpoint: Get the certain headers. Those headers would usually store the browser info and OS of the user's device – to be included in the email later on. Use https://www.httpdebugger.com/tools/viewbrowserheaders.aspx to diagnose.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0vo2v6q" associationDirection="None" sourceRef="eca_endpoint_get_request_header_019mwxp" targetRef="TextAnnotation_0ybmp3c" />
+      <bpmn2:association id="Association_13ep1gs" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="TextAnnotation_1lk6dax" />
+      <bpmn2:association id="Association_1x59665" sourceRef="eca_endpoint_get_request_header_019mwxp" targetRef="TextAnnotation_0ybmp3c" />
+      <bpmn2:textAnnotation id="TextAnnotation_1ukyxgp">
+        <bpmn2:text>Initiates an HTTP request to a free IP geolocation service to get the location.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1bvp88a" associationDirection="None" sourceRef="eca_helper_http_request_0u7u22m" targetRef="TextAnnotation_1ukyxgp" />
+      <bpmn2:association id="Association_01uqitk" sourceRef="eca_token_load_user_current_02z4bqd" targetRef="TextAnnotation_1lk6dax" />
+      <bpmn2:association id="Association_141npu5" sourceRef="eca_endpoint_get_request_header_019mwxp" targetRef="TextAnnotation_0ybmp3c" />
+      <bpmn2:association id="Association_02acys6" sourceRef="eca_helper_http_request_0u7u22m" targetRef="TextAnnotation_1ukyxgp" />
+      <bpmn2:textAnnotation id="TextAnnotation_15ggpwl">
+        <bpmn2:text>We require the service account to create email entities to be sent.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_08rurre" associationDirection="None" sourceRef="eca_switch_service_account_01jhzo9" targetRef="TextAnnotation_15ggpwl" />
+      <bpmn2:textAnnotation id="TextAnnotation_0juz7x0">
+        <bpmn2:text>Have a fallback info in when the gelocation service did not get any info</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_15ewbws" associationDirection="None" sourceRef="eca_token_set_value_1lxlhd1" targetRef="TextAnnotation_0juz7x0" />
+      <bpmn2:textAnnotation id="TextAnnotation_1g7lxwi">
+        <bpmn2:text>Load the email template and pass values</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1d3eryj" associationDirection="None" sourceRef="eca_new_entity_0arypq1" targetRef="TextAnnotation_1g7lxwi" />
+      <bpmn2:textAnnotation id="TextAnnotation_10wj6j6">
+        <bpmn2:text>Have the location formatted City, County, Country</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1ognqby" associationDirection="None" sourceRef="eca_token_set_value_1wjrilc" targetRef="TextAnnotation_10wj6j6" />
+      <bpmn2:textAnnotation id="TextAnnotation_0ubmi50">
+        <bpmn2:text>Queue the email to be sent by the default system mailer method</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0b5c7fz" associationDirection="None" sourceRef="easy_email_send_1h2m16e" targetRef="TextAnnotation_0ubmi50" />
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_user_login">
       <bpmndi:BPMNPlane id="BPMNPlane_user_login" bpmnElement="user_login">
-        <bpmndi:BPMNShape id="user__login_1_1_di" bpmnElement="user__login_1_1">
+        <bpmndi:BPMNShape id="user__login_1_di" bpmnElement="user__login_1_1">
           <dc:Bounds x="57" y="52" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="38" y="88" width="74" height="14" />
+          </bpmndi:BPMNLabel>
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_token_load_user_current_02z4bqd_di" bpmnElement="eca_token_load_user_current_02z4bqd">
           <dc:Bounds x="175" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_new_entity_0arypq1_di" bpmnElement="eca_new_entity_0arypq1">
-          <dc:Bounds x="625" y="30" width="100" height="80" />
+          <dc:Bounds x="1450" y="30" width="100" height="80" />
+          <bpmndi:BPMNLabel />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="easy_email_send_1h2m16e_di" bpmnElement="easy_email_send_1h2m16e">
-          <dc:Bounds x="775" y="30" width="100" height="80" />
+          <dc:Bounds x="1600" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_token_set_value_16qn0k8_di" bpmnElement="eca_token_set_value_16qn0k8">
+          <dc:Bounds x="475" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_endpoint_get_request_header_019mwxp_di" bpmnElement="eca_endpoint_get_request_header_019mwxp">
           <dc:Bounds x="325" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_switch_account_1hswp3z_di" bpmnElement="eca_switch_account_1hswp3z">
-          <dc:Bounds x="475" y="30" width="100" height="80" />
+        <bpmndi:BPMNShape id="eca_helper_http_request_0u7u22m_di" bpmnElement="eca_helper_http_request_0u7u22m">
+          <dc:Bounds x="625" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Gateway_05l9ll7_di" bpmnElement="Gateway_05l9ll7" isMarkerVisible="true">
+          <dc:Bounds x="800" y="45" width="50" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_token_set_value_1lxlhd1_di" bpmnElement="eca_token_set_value_1lxlhd1">
+          <dc:Bounds x="1150" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_token_set_value_1wjrilc_di" bpmnElement="eca_token_set_value_1wjrilc">
+          <dc:Bounds x="925" y="170" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_void_and_condition_0c22s5c_di" bpmnElement="eca_void_and_condition_0c22s5c">
+          <dc:Bounds x="940" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_switch_service_account_01jhzo9_di" bpmnElement="eca_switch_service_account_01jhzo9">
+          <dc:Bounds x="1300" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Association_15ewbws_di" bpmnElement="Association_15ewbws">
+          <di:waypoint x="1200" y="30" />
+          <di:waypoint x="1200" y="-61" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1d3eryj_di" bpmnElement="Association_1d3eryj">
+          <di:waypoint x="1500" y="30" />
+          <di:waypoint x="1500" y="-70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1ognqby_di" bpmnElement="Association_1ognqby">
+          <di:waypoint x="975" y="250" />
+          <di:waypoint x="975" y="320" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0b5c7fz_di" bpmnElement="Association_0b5c7fz">
+          <di:waypoint x="1650" y="30" />
+          <di:waypoint x="1650" y="-70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNShape id="TextAnnotation_1lk6dax_di" bpmnElement="TextAnnotation_1lk6dax" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="150" y="-166" width="115" height="86" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_0ybmp3c_di" bpmnElement="TextAnnotation_0ybmp3c" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="320" y="-190" width="170" height="160" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1ukyxgp_di" bpmnElement="TextAnnotation_1ukyxgp" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="625" y="-146" width="135" height="76" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_15ggpwl_di" bpmnElement="TextAnnotation_15ggpwl" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1300" y="-130" width="120" height="69" />
+          <bpmndi:BPMNLabel />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="Flow_1rgw1bb_di" bpmnElement="Flow_1rgw1bb">
           <di:waypoint x="93" y="70" />
           <di:waypoint x="175" y="70" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="Flow_1ygevcb_di" bpmnElement="Flow_1ygevcb">
-          <di:waypoint x="725" y="70" />
-          <di:waypoint x="775" y="70" />
+          <di:waypoint x="1550" y="70" />
+          <di:waypoint x="1600" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_1kab0z3_di" bpmnElement="Flow_1kab0z3">
-          <di:waypoint x="425" y="70" />
-          <di:waypoint x="475" y="70" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0gzssep_di" bpmnElement="Flow_0gzssep">
+        <bpmndi:BPMNEdge id="Flow_0bnni4c_di" bpmnElement="Flow_0bnni4c">
           <di:waypoint x="275" y="70" />
           <di:waypoint x="325" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_18ybeqs_di" bpmnElement="Flow_18ybeqs">
+        <bpmndi:BPMNEdge id="Flow_0wh52of_di" bpmnElement="Flow_0wh52of">
+          <di:waypoint x="425" y="70" />
+          <di:waypoint x="475" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0ncc0oy_di" bpmnElement="Flow_0ncc0oy">
           <di:waypoint x="575" y="70" />
           <di:waypoint x="625" y="70" />
         </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0ffdd9b_di" bpmnElement="Flow_0ffdd9b">
+          <di:waypoint x="725" y="70" />
+          <di:waypoint x="800" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_scalar_05vwl4k_di" bpmnElement="eca_scalar_05vwl4k">
+          <di:waypoint x="850" y="70" />
+          <di:waypoint x="940" y="70" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="863" y="45" width="66" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_15tv6jv_di" bpmnElement="Flow_15tv6jv">
+          <di:waypoint x="1025" y="210" />
+          <di:waypoint x="1350" y="210" />
+          <di:waypoint x="1350" y="110" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_scalar_1eogeqt_di" bpmnElement="eca_scalar_1eogeqt">
+          <di:waypoint x="1040" y="70" />
+          <di:waypoint x="1150" y="70" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="1060" y="45" width="75" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_scalar_135hmlg_di" bpmnElement="eca_scalar_135hmlg">
+          <di:waypoint x="825" y="95" />
+          <di:waypoint x="825" y="210" />
+          <di:waypoint x="925" y="210" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="838" y="143" width="43" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1npwzsq_di" bpmnElement="Flow_1npwzsq">
+          <di:waypoint x="1250" y="70" />
+          <di:waypoint x="1300" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_16lgo1x_di" bpmnElement="Flow_16lgo1x">
+          <di:waypoint x="1400" y="70" />
+          <di:waypoint x="1450" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_01uqitk_di" bpmnElement="Association_01uqitk">
+          <di:waypoint x="225" y="30" />
+          <di:waypoint x="225" y="-80" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_141npu5_di" bpmnElement="Association_141npu5">
+          <di:waypoint x="374" y="30" />
+          <di:waypoint x="373" y="-30" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_02acys6_di" bpmnElement="Association_02acys6">
+          <di:waypoint x="675" y="30" />
+          <di:waypoint x="675" y="-70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_08rurre_di" bpmnElement="Association_08rurre">
+          <di:waypoint x="1350" y="30" />
+          <di:waypoint x="1350" y="-61" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNShape id="TextAnnotation_0juz7x0_di" bpmnElement="TextAnnotation_0juz7x0" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1150" y="-131" width="120" height="70" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1g7lxwi_di" bpmnElement="TextAnnotation_1g7lxwi" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1450" y="-130" width="130" height="60" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_10wj6j6_di" bpmnElement="TextAnnotation_10wj6j6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="925" y="320" width="100" height="70" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_0ubmi50_di" bpmnElement="TextAnnotation_0ubmi50" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1600" y="-124" width="140" height="54" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
   </bpmn2:definitions>

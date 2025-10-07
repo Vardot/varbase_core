@@ -7,18 +7,83 @@ dependencies:
     - easy_email
     - eca_base
     - eca_content
+    - eca_endpoint
+    - eca_helper
     - eca_user
     - modeler_api
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:bc55a09d929c57dc113f23590394d90c'
-    label: 'User login'
+    data: 'hash:622397d6b7a9dbbe08840b20b90cb7cd'
+    label: 'User login notification'
     tags:
       - user
       - login
       - notification
     version: 1.0.0
+    annotations:
+      TextAnnotation_1lk6dax:
+        text: 'Load the logged-in user object into a token to be used for later steps in this model.'
+        assigned_to:
+          Association_1dlb77j: eca_token_load_user_current_02z4bqd
+          Association_13ep1gs: eca_token_load_user_current_02z4bqd
+          Association_01uqitk: eca_token_load_user_current_02z4bqd
+      TextAnnotation_0ybmp3c:
+        text: "ECA Endpoint: Get the certain headers. Those headers would usually store the browser info and OS of the user's device – to be included in the email later on. Use https://www.httpdebugger.com/tools/viewbrowserheaders.aspx to diagnose."
+        assigned_to:
+          Association_0vo2v6q: eca_endpoint_get_request_header_019mwxp
+          Association_1x59665: eca_endpoint_get_request_header_019mwxp
+          Association_141npu5: eca_endpoint_get_request_header_019mwxp
+      TextAnnotation_1ukyxgp:
+        text: 'Initiates an HTTP request to a free IP geolocation service to get the location.'
+        assigned_to:
+          Association_1bvp88a: eca_helper_http_request_0u7u22m
+          Association_02acys6: eca_helper_http_request_0u7u22m
+      TextAnnotation_15ggpwl:
+        text: 'We require the service account to create email entities to be sent.'
+        assigned_to:
+          Association_08rurre: eca_switch_service_account_01jhzo9
+      TextAnnotation_0juz7x0:
+        text: 'Have a fallback info in when the gelocation service did not get any info'
+        assigned_to:
+          Association_15ewbws: eca_token_set_value_1lxlhd1
+      TextAnnotation_1g7lxwi:
+        text: 'Load the email template and pass values'
+        assigned_to:
+          Association_1d3eryj: eca_new_entity_0arypq1
+      TextAnnotation_10wj6j6:
+        text: 'Have the location formatted City, County, Country'
+        assigned_to:
+          Association_1ognqby: eca_token_set_value_1wjrilc
+      TextAnnotation_0ubmi50:
+        text: 'Queue the email to be sent by the default system mailer method'
+        assigned_to:
+          Association_0b5c7fz: easy_email_send_1h2m16e
+    colors:
+      TextAnnotation_1lk6dax:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_0ybmp3c:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1ukyxgp:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_15ggpwl:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_0juz7x0:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1g7lxwi:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_10wj6j6:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_0ubmi50:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
 id: user_login
 weight: -10
 events:
@@ -30,8 +95,47 @@ events:
       -
         id: eca_token_load_user_current_02z4bqd
         condition: ''
-conditions: {  }
-gateways: {  }
+conditions:
+  eca_scalar_05vwl4k:
+    plugin: eca_scalar
+    label: 'Wrong status'
+    configuration:
+      negate: true
+      left: '[logged_user_ip_http_request:status]'
+      right: '200'
+      operator: equal
+      type: _eca_token
+      case: false
+  eca_scalar_1eogeqt:
+    plugin: eca_scalar
+    label: 'Has client error'
+    configuration:
+      negate: true
+      left: '[logged_user_ip_http_request:client_error]'
+      right: '0'
+      operator: equal
+      type: value
+      case: false
+  eca_scalar_135hmlg:
+    plugin: eca_scalar
+    label: Success
+    configuration:
+      negate: false
+      left: '[logged_user_ip_http_request:json:success]'
+      right: '1'
+      operator: equal
+      type: _eca_token
+      case: false
+gateways:
+  Gateway_05l9ll7:
+    type: 0
+    successors:
+      -
+        id: eca_void_and_condition_0c22s5c
+        condition: eca_scalar_05vwl4k
+      -
+        id: eca_token_set_value_1wjrilc
+        condition: eca_scalar_135hmlg
 actions:
   eca_token_load_user_current_02z4bqd:
     label: 'Get current user'
@@ -40,7 +144,7 @@ actions:
       token_name: logged_user
     successors:
       -
-        id: eca_token_set_value_16qn0k8
+        id: eca_endpoint_get_request_header_019mwxp
         condition: ''
   eca_new_entity_0arypq1:
     label: 'Create Login Notification email'
@@ -49,9 +153,9 @@ actions:
       token_name: login_notification
       type: 'easy_email login_notification'
       langcode: _interface
-      label: 'A new device has logged in to your [site:name] account'
+      label: 'Login Notification email template'
       published: false
-      owner: '1'
+      owner: ''
     successors:
       -
         id: easy_email_send_1h2m16e
@@ -63,7 +167,7 @@ actions:
       object: login_notification
     successors: {  }
   eca_token_set_value_16qn0k8:
-    label: 'Save IP Address'
+    label: 'Get current user IP address'
     plugin: eca_token_set_value
     configuration:
       token_name: logged_user_ip_address
@@ -72,13 +176,72 @@ actions:
       validate_yaml: false
     successors:
       -
-        id: eca_switch_account_1hswp3z
+        id: eca_helper_http_request_0u7u22m
         condition: ''
-  eca_switch_account_1hswp3z:
-    label: 'Switch to webmaster'
-    plugin: eca_switch_account
+  eca_endpoint_get_request_header_019mwxp:
+    label: 'Get "User-Agent" header'
+    plugin: eca_endpoint_get_request_header
     configuration:
-      user_id: '1'
+      name: user-agent
+      token_name: logged_user_agent
+    successors:
+      -
+        id: eca_token_set_value_16qn0k8
+        condition: ''
+  eca_helper_http_request_0u7u22m:
+    label: 'Get geolocation from IP'
+    plugin: eca_helper_http_request
+    configuration:
+      method: get
+      url: 'https://api.ipwho.org/ip/[logged_user_ip_address]'
+      data: ''
+      data_yaml: 'no'
+      data_serialization: json
+      query_parameters: ''
+      headers: ''
+      cookies: ''
+      request_options: ''
+      token_name: logged_user_ip_http_request
+    successors:
+      -
+        id: Gateway_05l9ll7
+        condition: ''
+  eca_token_set_value_1lxlhd1:
+    label: 'Failed to get gelocation'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: logged_user_location
+      token_value: 'No info'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_switch_service_account_01jhzo9
+        condition: ''
+  eca_token_set_value_1wjrilc:
+    label: 'Format geolocation'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: logged_user_location
+      token_value: '[logged_user_ip_http_request:json:data:city], [logged_user_ip_http_request:json:data:region], [logged_user_ip_http_request:json:data:country]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_switch_service_account_01jhzo9
+        condition: ''
+  eca_void_and_condition_0c22s5c:
+    label: AND
+    plugin: eca_void_and_condition
+    configuration: {  }
+    successors:
+      -
+        id: eca_token_set_value_1lxlhd1
+        condition: eca_scalar_1eogeqt
+  eca_switch_service_account_01jhzo9:
+    label: 'Switch to service user'
+    plugin: eca_switch_service_account
+    configuration: {  }
     successors:
       -
         id: eca_new_entity_0arypq1
