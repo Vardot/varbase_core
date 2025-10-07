@@ -318,19 +318,19 @@ data: |
       </bpmn2:textAnnotation>
       <bpmn2:association id="Association_08rurre" associationDirection="None" sourceRef="eca_switch_service_account_01jhzo9" targetRef="TextAnnotation_15ggpwl" />
       <bpmn2:textAnnotation id="TextAnnotation_0juz7x0">
-        <bpmn2:text>Have a fallback info in when the gelocation service did not get any info</bpmn2:text>
+        <bpmn2:text>Have a fallback info in when the gelocation service did not get any info.</bpmn2:text>
       </bpmn2:textAnnotation>
       <bpmn2:association id="Association_15ewbws" associationDirection="None" sourceRef="eca_token_set_value_1lxlhd1" targetRef="TextAnnotation_0juz7x0" />
       <bpmn2:textAnnotation id="TextAnnotation_1g7lxwi">
-        <bpmn2:text>Load the email template and pass values</bpmn2:text>
+        <bpmn2:text>Load the email template and assign email values.</bpmn2:text>
       </bpmn2:textAnnotation>
       <bpmn2:association id="Association_1d3eryj" associationDirection="None" sourceRef="eca_new_entity_0arypq1" targetRef="TextAnnotation_1g7lxwi" />
       <bpmn2:textAnnotation id="TextAnnotation_10wj6j6">
-        <bpmn2:text>Have the location formatted City, County, Country</bpmn2:text>
+        <bpmn2:text>Arrange the geo location values as  City, County, Country.</bpmn2:text>
       </bpmn2:textAnnotation>
       <bpmn2:association id="Association_1ognqby" associationDirection="None" sourceRef="eca_token_set_value_1wjrilc" targetRef="TextAnnotation_10wj6j6" />
       <bpmn2:textAnnotation id="TextAnnotation_0ubmi50">
-        <bpmn2:text>Queue the email to be sent by the default system mailer method</bpmn2:text>
+        <bpmn2:text>Queue the email to be send.</bpmn2:text>
       </bpmn2:textAnnotation>
       <bpmn2:association id="Association_0b5c7fz" associationDirection="None" sourceRef="easy_email_send_1h2m16e" targetRef="TextAnnotation_0ubmi50" />
     </bpmn2:process>
@@ -376,22 +376,6 @@ data: |
         <bpmndi:BPMNShape id="eca_switch_service_account_01jhzo9_di" bpmnElement="eca_switch_service_account_01jhzo9">
           <dc:Bounds x="1300" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNEdge id="Association_15ewbws_di" bpmnElement="Association_15ewbws">
-          <di:waypoint x="1200" y="30" />
-          <di:waypoint x="1200" y="-61" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1d3eryj_di" bpmnElement="Association_1d3eryj">
-          <di:waypoint x="1500" y="30" />
-          <di:waypoint x="1500" y="-70" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1ognqby_di" bpmnElement="Association_1ognqby">
-          <di:waypoint x="975" y="250" />
-          <di:waypoint x="975" y="320" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_0b5c7fz_di" bpmnElement="Association_0b5c7fz">
-          <di:waypoint x="1650" y="30" />
-          <di:waypoint x="1650" y="-70" />
-        </bpmndi:BPMNEdge>
         <bpmndi:BPMNShape id="TextAnnotation_1lk6dax_di" bpmnElement="TextAnnotation_1lk6dax" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
           <dc:Bounds x="150" y="-166" width="115" height="86" />
         </bpmndi:BPMNShape>
@@ -403,6 +387,22 @@ data: |
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="TextAnnotation_15ggpwl_di" bpmnElement="TextAnnotation_15ggpwl" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
           <dc:Bounds x="1300" y="-130" width="120" height="69" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_0juz7x0_di" bpmnElement="TextAnnotation_0juz7x0" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1150" y="-131" width="119.99630486196372" height="69.99783978981827" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1g7lxwi_di" bpmnElement="TextAnnotation_1g7lxwi" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1450" y="-130" width="129.99599222080013" height="54.85030189101302" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_10wj6j6_di" bpmnElement="TextAnnotation_10wj6j6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="925" y="320" width="115" height="70" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_0ubmi50_di" bpmnElement="TextAnnotation_0ubmi50" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1600" y="-124" width="139.99567957963654" height="40.77094426589864" />
           <bpmndi:BPMNLabel />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="Flow_1rgw1bb_di" bpmnElement="Flow_1rgw1bb">
@@ -480,22 +480,22 @@ data: |
           <di:waypoint x="1350" y="30" />
           <di:waypoint x="1350" y="-61" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNShape id="TextAnnotation_0juz7x0_di" bpmnElement="TextAnnotation_0juz7x0" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1150" y="-131" width="120" height="70" />
-          <bpmndi:BPMNLabel />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1g7lxwi_di" bpmnElement="TextAnnotation_1g7lxwi" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1450" y="-130" width="130" height="60" />
-          <bpmndi:BPMNLabel />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_10wj6j6_di" bpmnElement="TextAnnotation_10wj6j6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="925" y="320" width="100" height="70" />
-          <bpmndi:BPMNLabel />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_0ubmi50_di" bpmnElement="TextAnnotation_0ubmi50" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1600" y="-124" width="140" height="54" />
-          <bpmndi:BPMNLabel />
-        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Association_15ewbws_di" bpmnElement="Association_15ewbws">
+          <di:waypoint x="1200" y="30" />
+          <di:waypoint x="1200" y="-61" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1d3eryj_di" bpmnElement="Association_1d3eryj">
+          <di:waypoint x="1500" y="30" />
+          <di:waypoint x="1500" y="-75" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1ognqby_di" bpmnElement="Association_1ognqby">
+          <di:waypoint x="975" y="250" />
+          <di:waypoint x="975" y="320" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0b5c7fz_di" bpmnElement="Association_0b5c7fz">
+          <di:waypoint x="1650" y="30" />
+          <di:waypoint x="1650" y="-83" />
+        </bpmndi:BPMNEdge>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
   </bpmn2:definitions>

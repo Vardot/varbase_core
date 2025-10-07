@@ -14,7 +14,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:622397d6b7a9dbbe08840b20b90cb7cd'
+    data: 'hash:a279ba79d5738279f45faf6ac0453df2'
     label: 'User login notification'
     tags:
       - user
@@ -44,19 +44,19 @@ third_party_settings:
         assigned_to:
           Association_08rurre: eca_switch_service_account_01jhzo9
       TextAnnotation_0juz7x0:
-        text: 'Have a fallback info in when the gelocation service did not get any info'
+        text: 'Have a fallback info in when the gelocation service did not get any info.'
         assigned_to:
           Association_15ewbws: eca_token_set_value_1lxlhd1
       TextAnnotation_1g7lxwi:
-        text: 'Load the email template and pass values'
+        text: 'Load the email template and assign email values.'
         assigned_to:
           Association_1d3eryj: eca_new_entity_0arypq1
       TextAnnotation_10wj6j6:
-        text: 'Have the location formatted City, County, Country'
+        text: "Arrange the geo location values as\_ City, County, Country."
         assigned_to:
           Association_1ognqby: eca_token_set_value_1wjrilc
       TextAnnotation_0ubmi50:
-        text: 'Queue the email to be sent by the default system mailer method'
+        text: 'Queue the email to be send.'
         assigned_to:
           Association_0b5c7fz: easy_email_send_1h2m16e
     colors:
