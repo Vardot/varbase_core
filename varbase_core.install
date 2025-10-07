@@ -41,6 +41,15 @@ function varbase_core_install() {
 
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_core');
+  
+  // Rebuild the state of subscribed events for ECA.
+  // This is equivalent to running: drush eca:subscriber:rebuild
+  if (\Drupal::moduleHandler()->moduleExists('eca')) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    /** @var \Drupal\eca\Entity\EcaStorage $storage */
+    $storage = $entity_type_manager->getStorage('eca');
+    $storage->rebuildSubscribedEvents();
+  }
 
   // Full flash and clear cash and rebuilding newly created routes.
   // After install of extra modules by install: in the .info.yml files.
