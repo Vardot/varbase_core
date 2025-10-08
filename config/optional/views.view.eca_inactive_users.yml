@@ -251,7 +251,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '-1 day'
+            value: '-90 days'
           group: 1
           exposed: false
           expose:

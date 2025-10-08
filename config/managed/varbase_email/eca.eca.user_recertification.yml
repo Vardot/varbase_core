@@ -1,5 +1,6 @@
+uuid: null
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - easy_email.easy_email_type.blocked_users_notification
@@ -21,7 +22,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:03432e4f684bbc5ea6297e94abc1d7d4'
+    data: 'hash:72a153fd63fcdc144c8964c862ee83b1'
     changelog: Initialization
     label: 'User Recertification'
     documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
@@ -33,41 +34,230 @@ third_party_settings:
       - session
     version: 1.0.0
     annotations:
+      TextAnnotation_1a2a2a2:
+        text: 'Store the updated user entity into a token to be used for later steps in this model.'
+        assigned_to:
+          Association_16r3xrh: eca_token_set_value_01noukj
+      TextAnnotation_1a3a3a3:
+        text: "Filter out the 'authenticated' role from the original roles list, keeping only the meaningful roles that were changed."
+        assigned_to:
+          Association_1c9xde5: eca_tamper__find_replace_regex_2_1
+      TextAnnotation_1a4a4a4:
+        text: "Filter out the 'authenticated' role from the new roles list, keeping only the meaningful roles that were added."
+        assigned_to:
+          Association_0opzck7: eca_tamper__find_replace_regex_1
       TextAnnotation_1sdif9m:
         text: 'We require the service account to create email entities to be sent.'
         assigned_to:
-          Association_0cbcmcs: eca_switch_service_account_1ixry7l
-          Association_13ftq0m: eca_switch_service_account_1ixry7l
-          Association_1ktayy1: eca_switch_service_account_1ixry7l
-          Association_1oluyj2: eca_switch_service_account_1ixry7l
+          Association_1j8yh8s: eca_switch_service_account_1ixry7l
+          Association_0u1uy4r: eca_switch_service_account_1ixry7l
+          Association_0aud2cy: eca_switch_service_account_1ixry7l
+          Association_036z3pj: eca_switch_service_account_1ixry7l
+      TextAnnotation_1a5a5a5:
+        text: 'Query the list of administrator users who will receive the role change notification.'
+        assigned_to:
+          Association_119zgbo: eca_views_query_1fpilr2
+      TextAnnotation_1a6a6a6:
+        text: 'Pop the first administrator user from the list to send them the notification email.'
+        assigned_to:
+          Association_0foryz8: eca_list_remove_1n0pvsd
+      TextAnnotation_1a7a7a7:
+        text: 'Create the role change notification email entity with the user and role information.'
+        assigned_to:
+          Association_0kbibya: eca_new_entity_1lwoqgx
+      TextAnnotation_1a8a8a8:
+        text: 'Queue the role change notification email to be sent.'
+        assigned_to:
+          Association_07elflg: easy_email_send_1ida814
+      TextAnnotation_2a1a1a1:
+        text: 'Scheduled cron job that runs daily at 3:00 AM to check for inactive user accounts.'
+        assigned_to:
+          Association_1kj1s1t: eca_base__eca_cron_2_1
       TextAnnotation_1jfp7hx:
         text: 'We require the service account to create email entities to be sent.'
         assigned_to:
-          Association_0q2egqt: eca_switch_service_account_0m4ckgw
-          Association_1s4xa7d: eca_switch_service_account_0m4ckgw
-          Association_0wg6kqq: eca_switch_service_account_0m4ckgw
-          Association_03kopyh: eca_switch_service_account_0m4ckgw
+          Association_1adxkws: eca_switch_service_account_0m4ckgw
+          Association_0rvdnmb: eca_switch_service_account_0m4ckgw
+          Association_0q8760r: eca_switch_service_account_0m4ckgw
+          Association_1tk70og: eca_switch_service_account_0m4ckgw
+      TextAnnotation_2a2a2a2:
+        text: 'Query the count of users who have not logged in for 90 days or more.'
+        assigned_to:
+          Association_0ph5eov: eca_views_query_033e4yb
+      TextAnnotation_2a3a3a3:
+        text: 'Render the list of inactive users as an HTML table to be included in the email notification.'
+        assigned_to:
+          Association_01xwev7: eca_render_views__views_1_4
+      TextAnnotation_2a4a4a4:
+        text: 'Render the total count message showing how many users are inactive.'
+        assigned_to:
+          Association_1qb69gg: eca_render_views__views_1_3
+      TextAnnotation_2a5a5a5:
+        text: 'Query the list of administrator users who will receive the inactive users notification.'
+        assigned_to:
+          Association_0b6t9cf: eca_views_query_1i7pt4m
+      TextAnnotation_2a6a6a6:
+        text: 'Pop the first administrator user from the list to send them the notification email.'
+        assigned_to:
+          Association_1s0k2zj: eca_list_remove_13k1tx3
+      TextAnnotation_2a7a7a7:
+        text: 'Create the inactive users notification email entity with the rendered data.'
+        assigned_to:
+          Association_1637811: eca_new_entity_0p37h2i
+      TextAnnotation_2a8a8a8:
+        text: 'Queue the inactive users notification email to be sent.'
+        assigned_to:
+          Association_1rhv4kp: easy_email_send_1mm3zgc
+      TextAnnotation_3a1a1a1:
+        text: 'Scheduled cron job that runs daily at 3:00 AM to check for users that should be blocked.'
+        assigned_to:
+          Association_15j518a: eca_base__eca_cron_1_1
       TextAnnotation_1dpbrs9:
         text: 'We require the service account to create email entities to be sent.'
         assigned_to:
-          Association_19yyvo2: eca_switch_service_account_119z0mm
-          Association_19ree2k: eca_switch_service_account_119z0mm
-          Association_1p7nvzh: eca_switch_service_account_119z0mm
-          Association_0e7a476: eca_switch_service_account_119z0mm
+          Association_16ngw20: eca_switch_service_account_119z0mm
+          Association_1xm5j5u: eca_switch_service_account_119z0mm
+          Association_0gix5ur: eca_switch_service_account_119z0mm
+          Association_1glwvss: eca_switch_service_account_119z0mm
+      TextAnnotation_3a2a2a2:
+        text: 'Query the count of users who have not logged in for 100 days or more and should be blocked.'
+        assigned_to:
+          Association_1diixqb: eca_views_query_0gcdnmj
+      TextAnnotation_3a3a3a3:
+        text: 'Render the list of users to be blocked as an HTML table to be included in the email notification.'
+        assigned_to:
+          Association_19mmosj: eca_render_views__views_1
+      TextAnnotation_3a4a4a4:
+        text: 'Render the total count message showing how many users will be blocked.'
+        assigned_to:
+          Association_1w7cgjq: eca_render_views__views_2_1
+      TextAnnotation_3a5a5a5:
+        text: 'Get the list of users who need to be blocked from the system (100+ days without login).'
+        assigned_to:
+          Association_0jo6eic: eca_render_views__views_1_1
+      TextAnnotation_3a6a6a6:
+        text: 'Pop the first user from the list to process their account blocking.'
+        assigned_to:
+          Association_1ug5ozg: eca_list_remove_0lramrv
+      TextAnnotation_3a7a7a7:
+        text: 'Load the full user entity object to be able to perform the block action.'
+        assigned_to:
+          Association_15lbc2i: eca_token_load_entity_0spuobp
+      TextAnnotation_3a8a8a8:
+        text: 'Block the user account to prevent further logins due to prolonged inactivity (100+ days).'
+        assigned_to:
+          Association_048lstl: user_block_user_action_1d9s1ry
+      TextAnnotation_3a9a9a9:
+        text: 'Query the list of administrator users who will receive the blocked users notification.'
+        assigned_to:
+          Association_1617e11: eca_views_query_1je3clw
+      TextAnnotation_3a0a0a0:
+        text: 'Pop the first administrator user from the list to send them the notification email.'
+        assigned_to:
+          Association_0wgxpkt: eca_list_remove_1kpya7z
+      TextAnnotation_3b1b1b1:
+        text: 'Create the blocked users notification email entity with the rendered data.'
+        assigned_to:
+          Association_1x2prj4: eca_new_entity_1avbsci
+      TextAnnotation_3b2b2b2:
+        text: 'Queue the blocked users notification email to be sent.'
+        assigned_to:
+          Association_0lheqoq: easy_email_send_0981ohr
     colors:
+      TextAnnotation_1a2a2a2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a3a3a3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a4a4a4:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
       TextAnnotation_1sdif9m:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a5a5a5:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a6a6a6:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a7a7a7:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a8a8a8:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a1a1a1:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
       TextAnnotation_1jfp7hx:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
+      TextAnnotation_2a2a2a2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a3a3a3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a4a4a4:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a5a5a5:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a6a6a6:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a7a7a7:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_2a8a8a8:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a1a1a1:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
       TextAnnotation_1dpbrs9:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a2a2a2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a3a3a3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a4a4a4:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a5a5a5:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a6a6a6:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a7a7a7:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a8a8a8:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a9a9a9:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3a0a0a0:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3b1b1b1:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_3b2b2b2:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
 id: user_recertification
 weight: -9
 events:
-  content_entity__update_1_1:
+  content_entity__update_1:
     plugin: 'content_entity:update'
     label: 'Update user'
     configuration:
@@ -76,7 +266,7 @@ events:
       -
         id: eca_token_set_value_01noukj
         condition: eca_entity_field_value_changed_1ismzxl
-  eca_base__eca_cron_1_2:
+  eca_base__eca_cron_2_1:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for inactive users'
     configuration:
@@ -95,6 +285,13 @@ events:
         id: eca_switch_service_account_119z0mm
         condition: ''
 conditions:
+  eca_entity_field_value_changed_1ismzxl:
+    plugin: eca_entity_field_value_changed
+    label: 'User roles changed'
+    configuration:
+      negate: false
+      field_name: roles
+      entity: user
   eca_count_0qprpab:
     plugin: eca_count
     label: '> 0'
@@ -115,13 +312,16 @@ conditions:
       operator: greaterthan
       type: _eca_token
       case: false
-  eca_entity_field_value_changed_1ismzxl:
-    plugin: eca_entity_field_value_changed
-    label: 'User roles changed'
+  eca_count_1liq2gl:
+    plugin: eca_count
+    label: '> 0'
     configuration:
       negate: false
-      field_name: roles
-      entity: user
+      left: inactive_users_count
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
   Flow_1mixo9p:
     plugin: eca_count
     label: '> 0'
@@ -131,16 +331,6 @@ conditions:
       right: '0'
       operator: greaterthan
       type: _eca_token
-      case: false
-  eca_count_0kqicp7:
-    plugin: eca_count
-    label: '> 0'
-    configuration:
-      negate: false
-      left: blocked_users_list
-      right: '0'
-      operator: greaterthan
-      type: numeric
       case: false
   eca_count_16wdt1i:
     plugin: eca_count
@@ -152,12 +342,12 @@ conditions:
       operator: greaterthan
       type: numeric
       case: false
-  eca_count_1liq2gl:
+  eca_count_0kqicp7:
     plugin: eca_count
     label: '> 0'
     configuration:
       negate: false
-      left: inactive_users_count
+      left: blocked_users_list
       right: '0'
       operator: greaterthan
       type: numeric

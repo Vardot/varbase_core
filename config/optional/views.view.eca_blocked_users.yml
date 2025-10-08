@@ -247,9 +247,9 @@ display:
           plugin_id: date
           operator: '<='
           value:
-            min: '+1 day'
-            max: '+2 day'
-            value: '1 day'
+            min: ''
+            max: ''
+            value: '-100 days'
           group: 1
           exposed: false
           expose:
