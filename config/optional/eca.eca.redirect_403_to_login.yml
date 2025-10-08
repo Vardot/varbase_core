@@ -11,13 +11,50 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:d512cdfb075a3be7922d69f568d9795e'
+    data: 'hash:30f03a8c0d04d4e1f8299c73d286c67a'
     label: 'Redirect 403 to Login'
     tags:
       - 'use case'
       - redirect
       - 'redirect 403'
     version: 1.0.0
+    annotations:
+      TextAnnotation_1r1r1r1:
+        text: 'Triggered when an HTTP response is created, allowing inspection and modification.'
+        assigned_to:
+          Association_08jmr8h: kernel__response_1
+      TextAnnotation_1r2r2r2:
+        text: 'Check if the HTTP response status code is 403 (Access Denied).'
+        assigned_to:
+          Association_1r6vwxp: 'kernel__response_1,eca_void_and_condition_0v21nbd'
+      TextAnnotation_1r3r3r3:
+        text: 'Verify that the current user is anonymous (not logged in).'
+        assigned_to:
+          Association_0b2gdea: 'eca_void_and_condition_0v21nbd,action_goto_action_0nji5tn'
+      TextAnnotation_1r4r4r4:
+        text: 'Combine both conditions: must be 403 error AND user must be anonymous.'
+        assigned_to:
+          Association_0geuj1q: eca_void_and_condition_0v21nbd
+      TextAnnotation_1r5r5r5:
+        text: 'Redirect anonymous users to the login page, preserving the original destination URL.'
+        assigned_to:
+          Association_0tlvck0: action_goto_action_0nji5tn
+    colors:
+      TextAnnotation_1r1r1r1:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1r2r2r2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1r3r3r3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1r4r4r4:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1r5r5r5:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
 id: redirect_403_to_login
 weight: 0
 events:

@@ -4,19 +4,19 @@ dependencies: {  }
 id: eca_bpmn_io_redirect_403_to_login
 data: |
   <?xml version="1.0" encoding="UTF-8"?>
-  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
     <bpmn2:process id="redirect_403_to_login" name="Redirect 403 to Login" isExecutable="false" camunda:versionTag="1.0.0">
-      <bpmn2:documentation/>
+      <bpmn2:documentation />
       <bpmn2:extensionElements>
         <camunda:properties>
-          <camunda:property name="Tags" value="use case, redirect, redirect 403"/>
-          <camunda:property name="Changelog" value=""/>
+          <camunda:property name="Tags" value="use case,redirect,redirect 403" />
+          <camunda:property name="Changelog" value="" />
         </camunda:properties>
       </bpmn2:extensionElements>
       <bpmn2:startEvent id="kernel__response_1" name="Response created" camunda:modelerTemplate="org.drupal.event.kernel:response">
         <bpmn2:extensionElements>
           <camunda:properties>
-            <camunda:property name="pluginid" value="kernel:response"/>
+            <camunda:property name="pluginid" value="kernel:response" />
           </camunda:properties>
         </bpmn2:extensionElements>
         <bpmn2:outgoing>eca_scalar_1q09u8b</bpmn2:outgoing>
@@ -24,14 +24,34 @@ data: |
       <bpmn2:task id="eca_void_and_condition_0v21nbd" name="And" camunda:modelerTemplate="org.drupal.action.eca_void_and_condition">
         <bpmn2:extensionElements>
           <camunda:properties>
-            <camunda:property name="pluginid" value="eca_void_and_condition"/>
+            <camunda:property name="pluginid" value="eca_void_and_condition" />
           </camunda:properties>
         </bpmn2:extensionElements>
         <bpmn2:incoming>eca_scalar_1q09u8b</bpmn2:incoming>
         <bpmn2:outgoing>eca_current_user_role_14bo1m1</bpmn2:outgoing>
       </bpmn2:task>
+      <bpmn2:task id="action_goto_action_0nji5tn" name="Redirect to URL" camunda:modelerTemplate="org.drupal.action.action_goto_action">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="action_goto_action" />
+          </camunda:properties>
+          <camunda:field name="url">
+            <camunda:string>/user/login?destination=[event:path]</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>eca_current_user_role_14bo1m1</bpmn2:incoming>
+      </bpmn2:task>
       <bpmn2:sequenceFlow id="eca_scalar_1q09u8b" name="403" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="kernel__response_1" targetRef="eca_void_and_condition_0v21nbd">
         <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar" />
+          </camunda:properties>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
           <camunda:field name="left">
             <camunda:string>[event:code]</camunda:string>
           </camunda:field>
@@ -47,66 +67,102 @@ data: |
           <camunda:field name="case">
             <camunda:string>no</camunda:string>
           </camunda:field>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="eca_current_user_role_14bo1m1" name="Anonymous" camunda:modelerTemplate="org.drupal.condition.eca_current_user_role" sourceRef="eca_void_and_condition_0v21nbd" targetRef="action_goto_action_0nji5tn">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_current_user_role" />
+          </camunda:properties>
           <camunda:field name="negate">
             <camunda:string>no</camunda:string>
           </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_scalar"/>
-          </camunda:properties>
-        </bpmn2:extensionElements>
-      </bpmn2:sequenceFlow>
-      <bpmn2:task id="action_goto_action_0nji5tn" name="Redirect to URL" camunda:modelerTemplate="org.drupal.action.action_goto_action">
-        <bpmn2:extensionElements>
-          <camunda:field name="url">
-            <camunda:string>/user/login?destination=[event:path]</camunda:string>
-          </camunda:field>
-          <camunda:field name="replace_tokens">
-            <camunda:string>yes</camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="action_goto_action"/>
-          </camunda:properties>
-        </bpmn2:extensionElements>
-        <bpmn2:incoming>eca_current_user_role_14bo1m1</bpmn2:incoming>
-      </bpmn2:task>
-      <bpmn2:sequenceFlow id="eca_current_user_role_14bo1m1" name="Anonymous" camunda:modelerTemplate="org.drupal.condition.eca_current_user_role" sourceRef="eca_void_and_condition_0v21nbd" targetRef="action_goto_action_0nji5tn">
-        <bpmn2:extensionElements>
           <camunda:field name="role">
             <camunda:string>anonymous</camunda:string>
           </camunda:field>
-          <camunda:field name="negate">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
-          <camunda:properties>
-            <camunda:property name="pluginid" value="eca_current_user_role"/>
-          </camunda:properties>
         </bpmn2:extensionElements>
       </bpmn2:sequenceFlow>
+      <bpmn2:textAnnotation id="TextAnnotation_1r1r1r1">
+        <bpmn2:text>Triggered when an HTTP response is created, allowing inspection and modification.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_08jmr8h" sourceRef="kernel__response_1" targetRef="TextAnnotation_1r1r1r1" />
+      <bpmn2:textAnnotation id="TextAnnotation_1r2r2r2">
+        <bpmn2:text>Check if the HTTP response status code is 403 (Access Denied).</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1r6vwxp" sourceRef="eca_scalar_1q09u8b" targetRef="TextAnnotation_1r2r2r2" />
+      <bpmn2:textAnnotation id="TextAnnotation_1r3r3r3">
+        <bpmn2:text>Verify that the current user is anonymous (not logged in).</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0b2gdea" sourceRef="eca_current_user_role_14bo1m1" targetRef="TextAnnotation_1r3r3r3" />
+      <bpmn2:textAnnotation id="TextAnnotation_1r4r4r4">
+        <bpmn2:text>Combine both conditions: must be 403 error AND user must be anonymous.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0geuj1q" sourceRef="eca_void_and_condition_0v21nbd" targetRef="TextAnnotation_1r4r4r4" />
+      <bpmn2:textAnnotation id="TextAnnotation_1r5r5r5">
+        <bpmn2:text>Redirect anonymous users to the login page, preserving the original destination URL.</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0tlvck0" sourceRef="action_goto_action_0nji5tn" targetRef="TextAnnotation_1r5r5r5" />
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_redirect_403_to_login">
       <bpmndi:BPMNPlane id="BPMNPlane_redirect_403_to_login" bpmnElement="redirect_403_to_login">
         <bpmndi:BPMNShape id="kernel__response_1_di" bpmnElement="kernel__response_1">
-          <dc:Bounds x="57" y="52" width="36" height="36"/>
+          <dc:Bounds x="57" y="52" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="30" y="93" width="90" height="14" />
+          </bpmndi:BPMNLabel>
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_void_and_condition_0v21nbd_di" bpmnElement="eca_void_and_condition_0v21nbd">
-          <dc:Bounds x="175" y="30" width="100" height="80"/>
+          <dc:Bounds x="175" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="action_goto_action_0nji5tn_di" bpmnElement="action_goto_action_0nji5tn">
-          <dc:Bounds x="350" y="30" width="100" height="80"/>
+          <dc:Bounds x="325" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1r1r1r1_di" bpmnElement="TextAnnotation_1r1r1r1" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="25" y="-100" width="135" height="85" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1r2r2r2_di" bpmnElement="TextAnnotation_1r2r2r2" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="84" y="180" width="155" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1r3r3r3_di" bpmnElement="TextAnnotation_1r3r3r3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="249" y="180" width="151" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1r4r4r4_di" bpmnElement="TextAnnotation_1r4r4r4" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="175" y="-100" width="120" height="85" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1r5r5r5_di" bpmnElement="TextAnnotation_1r5r5r5" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="325" y="-95" width="150" height="70" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="eca_scalar_1q09u8b_di" bpmnElement="eca_scalar_1q09u8b">
-          <di:waypoint x="93" y="70"/>
-          <di:waypoint x="175" y="70"/>
-          <bpmndi:BPMNLabel>
-            <dc:Bounds x="125" y="45" width="19" height="14"/>
-          </bpmndi:BPMNLabel>
+          <di:waypoint x="93" y="70" />
+          <di:waypoint x="175" y="70" />
         </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="eca_current_user_role_14bo1m1_di" bpmnElement="eca_current_user_role_14bo1m1">
-          <di:waypoint x="275" y="70"/>
-          <di:waypoint x="350" y="70"/>
+          <di:waypoint x="275" y="70" />
+          <di:waypoint x="325" y="70" />
           <bpmndi:BPMNLabel>
-            <dc:Bounds x="284" y="45" width="59" height="14"/>
+            <dc:Bounds x="271" y="13" width="59" height="14" />
           </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_08jmr8h_di" bpmnElement="Association_08jmr8h">
+          <di:waypoint x="75" y="52" />
+          <di:waypoint x="75" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1r6vwxp_di" bpmnElement="Association_1r6vwxp">
+          <di:waypoint x="134" y="70" />
+          <di:waypoint x="134" y="180" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0b2gdea_di" bpmnElement="Association_0b2gdea">
+          <di:waypoint x="300" y="70" />
+          <di:waypoint x="299" y="180" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0geuj1q_di" bpmnElement="Association_0geuj1q">
+          <di:waypoint x="225" y="30" />
+          <di:waypoint x="225" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0tlvck0_di" bpmnElement="Association_0tlvck0">
+          <di:waypoint x="375" y="30" />
+          <di:waypoint x="375" y="-25" />
         </bpmndi:BPMNEdge>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
