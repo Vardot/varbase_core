@@ -4,7 +4,6 @@ dependencies:
   config:
     - easy_email.easy_email_type.blocked_users_notification
     - easy_email.easy_email_type.inactive_users_notification
-    - easy_email.easy_email_type.role_changed_notification
     - views.view.eca_admin_users
     - views.view.eca_blocked_users
     - views.view.eca_inactive_users
@@ -13,7 +12,6 @@ dependencies:
     - eca_base
     - eca_content
     - eca_render
-    - eca_tamper
     - eca_user
     - eca_views
     - modeler_api
@@ -21,7 +19,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:72a153fd63fcdc144c8964c862ee83b1'
+    data: 'hash:2d8b15db500636a9d6231009854c9c09'
     changelog: Initialization
     label: 'User Recertification'
     documentation: 'Send email notifications when users log into their account for recertification tracking and security monitoring.'
@@ -33,41 +31,6 @@ third_party_settings:
       - session
     version: 1.0.0
     annotations:
-      TextAnnotation_1a2a2a2:
-        text: 'Store the updated user entity into a token to be used for later steps in this model.'
-        assigned_to:
-          Association_16r3xrh: eca_token_set_value_01noukj
-      TextAnnotation_1a3a3a3:
-        text: "Filter out the 'authenticated' role from the original roles list, keeping only the meaningful roles that were changed."
-        assigned_to:
-          Association_1c9xde5: eca_tamper__find_replace_regex_2_1
-      TextAnnotation_1a4a4a4:
-        text: "Filter out the 'authenticated' role from the new roles list, keeping only the meaningful roles that were added."
-        assigned_to:
-          Association_0opzck7: eca_tamper__find_replace_regex_1
-      TextAnnotation_1sdif9m:
-        text: 'We require the service account to create email entities to be sent.'
-        assigned_to:
-          Association_1j8yh8s: eca_switch_service_account_1ixry7l
-          Association_0u1uy4r: eca_switch_service_account_1ixry7l
-          Association_0aud2cy: eca_switch_service_account_1ixry7l
-          Association_036z3pj: eca_switch_service_account_1ixry7l
-      TextAnnotation_1a5a5a5:
-        text: 'Query the list of administrator users who will receive the role change notification.'
-        assigned_to:
-          Association_119zgbo: eca_views_query_1fpilr2
-      TextAnnotation_1a6a6a6:
-        text: 'Pop the first administrator user from the list to send them the notification email.'
-        assigned_to:
-          Association_0foryz8: eca_list_remove_1n0pvsd
-      TextAnnotation_1a7a7a7:
-        text: 'Create the role change notification email entity with the user and role information.'
-        assigned_to:
-          Association_0kbibya: eca_new_entity_1lwoqgx
-      TextAnnotation_1a8a8a8:
-        text: 'Queue the role change notification email to be sent.'
-        assigned_to:
-          Association_07elflg: easy_email_send_1ida814
       TextAnnotation_2a1a1a1:
         text: 'Scheduled cron job that runs daily at 3:00 AM to check for inactive user accounts.'
         assigned_to:
@@ -163,30 +126,6 @@ third_party_settings:
         assigned_to:
           Association_0lheqoq: easy_email_send_0981ohr
     colors:
-      TextAnnotation_1a2a2a2:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a3a3a3:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a4a4a4:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1sdif9m:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a5a5a5:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a6a6a6:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a7a7a7:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
-      TextAnnotation_1a8a8a8:
-        fill: '#ffe0b2'
-        stroke: '#6b3c00'
       TextAnnotation_2a1a1a1:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
@@ -254,17 +193,8 @@ third_party_settings:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
 id: user_recertification
-weight: -9
+weight: -8
 events:
-  content_entity__update_1:
-    plugin: 'content_entity:update'
-    label: 'Update user'
-    configuration:
-      type: 'user user'
-    successors:
-      -
-        id: eca_token_set_value_01noukj
-        condition: eca_entity_field_value_changed_1ismzxl
   eca_base__eca_cron_2_1:
     plugin: 'eca_base:eca_cron'
     label: 'Cron time to check for inactive users'
@@ -284,23 +214,6 @@ events:
         id: eca_switch_service_account_119z0mm
         condition: ''
 conditions:
-  eca_entity_field_value_changed_1ismzxl:
-    plugin: eca_entity_field_value_changed
-    label: 'User roles changed'
-    configuration:
-      negate: false
-      field_name: roles
-      entity: user
-  eca_count_0qprpab:
-    plugin: eca_count
-    label: '> 0'
-    configuration:
-      negate: false
-      left: admin_users
-      right: '0'
-      operator: greaterthan
-      type: _eca_token
-      case: false
   eca_count_0fsfzfx:
     plugin: eca_count
     label: '> 0'
@@ -352,12 +265,6 @@ conditions:
       type: numeric
       case: false
 gateways:
-  Gateway_1v6rp7s:
-    type: 0
-    successors:
-      -
-        id: eca_list_remove_1n0pvsd
-        condition: eca_count_0qprpab
   Gateway_17nokcn:
     type: 0
     successors:
@@ -389,43 +296,6 @@ gateways:
         id: eca_list_remove_0lramrv
         condition: eca_count_0kqicp7
 actions:
-  eca_views_query_1fpilr2:
-    label: 'Admin users'
-    plugin: eca_views_query
-    configuration:
-      token_name: admin_users
-      view_id: eca_admin_users
-      display_id: admin_users
-      arguments: ''
-    successors:
-      -
-        id: Gateway_1v6rp7s
-        condition: ''
-  eca_list_remove_1n0pvsd:
-    label: 'Pop first admin user item from the list'
-    plugin: eca_list_remove
-    configuration:
-      value: ''
-      token_name: admin_user
-      method: first
-      index: ''
-      list_token: admin_users
-    successors:
-      -
-        id: eca_new_entity_1lwoqgx
-        condition: ''
-  eca_token_set_value_01noukj:
-    label: 'Save Updated user'
-    plugin: eca_token_set_value
-    configuration:
-      token_name: updated_user
-      token_value: '[entity]'
-      use_yaml: false
-      validate_yaml: false
-    successors:
-      -
-        id: eca_tamper__find_replace_regex_2_1
-        condition: ''
   eca_list_remove_13k1tx3:
     label: 'Pop first admin user from the list'
     plugin: eca_list_remove
@@ -450,57 +320,6 @@ actions:
     successors:
       -
         id: Gateway_17nokcn
-        condition: ''
-  eca_new_entity_1lwoqgx:
-    label: 'Create role changed notification email'
-    plugin: eca_new_entity
-    configuration:
-      token_name: role_changed_notification
-      type: 'easy_email role_changed_notification'
-      langcode: ''
-      label: 'User Role Modified - [updated_user:display-name] on [site:name]'
-      published: false
-      owner: '1'
-    successors:
-      -
-        id: easy_email_send_1ida814
-        condition: ''
-  easy_email_send_1ida814:
-    label: 'Send Easy Email template for role changed'
-    plugin: easy_email_send
-    configuration:
-      object: role_changed_notification
-    successors:
-      -
-        id: Gateway_1v6rp7s
-        condition: ''
-  eca_tamper__find_replace_regex_2_1:
-    label: 'Filter user original roles'
-    plugin: 'eca_tamper:find_replace_regex'
-    original_id: find_replace_regex
-    configuration:
-      find: '/authenticated,/'
-      replace: ''
-      limit: null
-      eca_data: '[user:original:roles]'
-      eca_token_name: user_original_roles
-    successors:
-      -
-        id: eca_tamper__find_replace_regex_1
-        condition: ''
-  eca_tamper__find_replace_regex_1:
-    label: 'Filter user new roles'
-    plugin: 'eca_tamper:find_replace_regex'
-    original_id: find_replace_regex
-    configuration:
-      find: '/authenticated,/'
-      replace: ''
-      limit: null
-      eca_data: '[user:roles]'
-      eca_token_name: user_new_roles
-    successors:
-      -
-        id: eca_switch_service_account_1ixry7l
         condition: ''
   eca_render_views__views_1_4:
     label: 'Render the first part of Inactive users as HTML table'
@@ -722,14 +541,6 @@ actions:
     successors:
       -
         id: eca_views_query_0gcdnmj
-        condition: ''
-  eca_switch_service_account_1ixry7l:
-    label: 'Switch to service user'
-    plugin: eca_switch_service_account
-    configuration: {  }
-    successors:
-      -
-        id: eca_views_query_1fpilr2
         condition: ''
   eca_switch_service_account_0m4ckgw:
     label: 'Switch to service user'

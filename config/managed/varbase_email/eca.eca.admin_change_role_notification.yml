@@ -1,0 +1,219 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - easy_email.easy_email_type.role_changed_notification
+    - views.view.eca_admin_users
+  module:
+    - easy_email
+    - eca_base
+    - eca_content
+    - eca_tamper
+    - eca_user
+    - eca_views
+    - modeler_api
+    - user
+third_party_settings:
+  modeler_api:
+    modeler_id: bpmn_io
+    data: 'hash:43174c90b09a464cc52d8af041bca3fb'
+    label: 'Admin Change Role Notification'
+    tags:
+      - user
+      - login
+      - security
+      - notification
+      - session
+    version: 1.0.0
+    annotations:
+      TextAnnotation_1a2a2a2:
+        text: 'Store the updated user entity into a token to be used for later steps in this model.'
+        assigned_to:
+          Association_091dqu6: eca_token_set_value_01noukj
+      TextAnnotation_1a3a3a3:
+        text: "Filter out the 'authenticated' role from the original roles list, keeping only the meaningful roles that were changed."
+        assigned_to:
+          Association_08u3fg3: eca_tamper__find_replace_regex_2_1
+      TextAnnotation_1a4a4a4:
+        text: "Filter out the 'authenticated' role from the new roles list, keeping only the meaningful roles that were added."
+        assigned_to:
+          Association_1ke8bx5: eca_tamper__find_replace_regex_1_1
+      TextAnnotation_1sdif9m:
+        text: 'We require the service account to create email entities to be sent.'
+        assigned_to:
+          Association_1x72fyz: eca_switch_service_account_1ixry7l
+      TextAnnotation_1a5a5a5:
+        text: 'Query the list of administrator users who will receive the role change notification.'
+        assigned_to:
+          Association_08v9jqc: eca_views_query_1fpilr2
+      TextAnnotation_1a6a6a6:
+        text: 'Pop the first administrator user from the list to send them the notification email.'
+        assigned_to:
+          Association_1pdcz4c: eca_list_remove_1n0pvsd
+      TextAnnotation_1a7a7a7:
+        text: 'Create the role change notification email entity with the user and role information.'
+        assigned_to:
+          Association_12q6kh1: eca_new_entity_1lwoqgx
+      TextAnnotation_1a8a8a8:
+        text: 'Queue the role change notification email to be sent.'
+        assigned_to:
+          Association_1694s16: easy_email_send_1ida814
+    colors:
+      TextAnnotation_1a2a2a2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a3a3a3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a4a4a4:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1sdif9m:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a5a5a5:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a6a6a6:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a7a7a7:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1a8a8a8:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+id: admin_change_role_notification
+weight: -9
+events:
+  content_entity__update_1:
+    plugin: 'content_entity:update'
+    label: 'Update user'
+    configuration:
+      type: 'user user'
+    successors:
+      -
+        id: eca_token_set_value_01noukj
+        condition: eca_entity_field_value_changed_1ismzxl
+conditions:
+  eca_entity_field_value_changed_1ismzxl:
+    plugin: eca_entity_field_value_changed
+    label: 'User roles changed'
+    configuration:
+      negate: false
+      field_name: roles
+      entity: user
+  eca_count_0qprpab:
+    plugin: eca_count
+    label: '> 0'
+    configuration:
+      negate: false
+      left: admin_users
+      right: '0'
+      operator: greaterthan
+      type: _eca_token
+      case: false
+gateways:
+  Gateway_1v6rp7s:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_1n0pvsd
+        condition: eca_count_0qprpab
+actions:
+  eca_views_query_1fpilr2:
+    label: 'Admin users'
+    plugin: eca_views_query
+    configuration:
+      token_name: admin_users
+      view_id: eca_admin_users
+      display_id: admin_users
+      arguments: ''
+    successors:
+      -
+        id: Gateway_1v6rp7s
+        condition: ''
+  eca_list_remove_1n0pvsd:
+    label: 'Pop first admin user item from the list'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: admin_user
+      method: first
+      index: ''
+      list_token: admin_users
+    successors:
+      -
+        id: eca_new_entity_1lwoqgx
+        condition: ''
+  eca_token_set_value_01noukj:
+    label: 'Save Updated user'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: updated_user
+      token_value: '[entity]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_tamper__find_replace_regex_2_1
+        condition: ''
+  eca_new_entity_1lwoqgx:
+    label: 'Create role changed notification email'
+    plugin: eca_new_entity
+    configuration:
+      token_name: role_changed_notification
+      type: 'easy_email role_changed_notification'
+      langcode: ''
+      label: 'User Role Modified - [updated_user:display-name] on [site:name]'
+      published: false
+      owner: '1'
+    successors:
+      -
+        id: easy_email_send_1ida814
+        condition: ''
+  easy_email_send_1ida814:
+    label: 'Send Easy Email template for role changed'
+    plugin: easy_email_send
+    configuration:
+      object: role_changed_notification
+    successors:
+      -
+        id: Gateway_1v6rp7s
+        condition: ''
+  eca_tamper__find_replace_regex_2_1:
+    label: 'Filter user original roles'
+    plugin: 'eca_tamper:find_replace_regex'
+    original_id: find_replace_regex
+    configuration:
+      find: '/authenticated,/'
+      replace: ''
+      limit: null
+      eca_data: '[user:original:roles]'
+      eca_token_name: user_original_roles
+    successors:
+      -
+        id: eca_tamper__find_replace_regex_1_1
+        condition: ''
+  eca_tamper__find_replace_regex_1_1:
+    label: 'Filter user new roles'
+    plugin: 'eca_tamper:find_replace_regex'
+    original_id: find_replace_regex
+    configuration:
+      find: '/authenticated,/'
+      replace: ''
+      limit: null
+      eca_data: '[user:roles]'
+      eca_token_name: user_new_roles
+    successors:
+      -
+        id: eca_switch_service_account_1ixry7l
+        condition: ''
+  eca_switch_service_account_1ixry7l:
+    label: 'Switch to service user'
+    plugin: eca_switch_service_account
+    configuration: {  }
+    successors:
+      -
+        id: eca_views_query_1fpilr2
+        condition: ''

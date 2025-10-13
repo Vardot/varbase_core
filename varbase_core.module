@@ -127,6 +127,8 @@ function varbase_core_modules_installed($modules, $is_syncing) {
     $managed_configs = [
       'modeler_api.data_model.eca_bpmn_io_user_login',
       'eca.eca.user_login',
+      'modeler_api.data_model.eca_bpmn_io_admin_change_role_notification',
+      'eca.eca.admin_change_role_notification',
       'modeler_api.data_model.eca_bpmn_io_user_recertification',
       'eca.eca.user_recertification',
     ];
