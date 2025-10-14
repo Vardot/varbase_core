@@ -16,7 +16,7 @@ dependencies:
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:43174c90b09a464cc52d8af041bca3fb'
+    data: 'hash:2bd67d4911388a3c0d0dcfc7576b0626'
     label: 'Admin Change Role Notification'
     tags:
       - user
@@ -29,35 +29,51 @@ third_party_settings:
       TextAnnotation_1a2a2a2:
         text: 'Store the updated user entity into a token to be used for later steps in this model.'
         assigned_to:
-          Association_091dqu6: eca_token_set_value_01noukj
+          Association_0944uvz: eca_token_set_value_01noukj
       TextAnnotation_1a3a3a3:
         text: "Filter out the 'authenticated' role from the original roles list, keeping only the meaningful roles that were changed."
         assigned_to:
-          Association_08u3fg3: eca_tamper__find_replace_regex_2_1
+          Association_11p8hn2: eca_tamper__find_replace_regex_2
       TextAnnotation_1a4a4a4:
         text: "Filter out the 'authenticated' role from the new roles list, keeping only the meaningful roles that were added."
         assigned_to:
-          Association_1ke8bx5: eca_tamper__find_replace_regex_1_1
+          Association_1t1uz60: eca_tamper__find_replace_regex_1
       TextAnnotation_1sdif9m:
         text: 'We require the service account to create email entities to be sent.'
         assigned_to:
-          Association_1x72fyz: eca_switch_service_account_1ixry7l
+          Association_1b1jses: eca_switch_service_account_1ixry7l
       TextAnnotation_1a5a5a5:
         text: 'Query the list of administrator users who will receive the role change notification.'
         assigned_to:
-          Association_08v9jqc: eca_views_query_1fpilr2
+          Association_0d5tqjo: eca_views_query_1fpilr2
       TextAnnotation_1a6a6a6:
         text: 'Pop the first administrator user from the list to send them the notification email.'
         assigned_to:
-          Association_1pdcz4c: eca_list_remove_1n0pvsd
+          Association_0vbwd1k: eca_list_remove_1n0pvsd
       TextAnnotation_1a7a7a7:
         text: 'Create the role change notification email entity with the user and role information.'
         assigned_to:
-          Association_12q6kh1: eca_new_entity_1lwoqgx
+          Association_1d2k3c9: eca_new_entity_1lwoqgx
       TextAnnotation_1a8a8a8:
         text: 'Queue the role change notification email to be sent.'
         assigned_to:
-          Association_1694s16: easy_email_send_1ida814
+          Association_152mae4: easy_email_send_1ida814
+      TextAnnotation_1a9a9a9:
+        text: 'Check if roles changed'
+        assigned_to:
+          Association_0cd2jy1: 'content_entity__update_1,eca_token_set_value_01noukj'
+      TextAnnotation_1b1b1b1:
+        text: 'Verify admins available'
+        assigned_to:
+          Association_1rbelwl: 'Gateway_1v6rp7s,eca_list_remove_1n0pvsd'
+      TextAnnotation_1b2b2b2:
+        text: 'Only for admin roles (NOT editor/authenticated)'
+        assigned_to:
+          Association_1xoskkx: 'Gateway_0mmeeyj,eca_views_query_1fpilr2'
+      TextAnnotation_1b3b3b3:
+        text: 'Admin roles: content_admin, seo_admin, site_admin, administrator'
+        assigned_to:
+          Association_1i1rg9h: eca_token_set_value_0ky9v6s
     colors:
       TextAnnotation_1a2a2a2:
         fill: '#ffe0b2'
@@ -83,6 +99,18 @@ third_party_settings:
       TextAnnotation_1a8a8a8:
         fill: '#ffe0b2'
         stroke: '#6b3c00'
+      TextAnnotation_1a9a9a9:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1b1b1b1:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1b2b2b2:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
+      TextAnnotation_1b3b3b3:
+        fill: '#ffe0b2'
+        stroke: '#6b3c00'
 id: admin_change_role_notification
 weight: -9
 events:
@@ -98,14 +126,14 @@ events:
 conditions:
   eca_entity_field_value_changed_1ismzxl:
     plugin: eca_entity_field_value_changed
-    label: 'User roles changed'
+    label: 'User roles changed?'
     configuration:
       negate: false
       field_name: roles
       entity: user
   eca_count_0qprpab:
     plugin: eca_count
-    label: '> 0'
+    label: 'Has admin recipients?'
     configuration:
       negate: false
       left: admin_users
@@ -113,6 +141,14 @@ conditions:
       operator: greaterthan
       type: _eca_token
       case: false
+  eca_list_contains_18iebuj:
+    plugin: eca_list_contains
+    label: 'Is admin role? (not editor)'
+    configuration:
+      negate: true
+      list_token: user_new_roles
+      method: _eca_token
+      value: editor
 gateways:
   Gateway_1v6rp7s:
     type: 0
@@ -120,9 +156,15 @@ gateways:
       -
         id: eca_list_remove_1n0pvsd
         condition: eca_count_0qprpab
+  Gateway_0mmeeyj:
+    type: 0
+    successors:
+      -
+        id: eca_views_query_1fpilr2
+        condition: eca_list_contains_18iebuj
 actions:
   eca_views_query_1fpilr2:
-    label: 'Admin users'
+    label: 'Get admin users to notify'
     plugin: eca_views_query
     configuration:
       token_name: admin_users
@@ -134,7 +176,7 @@ actions:
         id: Gateway_1v6rp7s
         condition: ''
   eca_list_remove_1n0pvsd:
-    label: 'Pop first admin user item from the list'
+    label: 'Pop first admin from list'
     plugin: eca_list_remove
     configuration:
       value: ''
@@ -147,7 +189,7 @@ actions:
         id: eca_new_entity_1lwoqgx
         condition: ''
   eca_token_set_value_01noukj:
-    label: 'Save Updated user'
+    label: 'Store updated user'
     plugin: eca_token_set_value
     configuration:
       token_name: updated_user
@@ -156,10 +198,10 @@ actions:
       validate_yaml: false
     successors:
       -
-        id: eca_tamper__find_replace_regex_2_1
+        id: eca_tamper__find_replace_regex_2
         condition: ''
   eca_new_entity_1lwoqgx:
-    label: 'Create role changed notification email'
+    label: 'Create notification email'
     plugin: eca_new_entity
     configuration:
       token_name: role_changed_notification
@@ -173,7 +215,7 @@ actions:
         id: easy_email_send_1ida814
         condition: ''
   easy_email_send_1ida814:
-    label: 'Send Easy Email template for role changed'
+    label: 'Send notification email'
     plugin: easy_email_send
     configuration:
       object: role_changed_notification
@@ -181,8 +223,8 @@ actions:
       -
         id: Gateway_1v6rp7s
         condition: ''
-  eca_tamper__find_replace_regex_2_1:
-    label: 'Filter user original roles'
+  eca_tamper__find_replace_regex_2:
+    label: 'Filter original roles'
     plugin: 'eca_tamper:find_replace_regex'
     original_id: find_replace_regex
     configuration:
@@ -193,14 +235,14 @@ actions:
       eca_token_name: user_original_roles
     successors:
       -
-        id: eca_tamper__find_replace_regex_1_1
+        id: eca_tamper__find_replace_regex_1
         condition: ''
-  eca_tamper__find_replace_regex_1_1:
-    label: 'Filter user new roles'
+  eca_tamper__find_replace_regex_1:
+    label: 'Filter new roles & trim'
     plugin: 'eca_tamper:find_replace_regex'
     original_id: find_replace_regex
     configuration:
-      find: '/authenticated,/'
+      find: '/(authenticated,\s*)/'
       replace: ''
       limit: null
       eca_data: '[user:roles]'
@@ -210,10 +252,22 @@ actions:
         id: eca_switch_service_account_1ixry7l
         condition: ''
   eca_switch_service_account_1ixry7l:
-    label: 'Switch to service user'
+    label: 'Switch to service account'
     plugin: eca_switch_service_account
     configuration: {  }
     successors:
       -
-        id: eca_views_query_1fpilr2
+        id: eca_token_set_value_0ky9v6s
+        condition: ''
+  eca_token_set_value_0ky9v6s:
+    label: 'Set admin roles list'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: admin_user_roles
+      token_value: 'content_admin,seo_admin,site_admin,administrator'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Gateway_0mmeeyj
         condition: ''

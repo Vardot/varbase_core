@@ -24,7 +24,7 @@ data: |
         </bpmn2:extensionElements>
         <bpmn2:outgoing>eca_entity_field_value_changed_1ismzxl</bpmn2:outgoing>
       </bpmn2:startEvent>
-      <bpmn2:task id="eca_views_query_1fpilr2" name="Admin users" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+      <bpmn2:task id="eca_views_query_1fpilr2" name="Get admin users to notify" camunda:modelerTemplate="org.drupal.action.eca_views_query">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_views_query" />
@@ -42,10 +42,10 @@ data: |
             <camunda:string></camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1karq6q</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_1xrbsa5</bpmn2:outgoing>
+        <bpmn2:incoming>eca_list_contains_18iebuj</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0m8pfis</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_list_remove_1n0pvsd" name="Pop first admin user item from the list" camunda:modelerTemplate="org.drupal.action.eca_list_remove">
+      <bpmn2:task id="eca_list_remove_1n0pvsd" name="Pop first admin from list" camunda:modelerTemplate="org.drupal.action.eca_list_remove">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_list_remove" />
@@ -67,9 +67,9 @@ data: |
           </camunda:field>
         </bpmn2:extensionElements>
         <bpmn2:incoming>eca_count_0qprpab</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_13egqwk</bpmn2:outgoing>
+        <bpmn2:outgoing>Flow_0ebxw65</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_token_set_value_01noukj" name="Save Updated user" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+      <bpmn2:task id="eca_token_set_value_01noukj" name="Store updated user" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_token_set_value" />
@@ -88,9 +88,9 @@ data: |
           </camunda:field>
         </bpmn2:extensionElements>
         <bpmn2:incoming>eca_entity_field_value_changed_1ismzxl</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_1n5nmr5</bpmn2:outgoing>
+        <bpmn2:outgoing>Flow_1ro3rn9</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_new_entity_1lwoqgx" name="Create role changed notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
+      <bpmn2:task id="eca_new_entity_1lwoqgx" name="Create notification email" camunda:modelerTemplate="org.drupal.action.eca_new_entity">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_new_entity" />
@@ -114,10 +114,10 @@ data: |
             <camunda:string>1</camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_13egqwk</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_15vrnw8</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0ebxw65</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0r6vi2b</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="easy_email_send_1ida814" name="Send Easy Email template for role changed" camunda:modelerTemplate="org.drupal.action.easy_email_send">
+      <bpmn2:task id="easy_email_send_1ida814" name="Send notification email" camunda:modelerTemplate="org.drupal.action.easy_email_send">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="easy_email_send" />
@@ -126,10 +126,10 @@ data: |
             <camunda:string>role_changed_notification</camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_15vrnw8</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0xrmg1b</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0r6vi2b</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_05cwedi</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_tamper__find_replace_regex_2_1" name="Filter user original roles" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
+      <bpmn2:task id="eca_tamper__find_replace_regex_2" name="Filter original roles" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_tamper:find_replace_regex" />
@@ -150,16 +150,16 @@ data: |
             <camunda:string>user_original_roles</camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_1n5nmr5</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0smr016</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_1ro3rn9</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0m6pws4</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_tamper__find_replace_regex_1_1" name="Filter user new roles" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
+      <bpmn2:task id="eca_tamper__find_replace_regex_1" name="Filter new roles &#38; trim" camunda:modelerTemplate="org.drupal.action.eca_tamper:find_replace_regex">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_tamper:find_replace_regex" />
           </camunda:properties>
           <camunda:field name="find">
-            <camunda:string>/authenticated,/</camunda:string>
+            <camunda:string>/(authenticated,\s*)/</camunda:string>
           </camunda:field>
           <camunda:field name="replace">
             <camunda:string></camunda:string>
@@ -174,24 +174,49 @@ data: |
             <camunda:string>user_new_roles</camunda:string>
           </camunda:field>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_0smr016</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_0cnghgp</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0m6pws4</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0jq6e4d</bpmn2:outgoing>
       </bpmn2:task>
-      <bpmn2:task id="eca_switch_service_account_1ixry7l" name="Switch to service user" camunda:modelerTemplate="org.drupal.action.eca_switch_service_account">
+      <bpmn2:task id="eca_switch_service_account_1ixry7l" name="Switch to service account" camunda:modelerTemplate="org.drupal.action.eca_switch_service_account">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_switch_service_account" />
           </camunda:properties>
         </bpmn2:extensionElements>
-        <bpmn2:incoming>Flow_0cnghgp</bpmn2:incoming>
-        <bpmn2:outgoing>Flow_1karq6q</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_0jq6e4d</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_19mbtyi</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="eca_token_set_value_0ky9v6s" name="Set admin roles list" camunda:modelerTemplate="org.drupal.action.eca_token_set_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_set_value" />
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>admin_user_roles</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_value">
+            <camunda:string>content_admin,seo_admin,site_admin,administrator</camunda:string>
+          </camunda:field>
+          <camunda:field name="use_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="validate_yaml">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_19mbtyi</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_10vqtcm</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:exclusiveGateway id="Gateway_1v6rp7s">
-        <bpmn2:incoming>Flow_1xrbsa5</bpmn2:incoming>
-        <bpmn2:incoming>Flow_0xrmg1b</bpmn2:incoming>
+        <bpmn2:incoming>Flow_0m8pfis</bpmn2:incoming>
+        <bpmn2:incoming>Flow_05cwedi</bpmn2:incoming>
         <bpmn2:outgoing>eca_count_0qprpab</bpmn2:outgoing>
       </bpmn2:exclusiveGateway>
-      <bpmn2:sequenceFlow id="eca_entity_field_value_changed_1ismzxl" name="User roles changed" camunda:modelerTemplate="org.drupal.condition.eca_entity_field_value_changed" sourceRef="content_entity__update_1" targetRef="eca_token_set_value_01noukj">
+      <bpmn2:exclusiveGateway id="Gateway_0mmeeyj">
+        <bpmn2:incoming>Flow_10vqtcm</bpmn2:incoming>
+        <bpmn2:outgoing>eca_list_contains_18iebuj</bpmn2:outgoing>
+      </bpmn2:exclusiveGateway>
+      <bpmn2:sequenceFlow id="eca_entity_field_value_changed_1ismzxl" name="User roles changed?" camunda:modelerTemplate="org.drupal.condition.eca_entity_field_value_changed" sourceRef="content_entity__update_1" targetRef="eca_token_set_value_01noukj">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_entity_field_value_changed" />
@@ -207,15 +232,16 @@ data: |
           </camunda:field>
         </bpmn2:extensionElements>
       </bpmn2:sequenceFlow>
-      <bpmn2:sequenceFlow id="Flow_1xrbsa5" sourceRef="eca_views_query_1fpilr2" targetRef="Gateway_1v6rp7s" />
-      <bpmn2:sequenceFlow id="Flow_13egqwk" sourceRef="eca_list_remove_1n0pvsd" targetRef="eca_new_entity_1lwoqgx" />
-      <bpmn2:sequenceFlow id="Flow_1n5nmr5" sourceRef="eca_token_set_value_01noukj" targetRef="eca_tamper__find_replace_regex_2_1" />
-      <bpmn2:sequenceFlow id="Flow_15vrnw8" sourceRef="eca_new_entity_1lwoqgx" targetRef="easy_email_send_1ida814" />
-      <bpmn2:sequenceFlow id="Flow_0xrmg1b" sourceRef="easy_email_send_1ida814" targetRef="Gateway_1v6rp7s" />
-      <bpmn2:sequenceFlow id="Flow_0smr016" sourceRef="eca_tamper__find_replace_regex_2_1" targetRef="eca_tamper__find_replace_regex_1_1" />
-      <bpmn2:sequenceFlow id="Flow_0cnghgp" sourceRef="eca_tamper__find_replace_regex_1_1" targetRef="eca_switch_service_account_1ixry7l" />
-      <bpmn2:sequenceFlow id="Flow_1karq6q" sourceRef="eca_switch_service_account_1ixry7l" targetRef="eca_views_query_1fpilr2" />
-      <bpmn2:sequenceFlow id="eca_count_0qprpab" name="&#62; 0" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_1v6rp7s" targetRef="eca_list_remove_1n0pvsd">
+      <bpmn2:sequenceFlow id="Flow_0m8pfis" sourceRef="eca_views_query_1fpilr2" targetRef="Gateway_1v6rp7s" />
+      <bpmn2:sequenceFlow id="Flow_0ebxw65" sourceRef="eca_list_remove_1n0pvsd" targetRef="eca_new_entity_1lwoqgx" />
+      <bpmn2:sequenceFlow id="Flow_1ro3rn9" sourceRef="eca_token_set_value_01noukj" targetRef="eca_tamper__find_replace_regex_2" />
+      <bpmn2:sequenceFlow id="Flow_0r6vi2b" sourceRef="eca_new_entity_1lwoqgx" targetRef="easy_email_send_1ida814" />
+      <bpmn2:sequenceFlow id="Flow_05cwedi" sourceRef="easy_email_send_1ida814" targetRef="Gateway_1v6rp7s" />
+      <bpmn2:sequenceFlow id="Flow_0m6pws4" sourceRef="eca_tamper__find_replace_regex_2" targetRef="eca_tamper__find_replace_regex_1" />
+      <bpmn2:sequenceFlow id="Flow_0jq6e4d" sourceRef="eca_tamper__find_replace_regex_1" targetRef="eca_switch_service_account_1ixry7l" />
+      <bpmn2:sequenceFlow id="Flow_19mbtyi" sourceRef="eca_switch_service_account_1ixry7l" targetRef="eca_token_set_value_0ky9v6s" />
+      <bpmn2:sequenceFlow id="Flow_10vqtcm" sourceRef="eca_token_set_value_0ky9v6s" targetRef="Gateway_0mmeeyj" />
+      <bpmn2:sequenceFlow id="eca_count_0qprpab" name="Has admin recipients?" camunda:modelerTemplate="org.drupal.condition.eca_count" sourceRef="Gateway_1v6rp7s" targetRef="eca_list_remove_1n0pvsd">
         <bpmn2:extensionElements>
           <camunda:properties>
             <camunda:property name="pluginid" value="eca_count" />
@@ -240,38 +266,73 @@ data: |
           </camunda:field>
         </bpmn2:extensionElements>
       </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="eca_list_contains_18iebuj" name="Is admin role? (not editor)" camunda:modelerTemplate="org.drupal.condition.eca_list_contains" sourceRef="Gateway_0mmeeyj" targetRef="eca_views_query_1fpilr2">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_list_contains" />
+          </camunda:properties>
+          <camunda:field name="negate">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="list_token">
+            <camunda:string>user_new_roles</camunda:string>
+          </camunda:field>
+          <camunda:field name="method">
+            <camunda:string>_eca_token</camunda:string>
+          </camunda:field>
+          <camunda:field name="value">
+            <camunda:string>editor</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
       <bpmn2:textAnnotation id="TextAnnotation_1a2a2a2">
         <bpmn2:text>Store the updated user entity into a token to be used for later steps in this model.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_091dqu6" sourceRef="eca_token_set_value_01noukj" targetRef="TextAnnotation_1a2a2a2" />
+      <bpmn2:association id="Association_0944uvz" sourceRef="eca_token_set_value_01noukj" targetRef="TextAnnotation_1a2a2a2" />
       <bpmn2:textAnnotation id="TextAnnotation_1a3a3a3">
         <bpmn2:text>Filter out the 'authenticated' role from the original roles list, keeping only the meaningful roles that were changed.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_08u3fg3" sourceRef="eca_tamper__find_replace_regex_2_1" targetRef="TextAnnotation_1a3a3a3" />
+      <bpmn2:association id="Association_11p8hn2" sourceRef="eca_tamper__find_replace_regex_2" targetRef="TextAnnotation_1a3a3a3" />
       <bpmn2:textAnnotation id="TextAnnotation_1a4a4a4">
         <bpmn2:text>Filter out the 'authenticated' role from the new roles list, keeping only the meaningful roles that were added.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_1ke8bx5" sourceRef="eca_tamper__find_replace_regex_1_1" targetRef="TextAnnotation_1a4a4a4" />
+      <bpmn2:association id="Association_1t1uz60" sourceRef="eca_tamper__find_replace_regex_1" targetRef="TextAnnotation_1a4a4a4" />
       <bpmn2:textAnnotation id="TextAnnotation_1sdif9m">
         <bpmn2:text>We require the service account to create email entities to be sent.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_1x72fyz" sourceRef="eca_switch_service_account_1ixry7l" targetRef="TextAnnotation_1sdif9m" />
+      <bpmn2:association id="Association_1b1jses" sourceRef="eca_switch_service_account_1ixry7l" targetRef="TextAnnotation_1sdif9m" />
       <bpmn2:textAnnotation id="TextAnnotation_1a5a5a5">
         <bpmn2:text>Query the list of administrator users who will receive the role change notification.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_08v9jqc" sourceRef="eca_views_query_1fpilr2" targetRef="TextAnnotation_1a5a5a5" />
+      <bpmn2:association id="Association_0d5tqjo" sourceRef="eca_views_query_1fpilr2" targetRef="TextAnnotation_1a5a5a5" />
       <bpmn2:textAnnotation id="TextAnnotation_1a6a6a6">
         <bpmn2:text>Pop the first administrator user from the list to send them the notification email.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_1pdcz4c" sourceRef="eca_list_remove_1n0pvsd" targetRef="TextAnnotation_1a6a6a6" />
+      <bpmn2:association id="Association_0vbwd1k" sourceRef="eca_list_remove_1n0pvsd" targetRef="TextAnnotation_1a6a6a6" />
       <bpmn2:textAnnotation id="TextAnnotation_1a7a7a7">
         <bpmn2:text>Create the role change notification email entity with the user and role information.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_12q6kh1" sourceRef="eca_new_entity_1lwoqgx" targetRef="TextAnnotation_1a7a7a7" />
+      <bpmn2:association id="Association_1d2k3c9" sourceRef="eca_new_entity_1lwoqgx" targetRef="TextAnnotation_1a7a7a7" />
       <bpmn2:textAnnotation id="TextAnnotation_1a8a8a8">
         <bpmn2:text>Queue the role change notification email to be sent.</bpmn2:text>
       </bpmn2:textAnnotation>
-      <bpmn2:association id="Association_1694s16" sourceRef="easy_email_send_1ida814" targetRef="TextAnnotation_1a8a8a8" />
+      <bpmn2:association id="Association_152mae4" sourceRef="easy_email_send_1ida814" targetRef="TextAnnotation_1a8a8a8" />
+      <bpmn2:textAnnotation id="TextAnnotation_1a9a9a9">
+        <bpmn2:text>Check if roles changed</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_0cd2jy1" sourceRef="eca_entity_field_value_changed_1ismzxl" targetRef="TextAnnotation_1a9a9a9" />
+      <bpmn2:textAnnotation id="TextAnnotation_1b1b1b1">
+        <bpmn2:text>Verify admins available</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1rbelwl" sourceRef="eca_count_0qprpab" targetRef="TextAnnotation_1b1b1b1" />
+      <bpmn2:textAnnotation id="TextAnnotation_1b2b2b2">
+        <bpmn2:text>Only for admin roles (NOT editor/authenticated)</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1xoskkx" sourceRef="eca_list_contains_18iebuj" targetRef="TextAnnotation_1b2b2b2" />
+      <bpmn2:textAnnotation id="TextAnnotation_1b3b3b3">
+        <bpmn2:text>Admin roles: content_admin, seo_admin, site_admin, administrator</bpmn2:text>
+      </bpmn2:textAnnotation>
+      <bpmn2:association id="Association_1i1rg9h" sourceRef="eca_token_set_value_0ky9v6s" targetRef="TextAnnotation_1b3b3b3" />
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_admin_change_role_notification">
       <bpmndi:BPMNPlane id="BPMNPlane_admin_change_role_notification" bpmnElement="admin_change_role_notification">
@@ -282,133 +343,181 @@ data: |
           </bpmndi:BPMNLabel>
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_views_query_1fpilr2_di" bpmnElement="eca_views_query_1fpilr2">
-          <dc:Bounds x="775" y="30" width="100" height="80" />
+          <dc:Bounds x="1075" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_list_remove_1n0pvsd_di" bpmnElement="eca_list_remove_1n0pvsd">
-          <dc:Bounds x="1075" y="30" width="100" height="80" />
+          <dc:Bounds x="1375" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_token_set_value_01noukj_di" bpmnElement="eca_token_set_value_01noukj">
           <dc:Bounds x="175" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_new_entity_1lwoqgx_di" bpmnElement="eca_new_entity_1lwoqgx">
-          <dc:Bounds x="1225" y="30" width="100" height="80" />
+          <dc:Bounds x="1525" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="easy_email_send_1ida814_di" bpmnElement="easy_email_send_1ida814">
-          <dc:Bounds x="1375" y="30" width="100" height="80" />
+          <dc:Bounds x="1675" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_2_1_di" bpmnElement="eca_tamper__find_replace_regex_2_1">
+        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_2_di" bpmnElement="eca_tamper__find_replace_regex_2">
           <dc:Bounds x="325" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_1_di" bpmnElement="eca_tamper__find_replace_regex_1_1">
+        <bpmndi:BPMNShape id="eca_tamper__find_replace_regex_1_di" bpmnElement="eca_tamper__find_replace_regex_1">
           <dc:Bounds x="475" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="eca_switch_service_account_1ixry7l_di" bpmnElement="eca_switch_service_account_1ixry7l">
           <dc:Bounds x="625" y="30" width="100" height="80" />
         </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="eca_token_set_value_0ky9v6s_di" bpmnElement="eca_token_set_value_0ky9v6s">
+          <dc:Bounds x="775" y="30" width="100" height="80" />
+        </bpmndi:BPMNShape>
         <bpmndi:BPMNShape id="Gateway_1v6rp7s_di" bpmnElement="Gateway_1v6rp7s" isMarkerVisible="true">
+          <dc:Bounds x="1250" y="45" width="50" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Gateway_0mmeeyj_di" bpmnElement="Gateway_0mmeeyj" isMarkerVisible="true">
           <dc:Bounds x="950" y="45" width="50" height="50" />
         </bpmndi:BPMNShape>
-        <bpmndi:BPMNEdge id="Association_091dqu6_di" bpmnElement="Association_091dqu6">
-          <di:waypoint x="225" y="30" />
-          <di:waypoint x="225" y="-33" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1694s16_di" bpmnElement="Association_1694s16">
-          <di:waypoint x="1425" y="30" />
-          <di:waypoint x="1425" y="-33" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_12q6kh1_di" bpmnElement="Association_12q6kh1">
-          <di:waypoint x="1276" y="30" />
-          <di:waypoint x="1276" y="-18" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1ke8bx5_di" bpmnElement="Association_1ke8bx5">
-          <di:waypoint x="525" y="30" />
-          <di:waypoint x="525" y="-11" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_08u3fg3_di" bpmnElement="Association_08u3fg3">
-          <di:waypoint x="375" y="30" />
-          <di:waypoint x="375" y="-8" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1x72fyz_di" bpmnElement="Association_1x72fyz">
-          <di:waypoint x="674" y="30" />
-          <di:waypoint x="674" y="-26" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_08v9jqc_di" bpmnElement="Association_08v9jqc">
-          <di:waypoint x="827" y="30" />
-          <di:waypoint x="827" y="-26" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Association_1pdcz4c_di" bpmnElement="Association_1pdcz4c">
-          <di:waypoint x="1118" y="30" />
-          <di:waypoint x="1117" y="-7" />
-        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNShape id="TextAnnotation_1a2a2a2_di" bpmnElement="TextAnnotation_1a2a2a2" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="175" y="-105" width="120" height="90" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a3a3a3_di" bpmnElement="TextAnnotation_1a3a3a3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="325" y="-120" width="135" height="105" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a4a4a4_di" bpmnElement="TextAnnotation_1a4a4a4" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="475" y="-125" width="130" height="110" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1sdif9m_di" bpmnElement="TextAnnotation_1sdif9m" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="625" y="-115" width="115" height="85" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a5a5a5_di" bpmnElement="TextAnnotation_1a5a5a5" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1075" y="-105" width="135" height="90" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a6a6a6_di" bpmnElement="TextAnnotation_1a6a6a6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1375" y="-105" width="125" height="90" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a7a7a7_di" bpmnElement="TextAnnotation_1a7a7a7" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1525" y="-105" width="130" height="90" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a8a8a8_di" bpmnElement="TextAnnotation_1a8a8a8" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1675" y="-103" width="125" height="65" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1a9a9a9_di" bpmnElement="TextAnnotation_1a9a9a9" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="84" y="115" width="100" height="50" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1b1b1b1_di" bpmnElement="TextAnnotation_1b1b1b1" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="1288" y="-40" width="100" height="45" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1b2b2b2_di" bpmnElement="TextAnnotation_1b2b2b2" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="900" y="130" width="170" height="60" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="TextAnnotation_1b3b3b3_di" bpmnElement="TextAnnotation_1b3b3b3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+          <dc:Bounds x="775" y="-120" width="125" height="90" />
+        </bpmndi:BPMNShape>
         <bpmndi:BPMNEdge id="eca_entity_field_value_changed_1ismzxl_di" bpmnElement="eca_entity_field_value_changed_1ismzxl">
           <di:waypoint x="93" y="70" />
           <di:waypoint x="175" y="70" />
           <bpmndi:BPMNLabel>
-            <dc:Bounds x="109" y="26" width="51" height="27" />
+            <dc:Bounds x="108" y="16" width="51" height="27" />
           </bpmndi:BPMNLabel>
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_1xrbsa5_di" bpmnElement="Flow_1xrbsa5">
-          <di:waypoint x="875" y="70" />
-          <di:waypoint x="950" y="70" />
-        </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_13egqwk_di" bpmnElement="Flow_13egqwk">
+        <bpmndi:BPMNEdge id="Flow_0m8pfis_di" bpmnElement="Flow_0m8pfis">
           <di:waypoint x="1175" y="70" />
-          <di:waypoint x="1225" y="70" />
+          <di:waypoint x="1250" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_1n5nmr5_di" bpmnElement="Flow_1n5nmr5">
+        <bpmndi:BPMNEdge id="Flow_0ebxw65_di" bpmnElement="Flow_0ebxw65">
+          <di:waypoint x="1475" y="70" />
+          <di:waypoint x="1525" y="70" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1ro3rn9_di" bpmnElement="Flow_1ro3rn9">
           <di:waypoint x="275" y="70" />
           <di:waypoint x="325" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_15vrnw8_di" bpmnElement="Flow_15vrnw8">
-          <di:waypoint x="1325" y="70" />
-          <di:waypoint x="1375" y="70" />
+        <bpmndi:BPMNEdge id="Flow_0r6vi2b_di" bpmnElement="Flow_0r6vi2b">
+          <di:waypoint x="1625" y="70" />
+          <di:waypoint x="1675" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0xrmg1b_di" bpmnElement="Flow_0xrmg1b">
-          <di:waypoint x="1425" y="110" />
-          <di:waypoint x="1425" y="140" />
-          <di:waypoint x="975" y="140" />
-          <di:waypoint x="975" y="95" />
+        <bpmndi:BPMNEdge id="Flow_05cwedi_di" bpmnElement="Flow_05cwedi">
+          <di:waypoint x="1725" y="110" />
+          <di:waypoint x="1725" y="140" />
+          <di:waypoint x="1275" y="140" />
+          <di:waypoint x="1275" y="95" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0smr016_di" bpmnElement="Flow_0smr016">
+        <bpmndi:BPMNEdge id="Flow_0m6pws4_di" bpmnElement="Flow_0m6pws4">
           <di:waypoint x="425" y="70" />
           <di:waypoint x="475" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_0cnghgp_di" bpmnElement="Flow_0cnghgp">
+        <bpmndi:BPMNEdge id="Flow_0jq6e4d_di" bpmnElement="Flow_0jq6e4d">
           <di:waypoint x="575" y="70" />
           <di:waypoint x="625" y="70" />
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNEdge id="Flow_1karq6q_di" bpmnElement="Flow_1karq6q">
+        <bpmndi:BPMNEdge id="Flow_19mbtyi_di" bpmnElement="Flow_19mbtyi">
           <di:waypoint x="725" y="70" />
           <di:waypoint x="775" y="70" />
         </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_10vqtcm_di" bpmnElement="Flow_10vqtcm">
+          <di:waypoint x="875" y="70" />
+          <di:waypoint x="950" y="70" />
+        </bpmndi:BPMNEdge>
         <bpmndi:BPMNEdge id="eca_count_0qprpab_di" bpmnElement="eca_count_0qprpab">
+          <di:waypoint x="1300" y="70" />
+          <di:waypoint x="1375" y="70" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="1303" y="81" width="54" height="27" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="eca_list_contains_18iebuj_di" bpmnElement="eca_list_contains_18iebuj">
           <di:waypoint x="1000" y="70" />
           <di:waypoint x="1075" y="70" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="995" y="16" width="70" height="27" />
+          </bpmndi:BPMNLabel>
         </bpmndi:BPMNEdge>
-        <bpmndi:BPMNShape id="TextAnnotation_1a2a2a2_di" bpmnElement="TextAnnotation_1a2a2a2" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="175" y="-108" width="135" height="75" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a8a8a8_di" bpmnElement="TextAnnotation_1a8a8a8" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1375" y="-91" width="115" height="58" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a7a7a7_di" bpmnElement="TextAnnotation_1a7a7a7" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1200" y="-100" width="131" height="82" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a4a4a4_di" bpmnElement="TextAnnotation_1a4a4a4" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="475" y="-106" width="135" height="95" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a3a3a3_di" bpmnElement="TextAnnotation_1a3a3a3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="325" y="-108" width="135" height="100" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1sdif9m_di" bpmnElement="TextAnnotation_1sdif9m" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="625" y="-101" width="130" height="75" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a5a5a5_di" bpmnElement="TextAnnotation_1a5a5a5" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="775" y="-103" width="145" height="77" />
-        </bpmndi:BPMNShape>
-        <bpmndi:BPMNShape id="TextAnnotation_1a6a6a6_di" bpmnElement="TextAnnotation_1a6a6a6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-          <dc:Bounds x="1069" y="-100" width="115" height="93" />
-        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Association_0944uvz_di" bpmnElement="Association_0944uvz">
+          <di:waypoint x="225" y="30" />
+          <di:waypoint x="225" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_11p8hn2_di" bpmnElement="Association_11p8hn2">
+          <di:waypoint x="375" y="30" />
+          <di:waypoint x="375" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1t1uz60_di" bpmnElement="Association_1t1uz60">
+          <di:waypoint x="525" y="30" />
+          <di:waypoint x="525" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1b1jses_di" bpmnElement="Association_1b1jses">
+          <di:waypoint x="675" y="30" />
+          <di:waypoint x="675" y="-30" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0d5tqjo_di" bpmnElement="Association_0d5tqjo">
+          <di:waypoint x="1125" y="30" />
+          <di:waypoint x="1125" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0vbwd1k_di" bpmnElement="Association_0vbwd1k">
+          <di:waypoint x="1425" y="30" />
+          <di:waypoint x="1425" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1d2k3c9_di" bpmnElement="Association_1d2k3c9">
+          <di:waypoint x="1575" y="30" />
+          <di:waypoint x="1575" y="-15" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_152mae4_di" bpmnElement="Association_152mae4">
+          <di:waypoint x="1725" y="30" />
+          <di:waypoint x="1725" y="-38" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_0cd2jy1_di" bpmnElement="Association_0cd2jy1">
+          <di:waypoint x="134" y="70" />
+          <di:waypoint x="134" y="115" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1rbelwl_di" bpmnElement="Association_1rbelwl">
+          <di:waypoint x="1337.5" y="70" />
+          <di:waypoint x="1338" y="5" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1xoskkx_di" bpmnElement="Association_1xoskkx">
+          <di:waypoint x="1020" y="70" />
+          <di:waypoint x="1020" y="130" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Association_1i1rg9h_di" bpmnElement="Association_1i1rg9h">
+          <di:waypoint x="825" y="30" />
+          <di:waypoint x="825" y="-30" />
+        </bpmndi:BPMNEdge>
       </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
   </bpmn2:definitions>
