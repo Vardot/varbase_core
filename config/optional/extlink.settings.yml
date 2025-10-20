@@ -1,11 +1,38 @@
-extlink_include: ""
-extlink_exclude: ""
-extlink_alert_text: ""
-extlink_alert: false
+extlink_use_external_js_file: false
+extlink_exclude_admin_routes: true
 extlink_target: true
+extlink_target_no_override: true
+extlink_target_display_default_title: false
+extlink_target_default_title_text: '(opens in a new window)'
+extlink_title_no_override: false
+extlink_nofollow: true
+extlink_noreferrer: false
+extlink_follow_no_override: true
 extlink_subdomains: true
-extlink_mailto_class: "0"
+extlink_alert: false
+extlink_alert_text: ''
+extlink_hide_icons: false
+extlink_additional_link_classes: ''
+extlink_additional_mailto_classes: ''
+extlink_additional_tel_classes: ''
+extlink_exclude: ''
+extlink_include: ''
+extlink_exclude_noreferrer: ''
+extlink_class: '0'
+extlink_label: ''
 extlink_img_class: false
-extlink_class: "0"
-extlink_css_exclude: ""
-extlink_css_explicit: ""
+extlink_css_exclude: ''
+extlink_css_include: ''
+extlink_css_explicit: ''
+extlink_mailto_class: '0'
+extlink_mailto_label: ''
+extlink_tel_class: '0'
+extlink_tel_label: ''
+extlink_use_font_awesome: false
+extlink_font_awesome_classes:
+  links: 'fa fa-external-link'
+  mailto: 'fa fa-envelope-o'
+  tel: 'fa fa-phone'
+extlink_icon_placement: before
+extlink_prevent_orphan: false
+allowed_domains: {  }

@@ -24,6 +24,6 @@ default:
   content_translation_created:
     - value: 1594907136
   body:
-    - value: 'Powered by <a href="https://www.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links">Vardot</a>. Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links">get a quote</a> for enterprise support and fully functional websites.'
+    - value: 'Powered by <a href="https://www.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links" target="_self">Vardot</a>. Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links" target=\"_self\">get a quote</a> for enterprise support and fully functional websites.'
       format: code_html
       summary: ""
