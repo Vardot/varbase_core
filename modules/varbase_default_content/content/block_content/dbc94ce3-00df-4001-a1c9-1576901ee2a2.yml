@@ -42,12 +42,12 @@ default:
       summary: ''
   field_buttons:
     -
-      uri: 'https://docs.varbase.vardot.com/v/10.0.x/overview/about-varbase'
+      uri: 'https://docs.varbase.vardot.com/v/10.1.x/overview/about-varbase'
       title: 'Learn More About Varbase'
       options:
         color: btn-primary
         size: btn-lg
         outline: 0
-        target: 1
+        target: 0
         block_level: 0
         disabled: 0
