@@ -85,7 +85,7 @@ elements: |-
   agreement_text:
     '#type': processed_text
     '#display_on': both
-    '#text': '<p>By submitting this form you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>'
+    '#text': '<p>By submitting this form you agree to our <a href="#" target="_self">Terms of Service</a> and <a href="#" target="_self">Privacy Policy</a>.</p>'
     '#format': full_html
   actions:
     '#type': webform_actions
