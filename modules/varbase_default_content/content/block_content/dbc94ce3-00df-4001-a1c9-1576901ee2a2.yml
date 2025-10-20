@@ -48,6 +48,6 @@ default:
         color: btn-primary
         size: btn-lg
         outline: 0
-        target: 1
+        target: 0
         block_level: 0
         disabled: 0
