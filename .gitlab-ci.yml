@@ -16,8 +16,9 @@ composer:
     - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true
     - composer config --no-plugins allow-plugins.phpstan/extension-installer true
     - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true
     - composer require --no-update cweagans/composer-patches:~1
-    - composer require --no-update drupal/core:~11
+    - composer require --no-update drupal/core:~11.2.0
     - composer require --no-update vardot/varbase-replaces:~10.1.0
     - composer install --no-interaction
   artifacts:
