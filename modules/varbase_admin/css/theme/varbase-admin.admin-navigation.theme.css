@@ -5,3 +5,24 @@ body .toolbar-block__list {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
+@media (min-width: 64rem) {
+  body.user-logged-in:has(.admin-toolbar)
+    .dialog-off-canvas-main-canvas
+    .bg-edge2edge {
+    inline-size: calc(
+      100vw - var(--drupal-displace-offset-left, 0px)
+    ) !important;
+    position: relative !important;
+    inset-inline-start: 50% !important;
+    margin-inline-start: calc(
+      (100vw - var(--drupal-displace-offset-left, 0px)) / -2
+    ) !important;
+    margin-inline-end: calc(
+      (100vw - var(--drupal-displace-offset-left, 0px)) / -2
+    ) !important;
+    contain: layout style paint;
+  }
+}
+body:has(.admin-toolbar) {
+  overflow-inline: hidden !important;
+}

@@ -54,6 +54,7 @@
     "tabbable",
     "loadjs",
     "nightwatch",
+    "noreferrer",
     "jquery",
     "jsdom",
     "mkdirp",

@@ -8,3 +8,40 @@ body {
     padding-right: 0 !important;
   }
 }
+
+// Fix edge-to-edge sections for logged-in users with Navigation module
+// The Navigation module applies margin-inline-start to the main canvas equal to the toolbar width
+// Edge-to-edge sections should span the full available canvas width (viewport minus toolbar)
+// Use high specificity selector to override theme CSS
+// Only apply when Navigation toolbar exists to avoid affecting other pages
+// Using CSS3 logical properties for better RTL support
+@media (min-width: 64rem) {
+  body.user-logged-in:has(.admin-toolbar) .dialog-off-canvas-main-canvas .bg-edge2edge {
+    // Width should be available canvas width (viewport - toolbar displacement)
+    // Using inline-size for logical property (RTL-aware width)
+    inline-size: calc(100vw - var(--drupal-displace-offset-left, 0px)) !important;
+
+    // Position using the standard edge-to-edge technique
+    position: relative !important;
+
+    // Center the element within its parent container (which is already offset by the toolbar)
+    // Using inset-inline-start for logical property (becomes 'right' in RTL)
+    inset-inline-start: 50% !important;
+
+    // Pull back to align with canvas edges
+    // The canvas starts at toolbar width, so we adjust the negative margin
+    // Using logical properties for RTL support (auto-flip in RTL)
+    margin-inline-start: calc((100vw - var(--drupal-displace-offset-left, 0px)) / -2) !important;
+    margin-inline-end: calc((100vw - var(--drupal-displace-offset-left, 0px)) / -2) !important;
+
+    // Use modern CSS containment for better performance
+    contain: layout style paint;
+  }
+}
+
+// Prevent horizontal scroll when toolbar is expanded
+// Only apply when Navigation toolbar exists
+// Using logical property for overflow (becomes overflow-y in vertical writing modes)
+body:has(.admin-toolbar) {
+  overflow-inline: hidden !important;
+}
