@@ -3,7 +3,6 @@ description: A recipe to manage default installed modules, configs and permissio
 type: install
 install:
   - webform
-  - webform_bootstrap
   - webform_templates
   - webform_ui
   - taxonomy
@@ -13,7 +12,6 @@ install:
 config:
   import:
     webform: '*'
-    webform_bootstrap: '*'
     webform_templates: '*'
     webform_ui: '*'
     webform_views: '*'
