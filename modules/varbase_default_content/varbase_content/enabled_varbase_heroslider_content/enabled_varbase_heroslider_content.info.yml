@@ -3,5 +3,5 @@ description: Varbase default content when Varbase Heroslider module is enabled
 type: module
 hidden: TRUE
 package: Varbase
-core_version_requirement: ~11.2.0
+core_version_requirement: ~11.3.0
 dependencies: {  }
