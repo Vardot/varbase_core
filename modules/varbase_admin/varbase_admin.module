@@ -87,6 +87,11 @@ function varbase_admin_library_info_alter(&$libraries, $extension) {
       $libraries['gin']['dependencies'][] = 'varbase_admin/admin-rtl';
     }
   }
+
+  if ($extension === 'navigation' && isset($libraries['admin-reset-styles'])) {
+    unset($libraries['admin-reset-styles']['css']['base']['css/base/admin-reset-styles.css']);
+    $libraries['admin-reset-styles']['css']['base']['/' . \Drupal::service('extension.list.theme')->getPath('gin') . '/styles/admin-reset-styles.css'] = [];
+  }
 }
 
 /**
@@ -218,3 +223,4 @@ function varbase_admin_top_bar_item_alter(&$definitions) {
     $definitions['responsive_icons']['class'] = 'Drupal\varbase_admin\Plugin\TopBarItem\ConditionalResponsiveIcons';
   }
 }
+
