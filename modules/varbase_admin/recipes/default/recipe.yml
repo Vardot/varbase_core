@@ -26,6 +26,7 @@ install:
   - navigation
   - navigation_extra_tools
   - responsive_preview_navigation
+  - gin_toolbar
   - gin_login
   - gin_everywhere
   - gin_type_tray
