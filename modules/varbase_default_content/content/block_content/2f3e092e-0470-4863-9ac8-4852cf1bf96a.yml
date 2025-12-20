@@ -1,34 +1,26 @@
 _meta:
-  version: '1.0'
+  version: "1.0"
   entity_type: block_content
   uuid: 2f3e092e-0470-4863-9ac8-4852cf1bf96a
   bundle: basic
   default_langcode: en
 default:
-  revision_user:
-    -
-      target_id: 1
   revision_log:
-    -
-      value: 'Created new Rich text'
+    - value: "Created new Basic block"
   status:
-    -
-      value: true
+    - value: true
+  info:
+    - value: "Powered by Varbase"
   reusable:
-    -
-      value: true
+    - value: true
   revision_translation_affected:
-    -
-      value: true
+    - value: true
   content_translation_source:
-    -
-      value: und
+    - value: und
   content_translation_outdated:
-    -
-      value: false
+    - value: false
   content_translation_uid:
-    -
-      target_id: 1
+    - target_id: 1
   content_translation_created:
     -
       value: 1715589416
@@ -36,4 +28,4 @@ default:
     -
       value: '<div class="d-flex justify-content-end small text-end"><p class="fw-bold">Powered by <a href="https://www.vardot.com/?utm_source=varbase&amp;utm_campaign=varbase%20default%20links" target="_self" rel="noopener">Vardot</a>.</p></div>'
       format: code_html
-      summary: ''
+      summary: ""
