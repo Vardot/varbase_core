@@ -2,7 +2,7 @@ _meta:
   version: '1.0'
   entity_type: block_content
   uuid: 7cbc6f8a-b200-46a0-bb19-e1c72fc12c1f
-  bundle: varbase_rich_text_block
+  bundle: basic
   default_langcode: en
 default:
   revision_user:
@@ -32,5 +32,5 @@ default:
   body:
     -
       value: '<p><img class="footer-logo-image" src="themes/contrib/vartheme_bs5/logo-white.svg"></p><p class="mt-5">Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&amp;utm_campaign=varbase%20default%20links" target="_self">get a quote</a> for enterprise support and fully functional websites.</p>'
-      format: full_html
+      format: code_html
       summary: ''
