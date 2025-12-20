@@ -22,7 +22,11 @@ function varbase_core_install() {
   ModuleInstallerFactory::installList('varbase_core');
 
   // Install optional configs.
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^block_content.type.*\\.(yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^field.storage.*\\.(yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^field.field.*\\.(yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^core.entity_form_display.*\\.(yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^core.entity_view_display.*\\.(yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_core', '/^.*(settings.yml)$/i');
 
   // --------------------------------------------------------------------------.

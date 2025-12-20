@@ -10,7 +10,7 @@ default:
   status:
     - value: true
   info:
-    - value: "Fotter"
+    - value: "Footer"
   reusable:
     - value: true
   revision_translation_affected:
