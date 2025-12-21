@@ -13,7 +13,7 @@ tips:
     label: 'Tour Switch'
     weight: -100
     position: bottom
-    selector: '.js-tour-start-button'
+    selector: .js-tour-start-button
     body: '<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>'
   editing_your_homepage_layout:
     id: editing_your_homepage_layout
@@ -21,7 +21,7 @@ tips:
     label: 'Editing Your Homepage Layout'
     weight: -99
     position: top-end
-    selector: '.toolbar-button--icon--dots'
+    selector: .toolbar-button--icon--dots
     body: '<p>You can change your homepage layout and customize what appears in it from the <b>More Actions</b> navigation top bar button</p>'
   start_configuring_your_site_structure:
     id: start_configuring_your_site_structure
@@ -53,5 +53,5 @@ tips:
     label: 'Your Dashboard'
     weight: -95
     position: left
-    selector: '#navigation-link-varbase-dashboardsdashboard'
+    selector: '#navigation-link--dashboard'
     body: "<p>Your dashboard includes quick links for creating content, viewing content stats, and a Google Analytics overview of your site's traffic once you go live.</p>"
