@@ -58,7 +58,6 @@ install:
   - eca_endpoint
   - eca_tamper
   - eca_helper
-  - big_pipe
   - menu_ui
   - menu_link_content
   - filter
