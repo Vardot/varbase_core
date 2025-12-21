@@ -57,8 +57,10 @@ class VarbaseGeneralSettingsForm extends ConfigFormBase {
     $config = $this->config('varbase_core.general_settings');
     $config->set('welcome_status', $form_state->getValue('welcome_status'));
     $config->set('allow_custom_account_name', $form_state->getValue('allow_custom_account_name'));
-
     $config->save();
+
+    // Full flash and clear cash and rebuilding newly created routes.
+    drupal_flush_all_caches();
 
     parent::submitForm($form, $form_state);
   }

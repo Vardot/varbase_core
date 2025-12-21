@@ -13,7 +13,7 @@ tips:
     label: 'Tour Switch'
     weight: -100
     position: bottom
-    selector: '.js-tour-start-button'
+    selector: '.top-bar__tools .toolbar-button--icon--help'
     body: '<p>Remember! You can always switch on or off the tour from this button. Tours will give you valuable tips and information while navigating through your site.</p>'
   editing_your_homepage_layout:
     id: editing_your_homepage_layout
