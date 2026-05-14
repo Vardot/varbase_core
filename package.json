@@ -42,7 +42,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-yml": "^1.14.0",
     "expose-loader": "^5.0.0",
-    "glob": "^11.0.0",
+    "glob": "^12.0.0",
     "jquery": "~3.7.1",
     "jquery-form": "4.3.x",
     "jquery-ui": "1.13.x",
