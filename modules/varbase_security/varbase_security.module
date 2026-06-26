@@ -5,26 +5,15 @@
  * Contains varbase_security.module.
  */
 
-use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\varbase_security\Hook\VarbaseSecurityHooks;
 
 /**
  * Implements hook_element_info_alter().
  */
+#[LegacyHook]
 function varbase_security_element_info_alter(array &$types) {
-  if (\Drupal::moduleHandler()->moduleExists('password_policy')) {
-    if (isset($types['password_confirm'])) {
-      if (isset($types['password_confirm']['#process'])) {
-        // Hide the password confirm process.
-        if ($key = array_search('password_policy_check_constraints_password_confirm_process', $types['password_confirm']['#process'])) {
-          unset($types['password_confirm']['#process'][$key]);
-        }
-      }
-
-      // Have the custom Varbase security user form process password confirm.
-      $types['password_confirm']['#process'][] = 'varbase_security_user_form_process_password_confirm';
-    }
-  }
+  \Drupal::service(VarbaseSecurityHooks::class)->elementInfoAlter($types);
 }
 
 /**
@@ -32,7 +21,14 @@ function varbase_security_element_info_alter(array &$types) {
  *
  * This #process handler is automatically invoked for 'password_confirm' form
  * elements to add the JavaScript and string translations for dynamic password
- * validation.
+ * validation. It is referenced by name from the element's #process array, so it
+ * stays a procedural function.
+ *
+ * @param array $element
+ *   The password_confirm element.
+ *
+ * @return array
+ *   The processed element.
  */
 function varbase_security_user_form_process_password_confirm(array $element) {
   $config = \Drupal::service('config.factory')
@@ -73,38 +69,7 @@ function varbase_security_user_form_process_password_confirm(array $element) {
 /**
  * Implements hook_modules_installed().
  */
+#[LegacyHook]
 function varbase_security_modules_installed($modules, $is_syncing) {
-  if (in_array('security_review', $modules)) {
-    // The module will be Enabled and Disabled many times
-    // with development and deployments to production sites.
-    // But the need to have the basic extra change for config over
-    // the Security Review default configs.
-    // -------------------------------------------------
-    // Managed configs for the Security Review module.
-    $managed_configs = [
-      'security_review.settings',
-      'security_review.check.security_review-admin_permissions',
-      'security_review.check.security_review-error_reporting',
-      'security_review.check.security_review-executable_php',
-      'security_review.check.security_review-failed_logins',
-      'security_review.check.security_review-field',
-      'security_review.check.security_review-file_perms',
-      'security_review.check.security_review-input_formats',
-      'security_review.check.security_review-private_files',
-      'security_review.check.security_review-query_errors',
-      'security_review.check.security_review-temporary_files',
-      'security_review.check.security_review-trusted_hosts',
-      'security_review.check.security_review-upload_extensions',
-      'security_review.check.security_review-views_access',
-    ];
-
-    // Import managed configs to the site active configs.
-    ModuleInstallerFactory::importConfigsFromList('varbase_security', $managed_configs, 'config/managed/security_review');
-
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-      ->applyUpdates();
-  }
+  \Drupal::service(VarbaseSecurityHooks::class)->modulesInstalled($modules, $is_syncing);
 }

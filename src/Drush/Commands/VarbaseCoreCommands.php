@@ -7,7 +7,11 @@ use Drush\Commands\DrushCommands;
 
 use Vardot\Installer\ModuleInstallerFactory;
 use Vardot\Entity\EntityDefinitionUpdateManager;
+use Drupal\Core\DependencyInjection\ClassResolverInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * A Drush command file for Varbase Core.
@@ -16,9 +20,35 @@ final class VarbaseCoreCommands extends DrushCommands {
 
   /**
    * Constructs a VarbaseCoreCommands object.
+   *
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerFactory
+   *   The logger channel factory.
+   * @param \Drupal\Core\DependencyInjection\ClassResolverInterface $classResolver
+   *   The class resolver.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
+   *   The module handler.
+   * @param \Drupal\Core\File\FileSystemInterface $fileSystem
+   *   The file system.
    */
-  public function __construct() {
+  public function __construct(
+    protected LoggerChannelFactoryInterface $loggerFactory,
+    protected ClassResolverInterface $classResolver,
+    protected ModuleHandlerInterface $moduleHandler,
+    protected FileSystemInterface $fileSystem,
+  ) {
     parent::__construct();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container): self {
+    return new self(
+      $container->get('logger.factory'),
+      $container->get('class_resolver'),
+      $container->get('module_handler'),
+      $container->get('file_system'),
+    );
   }
 
   /**
@@ -38,7 +68,7 @@ final class VarbaseCoreCommands extends DrushCommands {
       $this->logger()->success(dt('Removed non-existent permissions.'));
     }
     catch (\Exception $e) {
-      \Drupal::logger('Varbase')->critical('Error while drush varbase:remove-non-existent-permissions. %code %exception', [
+      $this->loggerFactory->get('Varbase')->critical('Error while drush varbase:remove-non-existent-permissions. %code %exception', [
         '%code' => $e->getCode(),
         '%exception' => $e->getMessage(),
       ]);
@@ -56,7 +86,7 @@ final class VarbaseCoreCommands extends DrushCommands {
     try {
       // Entity updates to clear up any mismatched entity and/or field definitions
       // And Fix changes were detected in the entity type and field definitions.
-      $outoutMessage = \Drupal::classResolver()->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)->applyUpdates();
+      $outoutMessage = $this->classResolver->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)->applyUpdates();
 
       if (isset($outoutMessage) && is_string($outoutMessage)) {
         $this->logger->info($outoutMessage);
@@ -65,7 +95,7 @@ final class VarbaseCoreCommands extends DrushCommands {
       $this->logger()->success(dt('Applied Entity updates for mismatched entity and/or field definitions'));
     }
     catch (\Exception $e) {
-      \Drupal::logger('Varbase')->critical('Error while drush varbase:entity-update. %code %exception', [
+      $this->loggerFactory->get('Varbase')->critical('Error while drush varbase:entity-update. %code %exception', [
         '%code' => $e->getCode(),
         '%exception' => $e->getMessage(),
       ]);
@@ -92,7 +122,7 @@ final class VarbaseCoreCommands extends DrushCommands {
       return;
     }
 
-    \Drupal::moduleHandler()->loadInclude($module, 'install');
+    $this->moduleHandler->loadInclude($module, 'install');
     if (function_exists($update_hook)) {
       call_user_func($update_hook, $force);
     }
@@ -128,7 +158,7 @@ final class VarbaseCoreCommands extends DrushCommands {
             curl_close($ch);
           }
           catch (\Exception $e) {
-            \Drupal::logger('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
+            $this->loggerFactory->get('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
             $this->output()->writeln(dt("Unable to retrieve patch $package_patch_remote_link"));
           }
 
@@ -151,7 +181,7 @@ final class VarbaseCoreCommands extends DrushCommands {
             $issue_id = (string) $issue_id_matches[1] . "--";
           }
           else {
-            \Drupal::logger('Varbase')->info("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list.");
+            $this->loggerFactory->get('Varbase')->info("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list.");
             $this->output()->writeln(dt("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list."));
           }
 
@@ -163,7 +193,7 @@ final class VarbaseCoreCommands extends DrushCommands {
             $mr_id = "mr-" . (string) $mr_id_matches[0];
           }
           else {
-            \Drupal::logger('Varbase')->info("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package.");
+            $this->loggerFactory->get('Varbase')->info("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package.");
             $this->output()->writeln(dt("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package."));
           }
 
@@ -171,7 +201,7 @@ final class VarbaseCoreCommands extends DrushCommands {
 
           $patches_directory = $root_directory . "/patches/";
           /** @var \Drupal\Core\File\FileSystemInterface $file_system */
-          $file_system = \Drupal::service('file_system');
+          $file_system = $this->fileSystem;
           $file_system->prepareDirectory($patches_directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
           try {
@@ -182,13 +212,13 @@ final class VarbaseCoreCommands extends DrushCommands {
             fclose($patch_file);
             $package_patches[$package_patch_title] = "./patches/" . $patch_file_name;
 
-            \Drupal::logger('Varbase')->info("Processed the patch for \"$package_patch_title\" for the $package_name package. <br /> From: $package_patch_remote_link <br /> To: ./patches/$patch_file_name");
+            $this->loggerFactory->get('Varbase')->info("Processed the patch for \"$package_patch_title\" for the $package_name package. <br /> From: $package_patch_remote_link <br /> To: ./patches/$patch_file_name");
             $this->output()->writeln(dt("Processed the patch for \"$package_patch_title\" for the $package_name package"));
             $this->output()->writeln(dt("From: $package_patch_remote_link"));
             $this->output()->writeln(dt("To: ./patches/$patch_file_name"));
           }
           catch (\Exception $e) {
-            \Drupal::logger('Varbase')->info("Unable to save patch file $patch_file_name");
+            $this->loggerFactory->get('Varbase')->info("Unable to save patch file $patch_file_name");
             $this->output()->writeln(dt("Unable to save patch file $patch_file_name"));
           }
 
@@ -202,7 +232,7 @@ final class VarbaseCoreCommands extends DrushCommands {
         file_put_contents($root_directory . '/composer.json', json_encode($root_composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
       }
       catch (\Exception $e) {
-        \Drupal::logger('Varbase')->info("Unable to save composer.json file");
+        $this->loggerFactory->get('Varbase')->info("Unable to save composer.json file");
         $this->output()->writeln(dt("Unable to save composer.json file"));
       }
 
@@ -247,7 +277,7 @@ final class VarbaseCoreCommands extends DrushCommands {
               curl_close($ch);
             }
             catch (\Exception $e) {
-              \Drupal::logger('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
+              $this->loggerFactory->get('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
               $this->output()->writeln(dt("Unable to retrieve patch $package_patch_remote_link"));
             }
 
@@ -270,7 +300,7 @@ final class VarbaseCoreCommands extends DrushCommands {
               $issue_id = (string) $issue_id_matches[1] . "--";
             }
             else {
-              \Drupal::logger('Varbase')->info("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list.");
+              $this->loggerFactory->get('Varbase')->info("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list.");
               $this->output()->writeln(dt("Unable to retrieve the issue ID from \"$package_patch_title\" from $package_name package patches list."));
             }
 
@@ -282,7 +312,7 @@ final class VarbaseCoreCommands extends DrushCommands {
               $mr_id = "mr-" . (string) $mr_id_matches[0];
             }
             else {
-              \Drupal::logger('Varbase')->info("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package.");
+              $this->loggerFactory->get('Varbase')->info("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package.");
               $this->output()->writeln(dt("Unable to retrieve the merge request ID from \"$package_patch_remote_link\" for $package_name package."));
             }
 
@@ -290,7 +320,7 @@ final class VarbaseCoreCommands extends DrushCommands {
 
             $patches_directory = $root_directory . "/patches/";
             /** @var \Drupal\Core\File\FileSystemInterface $file_system */
-            $file_system = \Drupal::service('file_system');
+            $file_system = $this->fileSystem;
             $file_system->prepareDirectory($patches_directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
             try {
@@ -301,13 +331,13 @@ final class VarbaseCoreCommands extends DrushCommands {
               fclose($patch_file);
               $package_patches[$package_patch_title] = "./patches/" . $patch_file_name;
 
-              \Drupal::logger('Varbase')->info("Processed the patch for \"$package_patch_title\" for the $package_name package. <br /> From: $package_patch_remote_link <br /> To: ./patches/$patch_file_name");
+              $this->loggerFactory->get('Varbase')->info("Processed the patch for \"$package_patch_title\" for the $package_name package. <br /> From: $package_patch_remote_link <br /> To: ./patches/$patch_file_name");
               $this->output()->writeln(dt("Processed the patch for \"$package_patch_title\" for the $package_name package"));
               $this->output()->writeln(dt("From: $package_patch_remote_link"));
               $this->output()->writeln(dt("To: ./patches/$patch_file_name"));
             }
             catch (\Exception $e) {
-              \Drupal::logger('Varbase')->info("Unable to save patch file $patch_file_name");
+              $this->loggerFactory->get('Varbase')->info("Unable to save patch file $patch_file_name");
               $this->output()->writeln(dt("Unable to save patch file $patch_file_name"));
             }
 
@@ -321,7 +351,7 @@ final class VarbaseCoreCommands extends DrushCommands {
           file_put_contents($root_directory . '/' . $root_composer['extra']['patches-file'], json_encode($patches_file_composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         }
         catch (\Exception $e) {
-          \Drupal::logger('Varbase')->info("Unable to save " . $root_composer['extra']['patches-file'] . " file");
+          $this->loggerFactory->get('Varbase')->info("Unable to save " . $root_composer['extra']['patches-file'] . " file");
           $this->output()->writeln(dt("Unable to save " . $root_composer['extra']['patches-file'] . " file"));
         }
 

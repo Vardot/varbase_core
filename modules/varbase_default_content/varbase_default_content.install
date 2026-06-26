@@ -58,8 +58,8 @@ function varbase_default_content_install() {
   \Drupal::service('plugin.manager.menu.local_action')->clearCachedDefinitions();
 
   // Invalidating.
-  \Drupal::service('cache.menu')->invalidateAll();
-  \Drupal::service('cache.render')->invalidateAll();
+  \Drupal::service('cache.menu')->deleteAll();
+  \Drupal::service('cache.render')->deleteAll();
 
   // Rebuilding.
   \Drupal::service('plugin.manager.menu.link')->rebuild();

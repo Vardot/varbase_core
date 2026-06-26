@@ -1,0 +1,24 @@
+name: 'Varbase Core Test'
+description: 'Provisions a site for the Varbase Core automated tests: installs Varbase Core and all of its submodules (admin, default content, development, internationalization, page, security, tour, update helper, webform) so their admin pages and features are available, and relaxes Honeypot time protection on the login forms so the automated browser tests can sign in.'
+type: 'Testing'
+install:
+  - varbase_core
+  - varbase_admin
+  - varbase_default_content
+  - varbase_development
+  - varbase_internationalization
+  - varbase_page
+  - varbase_security
+  - varbase_tour
+  - varbase_update_helper
+  - varbase_webform
+  - honeypot
+config:
+  actions:
+    honeypot.settings:
+      simpleConfigUpdate:
+        time_limit: 0
+        form_settings:
+          user_login_form: false
+          user_register_form: false
+          user_pass: false

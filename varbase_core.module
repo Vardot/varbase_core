@@ -6,9 +6,9 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Vardot\Entity\EntityDefinitionUpdateManager;
-use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Hook\Attribute\LegacyHook;
 use Drupal\user\UserInterface;
+use Drupal\varbase_core\Hook\VarbaseCoreHooks;
 
 // To have all varbase core general and global tokens.
 include_once __DIR__ . '/varbase_core.tokens.inc';
@@ -16,112 +16,39 @@ include_once __DIR__ . '/varbase_core.tokens.inc';
 /**
  * Implements hook_FORM_ID_form_alter().
  */
+#[LegacyHook]
 function varbase_core_form_node_form_alter(&$form, FormStateInterface $form_state) {
-  // Override node form sidebar order.
-  if (isset($form['author'])) {
-    $form['author']['#weight'] = -6;
-  }
-  if (isset($form['field_comments'])) {
-    $form['field_comments']['widget'][0]['#weight'] = -5;
-  }
-  if (isset($form['path_settings'])) {
-    $form['path_settings']['#weight'] = -4;
-  }
-  if (isset($form['field_meta_tags'])) {
-    $form['field_meta_tags']['widget'][0]['#weight'] = -3;
-  }
-  if (isset($form['simple_sitemap'])) {
-    $form['simple_sitemap']['#weight'] = -2;
-  }
-  if (isset($form['ds_switch_view_mode'])) {
-    $form['ds_switch_view_mode']['#weight'] = 101;
-  }
+  \Drupal::service(VarbaseCoreHooks::class)->formNodeFormAlter($form, $form_state);
 }
 
 /**
  * Implements hook_form_alter().
  */
+#[LegacyHook]
 function varbase_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Disable the checkbox to delete referenced entity from entityqueues.
-  $subqueue_base_form = $form_state->getBuildInfo();
-  if (array_key_exists('base_form_id', $subqueue_base_form)
-    && $subqueue_base_form['base_form_id'] == 'entity_subqueue_form'
-    && isset($form['items']['widget']['entities'])
-    && !empty($form['items']['widget']['entities'])) {
-
-    foreach ($form['items']['widget']['entities'] as &$subqueue_entity) {
-      if (is_array($subqueue_entity)) {
-        if (array_key_exists('form', $subqueue_entity) && array_key_exists('delete', $subqueue_entity['form'])) {
-          $subqueue_entity['form']['delete']['#access'] = FALSE;
-        }
-      }
-    }
-  }
+  \Drupal::service(VarbaseCoreHooks::class)->formAlter($form, $form_state, $form_id);
 }
 
 /**
  * Implements hook_template_preprocess_default_variables_alter().
  */
+#[LegacyHook]
 function varbase_core_template_preprocess_default_variables_alter(&$variables) {
-  $user_settings_config = \Drupal::config('user.settings');
-  $variables['user_settings_register_admin_only'] = $user_settings_config->get('register') == 'admin_only' ? 1 : 0;
+  \Drupal::service(VarbaseCoreHooks::class)->templatePreprocessDefaultVariablesAlter($variables);
 }
 
 /**
  * Implements hook_modules_installed().
  */
+#[LegacyHook]
 function varbase_core_modules_installed($modules, $is_syncing) {
-  if (in_array('automated_cron', $modules)) {
-    // When the Automated Cron module is enabled, which not enabled by default.
-    // with development and deployments to production sites.
-    // But the need to have the basic extra change for the settings over
-    // the Automated Cron default settings.
-    // -------------------------------------------------
-    // Managed configs for the Automated Cron module.
-    $managed_configs = [
-      'automated_cron.settings',
-    ];
-    ModuleInstallerFactory::importConfigsFromList('varbase_core', $managed_configs, 'config/managed/automated_cron');
-
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-      ->applyUpdates();
-  }
-
-  if (in_array('editoria11y', $modules)) {
-    // When the Editoria11y Accessibility Checker module is enabled,
-    // which not enabled by default.
-    // -------------------------------------------------
-    // Add permissions for default user roles.
-    ModuleInstallerFactory::addPermissions('varbase_core', 'config/managed/editoria11y/permissions');
-
-    // Import the default configuration recipe for Editoria11y Settings as a managed config.
-    $editoria11y_managed_configs = [
-      'editoria11y.settings',
-    ];
-    ModuleInstallerFactory::importConfigsFromList('varbase_core', $editoria11y_managed_configs, 'config/managed/editoria11y/recipes');
-
-  }
+  \Drupal::service(VarbaseCoreHooks::class)->modulesInstalled($modules, $is_syncing);
 }
 
 /**
  * Implements hook_email_registration_name_alter().
  */
+#[LegacyHook]
 function varbase_core_email_registration_name_alter(string &$accountName, UserInterface $account) {
-
-  $varbase_general_settings = \Drupal::service('config.factory')->getEditable('varbase_core.general_settings');
-  $allow_custom_account_name = $varbase_general_settings->get('allow_custom_account_name');
-
-  if (!isset($allow_custom_account_name)) {
-    $allow_custom_account_name = TRUE;
-  }
-
-  $custom_account_name = $account->getAccountName();
-
-  if ($allow_custom_account_name && $custom_account_name != '') {
-    $accountName = email_registration_unique_username($custom_account_name, (int) $account->id());
-  }
-
+  \Drupal::service(VarbaseCoreHooks::class)->emailRegistrationNameAlter($accountName, $account);
 }

@@ -1,0 +1,6 @@
+services:
+  Drupal\varbase_security\Hook\VarbaseSecurityHooks:
+    class: Drupal\varbase_security\Hook\VarbaseSecurityHooks
+    arguments:
+      - '@module_handler'
+      - '@class_resolver'

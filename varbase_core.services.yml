@@ -3,3 +3,8 @@ services:
     class: Drupal\varbase_core\Drush\Commands\VarbaseCoreCommands
     tags:
       - { name: drush.command }
+  Drupal\varbase_core\Hook\VarbaseCoreHooks:
+    class: Drupal\varbase_core\Hook\VarbaseCoreHooks
+    arguments:
+      - '@config.factory'
+      - '@class_resolver'

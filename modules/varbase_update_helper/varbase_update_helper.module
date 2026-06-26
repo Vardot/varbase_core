@@ -5,47 +5,22 @@
  * Contains varbase_update_helper.module.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
+use Drupal\Core\Hook\Attribute\LegacyHook;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\update_helper_checklist\Entity\Update;
+use Drupal\varbase_update_helper\Hook\VarbaseUpdateHelperHooks;
 
 /**
  * Implements hook_form_alter().
  */
+#[LegacyHook]
 function varbase_update_helper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == "checklistapi_checklist_form") {
-    if ($form['#checklist']->id == 'update_helper_checklist') {
-      if (!isset($form['actions']['save']['#submit'])) {
-        $form['actions']['save']['#submit'] = [];
-      }
-
-      $form['actions']['save']['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
-      $checklist = $form['#checklist'];
-      $groups = $checklist->items;
-
-      // Prevent the user from Clearing checklist progress.
-      unset($form['actions']['clear']);
-
-      foreach (Element::children($groups) as $group_key) {
-        $group = &$groups[$group_key];
-
-        foreach (Element::children($group) as $item_key) {
-          $update_key = str_replace('.', '_', $item_key);
-          $entity = Update::load($update_key);
-
-          $entityStatus = ($entity && $entity->wasSuccessfulByHook()) ? TRUE : FALSE;
-          if ($entityStatus) {
-            $form[$group_key][$item_key]['#disabled'] = TRUE;
-          }
-        }
-      }
-    }
-  }
+  \Drupal::service(VarbaseUpdateHelperHooks::class)->formAlter($form, $form_state, $form_id);
 }
 
 /**
- * Implements hook_checklistapti_form_submit().
+ * Form submit callback for the update_helper checklist (referenced by name).
  */
 function varbase_update_helper_checklistapi_form_submit(array $form, FormStateInterface $form_state) {
   if ($form['#checklist']->id == 'update_helper_checklist') {
@@ -82,11 +57,7 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
     }
 
     $checklist = $form['#checklist'];
-
-    // Save progress.
     $checklist->saveProgress($checklistapi);
-
-    // Preserve the active tab after submission.
     $form_state->setRedirect($checklist->getRouteName(), [], [
       'fragment' => $checklistapi['checklistapi__active_tab'],
     ]);
@@ -96,33 +67,23 @@ function varbase_update_helper_checklistapi_form_submit(array $form, FormStateIn
 /**
  * Implements hook_help().
  */
+#[LegacyHook]
 function varbase_update_helper_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the varbase_update_helper module.
-    case 'help.page.varbase_update_helper':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Varbase update helper') . '</p>';
-      return $output;
-
-    default:
-  }
+  return \Drupal::service(VarbaseUpdateHelperHooks::class)->help($route_name, $route_match);
 }
 
 /**
  * Implements hook_checklistapi_checklist_info_alter().
  */
+#[LegacyHook]
 function varbase_update_helper_checklistapi_checklist_info_alter(array &$definitions) {
-  if (isset($definitions['update_helper_checklist']['#title'])) {
-    $definitions['update_helper_checklist']['#title'] = t('Varbase update instructions');
-  }
+  \Drupal::service(VarbaseUpdateHelperHooks::class)->checklistapiChecklistInfoAlter($definitions);
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function varbase_update_helper_form_checklistapi_checklist_form_alter(&$form, &$form_state) {
-  if ($form['#checklist']->id == 'update_helper_checklist') {
-    $form['#attached']['library'][] = 'varbase_update_helper/varbase_update_helper';
-  }
+#[LegacyHook]
+function varbase_update_helper_form_checklistapi_checklist_form_alter(&$form, FormStateInterface $form_state) {
+  \Drupal::service(VarbaseUpdateHelperHooks::class)->formChecklistapiChecklistFormAlter($form, $form_state);
 }

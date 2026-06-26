@@ -1,0 +1,4 @@
+services:
+  Drupal\varbase_admin\Hook\VarbaseAdminHooks:
+    class: Drupal\varbase_admin\Hook\VarbaseAdminHooks
+    autowire: true

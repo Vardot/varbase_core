@@ -11,7 +11,9 @@ use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
 use Drupal\update_helper_checklist\Entity\Update;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\File\Exception\FileException;
 
 /**
  * Enable [Varbase Update Helper] module.
@@ -278,12 +280,12 @@ function varbase_core_optional_update_8701() {
   // Load Media types icons for the media library table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-  FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+  \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
   $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
   foreach ($files as $file) {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      FileSystemInterface::copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
+      \Drupal::service('file_system')->copy($file->uri, $destination, FileExists::Error);
     }
   }
 
@@ -331,6 +333,7 @@ function varbase_core_optional_update_8701() {
       $target_file = File::create(['uri' => $target_destination]);
       $target_file->save();
 
+      // @phpstan-ignore-next-line
       EmbedButton::load($embed_button_id)->set('icon_uuid', $target_file->uuid())->save();
     }
     else {

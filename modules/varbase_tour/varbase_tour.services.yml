@@ -1,0 +1,8 @@
+services:
+  Drupal\varbase_tour\Hook\VarbaseTourHooks:
+    class: Drupal\varbase_tour\Hook\VarbaseTourHooks
+    arguments:
+      - '@current_user'
+      - '@path.matcher'
+      - '@request_stack'
+      - '@config.factory'
