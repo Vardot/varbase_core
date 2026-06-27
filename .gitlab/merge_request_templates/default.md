@@ -7,7 +7,7 @@
 - [ ] User Guide Documentation support on feature change/addition
 - [ ] UX/UI designer responsibilities
 - [ ] Accessibility and Readability
-- [ ] Code review from 1 Varbase core team member
+- [ ] Code review by maintainers
 - [ ] Full testing and approval
 - [ ] Credit contributors
 - [ ] Review with the product owner
