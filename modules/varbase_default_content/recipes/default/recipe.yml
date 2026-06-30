@@ -1,0 +1,16 @@
+name: 'Varbase Default content'
+description: 'Provides starter default content for Varbase (blocks, menu links, redirects, path aliases) using Drupal core Default Content, and sets the front page.'
+type: 'Site'
+install:
+  - block
+  - block_content
+config:
+  actions:
+    system.site:
+      simpleConfigUpdate:
+        page.front: '/node'
+content:
+  - block_content
+  - menu_link_content
+  - path_alias
+  - redirect

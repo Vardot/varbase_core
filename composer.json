@@ -63,7 +63,6 @@
         "drupal/revision_log_default": "~1",
         "drupal/webform": "~6.3.0",
         "drupal/webform_views": "~5",
-        "drupal/default_content": "~2",
         "drupal/content_lock": "~3",
         "drupal/node_edit_protection": "~1",
         "drupal/rabbit_hole": "~2",

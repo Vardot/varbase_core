@@ -6,7 +6,8 @@
  */
 
 use Vardot\Entity\EntityDefinitionUpdateManager;
-use Drupal\path_alias\Entity\PathAlias;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 /**
  * Implements hook_install().
@@ -20,35 +21,10 @@ function varbase_default_content_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
-  // Set front page to "/node".
-  // Issue #3188641: Change the set front page to "/node" process from
-  // using static node id to front page path by the alias.
-  // https://www.drupal.org/project/varbase_core/issues/3188641
-  try {
-    $path_alias_query = \Drupal::entityQuery('path_alias');
-    $path_alias_query->condition('alias', '/node', '=');
-    $alias_ids = $path_alias_query->accessCheck(FALSE)->execute();
-
-    if (count($alias_ids) > 0) {
-      foreach ($alias_ids as $alias_id) {
-
-        if (!(end($alias_ids))) {
-          $path_alias = PathAlias::load($alias_id);
-          $path_alias->delete();
-        }
-        else {
-          $page_front_path = PathAlias::load($alias_id)->getPath();
-
-          \Drupal::configFactory()->getEditable('system.site')
-            ->set('page.front', $page_front_path)
-            ->save();
-        }
-      }
-    }
-  }
-  catch (\Exception $e) {
-    \Drupal::messenger()->addError($e->getMessage());
-  }
+  // Import the Varbase starter content via Drupal core Default Content and set
+  // the front page, using the bundled core recipe (replaces contrib default_content).
+  $recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($recipe);
 
   // Clear cached definitions.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();

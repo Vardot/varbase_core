@@ -7,4 +7,3 @@ description: "Provides starter default content for varbase."
 dependencies:
   - drupal:block
   - drupal:block_content
-  - default_content:default_content
