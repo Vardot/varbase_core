@@ -6,7 +6,9 @@
  */
 
 use Vardot\Entity\EntityDefinitionUpdateManager;
-use Drupal\path_alias\Entity\PathAlias;
+use Drupal\Core\DefaultContent\Finder;
+use Drupal\Core\DefaultContent\Importer;
+use Drupal\Core\DefaultContent\Existing;
 
 /**
  * Implements hook_install().
@@ -20,35 +22,24 @@ function varbase_default_content_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
-  // Set front page to "/node".
-  // Issue #3188641: Change the set front page to "/node" process from
-  // using static node id to front page path by the alias.
-  // https://www.drupal.org/project/varbase_core/issues/3188641
+  // Ensure the modules whose entities we import are installed.
+  \Drupal::service('module_installer')->install(['block', 'block_content', 'menu_link_content']);
+
+  // Import the Varbase starter content via Drupal core Default Content
+  // (replaces the contrib default_content module).
+  // Import in a guard: in a minimal/isolated environment some referenced
+  // config (e.g. text formats provided by varbase_editor) may be absent;
+  // don't fatal the module install if a starter entity can't be created.
   try {
-    $path_alias_query = \Drupal::entityQuery('path_alias');
-    $path_alias_query->condition('alias', '/node', '=');
-    $alias_ids = $path_alias_query->accessCheck(FALSE)->execute();
-
-    if (count($alias_ids) > 0) {
-      foreach ($alias_ids as $alias_id) {
-
-        if (!(end($alias_ids))) {
-          $path_alias = PathAlias::load($alias_id);
-          $path_alias->delete();
-        }
-        else {
-          $page_front_path = PathAlias::load($alias_id)->getPath();
-
-          \Drupal::configFactory()->getEditable('system.site')
-            ->set('page.front', $page_front_path)
-            ->save();
-        }
-      }
-    }
+    $finder = new Finder(__DIR__ . '/content');
+    \Drupal::service(Importer::class)->importContent($finder, Existing::Skip);
   }
   catch (\Exception $e) {
-    \Drupal::messenger()->addError($e->getMessage());
+    \Drupal::logger('varbase_default_content')->warning('Skipped some default content: @m', ['@m' => $e->getMessage()]);
   }
+
+  // Set the front page to /node.
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save();
 
   // Clear cached definitions.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();

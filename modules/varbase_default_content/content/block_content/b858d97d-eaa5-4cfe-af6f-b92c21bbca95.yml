@@ -15,14 +15,6 @@ default:
     - value: true
   revision_translation_affected:
     - value: true
-  content_translation_source:
-    - value: und
-  content_translation_outdated:
-    - value: false
-  content_translation_uid:
-    - target_id: 1
-  content_translation_created:
-    - value: 1594907136
   body:
     - value: 'Powered by <a href="https://www.vardot.com/?utm_source=varbase&utm_campaign=varbase%20default%20links" target="_self">Vardot</a>. Enjoy the free software, or <a href="https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links" target=\"_self\">get a quote</a> for enterprise support and fully functional websites.'
       format: code_html
