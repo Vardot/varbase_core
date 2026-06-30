@@ -33,10 +33,6 @@ default:
     - value: published
   unpublish_state:
     - value: archived
-  content_translation_source:
-    - value: und
-  content_translation_outdated:
-    - value: false
   field_yoast_seo:
     - status: "0"
       focus_keyword: ""

@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for the enabled_varbase_heroslider_media_content module.
+ */
+
+use Drupal\Core\DefaultContent\Finder;
+use Drupal\Core\DefaultContent\Importer;
+use Drupal\Core\DefaultContent\Existing;
+
+/**
+ * Implements hook_install().
+ *
+ * Imports the bundled starter content (the Homepage Landing page) via Drupal
+ * core Default Content, replacing the contrib default_content module that used
+ * to scan and import this module's content/ directory on install.
+ */
+function enabled_varbase_heroslider_media_content_install() {
+  if (is_dir(__DIR__ . '/content')) {
+    try {
+      $finder = new Finder(__DIR__ . '/content');
+      \Drupal::service(Importer::class)->importContent($finder, Existing::Skip);
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('enabled_varbase_heroslider_media_content')->warning('Skipped some default content: @m', ['@m' => $e->getMessage()]);
+    }
+  }
+}
