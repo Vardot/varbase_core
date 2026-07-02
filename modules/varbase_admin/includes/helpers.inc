@@ -8,11 +8,22 @@
  */
 
 use Drupal\shortcut\Entity\Shortcut;
+use Drupal\shortcut\Entity\ShortcutSet;
 
 /**
  * Add default shortcuts.
  */
 function varbase_admin__add_default_shortcuts() {
+  // Ensure the default shortcut set exists; on Drupal 11.4 recipe installs it
+  // may not be created yet, and saving a shortcut without its set errors in
+  // Shortcut::getCacheTagsToInvalidate().
+  if (!ShortcutSet::load('default')) {
+    ShortcutSet::create([
+      'id' => 'default',
+      'label' => t('Default'),
+    ])->save();
+  }
+
   $shortcut = Shortcut::create([
     'shortcut_set' => 'default',
     'title' => t('Add content'),

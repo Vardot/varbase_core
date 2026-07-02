@@ -90,8 +90,7 @@ webship-js-test:
         --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
         --site-name="Varbase Core Test" -y
     # Provision Varbase Core and its permissions through the test recipe.
-    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe
-        $CI_PROJECT_DIR/tests/varbase_core_test -y
+    - php $CI_PROJECT_DIR/vendor/bin/dr recipe $CI_PROJECT_DIR/tests/varbase_core_test
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
     - !reference [.fragments, node_playwright]
   script:
@@ -108,6 +107,10 @@ webship-js-test:
 
 # Allow the Varbase stack Composer plugins in the CI build (allow-plugins lives in varbase_project, not modules).
 composer:
+  variables:
+    # Drupal 11.4.0 released 2026-07-01; pinned templates ref $CORE_STABLE is still 11.3.
+    DRUPAL_CORE: "11.4.0"
+    IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
   before_script:
     - composer config --no-plugins allow-plugins.composer/installers true || true
     - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
@@ -119,4 +122,6 @@ composer:
     - composer config --no-plugins allow-plugins.php-http/discovery true || true
     - composer config --no-plugins allow-plugins.tbachert/spi true || true
     - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
-    - composer require --no-update vardot/varbase-patches:~9.2.0
+    - composer require --no-update vardot/varbase-patches:9.2.x-dev
+    # Track vmi 2.x-dev (11.4 merged, release pending).
+    - composer require --no-update drupal/vmi:2.x-dev

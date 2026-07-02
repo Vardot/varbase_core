@@ -34,7 +34,7 @@
         "drupal/config_perms": "~2",
         "drupal/config_update": "~2",
         "drupal/content_lock": "~3",
-        "drupal/core": "~11.3.0",
+        "drupal/core": "~11.4.0",
         "drupal/ctools": "~4",
         "drupal/devel": "~5",
         "drupal/diff": "~2",
