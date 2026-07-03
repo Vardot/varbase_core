@@ -45,7 +45,7 @@ function varbase_core_install() {
 
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_core');
-  
+
   // Rebuild the state of subscribed events for ECA.
   // This is equivalent to running: drush eca:subscriber:rebuild
   if (\Drupal::moduleHandler()->moduleExists('eca')) {

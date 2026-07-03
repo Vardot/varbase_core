@@ -89,16 +89,25 @@ function varbase_core_update_8609() {
     'varbase_core:varbase_media_bs3_to_bs4_8608' => 'varbase_core:varbase_core_update_8608',
   ];
 
+  // The update_helper_checklist Update entity is only available when the
+  // update_helper module is installed. It is no longer a Varbase Core
+  // dependency on the 11.4 line, so guard against its absence and no-op when
+  // the entity class or storage is unavailable.
+  $update_class = 'Drupal\update_helper_checklist\Entity\Update';
+  if (!class_exists($update_class)) {
+    return;
+  }
+
   // Check the old update ids and change them with new update ids.
   foreach ($map_old_to_new_update_ids as $old_update_id => $new_update_id) {
 
     // If we do have the old update id in the system.
-    if ($old_update = Update::load($old_update_id)) {
+    if ($old_update = $update_class::load($old_update_id)) {
 
       // Create the new update id if it was not in the system.
-      $new_update = Update::load($new_update_id);
+      $new_update = $update_class::load($new_update_id);
       if (isset($new_update) && !$new_update) {
-        Update::create(
+        $update_class::create(
           [
             'id' => $new_update_id,
             'successful_by_hook' => $old_update->get('successful_by_hook'),

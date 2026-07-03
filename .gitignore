@@ -10,6 +10,9 @@ node_modules
 .yarn/*
 .pnp.*
 
+# gitlab-ci-local runner cache (created when running .gitlab-ci-local.yml)
+.gitlab-ci-local/
+
 # Eclipse settings files.
 .project
 .pydevproject

@@ -1,0 +1,3 @@
+name: 'Varbase Core Test Roles'
+description: 'Creates the Varbase user roles (site_admin, content_admin, editor, seo_admin) that the Varbase Core submodule recipes grant permissions to. On a full Varbase site these roles are provided by the Varbase profile; the Varbase Core automated tests run on the Drupal Standard profile, so this helper recipe creates minimal role entities up front. Applied as a dependency recipe before the submodules install.'
+type: 'Testing'

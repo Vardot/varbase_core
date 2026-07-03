@@ -57,9 +57,10 @@ function varbase_default_content_install() {
   \Drupal::service('plugin.manager.menu.local_task')->clearCachedDefinitions();
   \Drupal::service('plugin.manager.menu.local_action')->clearCachedDefinitions();
 
-  // Invalidating.
-  \Drupal::service('cache.menu')->invalidateAll();
-  \Drupal::service('cache.render')->invalidateAll();
+  // Invalidating. CacheBackendInterface::invalidateAll() is deprecated in
+  // drupal:11.2.0 and removed from drupal:12.0.0; use deleteAll() instead.
+  \Drupal::service('cache.menu')->deleteAll();
+  \Drupal::service('cache.render')->deleteAll();
 
   // Rebuilding.
   \Drupal::service('plugin.manager.menu.link')->rebuild();

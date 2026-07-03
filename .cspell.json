@@ -17,7 +17,9 @@
     "tests/fixtures/**",
     "**/*.map",
     "**/dist/**",
-    "**/build/**"
+    "**/build/**",
+    "**/modeler_api.data_model.*.yml",
+    "**/eca.eca.*.yml"
   ],
   "words": [
     "varbase",
@@ -245,6 +247,15 @@
     "Yacute",
     "ydieresis",
     "Ydieresis",
-    "yoastseo"
+    "yoastseo",
+    "cweagans",
+    "oomphinc",
+    "webship",
+    "WEBSHIP",
+    "Olivero",
+    "Artefacts",
+    "contentinfo",
+    "noreferrer",
+    "infobars"
   ]
 }

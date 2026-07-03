@@ -1,0 +1,14 @@
+{
+  "css": {
+    "drupal page heading": "h1",
+    "drupal status messages": ".messages--status",
+    "drupal error messages": ".messages--error",
+    "drupal access denied heading": "h1:has-text('Access denied')",
+    "admin content view": ".view-content",
+    "admin config page": ".admin-list, .layout-container",
+    "node page form": "form.node-page-form, form[id^='node-page-form']",
+    "node title field": "#edit-title-0-value",
+    "save button": "#edit-submit"
+  },
+  "xpath": {}
+}

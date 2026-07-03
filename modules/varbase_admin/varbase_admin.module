@@ -218,4 +218,3 @@ function varbase_admin_top_bar_item_alter(&$definitions) {
     $definitions['responsive_icons']['class'] = 'Drupal\varbase_admin\Plugin\TopBarItem\ConditionalResponsiveIcons';
   }
 }
-
