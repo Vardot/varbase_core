@@ -6,9 +6,12 @@
  */
 
 use Vardot\Entity\EntityDefinitionUpdateManager;
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\DefaultContent\Finder;
 use Drupal\Core\DefaultContent\Importer;
 use Drupal\Core\DefaultContent\Existing;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
@@ -24,6 +27,27 @@ function varbase_default_content_install() {
 
   // Ensure the modules whose entities we import are installed.
   \Drupal::service('module_installer')->install(['block', 'block_content', 'menu_link_content']);
+
+  // Ensure the "basic" block content type has its body field before importing
+  // block_content demo content. This optional field config
+  // (field.field.block_content.basic.body) can be skipped during the Varbase
+  // profile install because of config import ordering (the basic block type is
+  // created after varbase_core's optional config is imported). Without the body
+  // field the core Default Content importer bails with "Field body is unknown"
+  // and no demo blocks (the Homepage "Welcome to Varbase" block, etc.) are
+  // created.
+  $field_manager = \Drupal::service('entity_field.manager');
+  $basic_fields = $field_manager->getFieldDefinitions('block_content', 'basic');
+  if (!isset($basic_fields['body'])
+    && FieldStorageConfig::loadByName('block_content', 'body')
+    && !FieldConfig::loadByName('block_content', 'basic', 'body')) {
+    $body_config_file = \Drupal::service('extension.list.module')->getPath('varbase_core')
+      . '/config/optional/field.field.block_content.basic.body.yml';
+    if (file_exists($body_config_file)) {
+      FieldConfig::create(Yaml::decode(file_get_contents($body_config_file)))->save();
+      $field_manager->clearCachedFieldDefinitions();
+    }
+  }
 
   // Import the Varbase starter content via Drupal core Default Content
   // (replaces the contrib default_content module).
