@@ -6,6 +6,10 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ClassResolverInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Theme\ThemeManagerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\user\UserInterface;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
@@ -20,6 +24,8 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 class VarbaseCoreHooks {
 
+  use StringTranslationTrait;
+
   /**
    * Constructs a VarbaseCoreHooks object.
    *
@@ -27,10 +33,16 @@ class VarbaseCoreHooks {
    *   The config factory.
    * @param \Drupal\Core\DependencyInjection\ClassResolverInterface $classResolver
    *   The class resolver.
+   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+   *   The request stack.
+   * @param \Drupal\Core\Theme\ThemeManagerInterface $themeManager
+   *   The theme manager.
    */
   public function __construct(
     protected ConfigFactoryInterface $configFactory,
     protected ClassResolverInterface $classResolver,
+    protected RequestStack $requestStack,
+    protected ThemeManagerInterface $themeManager,
   ) {}
 
   /**
@@ -138,6 +150,66 @@ class VarbaseCoreHooks {
     if ($allow_custom_account_name && $custom_account_name != '') {
       $accountName = email_registration_unique_username($custom_account_name, (int) $account->id());
     }
+  }
+
+  /**
+   * Implements hook_token_info().
+   */
+  #[Hook('token_info')]
+  public function tokenInfo(): array {
+    // Default theme token.
+    $info['types']['default-active-theme'] = [
+      'name' => $this->t('Default theme'),
+      'description' => $this->t('Tokens related to the Default theme.'),
+    ];
+    $info['tokens']['default-active-theme']['path'] = [
+      'name' => $this->t('Path'),
+      'description' => $this->t('The path of the Default theme.'),
+    ];
+    $info['tokens']['site']['origin-url'] = [
+      'name' => $this->t("Origin URL"),
+      'description' => $this->t("The Origin URL (scheme and HTTP host) of the site. No language prefix."),
+    ];
+
+    return $info;
+  }
+
+  /**
+   * Implements hook_tokens().
+   */
+  #[Hook('tokens')]
+  public function tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata): array {
+    $replacements = [];
+
+    if ($type == 'site') {
+      foreach ($tokens as $name => $original) {
+        switch ($name) {
+          case 'origin-url':
+            // Until #1088112: Introduce a token to get site's base URL is
+            // committed,
+            // https://www.drupal.org/project/drupal/issues/1088112
+            // let's use a custom token. Let's call it: [site:origin-url].
+            // No language prefix in the url.
+            // https://www.drupal.org/project/varbase_core/issues/3106793
+            $request = $this->requestStack->getCurrentRequest();
+            $origin_url = $request->getSchemeAndHttpHost() . $request->getBaseUrl();
+            $bubbleable_metadata->addCacheContexts(['url.site']);
+            $replacements[$original] = $origin_url;
+            break;
+        }
+      }
+    }
+    elseif ($type == 'default-active-theme') {
+      foreach ($tokens as $name => $original) {
+        switch ($name) {
+          case 'path':
+            $replacements[$original] = $this->themeManager->getActiveTheme()->getPath();
+            break;
+        }
+      }
+    }
+
+    return $replacements;
   }
 
 }

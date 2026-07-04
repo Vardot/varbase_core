@@ -3,4 +3,6 @@ services:
     class: Drupal\varbase_security\Hook\VarbaseSecurityHooks
     arguments:
       - '@module_handler'
+      - '@config.factory'
+      - '@current_user'
       - '@class_resolver'

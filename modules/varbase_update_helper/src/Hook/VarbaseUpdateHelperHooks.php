@@ -1,9 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\varbase_update_helper\Hook;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -15,6 +20,20 @@ use Drupal\update_helper_checklist\Entity\Update;
 class VarbaseUpdateHelperHooks {
 
   use StringTranslationTrait;
+  use DependencySerializationTrait;
+
+  /**
+   * Constructs a VarbaseUpdateHelperHooks object.
+   *
+   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
+   *   The module handler.
+   */
+  public function __construct(
+    protected MessengerInterface $messenger,
+    protected ModuleHandlerInterface $moduleHandler,
+  ) {}
 
   /**
    * Implements hook_form_alter().
@@ -27,8 +46,7 @@ class VarbaseUpdateHelperHooks {
           $form['actions']['save']['#submit'] = [];
         }
 
-        // The #submit callback stays a procedural function (referenced by name).
-        $form['actions']['save']['#submit'][] = 'varbase_update_helper_checklistapi_form_submit';
+        $form['actions']['save']['#submit'][] = [$this, 'checklistapiFormSubmit'];
         $checklist = $form['#checklist'];
         $groups = $checklist->items;
 
@@ -49,6 +67,51 @@ class VarbaseUpdateHelperHooks {
           }
         }
       }
+    }
+  }
+
+  /**
+   * Form submit callback for the checklistapi checklist form.
+   */
+  public function checklistapiFormSubmit(array $form, FormStateInterface $form_state): void {
+    if ($form['#checklist']->id == 'update_helper_checklist') {
+      $messenger = $this->messenger;
+
+      $checklistapi = $form_state->getValue('checklistapi');
+      foreach ($checklistapi as $key => $updateset) {
+        if ($key == "checklistapi__active_tab") {
+          continue;
+        }
+
+        if (is_array($updateset) && !empty($updateset)) {
+          foreach ($updateset as $update => $status) {
+            $update_key = str_replace('.', '_', $update);
+            $entity = Update::load($update_key);
+
+            $entityStatus = ($entity && $entity->wasSuccessfulByHook()) ? TRUE : FALSE;
+            if ($entityStatus) {
+              continue;
+            }
+            if ($status) {
+              $update_data = explode(":", $update);
+              $this->moduleHandler->loadInclude($update_data[0], 'install');
+              if (function_exists($update_data[1])) {
+                call_user_func($update_data[1], FALSE);
+              }
+              else {
+                $checklistapi[$key][$update] = 0;
+                $messenger->addWarning($this->t("Couldn't find an update hook: %update_hook. Please verify the update hook name.", ["%update_hook" => $update_data[1]]));
+              }
+            }
+          }
+        }
+      }
+
+      $checklist = $form['#checklist'];
+      $checklist->saveProgress($checklistapi);
+      $form_state->setRedirect($checklist->getRouteName(), [], [
+        'fragment' => $checklistapi['checklistapi__active_tab'],
+      ]);
     }
   }
 

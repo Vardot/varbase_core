@@ -8,3 +8,5 @@ services:
     arguments:
       - '@config.factory'
       - '@class_resolver'
+      - '@request_stack'
+      - '@theme.manager'
