@@ -5,6 +5,8 @@
  * Install, update and uninstall functions for the Varbase Tour module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
 
@@ -30,7 +32,7 @@ function varbase_tour_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_tour');
-
+  // Grant role permissions via the default recipe.
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 }

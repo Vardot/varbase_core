@@ -5,6 +5,8 @@
  * Contains install and update for Varbase page module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
 
@@ -36,7 +38,7 @@ function varbase_page_install() {
     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
     ->applyUpdates();
 
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_page');
-
+  // Grant role permissions via the default recipe.
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 }

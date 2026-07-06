@@ -89,6 +89,11 @@ webship-js-test:
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
         --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
         --site-name="Varbase Core Test" -y
+    # Varbase roles that the modules grant to (create before install; plain drush, no PHP).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create editor 'Editor' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create content_admin 'Content admin' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create site_admin 'Site admin' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:create seo_admin 'SEO admin' || true
     # Provision Varbase Core and its permissions through the test recipe.
     - php $CI_PROJECT_DIR/vendor/bin/dr recipe $CI_PROJECT_DIR/tests/varbase_core_test
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild

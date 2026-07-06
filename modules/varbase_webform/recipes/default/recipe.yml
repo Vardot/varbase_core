@@ -1,0 +1,38 @@
+name: Varbase Webform - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.content_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit any webform'
+        - 'view any webform submission'
+        - 'clone webform entity'
+    user.role.editor:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'
+    user.role.site_admin:
+      grantPermissions:
+        - 'access webform overview'
+        - 'create webform'
+        - 'delete any webform submission'
+        - 'edit webform assets'
+        - 'edit any webform'
+        - 'view any webform submission'
+        - 'clone webform entity'

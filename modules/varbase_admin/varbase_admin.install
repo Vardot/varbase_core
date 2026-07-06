@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Config\InstallStorage;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Vardot\Entity\EntityDefinitionUpdateManager;
@@ -60,7 +62,7 @@ function varbase_admin_install() {
 
   ModuleInstallerFactory::importConfigsFromList('varbase_admin', $forced_configs, InstallStorage::CONFIG_OPTIONAL_DIRECTORY);
 
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_admin');
-
+  // Grant role permissions via the default recipe.
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 }

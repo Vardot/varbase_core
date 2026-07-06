@@ -6,7 +6,6 @@
  */
 
 use Drupal\update_helper_checklist\Entity\Update;
-use Vardot\Installer\ModuleInstallerFactory;
 
 /**
  * Implements hook_install().
@@ -74,8 +73,5 @@ function varbase_update_helper_install() {
     }
 
   }
-
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_update_helper');
 
 }

@@ -1,5 +1,0 @@
-id: editor
-permissions:
-  - 'create page content'
-  - 'edit any page content'
-  - 'view page revisions'

@@ -1,0 +1,34 @@
+name: Varbase Page - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own page content'
+        - 'edit own page content'
+    user.role.editor:
+      grantPermissions:
+        - 'create page content'
+        - 'edit any page content'
+        - 'view page revisions'
+    user.role.content_admin:
+      grantPermissions:
+        - 'create page content'
+        - 'delete any page content'
+        - 'edit any page content'
+        - 'view page revisions'
+        - 'revert page revisions'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'create page content'
+        - 'delete any page content'
+        - 'edit any page content'
+        - 'view page revisions'
+    user.role.site_admin:
+      grantPermissions:
+        - 'create page content'
+        - 'delete any page content'
+        - 'edit any page content'
+        - 'view page revisions'
+        - 'revert page revisions'

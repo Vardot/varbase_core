@@ -1,0 +1,71 @@
+name: Varbase Admin - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.authenticated:
+      grantPermissions:
+        - 'access shortcuts'
+        - 'userprotect.account.edit'
+        - 'userprotect.mail.edit'
+        - 'userprotect.pass.edit'
+    user.role.content_admin:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'administer footer menu items'
+        - 'administer main menu items'
+        - 'access coffee'
+        - 'access responsive preview'
+        - 'clone block entity'
+        - 'clone block_content entity'
+        - 'clone node entity'
+        - 'clone menu_link_content entity'
+        - 'clone user entity'
+        - 'clone taxonomy_term entity'
+        - 'clone taxonomy_vocabulary entity'
+    user.role.editor:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'access coffee'
+        - 'access responsive preview'
+        - 'clone node entity'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'customize shortcut links'
+        - 'access toolbar'
+        - 'access admin audit trail'
+        - 'access coffee'
+        - 'access responsive preview'
+    user.role.site_admin:
+      grantPermissions:
+        - 'administer shortcuts'
+        - 'customize shortcut links'
+        - 'switch shortcut sets'
+        - 'access toolbar'
+        - 'delete_homepage_node'
+        - 'access admin audit trail'
+        - 'administer admin menu items'
+        - 'administer footer menu items'
+        - 'administer main menu items'
+        - 'administer tools menu items'
+        - 'administer account menu items'
+        - 'access coffee'
+        - 'masquerade as authenticated'
+        - 'masquerade as content_admin'
+        - 'masquerade as editor'
+        - 'masquerade as seo_admin'
+        - 'masquerade as site_admin'
+        - 'assign roles'
+        - 'userprotect.protected_site_admin.bypass'
+        - 'access responsive preview'
+        - 'clone block entity'
+        - 'clone block_content entity'
+        - 'clone node entity'
+        - 'clone menu_link_content entity'
+        - 'clone user entity'
+        - 'clone taxonomy_term entity'
+        - 'clone taxonomy_vocabulary entity'

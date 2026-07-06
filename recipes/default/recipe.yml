@@ -1,0 +1,35 @@
+name: Varbase Core - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.editor:
+      grantPermissions:
+        - 'access contextual links'
+        - 'create url aliases'
+        - 'access taxonomy overview'
+    user.role.content_admin:
+      grantPermissions:
+        - 'access contextual links'
+        - 'create url aliases'
+        - 'access taxonomy overview'
+        - 'administer taxonomy'
+        - 'break content lock'
+        - 'manipulate all entityqueues'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'access contextual links'
+        - 'administer url aliases'
+        - 'create url aliases'
+        - 'break content lock'
+    user.role.site_admin:
+      grantPermissions:
+        - 'access contextual links'
+        - 'create url aliases'
+        - 'access taxonomy overview'
+        - 'administer taxonomy'
+        - 'break content lock'
+        - 'manipulate all entityqueues'
+        - 'manipulate entityqueues'
+        - 'administer block classes'
+        - 'access varbase settings'

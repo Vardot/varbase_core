@@ -1,0 +1,27 @@
+name: Varbase Internationalization - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.editor:
+      grantPermissions:
+        - 'create content translations'
+        - 'update content translations'
+        - 'translate any entity'
+    user.role.content_admin:
+      grantPermissions:
+        - 'create content translations'
+        - 'delete content translations'
+        - 'update content translations'
+        - 'translate any entity'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'create content translations'
+        - 'update content translations'
+        - 'translate any entity'
+    user.role.site_admin:
+      grantPermissions:
+        - 'create content translations'
+        - 'delete content translations'
+        - 'update content translations'
+        - 'translate any entity'
