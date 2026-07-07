@@ -113,8 +113,8 @@ webship-js-test:
     # module info.yml core_version_requirement for the test site only (this does
     # NOT change the committed ~11.4.0 requirement) so the module can enable.
     - |
-      find "$CI_PROJECT_DIR/$_WEB_ROOT" -path '*varbase*' -name '*.info.yml' -print0 \
-        | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
+      find -L "$CI_PROJECT_DIR" -path '*varbase*' -name '*.info.yml' -print0 2>/dev/null \
+        | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.[0-9]+\.0/core_version_requirement: ^11.3 || ^11.4/'
     # Several varbase_core config/optional files (content_lock, entity_usage,
     # diff, trash) reference the "paragraph" entity type, which on a full Varbase
     # site is provided by the Paragraphs module (installed via the profile).
