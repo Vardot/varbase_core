@@ -1,0 +1,216 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to static method create\\(\\) on an unknown class Update\\.$#"
+			count: 1
+			path: includes/updates/v8.inc
+
+		-
+			message: "#^Call to static method load\\(\\) on an unknown class Update\\.$#"
+			count: 2
+			path: includes/updates/v8.inc
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method setModuleWeightAfterInstallation\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_admin/includes/updates/v10.inc
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_admin/includes/updates/v10.inc
+
+		-
+			message: "#^Call to static method setModuleWeightAfterInstallation\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_admin/includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_admin/varbase_admin.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_default_content/varbase_default_content.install
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_development/varbase_development.install
+
+		-
+			message: "#^Call to static method importConfigsFromScanedDirectory\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 2
+			path: modules/varbase_development/varbase_development.install
+
+		-
+			message: "#^Call to static method installList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_development/varbase_development.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_development/varbase_development.install
+
+		-
+			message: "#^Call to static method setModuleWeightAfterInstallation\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_internationalization/includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_internationalization/varbase_internationalization.install
+
+		-
+			message: "#^Call to static method installList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_internationalization/varbase_internationalization.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_internationalization/varbase_internationalization.install
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/includes/updates/v10.inc
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method setModuleWeightAfterInstallation\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/varbase_page.install
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/varbase_page.install
+
+		-
+			message: "#^Call to static method importConfigsFromScanedDirectory\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/varbase_page.install
+
+		-
+			message: "#^Call to static method installList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_page/varbase_page.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_page/varbase_page.install
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.install
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.install
+
+		-
+			message: "#^Call to static method importConfigsFromScanedDirectory\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 2
+			path: modules/varbase_security/varbase_security.install
+
+		-
+			message: "#^Call to static method installList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.install
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.module
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: modules/varbase_security/varbase_security.module
+
+		-
+			message: "#^Call to static method setModuleWeightAfterInstallation\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: modules/varbase_webform/includes/updates/v9.inc
+
+		-
+			message: "#^Call to static method removeNoneExistentPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: src/Drush/Commands/VarbaseCoreCommands.php
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: src/Drush/Commands/VarbaseCoreCommands.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 17
+			path: src/Drush/Commands/VarbaseCoreCommands.php
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: varbase_core.install
+
+		-
+			message: "#^Call to static method importConfigsFromScanedDirectory\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 2
+			path: varbase_core.install
+
+		-
+			message: "#^Call to static method installList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: varbase_core.install
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: varbase_core.install
+
+		-
+			message: "#^Call to static method addPermissions\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 1
+			path: varbase_core.module
+
+		-
+			message: "#^Call to static method importConfigsFromList\\(\\) on an unknown class Vardot\\\\Installer\\\\ModuleInstallerFactory\\.$#"
+			count: 4
+			path: varbase_core.module
+
+		-
+			message: "#^Class Vardot\\\\Entity\\\\EntityDefinitionUpdateManager not found\\.$#"
+			count: 1
+			path: varbase_core.module
