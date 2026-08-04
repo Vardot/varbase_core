@@ -21,10 +21,6 @@ include:
       - "/includes/include.drupalci.workflows.yml"
 
 variables:
-  # Varbase 10.0 targets Drupal 10.6. Pin it and ignore the wider
-  # core_version_requirement in the module's info.yml when resolving.
-  DRUPAL_CORE: "10.6.0"
-  IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
   # Make every drupalci validate job blocking; several (stylelint among them)
   # default to allow_failure:true.
   _ALL_VALIDATE_ALLOW_FAILURE: "0"
@@ -55,8 +51,18 @@ stylelint:
 # lives in varbase_project, not in a module, so CI has to grant them itself.
 composer:
   variables:
+    # The template sets DRUPAL_CORE at job level, so pinning it in the top-level
+    # `variables:` block has no effect - it has to be set on the job itself.
+    # Varbase 10.0 targets Drupal 10.6.
+    DRUPAL_CORE: "10.6.0"
+    IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
     _LENIENT_ALLOW_LIST: "select2, styleguide"
   before_script:
+    # This branch resolves several dependencies at dev versions (drupal/vmi
+    # pulls drupal/varbase_components 2.x-dev), so the stability floor and the
+    # drupal.org repository both have to be in place before the build resolves.
+    - composer config minimum-stability dev
+    - composer config repositories.drupal composer https://packages.drupal.org/8
     - composer config --no-plugins allow-plugins.composer/installers true || true
     - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
     - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true || true
