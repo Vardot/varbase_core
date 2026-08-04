@@ -1,3 +1,17 @@
+################################################################################
+# GitLab CI for the Varbase Core module (10.0.x line - Drupal ~10.6 || ~11.3).
+#
+# The validate jobs are provided by the drupalci templates and all of them gate:
+# a red job blocks the merge rather than being waved through.
+#
+# The branch previously replaced the template's `composer` job script with a bare
+# `composer install`, which never assembles a Drupal codebase. Every downstream
+# job then died on a missing `$_WEB_ROOT/core` (eslint, stylelint) or a missing
+# `$COMPOSER_BIN_DIR` tool (composer-lint, phpcs, phpstan), and the failures were
+# hidden behind `allow_failure: true`. The template's own build is used instead,
+# with only the Composer plugin permissions this module needs added before it.
+################################################################################
+
 include:
   - project: $_GITLAB_TEMPLATES_REPO
     ref: $_GITLAB_TEMPLATES_REF
@@ -5,34 +19,58 @@ include:
       - "/includes/include.drupalci.main.yml"
       - "/includes/include.drupalci.variables.yml"
       - "/includes/include.drupalci.workflows.yml"
+
+variables:
+  # Make every drupalci validate job blocking; several (stylelint among them)
+  # default to allow_failure:true.
+  _ALL_VALIDATE_ALLOW_FAILURE: "0"
+  COMPOSER_FLAGS: "--no-strict-lock"
+  COMPOSER_MEMORY_LIMIT: "-1"
+  # No yarn.lock is committed; Yarn 4 defaults to immutable installs and would
+  # refuse to create one.
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
+# = Validate stage: every job gates =
+# `_ALL_VALIDATE_ALLOW_FAILURE: "0"` flips the template defaults; the explicit
+# overrides below make the intent unmissable and cover the jobs that read their
+# own `_*_ALLOW_FAILURE` variable.
+composer-lint:
+  allow_failure: false
+cspell:
+  allow_failure: false
+eslint:
+  allow_failure: false
+phpcs:
+  allow_failure: false
+phpstan:
+  allow_failure: false
+stylelint:
+  allow_failure: false
+
+# Allow the Varbase stack's Composer plugins in the CI build: `allow-plugins`
+# lives in varbase_project, not in a module, so CI has to grant them itself.
 composer:
   variables:
+    # The template sets DRUPAL_CORE at job level, so pinning it in the top-level
+    # `variables:` block has no effect - it has to be set on the job itself.
+    # Varbase 10.0 targets Drupal 10.6.
+    DRUPAL_CORE: "10.6.0"
+    IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
     _LENIENT_ALLOW_LIST: "select2, styleguide"
-  script:
+  before_script:
+    # This branch resolves several dependencies at dev versions (drupal/vmi
+    # pulls drupal/varbase_components 2.x-dev), so the stability floor and the
+    # drupal.org repository both have to be in place before the build resolves.
     - composer config minimum-stability dev
     - composer config repositories.drupal composer https://packages.drupal.org/8
-    - composer config --no-plugins allow-plugins.composer/installers true
-    - composer config --no-plugins allow-plugins.cweagans/composer-patches true
-    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true
-    - composer config --no-plugins allow-plugins.phpstan/extension-installer true
-    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+    - composer config --no-plugins allow-plugins.composer/installers true || true
+    - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
+    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true || true
+    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true || true
+    - composer config --no-plugins allow-plugins.drupal/core-project-message true || true
+    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true || true
+    - composer config --no-plugins allow-plugins.phpstan/extension-installer true || true
+    - composer config --no-plugins allow-plugins.php-http/discovery true || true
+    - composer config --no-plugins allow-plugins.tbachert/spi true || true
+    - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
     - composer require --no-update cweagans/composer-patches:~1
-    - composer install -vvv
-composer-lint:
-  allow_failure: true
-cspell:
-  stage: validate
-  image: node:18
-  before_script:
-    - npm install -g cspell
-  script:
-    - cspell "**/*.{php,module,inc,install,test,profile,theme,js,css,md,yml,txt}" --no-progress || true
-  allow_failure: true
-eslint:
-  allow_failure: true
-phpcs:
-  allow_failure: true
-phpstan:
-  allow_failure: true
-phpunit:
-  allow_failure: true
