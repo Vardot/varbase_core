@@ -5,6 +5,7 @@
  * Install, update and uninstall functions for the Varbase Default content.
  */
 
+use Drupal\node\NodeAccessRebuild;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\DefaultContent\Finder;
@@ -81,7 +82,7 @@ function varbase_default_content_install() {
 
   // Rebuild permissions. The content access permissions need to be rebuilt.
   // @phpstan-ignore-next-line function.deprecated (needed to rebuild node grants; still available on Drupal 11.4)
-  node_access_rebuild();
+  \Drupal::service(NodeAccessRebuild::class)->rebuild();
 
   // Rebuild the menu router based on all rebuilt data.
   // Important: This rebuild must happen last, so the menu router is guaranteed

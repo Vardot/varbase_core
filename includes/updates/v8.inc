@@ -5,7 +5,7 @@
  * Contains varbase_core_update_8###(s) hook updates.
  */
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
@@ -295,7 +295,7 @@ function varbase_core_optional_update_8701() {
     && is_array($embed_button_config_files)) {
     foreach ($embed_button_config_files as $embed_button_config_file) {
       $embed_button_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $embed_button_config_file->uri);
-      $embed_button_config_file_data = (array) Yaml::parse($embed_button_config_file_content);
+      $embed_button_config_file_data = (array) Yaml::decode($embed_button_config_file_content);
       $embed_button_config_factory = \Drupal::configFactory()->getEditable($embed_button_config_file->name);
       $embed_button_config_factory->setData($embed_button_config_file_data)->save(TRUE);
     }

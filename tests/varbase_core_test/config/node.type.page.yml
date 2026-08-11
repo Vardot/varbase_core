@@ -1,17 +1,10 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - menu_ui
-third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-    parent: "main:"
-name: "Basic page"
+dependencies: {  }
+name: 'Basic page'
 type: page
-description: "Use <em>basic pages</em> for your static content, such as an 'About us' page."
-help: "Use basic pages for static content."
+description: "Use basic pages for your static content, such as an 'About us' page."
+help: 'Basic pages are used for the Varbase Core automated tests.'
 new_revision: true
 preview_mode: 1
 display_submitted: false
