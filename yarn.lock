@@ -1143,7 +1143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vardot/varbase-e2e@npm:~2.0.1":
+"@vardot/varbase-e2e@npm:^2":
   version: 2.0.3
   resolution: "@vardot/varbase-e2e@npm:2.0.3"
   dependencies:
@@ -5374,7 +5374,7 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": "npm:10.0.1"
     "@cucumber/pretty-formatter": "npm:1.0.0"
-    "@vardot/varbase-e2e": "npm:~2.0.1"
+    "@vardot/varbase-e2e": "npm:^2"
     cspell: "npm:^8.16.1"
     eslint: "npm:^8.57.1"
     eslint-config-airbnb-base: "npm:^15.0.0"
