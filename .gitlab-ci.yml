@@ -120,8 +120,8 @@ varbase-e2e-test:
 # Allow the Varbase stack Composer plugins in the CI build (allow-plugins lives in varbase_project, not modules).
 composer:
   variables:
-    # Drupal 11.4.0 released 2026-07-01; pinned templates ref $CORE_STABLE is still 11.3.
-    DRUPAL_CORE: "11.4.0"
+    # Test on the current Drupal 11.4 release (11.4.8 is the first with the Twig 3.30 fix #3625969); pinned templates ref $CORE_STABLE is still 11.3.
+    DRUPAL_CORE: "11.4.9"
     IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
   before_script:
     - composer config --no-plugins allow-plugins.composer/installers true || true
@@ -135,9 +135,5 @@ composer:
     - composer config --no-plugins allow-plugins.tbachert/spi true || true
     - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
     - composer require --no-update vardot/varbase-patches:9.2.x-dev
-    # Temporary (#3625759): Twig 3.30.0 compiles Drupal core's drupal_escape
-    # filter into a direct EscaperRuntime::escape() call, so every page render
-    # is a fatal TypeError. Keep the build below 3.30 until a fixed Twig is out.
-    - composer require --dev --no-update "twig/twig:<3.30"
     # Track vmi 2.x-dev (11.4 merged, release pending).
     - composer require --no-update drupal/vmi:2.x-dev
