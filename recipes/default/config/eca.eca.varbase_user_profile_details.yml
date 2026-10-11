@@ -1,0 +1,126 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_base
+    - eca_render
+    - eca_user
+    - modeler_api
+    - user
+third_party_settings:
+  modeler_api:
+    modeler_id: fallback
+    label: 'User profile details'
+    tags:
+      - 'use case'
+      - user
+      - profile
+    version: 1.0.0
+id: varbase_user_profile_details
+weight: 0
+events:
+  extra_field_profile_details:
+    plugin: 'eca_render:extra_field'
+    label: 'Profile details field'
+    configuration:
+      entity_type_id: user
+      bundle: user
+      extra_field_name: varbase_user_profile_details
+      extra_field_label: 'Profile details'
+      extra_field_description: 'The account picture and details, shown to the account owner only.'
+      display_type: display
+      weight: 10
+      visible: true
+    successors:
+      -
+        id: vary_by_user
+        condition: ''
+  block_profile_details:
+    plugin: 'eca_render:block'
+    label: 'User profile details block'
+    configuration:
+      block_name: 'User profile details'
+      block_machine_name: varbase_user_profile_details
+    successors:
+      -
+        id: load_account
+        condition: logged_in
+conditions:
+  own_account:
+    plugin: eca_current_user_id
+    label: 'Own account'
+    configuration:
+      negate: false
+      user_id: '[entity:uid]'
+  logged_in:
+    plugin: eca_current_user_role
+    label: 'Logged in'
+    configuration:
+      negate: false
+      role: authenticated
+gateways: {  }
+actions:
+  vary_by_user:
+    plugin: eca_render_cacheability
+    label: 'Vary by user'
+    configuration:
+      cache_type: contexts
+      cache_value: user
+      name: ''
+      token_name: ''
+      weight: ''
+      mode: append
+    successors:
+      -
+        id: load_account
+        condition: own_account
+  load_account:
+    plugin: eca_token_load_user_current
+    label: 'Load the current user'
+    configuration:
+      token_name: account
+    successors:
+      -
+        id: set_member_for
+        condition: ''
+  set_member_for:
+    plugin: eca_token_set_value
+    label: 'Member for'
+    configuration:
+      token_name: member_for
+      token_value: '[account:created:since]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: render_profile_details
+        condition: ''
+  render_profile_details:
+    plugin: eca_render_twig
+    label: 'Render the profile details'
+    configuration:
+      template: |
+        {{ include(active_theme() ~ ':user-profile-details', {
+          username: account.name.value|default(''),
+          full_name: account.hasField('field_full_name')
+            ? account.field_full_name.value|default('')
+            : (account.hasField('field_first_name')
+              ? (account.field_first_name.value|default('') ~ ' ' ~ (account.hasField('field_last_name') ? account.field_last_name.value|default('') : ''))|trim
+              : ''),
+          email: account.mail.value|default(''),
+          timezone: account.timezone.value|default(''),
+          status: account.status.value == 1,
+          created: account.created.value|format_date('medium'),
+          member_for: member_for ~ '',
+          last_login: account.login.value ? account.login.value|format_date('medium') : '',
+          picture_url: account.user_picture.entity ? file_url(account.user_picture.entity.fileuri) : '',
+          picture_alt: account.user_picture.alt|default(''),
+        }, with_context = false, ignore_missing = true) }}
+      value: ''
+      use_yaml: false
+      validate_yaml: false
+      name: ''
+      token_name: ''
+      weight: ''
+      mode: append
+    successors: {  }

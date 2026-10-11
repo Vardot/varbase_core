@@ -1,0 +1,9 @@
+name: 'Varbase Core - Default'
+description: 'Default configuration for Varbase Core: the User profile details ECA model, which shows users their own account details on their profile page.'
+type: install
+install:
+  - eca
+  - eca_base
+  - eca_render
+  - eca_user
+  - modeler_api

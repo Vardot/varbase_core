@@ -5,6 +5,8 @@
  * Install, update and uninstall functions for the Varbase core module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 use Vardot\Entity\EntityDefinitionUpdateManager;
 use Vardot\Installer\ModuleInstallerFactory;
 
@@ -45,6 +47,10 @@ function varbase_core_install() {
 
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_core');
+
+  // Apply the Varbase Core default recipe.
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
   // Rebuild the state of subscribed events for ECA.
   // This is equivalent to running: drush eca:subscriber:rebuild
