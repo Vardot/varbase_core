@@ -7,3 +7,32 @@ varbase_core.general_settings:
     allow_custom_account_name:
       type: boolean
       label: 'Allow custom account name'
+
+action.configuration.varbase_core_http_request:
+  type: mapping
+  label: 'Configuration for the "HTTP request" ECA action'
+  mapping:
+    method:
+      type: string
+      label: 'Method'
+    url:
+      type: string
+      label: 'URL'
+    data:
+      type: string
+      label: 'Data'
+    data_serialization:
+      type: string
+      label: 'Data serialization'
+    query_parameters:
+      type: string
+      label: 'Query parameters'
+    headers:
+      type: string
+      label: 'Headers'
+    timeout:
+      type: string
+      label: 'Timeout'
+    token_name:
+      type: string
+      label: 'Name of response token'

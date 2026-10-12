@@ -57,7 +57,6 @@ install:
   - eca_log
   - eca_endpoint
   - eca_tamper
-  - eca_helper
   - menu_ui
   - menu_link_content
   - filter

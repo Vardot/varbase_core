@@ -98,7 +98,7 @@ phpstan:
     # these, class.notFound / function.notFound would be false positives.
     - composer require --no-interaction --no-progress --ignore-platform-reqs
         vardot/module-installer-factory vardot/entity-definition-update-manager
-        drupal/email_registration drupal/eca drupal/eca_helper
+        drupal/email_registration drupal/eca
         drupal/responsive_preview drupal/gin || true
     - composer install --no-interaction --no-progress --ignore-platform-reqs
     - mkdir -p web/modules/custom && cp -r "$CI_PROJECT_DIR" "web/modules/custom/varbase_core"

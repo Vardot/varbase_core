@@ -8,13 +8,13 @@ dependencies:
     - eca_base
     - eca_content
     - eca_endpoint
-    - eca_helper
     - eca_user
     - modeler_api
+    - varbase_core
 third_party_settings:
   modeler_api:
     modeler_id: bpmn_io
-    data: 'hash:a279ba79d5738279f45faf6ac0453df2'
+    data: 'hash:209b3ccceac73d3d14c67b9302677ccf'
     label: 'User login notification'
     tags:
       - user
@@ -190,17 +190,15 @@ actions:
         condition: ''
   eca_helper_http_request_0u7u22m:
     label: 'Get geolocation from IP'
-    plugin: eca_helper_http_request
+    plugin: varbase_core_http_request
     configuration:
       method: get
       url: 'https://api.ipwho.org/ip/[logged_user_ip_address]'
       data: ''
-      data_yaml: 'no'
       data_serialization: json
       query_parameters: ''
       headers: ''
-      cookies: ''
-      request_options: ''
+      timeout: '5'
       token_name: logged_user_ip_http_request
     successors:
       -

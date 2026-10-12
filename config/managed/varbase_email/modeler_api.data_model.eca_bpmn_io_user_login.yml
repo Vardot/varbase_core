@@ -111,7 +111,7 @@ data: |
         <bpmn2:outgoing>Flow_0wh52of</bpmn2:outgoing>
       </bpmn2:task>
       <bpmn2:sequenceFlow id="Flow_0wh52of" sourceRef="eca_endpoint_get_request_header_019mwxp" targetRef="eca_token_set_value_16qn0k8" />
-      <bpmn2:task id="eca_helper_http_request_0u7u22m" name="Get geolocation from IP" camunda:modelerTemplate="org.drupal.action.eca_helper_http_request">
+      <bpmn2:task id="eca_helper_http_request_0u7u22m" name="Get geolocation from IP" camunda:modelerTemplate="org.drupal.action.varbase_core_http_request">
         <bpmn2:extensionElements>
           <camunda:field name="method">
             <camunda:string>get</camunda:string>
@@ -122,9 +122,6 @@ data: |
           <camunda:field name="data">
             <camunda:string></camunda:string>
           </camunda:field>
-          <camunda:field name="data_yaml">
-            <camunda:string>no</camunda:string>
-          </camunda:field>
           <camunda:field name="data_serialization">
             <camunda:string>json</camunda:string>
           </camunda:field>
@@ -134,17 +131,14 @@ data: |
           <camunda:field name="headers">
             <camunda:string></camunda:string>
           </camunda:field>
-          <camunda:field name="cookies">
-            <camunda:string></camunda:string>
-          </camunda:field>
-          <camunda:field name="request_options">
-            <camunda:string></camunda:string>
+          <camunda:field name="timeout">
+            <camunda:string>5</camunda:string>
           </camunda:field>
           <camunda:field name="token_name">
             <camunda:string>logged_user_ip_http_request</camunda:string>
           </camunda:field>
           <camunda:properties>
-            <camunda:property name="pluginid" value="eca_helper_http_request" />
+            <camunda:property name="pluginid" value="varbase_core_http_request" />
           </camunda:properties>
         </bpmn2:extensionElements>
         <bpmn2:incoming>Flow_0ncc0oy</bpmn2:incoming>
