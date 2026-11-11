@@ -73,3 +73,4 @@ form_op_lock:
   paragraph:
     mode: 0
     values: {}
+timeout: 1800

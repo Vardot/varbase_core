@@ -228,3 +228,23 @@ function _varbase_core_http_request_bpmn(string $xml, array $task_ids): string {
   }
   return $xml;
 }
+
+/**
+ * Break stale content locks on edit.
+ *
+ * Content Lock 3 merged Content Lock Timeout into Content Lock: a lock older
+ * than "content_lock.settings:timeout" is ignored when the next editor opens
+ * the form, and released on cron. Varbase Core's copy of the settings had no
+ * timeout, so locks never expired. Set the default 30 minutes when none is
+ * set, and uninstall the deprecated Content Lock Timeout stub.
+ */
+function varbase_core_update_100003() {
+  $config = \Drupal::configFactory()->getEditable('content_lock.settings');
+  if (!$config->isNew() && empty($config->get('timeout'))) {
+    $config->set('timeout', 1800)->save(TRUE);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('content_lock_timeout')) {
+    \Drupal::service('module_installer')->uninstall(['content_lock_timeout']);
+  }
+}
