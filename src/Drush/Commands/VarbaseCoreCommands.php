@@ -155,7 +155,7 @@ final class VarbaseCoreCommands extends DrushCommands {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
             $patch = curl_exec($ch);
-            curl_close($ch);
+            unset($ch);
           }
           catch (\Exception $e) {
             $this->loggerFactory->get('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
@@ -274,7 +274,7 @@ final class VarbaseCoreCommands extends DrushCommands {
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
               curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
               $patch = curl_exec($ch);
-              curl_close($ch);
+              unset($ch);
             }
             catch (\Exception $e) {
               $this->loggerFactory->get('Varbase')->info("Unable to retrieve patch $package_patch_remote_link");
