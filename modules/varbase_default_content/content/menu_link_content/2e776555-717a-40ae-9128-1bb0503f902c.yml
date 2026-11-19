@@ -22,7 +22,7 @@ default:
       value: footer
   link:
     -
-      uri: 'https://www.vardot.com/form/get-support-varbase?utm_source=varbase&utm_campaign=varbase%20default%20links'
+      uri: 'https://www.vardot.com/contact?utm_source=varbase&utm_campaign=varbase%20default%20links'
       title: ''
       options:
         attributes:
