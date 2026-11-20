@@ -53,8 +53,9 @@ composer:
   variables:
     # The template sets DRUPAL_CORE at job level, so pinning it in the top-level
     # `variables:` block has no effect - it has to be set on the job itself.
-    # Varbase 10.0 targets Drupal 10.6.
-    DRUPAL_CORE: "10.6.0"
+    # Varbase 10.0 targets the latest Drupal 10.6 patch release, as real installs do.
+    # admin_toolbar requires drupal/toolbar, which core only replaces from 10.6.15.
+    DRUPAL_CORE: "~10.6.0"
     IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
     _LENIENT_ALLOW_LIST: "select2, styleguide"
   before_script:
