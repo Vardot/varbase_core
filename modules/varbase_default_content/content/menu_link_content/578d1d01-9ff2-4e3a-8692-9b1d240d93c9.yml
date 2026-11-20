@@ -16,7 +16,7 @@ default:
   menu_name:
     - value: main
   link:
-    - uri: "https://www.vardot.com/products-services/product-info/varbase-enterprise-website-platform??utm_source=varbase&utm_campaign=varbase%20default%20links"
+    - uri: "https://www.vardot.com/products/varbase?utm_source=varbase&utm_campaign=varbase%20default%20links"
       title: ""
       options: {}
   external:
