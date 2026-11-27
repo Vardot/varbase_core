@@ -2,7 +2,7 @@ name: Varbase Webform
 description: Provide web forms features and settings.
 type: module
 package: Varbase
-core_version_requirement: ~11.4.0
+core_version_requirement: ^11.4 || ^12
 dependencies:
   - webform:webform
 install:
